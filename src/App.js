@@ -1,11 +1,10 @@
-import React, {Fragment} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Nav from './components/layout/Nav';
+// import Nav from './components/layout/Nav';
 import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import './index.css';
 
-function App() {
+const App = ()=> {
   return (
     <div className="ui container">
       <BrowserRouter>

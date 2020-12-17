@@ -12,7 +12,13 @@ import fbConfig from './config/fbConfig'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer,
+compose(
+  applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+  reactReduxFirebase(fbConfig),
+  reduxFirestore(fbConfig)
+  )
+);
 
 ReactDOM.render(
     <Provider store={store}>
