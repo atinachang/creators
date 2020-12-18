@@ -11,7 +11,7 @@ const ProfileList = ({profiles}) => {
 					return (
 							<div className="column">
 								<div className="fluid card">
-							<Link to={`/${newId}`}>
+							<Link to={`/${profile.id}`}>
 							<ProfileSummary profile={profile} key={profile.id}/>
 							</Link>
 							</div>

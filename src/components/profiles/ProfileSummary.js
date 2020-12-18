@@ -9,9 +9,9 @@ const ProfileSummary = ({profile}) => {
 				<img src={photo} alt={name} />
 			</div>
 			<div className="content">
-				<h1>{name}</h1>
-				<h3>{field}</h3>
-				<p>{title}</p>
+				<h2>{name}</h2>
+				<h4>{field}</h4>
+				{/* <p>{title}</p> */}
 			</div>
 		</Fragment>
 	)

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 
 const Header = () => {
 	return (
-		<Fragment>
+		<div className="header">
 			<h1>cocreate.to</h1>
 
 			<h4>
@@ -11,7 +11,7 @@ const Header = () => {
 			</h4>
 			<p>Start by searching below</p>
 
-		</Fragment>
+		</div>
 	)
 }
 

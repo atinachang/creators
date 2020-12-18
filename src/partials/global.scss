@@ -7,6 +7,10 @@ body {
 	background-color: $primary;
 	color: $primaryfnt;
 }
+body,
+p {
+	@include font-size(1.2);
+}
 .wrapper {
 	max-width: 1200px;
 	width: 90%;
@@ -15,4 +19,21 @@ body {
 
 a {
 	color: $primaryfnt;
+}
+
+h1 {
+	@include font-size(4);
+	word-wrap: break-word;
+}
+
+h2 {
+	@include font-size(2.5);
+}
+
+h3 {
+	@include font-size(2);
+}
+
+h4 {
+	@include font-size(1.6);
 }

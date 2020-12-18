@@ -1,0 +1,10 @@
+@mixin font-size($value) {
+	font-size: ($value * 1rem);
+}
+
+@mixin flexbox() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
