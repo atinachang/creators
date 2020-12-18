@@ -1,23 +1,31 @@
 import React, { Fragment, Component } from 'react'
-import {connect} from 'react-redux';
 import ProfileList from '../profiles/ProfileList';
+import {connect} from 'react-redux';
+import { compose } from 'redux';
+// import firestoreconnect after connecting reducer
+import {firestoreConnect} from 'react-redux-firebase';
+
 
 class Dashboard extends Component {
 	render(){
-		console.log('Dashboard',this.props)
 		const {profiles} = this.props;
 		return (
-			<Fragment>
+			<div className="ui link cards">
 				<ProfileList profiles={profiles}/>
-			</Fragment>
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
-		profiles: state.profile.profiles
+		profiles: state.firestore.ordered.profiles
 	}
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect([
+		{ collection: 'profiles' }
+	])
+)(Dashboard)

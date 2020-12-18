@@ -5,10 +5,10 @@ const Header = () => {
 		<Fragment>
 			<h1>cocreate.to</h1>
 
-			<p>
+			<h4>
 			Welcome to <strong>cocreate</strong>. <br />A database of
-			Freelancers and Creatives in Toronto for hire.
-			</p>
+			Freelancers and Creatives in Toronto.
+			</h4>
 			<p>Start by searching below</p>
 
 		</Fragment>

@@ -1,17 +1,25 @@
+import React, {Fragment} from 'react'
+import {Link} from 'react-router-dom';
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({profiles}) => {
-
 	return (
-		<div>
+		<Fragment>
 			{
 				profiles && profiles.map((profile) => {
+					const newId = profile.name.replace(/\s/g, '').toLowerCase()
 					return (
-						<ProfileSummary profile={profile} key={profile.id}/>
+							<div className="column">
+								<div className="fluid card">
+							<Link to={`/${newId}`}>
+							<ProfileSummary profile={profile} key={profile.id}/>
+							</Link>
+							</div>
+							</div>
 					)
 				})
 			}
-		</div>
+		</Fragment>
 	)
 }
 

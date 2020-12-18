@@ -9,7 +9,7 @@ import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig'
 
-import './index.css';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
 const store = createStore(rootReducer,
