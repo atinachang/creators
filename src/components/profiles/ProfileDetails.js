@@ -4,9 +4,11 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 
 const ProfileDetails = (props) => {
-	console.log(props)
+	// console.log(props)
+	// console.log(profiles)
 	const {profile} = props;
 	const {instagram, name, photo, email, twitter} = props.profile;
+	console.log(props.profile)
 
 	const igRender= () =>{
 		if (!instagram) {
@@ -72,8 +74,8 @@ if (profile) {
 const mapStateToProps = (state, ownProps) => {
 	const id = ownProps.match.params.id;
 	const profiles = state.firestore.data.profiles;
-	console.log(state)
-console.log(ownProps)
+// 	console.log(state)
+// console.log(ownProps)
 	// only return IF we have projects in the collection
 	const profile = profiles ? profiles[id] : null;
 	return {

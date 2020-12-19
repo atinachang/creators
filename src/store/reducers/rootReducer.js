@@ -1,10 +1,11 @@
-import appReducer from './appReducer';
+// import appReducer from './appReducer';
+import profileReducer from './profileReducer';
 import {combineReducers} from 'redux';
 import {firestoreReducer} from 'redux-firestore';
 
 
 const rootReducer = combineReducers({
-	profile: appReducer,
+	profile: profileReducer,
 	firestore: firestoreReducer
 })
 

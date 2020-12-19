@@ -8,10 +8,11 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 class Dashboard extends Component {
 	render(){
+		// console.log(this.props)
 		const {profiles} = this.props;
 		return (
 			<div className="ui link cards">
-				<ProfileList profiles={profiles}/>
+				<ProfileList profiles={profiles} props={this.props}/>
 			</div>
 		)
 	}

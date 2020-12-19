@@ -1,8 +1,11 @@
 import React, {Fragment} from 'react';
 
-const ProfileSummary = ({profile}) => {
+const ProfileSummary = ({profile, prop}) => {
+	// console.log(prop)
 	// console.log(profile.name)
 	const {name, title, photo, field} = profile;
+	// console.log(field.join(", "))
+
 	return (
 		<Fragment>
 			<div className="image">

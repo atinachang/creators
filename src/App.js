@@ -4,6 +4,7 @@ import Nav from './components/layout/Nav';
 import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileDetails from './components/profiles/ProfileDetails';
+import CreateProfile from './components/profiles/CreateProfile';
 import Footer from './components/layout/Footer';
 import {connect} from 'react-redux';
 import { compose } from 'redux';
@@ -12,7 +13,8 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 import './index.scss';
 
-const App = ()=> {
+const App = ({profiles})=> {
+  // console.log(profiles)
   return (
     <Fragment>
       <div className="ui container">
@@ -23,7 +25,9 @@ const App = ()=> {
     <Switch>
     <Route exact path="/" component={Dashboard} />
     {/* <Route path="/:id" render={(props) => <ProfileDetails props={props} /> }/> */}
-    <Route path="/:id" component={ProfileDetails} />
+    <Route path="/profile/:id" component={ProfileDetails} profiles={profiles}/>
+
+    <Route path="/create" component={CreateProfile} />
     </Switch>
     </div>
     </BrowserRouter>
@@ -34,7 +38,7 @@ const App = ()=> {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
 	return {
 		profiles: state.firestore.ordered.profiles
 	}
