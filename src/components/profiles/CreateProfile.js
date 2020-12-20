@@ -19,17 +19,17 @@ const CreateProfile = ({createProfile}) => {
 	const [website, setWebsite] = useState("")
 	const [field, setField] = useState([])
 	const [image, setImage] = useState(null)
-	const [url, setUrl] = useState("");
-	// const [photoLink, setPhotoLink] = useState("")
+	const [url, setUrl] = useState(null);
+	const [photoLink, setPhotoLink] = useState(null)
 	const [progress, setProgress] = useState(0)
 	const [inputs, setInputs] = useState({
 		name: '',
-		image: url,
+		image: url ,
 		field: [],
 		twitter: '',
 		instagram: '',
 	})
-	// console.log(setUrl)
+	// console.log(url)
 	
 	const handleChange =(e) => {
 		const {id, value} = e.target
@@ -65,17 +65,10 @@ const CreateProfile = ({createProfile}) => {
 				.ref("images")
 				.child(image.name)
 				.getDownloadURL()
-				.then(async (dUrl) => {
-				
-					useEffect((dUrl) => {
-						if (dUrl) {
-							setUrl(dUrl)
-						}
-					}, [dUrl])
+				.then( (url) => {
+					setUrl(url)
 					// console.log(url)
-					// setUrl(() => url.replace(/\?.+/g,"$'"))
-					setUrl(dUrl)
-					// console.log(dUrl)
+					// console.log(setUrl)
 					// const newUrl = url.replace(/\?.+/g,"$'")
 					// console.log(newUrl)
 				})
@@ -84,12 +77,20 @@ const CreateProfile = ({createProfile}) => {
 				})
 			}
 			)
+
+			if (setUrl === String) {
+				return url
+			}
+			console.log(url)
 		}
 
 	const handleSubmit =(e)=>  {
 			// let history = useHistory()
 
 		e.preventDefault();
+		// if (url === string) {
+
+		// }
 		console.log(inputs)
 		// createProfile(() => inputs)
 		// createProfile(state) //this is passed to mapDispatchToProps as the project
