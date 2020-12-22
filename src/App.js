@@ -24,7 +24,7 @@ const App = ()=> {
     <BrowserRouter>
     <Nav />
     <div className="wrapper">
-    <Header />
+    {/* <Header /> */}
     <Switch>
     <Route exact path="/" component={Dashboard} />
     {/* <Route path="/:id" render={(props) => <ProfileDetails props={props} /> }/> */}
@@ -36,7 +36,7 @@ const App = ()=> {
     </Switch>
     </div>
     </BrowserRouter>
-    <Footer />
+    {/* <Footer /> */}
     </div>
     </Fragment>
   );
