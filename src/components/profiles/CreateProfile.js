@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import Fields from '../layout/Fields';
 import {createProfile} from '../../store/actions/profileActions';
-import {storage} from '../../config/fbConfig'
+import {storage} from '../../config/config'
 // import {useHistory} from 'react-router-dom';
 
 class CreateProfile extends Component {
