@@ -5,57 +5,76 @@ import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/fbConfig'
 // import {useHistory} from 'react-router-dom';
 
-// class CreateProfile extends Component {
-// 	state = {
-// 		name: {},
-// 		field: [],
-// 		image: null
-// 	}
-const CreateProfile = ({createProfile}) => {
-	// console.log(createProfile)
-	const [name, setName] = useState("");
-	const [twitter, setTwitter] = useState("")
-	const [instagram, setInstagram] = useState("")
-	const [website, setWebsite] = useState("")
-	const [field, setField] = useState([])
-	const [image, setImage] = useState(null)
-	const [url, setUrl] = useState(null);
-	const [photoLink, setPhotoLink] = useState(null)
-	const [progress, setProgress] = useState(0)
-	const [inputs, setInputs] = useState({
-		name: '',
-		image: url ,
+class CreateProfile extends Component {
+	state = {
+		name: "",
 		field: [],
-		twitter: '',
-		instagram: '',
-	})
-	// console.log(url)
+		image: null,
+		progress: 0,
+		url: ""
+	}
+// const CreateProfile = ({createProfile}) => {
+// 	const [field, setField] = useState([])
+// 	const [genres, setGenres] = useState([])
+// 	const [image, setImage] = useState(null)
+// 	const [url, setUrl] = useState(null);
+// 	const [progress, setProgress] = useState(0)
+// 	const [inputs, setInputs] = useState({
+// 		name: '',
+// 		image: url ,
+// 		field: [],
+// 		twitter: '',
+// 		instagram: '',
+// 		genres: []
+// 	})
 	
-	const handleChange =(e) => {
+	 handleChange =(e) => {
 		const {id, value} = e.target
-		setInputs({...inputs, [id]: value})
-		// console.log(inputs)
+		this.setState((state) => {
+			return {
+				[id]:value,
+				// field: state.field.concat([value])
+			}
+		})
+
+		// console.log([value])
+		// setInputs({...inputs, [id]: value})
+		// setField(field.concat([value]))
+		// console.log([value], [id])
 }
 
-	function handleChangeCheckbox(e) {
-			setField(field.concat([e.target.value]))
-	}
+	// const handleChangeFields= (e) => {
+	// 		setField(field.concat([e.target.value]))
+	// 		console.log(e.target.value)
+	// }
 
-	const handleChangeImage= (e) =>  {
+	// const handleChangeGenre = (e) => {
+	// 	setGenres(genres.concat([e.target.value]))
+	// 	console.log(e.target.value)
+	// }
+
+	 handleChangeImage= (e) =>  {
 		if (e.target.files[0]) {
-				setImage(e.target.files[0])
+				// setImage(e.target.files[0])
+				this.setState({
+					image: e.target.files[0]
+				})
 		}
 	}
 
-	const handleImageSubmit = ()=> {
-		const uploadImage = storage.ref(`/images/${image.name}`).put(image);
+
+	 handleImageSubmit = ()=> {
+		const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
 		uploadImage.on(
 			"state_changed",
 			snapshot => {
 				const progress = Math.round(
 					(snapshot.bytesTransferred / snapshot.totalBytes) * 100
 				);
-				setProgress(progress)
+				// setProgress(progress)
+				this.setState({
+					progress,
+				})
 			},
 			err => {
 				console.log(err)
@@ -63,14 +82,13 @@ const CreateProfile = ({createProfile}) => {
 			() => {
 				storage
 				.ref("images")
-				.child(image.name)
+				.child(this.state.image.name)
 				.getDownloadURL()
 				.then( (url) => {
-					setUrl(url)
-					// console.log(url)
-					// console.log(setUrl)
-					// const newUrl = url.replace(/\?.+/g,"$'")
-					// console.log(newUrl)
+					// setUrl(url)
+					this.setState({
+						url: url
+					})
 				})
 				.catch((err) => {
 					console.log(err)
@@ -78,61 +96,68 @@ const CreateProfile = ({createProfile}) => {
 			}
 			)
 
-			if (setUrl === String) {
-				return url
-			}
-			console.log(url)
 		}
 
-	const handleSubmit =(e)=>  {
+
+	 handleSubmit =(e)=>  {
 			// let history = useHistory()
 
 		e.preventDefault();
-		// if (url === string) {
-
-		// }
-		console.log(inputs)
-		// createProfile(() => inputs)
+console.log(this.state)
 		// createProfile(state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
 
 	}
-	// render() {
+
+
+
+	render() {
 				// console.log('image', image)
 		return (
-				<form onSubmit={(e) => handleSubmit(e)}>
+				<form onSubmit={((e) => this.handleSubmit(e))}>
 					<h2>Submit</h2>
 					<div className="ui form">
 						<div className="two fields">
-					<Fields label="Your preferred name" type="text" id="name" onChange={(e) => handleChange(e)}/>
-					<div>
-						<progress value={progress} max="100"/>
-					<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={(e) =>handleChangeImage(e)}/>
-
-					<button className="ui button"onClick={() =>handleImageSubmit()}>Add</button>
-					<img src={url} alt=""/>
+						<Fields label="Your preferred name" type="text" id="name" onChange={((e) => this.handleChange(e))}/>
+						<div>
+							<progress value={this.state.progress} max="100"/>
+							<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={(e) =>this.handleImageSubmit(e)}/>
+							<button className="ui button"onClick={() =>this.handleImageSubmit()}>Add</button>
+							<img src={this.state.url} alt=""/>
+						</div>
 					</div>
 
-					</div>
 					<div className="two fields">
-					<Fields label="Instagram" type="text" id="instagram" placeholder="https://www.instagram/com/*" onChange={(e) => handleChange(e)}/>
-					<Fields label="Twitter" type="text" id="twiter" placeholder="https://www.twitter/com/*" onChange={(e) => handleChange(e)}/>
+						<Fields label="Instagram" type="text" id="instagram" placeholder="https://www.instagram/com/*" onChange={((e) => this.handleChange(e))}/>
+						<Fields label="Twitter" type="text" id="twitter" placeholder="https://www.twitter/com/*" onChange={((e) => this.handleChange(e))}/>
 					</div>
+
 					<div className="two fields">
-						<Fields label="Website" type="text" id="website" onChange={(e) => handleChange(e)}/>
-					<Fields label="Email" type="text" id="email" onChange={(e) => handleChange(e)}/>
+						<Fields label="Website" type="text" id="website" onChange={((e) => this.handleChange(e))}/>
+						<Fields label="Email" type="text" id="email" onChange={((e) => this.handleChange(e))}/>
 					</div>
 
 				  <div className="inline fields">
-			<h3>
-				Please select all that apply
-			</h3>
-				<div className="four fields">
-				<Fields type="checkbox" label="DJ" value="DJ"id="title" onChange={(e) => handleChangeCheckbox(e)}/>
-				<Fields type="checkbox" label="Designer" value="Designer"id="title" onChange={(e) => handleChangeCheckbox(e)}/>
-				<Fields type="checkbox" label="Film Production" value="Film Production"id="title" onChange={(e) => handleChangeCheckbox(e)}/>
-				</div>
-		</div>
+						<h3>
+							Please select all that apply
+						</h3>
+						<div className="four fields">
+							<Fields type="checkbox" label="DJ" value="DJ"id="field" onChange={((e) => this.handleChange(e))}/>
+							<Fields type="checkbox" label="Designer" value="Designer"id="field" onChange={((e) => this.handleChange(e))}/>
+							<Fields type="checkbox" label="Film Production" value="Film Production"id="field" onChange={((e) => this.handleChange(e))}/>
+						</div>
+					</div>
+
+					<div className="inline fields">
+						<h3>
+							What genres of music do you specialize in?
+						</h3>
+						<div className="four fields">
+							<Fields type="checkbox" label="Hip-Hop" value="Hip-Hop"id="genres" onChange={((e) => this.handleChange(e))}/>
+							<Fields type="checkbox" label="House" value="House"id="genres" onChange={((e) => this.handleChange(e))}/>
+							<Fields type="checkbox" label="R&B" value="R&B"id="genres" onChange={((e) => this.handleChange(e))}/>
+						</div>
+					</div>
 
 		
 			</div>
@@ -140,11 +165,13 @@ const CreateProfile = ({createProfile}) => {
 				</form>
 		)
 	}
+}
 
-	const mapDispatchToProps = (dispatch) => {
+	 function mapDispatchToProps(dispatch) {
 		return {
 			createProfile: (profile) => dispatch(createProfile(profile))
 		}
 	}
+
 
 export default connect(null, mapDispatchToProps)(CreateProfile)

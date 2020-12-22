@@ -1,19 +1,24 @@
 import React, {Fragment} from 'react';
-import {BrowserRouter, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import SignedInLinks from './SignedInLinks';
+import SignedOutLinks from './SignedOutLinks';
+// wait until we are logged in to render Nav
+import {isLoaded } from 'react-redux-firebase';
+import {connect} from 'react-redux';
 
-const Nav = () => {
-	const home = "/creators/"
+
+const Nav = (props) => {
+		const {auth, profile} = props;
+
+			const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+
 	return (
 		<Fragment>
 			<ul className="ui  menu">
 				<li className="header item">
 					<NavLink to="/">Home</NavLink>
 				</li>
-				{/* <li className="item">
-					<a href="https://forms.gle/3SMaKm9yXKCApryq8"
-					target="_blank"
-					rel="noopener noreferrer">Submit</a>
-				</li> */}
+
 				<li className="item">
 					<NavLink to="/create">Submit</NavLink>
 				</li>
@@ -28,25 +33,22 @@ const Nav = () => {
 					target="_blank"
 					rel="noopener noreferrer">Make a Suggestion</NavLink>
 				</li>
-			</ul>
-				{/* <nav className=" ui basic buttons">
-					<button className="medium ui inverted button">
-					<Link to="/freelance-me">Home</Link>
-					</button>
+				{auth.isLoaded && links}
 
-					<button className="medium ui inverted button">
-					<a
-					href="https://forms.gle/3SMaKm9yXKCApryq8"
-					target="_blank"
-					rel="noopener noreferrer"
-					>
-					Submit
-					</a>
-					</button>
-				</nav> */}
+			</ul>
+
+
 
 		</Fragment>
 	)
 }
 
-export default Nav
+const mapStateToProps = (state) => {
+	console.log(state)
+	return {
+		auth: state.firebase.auth,
+		profile: state.firebase.profile
+	}
+}
+
+export default connect(mapStateToProps)(Nav);
