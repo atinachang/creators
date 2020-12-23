@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 const SignedInLinks = (props) => {
 	return (
-			<li><NavLink to="/" onClick={props.signOut}>Log Out</NavLink></li>
+			<li className="item"><NavLink to="/" onClick={props.signOut}>Log Out</NavLink></li>
 	)
 }
 

@@ -1,48 +1,21 @@
 import React, {Fragment} from 'react'
+import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
+import {Buttons, Socials} from '../admin/Buttons';
 
 const ProfileDetails = (props) => {
 	// console.log(props)
 	// console.log(profiles)
-	const {profile} = props;
-	const {instagram, name, photo, email, twitter} = props.profile;
-	console.log(props.profile)
+	const {profile, auth} = props;
+	const {instagram, name, photo, email, twitter, website} = props.profile;
+// 	// console.log(props.profile)
 
-	const igRender= () =>{
-		if (!instagram) {
-		return null
-	}
-	return (
-		<a href={instagram}>
-		<i className={`instagram icon`}></i>
-		</a>
-	)
-}
 
-const emailRender = () =>{
-if (!email ) {
-		return null
-	}
-	return (
-				<a href={`mailto: ${email}`}>
-		<i className={`paper plane icon`}></i>
-		</a>
-	)
-}
+const buttons = auth.uid ? <Buttons /> : <Socials instagram={instagram} twitter={twitter} email={email} />;
 
-const twitRender = () =>{
-	if (!twitter) {
-		return null
-	}
-	return (
-		<a href={twitter}>
-		<i className={`twitter icon`}></i>
-		</a>
-	)
-}
-
+// if (auth.uid)return <Redirect to="/admin/list"/>
 if (profile) {
 		return (
 			<Fragment>
@@ -51,13 +24,11 @@ if (profile) {
 			<div className="image">
 			<img src={photo} alt={name} />
 			</div>
+
+
 			<div className="content">
-			<div className="socials">
-			<h4>Contact:</h4>
-			{igRender()}
-			{emailRender()}
-			{twitRender()}
-			</div>
+
+			{buttons}
 			</div>
 			</div>
 			</Fragment>
@@ -74,12 +45,14 @@ if (profile) {
 const mapStateToProps = (state, ownProps) => {
 	const id = ownProps.match.params.id;
 	const profiles = state.firestore.data.profiles;
-// 	console.log(state)
+	// console.log(state)
 // console.log(ownProps)
 	// only return IF we have projects in the collection
 	const profile = profiles ? profiles[id] : null;
 	return {
 		profile,
+		auth: state.firebase.auth
+
 	}
 }
 

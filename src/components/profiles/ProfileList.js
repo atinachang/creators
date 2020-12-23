@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
-import {Link} from 'react-router-dom';
-// import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 // import { compose } from 'redux';
 // import {firestoreConnect} from 'react-redux-firebase';
 
@@ -14,12 +14,17 @@ const ProfileList = ({profiles, props}) => {
 	// const profileArr = profiles
 	// console.log(profileArr)
 	// const prop = props.profiles
+
+const {auth} = props;
+// console.log(auth)
+// if (auth.uid)return <Redirect to ="/admin" />
 	return (
 		<Fragment>
 			{
 				profiles && profiles.map((profile) => {
-					// console.log(profile)
+					// console.log(profile.live)
 					// const newId = profile.name.replace(/\s/g, '').toLowerCase()
+					if (profile.live === true) {
 					return (
 							<div className="column" key={profile.id}>
 								<div className="fluid card">
@@ -29,17 +34,19 @@ const ProfileList = ({profiles, props}) => {
 							</div>
 							</div>
 					)
+					}
 				})
 			}
 		</Fragment>
 	)
 }
 
-// const mapStateToProps = (state) => {
-// 	return {
-// 		profiles: state.firestore.ordered.profiles
-// 	}
-// }
+const mapStateToProps = (state) => {
+	return {
+		profiles: state.firestore.ordered.profiles,
+		auth: state.firebase.auth
+	}
+}
 
 // export default compose(
 // 	connect(mapStateToProps),
@@ -48,4 +55,4 @@ const ProfileList = ({profiles, props}) => {
 // 	])
 // )(ProfileList)
 
-export default ProfileList
+export default connect(mapStateToProps)(ProfileList)

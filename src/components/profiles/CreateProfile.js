@@ -2,7 +2,9 @@ import React, { Component, useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import Fields from '../layout/Fields';
 import {createProfile} from '../../store/actions/profileActions';
-import {storage} from '../../config/config'
+import {storage} from '../../config/config';
+import FileBase64 from 'react-file-base64';
+
 // import {useHistory} from 'react-router-dom';
 
 class CreateProfile extends Component {
@@ -11,8 +13,11 @@ class CreateProfile extends Component {
 		field: [],
 		image: null,
 		progress: 0,
-		url: ""
-	}
+		url: "",
+		live: false,
+		files: []
+	 } 
+
 // const CreateProfile = ({createProfile}) => {
 // 	const [field, setField] = useState([])
 // 	const [genres, setGenres] = useState([])
@@ -59,11 +64,15 @@ class CreateProfile extends Component {
 				this.setState({
 					image: e.target.files[0]
 				})
+
 		}
+		// console.log(this.state.image)
 	}
 
 
 	 handleImageSubmit = ()=> {
+		 	console.log(this.state.image)
+
 		const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
 		uploadImage.on(
 			"state_changed",
@@ -86,10 +95,17 @@ class CreateProfile extends Component {
 				.getDownloadURL()
 				.then( (url) => {
 					// setUrl(url)
+					console.log(url)
 					this.setState({
-						url: url
+						image: url,
 					})
 				})
+				// .then(() => {
+				// 	this.setState({
+				// 		image: this.state.url
+				// 	})
+				// 	console.log(this.state.image)
+				// })
 				.catch((err) => {
 					console.log(err)
 				})
@@ -104,11 +120,21 @@ class CreateProfile extends Component {
 
 		e.preventDefault();
 console.log(this.state)
-		// createProfile(state) //this is passed to mapDispatchToProps as the project
+		this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
+		// this.props.history.push('/')
 
 	}
 
+	handleImageErr = () => {
+		if (this.state.image != null) {
+			return (
+				<p>don't forget to press ADD!</p>
+			)
+		} else {
+			return 
+		}
+	}
 
 
 	render() {
@@ -121,14 +147,18 @@ console.log(this.state)
 						<Fields label="Your preferred name" type="text" id="name" onChange={((e) => this.handleChange(e))}/>
 						<div>
 							<progress value={this.state.progress} max="100"/>
-							<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={(e) =>this.handleImageSubmit(e)}/>
+							<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={(e) =>this.handleChangeImage(e)} />
 							<button className="ui button"onClick={() =>this.handleImageSubmit()}>Add</button>
-							<img src={this.state.url} alt=""/>
+							<img src={this.state.url} alt="" formAction="/create"/>
+							
+								{/* <span>{() =>this.handleImageErr()}</span> */}
+							
 						</div>
 					</div>
 
 					<div className="two fields">
 						<Fields label="Instagram" type="text" id="instagram" placeholder="https://www.instagram/com/*" onChange={((e) => this.handleChange(e))}/>
+						
 						<Fields label="Twitter" type="text" id="twitter" placeholder="https://www.twitter/com/*" onChange={((e) => this.handleChange(e))}/>
 					</div>
 
@@ -145,6 +175,8 @@ console.log(this.state)
 							<Fields type="checkbox" label="DJ" value="DJ"id="field" onChange={((e) => this.handleChange(e))}/>
 							<Fields type="checkbox" label="Designer" value="Designer"id="field" onChange={((e) => this.handleChange(e))}/>
 							<Fields type="checkbox" label="Film Production" value="Film Production"id="field" onChange={((e) => this.handleChange(e))}/>
+							<Fields type="checkbox" label="Consulting" value="Consulting"id="field" onChange={((e) => this.handleChange(e))}/>
+
 						</div>
 					</div>
 
@@ -158,16 +190,16 @@ console.log(this.state)
 							<Fields type="checkbox" label="R&B" value="R&B"id="genres" onChange={((e) => this.handleChange(e))}/>
 						</div>
 					</div>
-
 		
 			</div>
-					<button className="ui button">Submit</button>
+					<button className="ui button" >Submit</button>
 				</form>
 		)
 	}
 }
 
 	 function mapDispatchToProps(dispatch) {
+		//  console.log(dispatch)
 		return {
 			createProfile: (profile) => dispatch(createProfile(profile))
 		}

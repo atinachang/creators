@@ -1,4 +1,8 @@
 import React, {Fragment} from 'react';
+// import {deleteProfile} from '../../store/actions/profileActions';
+// import {connect} from 'react-redux';
+// import { compose } from 'redux';
+// import {firestoreConnect} from 'react-redux-firebase';
 
 const ProfileSummary = ({profile, prop}) => {
 	// console.log(prop)
@@ -14,6 +18,9 @@ const ProfileSummary = ({profile, prop}) => {
 			<div className="content">
 				<h2>{name}</h2>
 				<h4>{field}</h4>
+				{/* <button className="ui button">clear</button>
+				<button className="ui button">delete</button> */}
+
 				{/* <p>{title}</p> */}
 			</div>
 		</Fragment>

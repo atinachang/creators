@@ -1,13 +1,37 @@
-import React, {Fragment} from 'react'
+import React, { Fragment, Component } from 'react'
+import {connect} from 'react-redux';
+import { compose } from 'redux';
+// import firestoreconnect after connecting reducer
+import {firestoreConnect} from 'react-redux-firebase';
+import AdminList from './AdminList'
+import ProfileList from '../../components/profiles/ProfileList'
 
-const Admin = () => {
-	return (
-		<Fragment>
-			<h1>
-				admin page
-			</h1>
-		</Fragment>
-	)
+
+class Admin extends Component {
+	render(){
+		// console.log(this.props)
+		// const {profiles} = this.props;
+		// console.log(profiles)
+		return (
+			<div className="ui link cards">
+				<AdminList />
+				{/* <ProfileList profiles={profiles} props={this.props}/> */}
+			</div>
+		)
+	}
 }
 
-export default Admin
+const mapStateToProps = (state) => {
+	// console.log(state)
+	return {
+		profiles: state.firestore.ordered.profiles,
+		auth: state.firebase.auth
+	}
+}
+
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect([
+		{ collection: 'profiles' }
+	])
+)(Admin)

@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import fbConfig from './config/fbConfig'
+import config from './config/config'
 
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
@@ -15,8 +15,8 @@ import reportWebVitals from './reportWebVitals';
 const store = createStore(rootReducer,
 compose(
   applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-  reduxFirestore(fbConfig),
-  reactReduxFirebase(fbConfig, {
+  reduxFirestore(config),
+  reactReduxFirebase(config, {
     useFirestoreForProfile: true, 
     attachAuthIsReady: true
   }),

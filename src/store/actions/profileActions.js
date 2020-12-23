@@ -22,3 +22,20 @@ export const createProfile = (profile) => {
 			})
 		}
 	}
+
+
+export const deleteProfile = (id) => {
+	return (dispatch, getState, {getFirestore}) => {
+		const firestore = getFirestore()
+
+		firestore.collection('profiles').doc(id).delete().then(() => {
+			dispatch({
+				type: 'DELETE_PROFILE',
+			})
+		}).catch((err) => {
+				dispatch({type: 'DELETE_PROFILE_ERROR',
+			err})
+		})
+	}
+
+}
