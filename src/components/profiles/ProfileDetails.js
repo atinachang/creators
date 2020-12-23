@@ -13,7 +13,7 @@ const ProfileDetails = (props) => {
 // 	// console.log(props.profile)
 
 
-const buttons = auth.uid ? <Buttons /> : <Socials instagram={instagram} twitter={twitter} email={email} />;
+const buttons = auth.uid ? <Buttons props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} />;
 
 // if (auth.uid)return <Redirect to="/admin/list"/>
 if (profile) {
@@ -51,8 +51,7 @@ const mapStateToProps = (state, ownProps) => {
 	const profile = profiles ? profiles[id] : null;
 	return {
 		profile,
-		auth: state.firebase.auth
-
+		auth: state.firebase.auth,
 	}
 }
 

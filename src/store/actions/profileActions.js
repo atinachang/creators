@@ -31,6 +31,7 @@ export const deleteProfile = (id) => {
 		firestore.collection('profiles').doc(id).delete().then(() => {
 			dispatch({
 				type: 'DELETE_PROFILE',
+				id
 			})
 		}).catch((err) => {
 				dispatch({type: 'DELETE_PROFILE_ERROR',

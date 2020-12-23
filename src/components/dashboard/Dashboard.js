@@ -13,12 +13,12 @@ class Dashboard extends Component {
 		// console.log(this.props)
 		const {profiles, auth} = this.props;
 
-		// const users = auth.uid ? <AdminList profiles={profiles} props={this.props} /> : <ProfileList profiles={profiles} props={this.props}/> 
+		const users = auth.uid ? <AdminList profiles={profiles} props={this.props} /> : <ProfileList profiles={profiles} props={this.props}/> 
 		// if (auth.uid) return <Redirect to="/admin/list"/>
 		return (
 			<div className="ui link cards">
-				{/* {auth.isLoaded && users} */}
-				<ProfileList profiles={profiles} props={this.props}/>
+				{auth.isLoaded && users}
+				{/* <ProfileList profiles={profiles} props={this.props}/> */}
 			</div>
 		)
 	}

@@ -29,7 +29,7 @@ class SignIn extends Component {
 		// console.log(this.props)
 				const {auth} = this.props;
 				// console.log(auth.uid)
-		if (auth.uid) return <Redirect to="/admin" />
+		if (auth.uid) return <Redirect to="/" />
 
 		return (
 			<div className="ui container">

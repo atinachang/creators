@@ -1,29 +1,44 @@
 import React, {Fragment} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+// import { compose } from 'redux';
+// import {firestoreConnect} from 'react-redux-firebase';
 
-const AdminList = ({profiles, props}) => {
-	console.log(props)
-	console.log(profiles)
-	// const {auth} = props;
+import ProfileSummary from '../../components/profiles/ProfileSummary';
+
+const AdmistList = ({profiles}) => {
+
+
+// const {auth} = props;
 	return (
 		<Fragment>
-				<h1>admin list</h1>
-				{profiles && profiles.map((profile) => {
+			{
+				profiles && profiles.map((profile) => {
+					// console.log(profile.live)
+					// const newId = profile.name.replace(/\s/g, '').toLowerCase()
 					if (profile.live === false) {
-						return (
+					return (
 							<div className="column" key={profile.id}>
 								<div className="fluid card">
-								<Link to={`/profile/${profile.id}`}>
-								<h1>{profile.name}</h1>
-								{/* <ProfileSummary profile={profile} key={profile.id}  /> */}
-								</Link>
-								</div>
+							<Link to={`/profile/${profile.id}`}>
+							<ProfileSummary profile={profile} key={profile.id}  />
+							</Link>
 							</div>
-						)
+							</div>
+					)
 					}
-				})}
+				})
+			}
 		</Fragment>
 	)
 }
 
-export default AdminList
+const mapStateToProps = (state) => {
+	return {
+		profiles: state.firestore.ordered.profiles,
+		// auth: state.firebase.auth
+	}
+}
+
+
+export default connect(mapStateToProps)(AdmistList)

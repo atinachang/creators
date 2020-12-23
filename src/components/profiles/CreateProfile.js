@@ -64,9 +64,7 @@ class CreateProfile extends Component {
 				this.setState({
 					image: e.target.files[0]
 				})
-
 		}
-		// console.log(this.state.image)
 	}
 
 
@@ -100,18 +98,11 @@ class CreateProfile extends Component {
 						image: url,
 					})
 				})
-				// .then(() => {
-				// 	this.setState({
-				// 		image: this.state.url
-				// 	})
-				// 	console.log(this.state.image)
-				// })
 				.catch((err) => {
 					console.log(err)
 				})
 			}
 			)
-
 		}
 
 
@@ -124,16 +115,6 @@ console.log(this.state)
 		// history.push('/')
 		// this.props.history.push('/')
 
-	}
-
-	handleImageErr = () => {
-		if (this.state.image != null) {
-			return (
-				<p>don't forget to press ADD!</p>
-			)
-		} else {
-			return 
-		}
 	}
 
 
