@@ -28,7 +28,8 @@ export const deleteProfile = (id) => {
 	return (dispatch, getState, {getFirestore}) => {
 		const firestore = getFirestore()
 
-		firestore.collection('profiles').doc(id).delete().then(() => {
+		firestore.delete({collection: 'profiles', doc:(id)})
+		.then(() => {
 			dispatch({
 				type: 'DELETE_PROFILE',
 				id
@@ -39,4 +40,29 @@ export const deleteProfile = (id) => {
 		})
 	}
 
+}
+
+export const updateProfile = (profile) => {
+	return (dispatch, {getFirestore}) => {
+		const firestore = getFirestore()
+
+		// const updates = {
+		// 	live: true,
+		// 	updatedAt: firestore.FieldValue.serverTimestamp()
+		// }
+
+		firestore.update({
+			collection: 'profiles',
+			doc: profile	
+		},
+		{live: true}).then(() => {
+			dispatch({
+				type: 'UPDATE_PROFILE',
+				profile
+			})
+		}).catch((err) => {
+				dispatch({type: 'UPDATE_PROFILE_ERROR',
+			err})
+		})
+	}
 }

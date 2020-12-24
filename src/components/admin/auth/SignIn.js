@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import Fields from '../../../components/layout/Fields';
+import Fields from '../../../components/profiles/forms/Fields';
 import {connect} from 'react-redux';
 import {signIn} from '../../../store/actions/authActions';
 import {Redirect} from 'react-router-dom';

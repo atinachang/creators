@@ -1,47 +1,54 @@
 import React, {Fragment, useEffect, useState} from 'react'
-import {deleteProfile} from '../../store/actions/profileActions';
+import {updateProfile, deleteProfile} from '../../store/actions/profileActions';
 import { connect } from 'react-redux'
 import { firestoreConnect } from "react-redux-firebase";
-import { compose } from 'redux'
+import { compose, bindActionCreators } from 'redux'
 import { Redirect, useHistory } from 'react-router-dom'
 
 
 
-export  const Buttons = ({props}) => {
-	const [live, setLive] = useState(false)
-	// console.log(props)
-	const {profile} = props;
-	console.log(profile)
+export  const Buttons = (state) => {
 
-	const changeState = (e) => {
-		e.preventDefault();
-		// if (profile.live != true) {
-		// 	setLive(true)
-		// }
-		console.log(profile.live)
+	// console.log(state)
+	// const {profile} = props;
+	// console.log(profilse)
+	// const {live} = props.profile;
+	// console.log(live)
+	// const {id} = props.match.params
 
+
+	const updateState = () => {
+		// updateProfile(profile)
+		// console.log(profile)
 	}
 
 	const deleteBtn = (e) => {
 		e.preventDefault();
-		console.log(props)
+		// deleteProfile(id)
+		// console.log(profile)
 	}
 	return (
 		<Fragment>
 			{/* <button>approve</button> */}
-			<button onClick={() => setLive(true)}>approve</button>
-			{/* <button onClick={(e) =>deleteBtn(e)}>delete</button> */}
-			<button>delete</button>
+			<button type="button"onClick={() =>updateState()}>approve</button>
+			<button type="button"onClick={(e) =>deleteBtn(e)}>delete</button>
+			{/* <button>delete</button> */}
 		</Fragment>
 	)
 	}
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state, ownProps) => {
+	// console.log(ownProps)
+	// console.log(state)
 	return {
-		deleteProfile: (id) => {
-			// e.preventDefault()
-			dispatch(deleteProfile(id))
-		}
+		profiles: state.firestore.ordered.profiles,
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	// console.log(dispatch)
+	return {
+		dispatchDeleteProfile: deleteProfile,
+		dispatchUpdateProfile: updateProfile
 	}
 }
 
@@ -58,10 +65,12 @@ const mapDispatchToProps = (dispatch) => {
 // 	}
 // }
 
-export const ButtonContainer = compose(connect(null, mapDispatchToProps),
-	firestoreConnect([
-		{ collection: 'profiles' }
-	])(Buttons))
+export const ButtonContainer = compose(
+	connect(
+		mapStateToProps, mapDispatchToProps),
+		firestoreConnect([
+			{collection: 'profiles'}
+		]))(Buttons)
 
 export const Socials = ({instagram, twitter, email}) => {
 	console.log(instagram, twitter, email)

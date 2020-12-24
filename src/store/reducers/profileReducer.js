@@ -1,5 +1,6 @@
 const initState = {
-	auth: null
+	auth: null,
+	live: false
 }
 
 const profileReducer = (state = initState, action) => {
@@ -15,6 +16,13 @@ const profileReducer = (state = initState, action) => {
 			return state;
 		case 'DELETE_PROFILE_ERROR':
 			console.log('error deleting profile', action.err)
+			return state;
+		case 'UPDATE_PROFILE':
+			console.log('updated profile', action.profile);
+			return state;
+		case 'UPDATE_PROFILE_ERROR':
+			console.log('update profile error', action.err)
+			return state;
 		default:
 			return state;
 	}

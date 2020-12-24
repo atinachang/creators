@@ -3,15 +3,15 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import {Buttons, Socials} from '../admin/Buttons';
+import {Buttons, ButtonContainer, Socials} from '../admin/Buttons';
 
 const ProfileDetails = (props) => {
-	// console.log(props)
+	console.log(props)
 	// console.log(profiles)
 	const {profile, auth} = props;
 	const {instagram, name, photo, email, twitter, website} = props.profile;
 // 	// console.log(props.profile)
-
+// console.log(ButtonContainer)
 
 const buttons = auth.uid ? <Buttons props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} />;
 
