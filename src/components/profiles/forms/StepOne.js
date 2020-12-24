@@ -3,7 +3,7 @@ import Fields from '../forms/Fields'
 
 function StepOne(props) {
 	// console.log(props)
-	const {name, email, handleChange, currentStep, twitter, instagram, website} = props;
+	const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, url} = props;
 	// console.log(name, email)
 	if (currentStep !== 1) {
 		return null
@@ -17,6 +17,14 @@ function StepOne(props) {
 			 
 			 <Fields label="Your preferred contact email" type="text" id="email" name="email" onChange={handleChange} value={email} placeholder="Enter email"/>
 			 </div>
+
+				{/* <div>
+				<progress value={progress} max="100"/>
+				<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
+				<button className="ui button"onClick={handleImageSubmit}>Add Photo</button>
+				<img src={url} alt="" formAction="/create"/>				
+				</div> */}
+
 					<h3>Social Media</h3>
 		<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>
 
@@ -24,16 +32,6 @@ function StepOne(props) {
 
 		<Fields label="Website" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="https://*"/>
 
-      {/* <label htmlFor="Your preferred contact email">Email address</label>
-      <input
-        className="form-control"
-        id="email"
-        name="email"
-        type="text"
-        placeholder="Enter email"
-        value={email}
-        onChange={handleChange}
-        /> */}
     </Fragment>	)
 }
 

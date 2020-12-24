@@ -72,8 +72,8 @@ export const ButtonContainer = compose(
 			{collection: 'profiles'}
 		]))(Buttons)
 
-export const Socials = ({instagram, twitter, email}) => {
-	console.log(instagram, twitter, email)
+export const Socials = ({instagram, twitter, email, bio, name}) => {
+	// console.log(instagram, twitter, email)
 // const {profile, auth} = props;
 // 	const {instagram, name, photo, email, twitter} = props.profile;
 	// console.log(props.profile)
@@ -110,14 +110,29 @@ const twitRender = () =>{
 		</a>
 	)
 }
-	return (
-		<div className="socials">
-						<h4>Contact:</h4>
 
-			{igRender()}
-			{twitRender()}
-			{emailRender()}
+const bioRender = () => {
+	if (!bio) {
+		return null
+	}
+	return (
+		<div className="bio">
+			<h3>About {name}</h3>
+			<p>{bio}</p>
 		</div>
+	)
+}
+	return (
+		<Fragment>
+			{bioRender()}
+			<div className="socials">
+		<h4>Contact:</h4>
+		
+		{igRender()}
+		{twitRender()}
+		{emailRender()}
+		</div>
+		</Fragment>
 	)
 }
 

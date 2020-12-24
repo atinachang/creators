@@ -6,16 +6,21 @@ import {compose} from 'redux';
 import {Buttons, ButtonContainer, Socials} from '../admin/Buttons';
 
 const ProfileDetails = (props) => {
-	console.log(props)
+	// console.log(props)
 	// console.log(profiles)
-	const {profile, auth} = props;
-	const {instagram, name, photo, email, twitter, website} = props.profile;
+	const {profile, auth, history} = props;
+	const {instagram, name, photo, email, twitter, website, bio} = props.profile;
 // 	// console.log(props.profile)
 // console.log(ButtonContainer)
 
-const buttons = auth.uid ? <Buttons props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} />;
+const buttons = auth.uid ? <Buttons props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name}/>;
 
 // if (auth.uid)return <Redirect to="/admin/list"/>
+
+const goBack = ()=> {
+	history.push('/')
+}
+
 if (profile) {
 		return (
 			<Fragment>
@@ -26,11 +31,12 @@ if (profile) {
 			</div>
 
 
-			<div className="content">
+			<div className="details-content">
 
 			{buttons}
 			</div>
 			</div>
+			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 			</Fragment>
 		)
 	} else {

@@ -7,7 +7,6 @@ import {storage} from '../../config/config';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
-import StepFour from './forms/StepFour'
 
 // import {useHistory} from 'react-router-dom';
 
@@ -27,6 +26,7 @@ class CreateProfile extends Component {
 		website: "",
 		live: false,
 	 } 
+	
 
 // const CreateProfile = ({createProfile}) => {
 // 	const [field, setField] = useState([])
@@ -76,7 +76,6 @@ class CreateProfile extends Component {
 		console.log(this.state.title)
 	}
 
-
 	 handleChangeImage= (e) =>  {
 		if (e.target.files[0]) {
 				// setImage(e.target.files[0])
@@ -86,9 +85,7 @@ class CreateProfile extends Component {
 		}
 	}
 
-	newUrl = "";
 	handleImageSubmit = ()=> {
-		 	console.log(this.state.image)
 
 		const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
 		uploadImage.on(
@@ -113,6 +110,7 @@ class CreateProfile extends Component {
 				.then( (url) => {
 					// setUrl(url)
 					console.log(url)
+					
 					this.setState({
 						image: url,
 					})
@@ -128,11 +126,11 @@ class CreateProfile extends Component {
 	 handleSubmit =(e)=>  {
 			// let history = useHistory()
 		e.preventDefault();
-				// console.log(this.state)
+				console.log(this.state)
 // console.log(this.state)
-		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
+		this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
-		// this.props.history.push('/')
+		this.props.history.push('/')
 	}
 	  _next = () => {
     let currentStep = this.state.currentStep
@@ -206,13 +204,22 @@ resetButton(){
 }
 
 	render() {
-		 console.log(newUrl)
-
 		return (
 			<Fragment>
 				<p>Step {this.state.currentStep}</p>
 				<form onSubmit={this.handleSubmit} className="ui form">
-					<StepOne currentStep={this.state.currentStep} handleChange={this.handleChange} email={this.state.email} name={this.state.name} twitter={this.state.twitter} instagram={this.state.instagram} website={this.state.website}/>
+					<StepOne 
+					currentStep={this.state.currentStep} 
+					handleChange={this.handleChange} 
+					email={this.state.email} 
+					name={this.state.name} 
+					twitter={this.state.twitter} 
+					instagram={this.state.instagram} 
+					website={this.state.website} 
+					handleImageSubmit={this.handleImageSubmit} 
+					handleChangeImage={this.handleChangeImage}
+					progress={this.state.progress}
+					url={this.state.url} />
 					<StepTwo 
           currentStep={this.state.currentStep} 
           handleChangeFields={this.handleChangeFields} 
