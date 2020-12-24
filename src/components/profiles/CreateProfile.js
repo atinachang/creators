@@ -1,10 +1,12 @@
 import React, { Component, useState, useEffect, Fragment } from 'react';
 import {connect} from 'react-redux';
-import Fields from './forms/Fields';
+// import Fields from './forms/Fields';
 import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/config';
-import FileBase64 from 'react-file-base64';
+// import FileBase64 from 'react-file-base64';
 import StepOne from './forms/StepOne';
+import StepTwo from './forms/StepTwo'
+import StepThree from './forms/StepThree'
 
 // import {useHistory} from 'react-router-dom';
 
@@ -12,20 +14,25 @@ class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
 		name: "",
-		username: "",
+		// username: "",
 		email: "",
-		password: "",
+		// password: "",
 		field: [],
+		genre: [],
+		title: [],
 		image: null,
 		progress: 0,
 		url: "",
+		twitter: "",
+		instagram: "",
+		website: "",
 		live: false,
-		files: []
+		// files: []
 	 } 
 
 // const CreateProfile = ({createProfile}) => {
 // 	const [field, setField] = useState([])
-// 	const [genres, setGenres] = useState([])
+// 	const [genre, setgenre] = useState([])
 // 	const [image, setImage] = useState(null)
 // 	const [url, setUrl] = useState(null);
 // 	const [progress, setProgress] = useState(0)
@@ -35,30 +42,40 @@ class CreateProfile extends Component {
 // 		field: [],
 // 		twitter: '',
 // 		instagram: '',
-// 		genres: []
+// 		genre: []
 // 	})
 	
 	 handleChange =(e) => {
-		const {id, value} = e.target
-		this.setState((state) => {
-			return {
-
-				// [id]:value,
-				field: state.field.concat([value])
-			}
+		const {name, value} = e.target
+		this.setState({
+			      [name]: value,
 		})
 }
 
 
-	// const handleChangeFields= (e) => {
-	// 		setField(field.concat([e.target.value]))
-	// 		console.log(e.target.value)
-	// }
+	handleChangeFields= (e) => {
+		const {value} = e.target
+		this.setState({
+			field: this.state.field.concat(value),
+		})
+		console.log(this.state.field)
+	}
 
-	// const handleChangeGenre = (e) => {
-	// 	setGenres(genres.concat([e.target.value]))
-	// 	console.log(e.target.value)
-	// }
+	handleChangeGenre = (e) => {
+		const {value} = e.target
+		this.setState({
+			genre: this.state.genre.concat(value)
+		})
+	}
+
+	handleChangeTitle = (e) => {
+		const {value} = e.target
+		this.setState({
+			title: this.state.title.concat(value)
+		})
+		console.log(this.state.title)
+	}
+
 
 	 handleChangeImage= (e) =>  {
 		if (e.target.files[0]) {
@@ -111,11 +128,7 @@ class CreateProfile extends Component {
 	 handleSubmit =(e)=>  {
 			// let history = useHistory()
 		e.preventDefault();
-		const {email, password, username} = this.state;
-		alert(`Your registration detail: \n 
-				Email: ${email} \n 
-				Username: ${username} \n
-				Password: ${password}`)
+				console.log(this.state)
 // console.log(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
@@ -175,8 +188,16 @@ nextButton(){
 			<Fragment>
 				<p>Step {this.state.currentStep}</p>
 				<form onSubmit={this.handleSubmit} className="ui form">
-					<StepOne currentStep={this.state.currentStep} handleChange={this.handleChange} email={this.state.email}/>
-
+					<StepOne currentStep={this.state.currentStep} handleChange={this.handleChange} email={this.state.email} name={this.state.name} twitter={this.state.twitter} instagram={this.state.instagram} website={this.state.website}/>
+					<StepTwo 
+          currentStep={this.state.currentStep} 
+          handleChangeFields={this.handleChangeFields} 
+        />
+					<StepThree 
+          currentStep={this.state.currentStep} 
+          handleChangeGenre={this.handleChangeGenre}
+          genre={this.state.genre} field={this.state.field} handleChangeTitle={this.handleChangeTitle} title={this.state.title}
+        />
 
         {this.previousButton()}
         {this.nextButton()}

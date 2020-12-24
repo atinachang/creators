@@ -1,16 +1,24 @@
 .ui.form .field > label,
 .ui.form .inline.fields .field > label {
 	color: $primaryfnt;
-	@include font-size(1);
+	@include font-size(1.2);
 }
 
-.ui.form .inline.fields {
+// .ui.form .inline.fields {
+// 	display: flex;
+// 	flex-direction: column;
+// }
+
+.ui.form .fields > .field {
+	width: auto;
 	display: flex;
 	flex-direction: column;
+	text-align: center;
+	// padding: 10px;
 }
-
-.ui.form .four.fields > .field {
-	width: auto;
+.ui.form .fields {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 form img {
