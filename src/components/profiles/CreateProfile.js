@@ -7,6 +7,7 @@ import {storage} from '../../config/config';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
+import StepFour from './forms/StepFour'
 
 // import {useHistory} from 'react-router-dom';
 
@@ -14,9 +15,7 @@ class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
 		name: "",
-		// username: "",
 		email: "",
-		// password: "",
 		field: [],
 		genre: [],
 		title: [],
@@ -27,7 +26,6 @@ class CreateProfile extends Component {
 		instagram: "",
 		website: "",
 		live: false,
-		// files: []
 	 } 
 
 // const CreateProfile = ({createProfile}) => {
@@ -50,7 +48,9 @@ class CreateProfile extends Component {
 		this.setState({
 			      [name]: value,
 		})
-}
+	}
+
+
 
 
 	handleChangeFields= (e) => {
@@ -86,8 +86,8 @@ class CreateProfile extends Component {
 		}
 	}
 
-
-	 handleImageSubmit = ()=> {
+	newUrl = "";
+	handleImageSubmit = ()=> {
 		 	console.log(this.state.image)
 
 		const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
@@ -128,7 +128,7 @@ class CreateProfile extends Component {
 	 handleSubmit =(e)=>  {
 			// let history = useHistory()
 		e.preventDefault();
-				console.log(this.state)
+				// console.log(this.state)
 // console.log(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
@@ -148,7 +148,25 @@ class CreateProfile extends Component {
     this.setState({
       currentStep: currentStep
     })
-  }
+	}
+	
+	_reset = () => {
+		this.setState({
+			currentStep: 1,
+			name: "",
+			email: "",
+			field: [],
+			genre: [],
+			title: [],
+			image: null,
+			progress: 0,
+			url: "",
+			twitter: "",
+			instagram: "",
+			website: "",
+			live: false,
+		})
+	}
 
 /*
 * the functions for our button
@@ -181,8 +199,14 @@ nextButton(){
   return null;
 }
 
+resetButton(){
+	return (
+		<button className="ui button" onClick={this._reset}>Reset Form</button>
+	)
+}
+
 	render() {
-				// console.log('image', image)
+		 console.log(newUrl)
 
 		return (
 			<Fragment>
@@ -198,7 +222,8 @@ nextButton(){
           handleChangeGenre={this.handleChangeGenre}
           genre={this.state.genre} field={this.state.field} handleChangeTitle={this.handleChangeTitle} title={this.state.title}
         />
-
+				{/* <StepFour currentStep={this.state.currentStep}/> */}
+				{this.resetButton()}
         {this.previousButton()}
         {this.nextButton()}
 				</form>

@@ -3,10 +3,10 @@ import Fields from './Fields'
 // import {film} from './arrays'
 
 const Titles = (props) => {
-	// console.log(props)
-	const {handleChangeTitle, title, film} = props;
+	console.log(props)
+	const {handleChangeTitle, title, array} = props;
 
-	const mapped = film.map(title => {
+	const mapped = array.map(title => {
 		return (
 			<Fields type="checkbox" label={title} value={title} id="title" onChange={handleChangeTitle} key={title}/>
 		)

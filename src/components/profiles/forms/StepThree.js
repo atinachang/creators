@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import Genres from './Genres'
 import Titles from './Titles'
-import {film} from './arrays'
+import {film, design, tech} from './arrays'
 
 function StepThree(props){
 	// console.log(props);
@@ -21,7 +21,15 @@ function StepThree(props){
 		}
 
 		if (field === 'Film') {
-			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} key={field} film={film}/>)
+			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={film}/>)
+		}
+
+		if (field === 'Design') {
+			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={design}/>)
+		}
+
+		if (field === 'Tech') {
+			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
 		}
 		else {
 			return null
@@ -44,7 +52,7 @@ function StepThree(props){
         onChange={props.handleChange}
         />      
     </div> */}
-    <button className="ui button">Sign up</button>
+    <button className="ui button">Submit</button>
     </Fragment>
   );
 }

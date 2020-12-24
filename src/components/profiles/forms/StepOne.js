@@ -12,9 +12,11 @@ function StepOne(props) {
     <Fragment> 
 			<h2>Let's get to know you!</h2>
 			<h3>Basic Info</h3>
- 			<Fields label="Your preferred name" type="text" id="name" name="name" value={name}onChange={handleChange} placeholder="Your preferred name"/>
-
+ 			<div className="basic">
+				 <Fields label="Your preferred name" type="text" id="name" name="name" value={name}onChange={handleChange} placeholder="Your preferred name"/>
+			 
 			 <Fields label="Your preferred contact email" type="text" id="email" name="email" onChange={handleChange} value={email} placeholder="Enter email"/>
+			 </div>
 					<h3>Social Media</h3>
 		<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>
 
