@@ -7,16 +7,11 @@ import { Socials} from '../admin/Buttons';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
-	// console.log(props)
-	// console.log(profiles)
 	const {profile, auth, history} = props;
 	const {instagram, name, photo, email, twitter, website, bio} = props.profile;
-// 	// console.log(props.profile)
-// console.log(ButtonContainer)
 
 const buttons = auth.uid ? <Remove props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name} website={website}/>;
 
-// if (auth.uid)return <Redirect to="/admin/list"/>
 
 const goBack = ()=> {
 	history.push('/')
@@ -52,9 +47,6 @@ if (profile) {
 const mapStateToProps = (state, ownProps) => {
 	const id = ownProps.match.params.id;
 	const profiles = state.firestore.data.profiles;
-	// console.log(state)
-// console.log(ownProps)
-	// only return IF we have projects in the collection
 	const profile = profiles ? profiles[id] : null;
 	return {
 		profile,

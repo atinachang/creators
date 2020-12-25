@@ -12,6 +12,14 @@ import StepThree from './forms/StepThree'
 
 // import {useHistory} from 'react-router-dom';
 
+const CreateProfile = () => {
+	const [currentStep, setCurrentStep] = useState(1)
+	const [name, setName] = useState("")
+	const [email, setEmail] = useState("")
+	const [field, setField] = useState([])
+	const [genre, setGenre] = useState([])
+	const [title, setTitle] = useState([])
+}
 class CreateProfile extends Component {
 	state = {
 		currentStep: 1,

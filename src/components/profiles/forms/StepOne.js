@@ -1,10 +1,8 @@
 import React, {Fragment} from 'react'
 import Fields from '../forms/Fields'
 
-function StepOne(props) {
-	// console.log(props)
+const StepOne = (props) => {
 	const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
-	// console.log(name, email)
 	if (currentStep !== 1) {
 		return null
 	}
@@ -19,9 +17,7 @@ function StepOne(props) {
 			 </div>
 
 				<div>
-				{/* <progress value={progress} max="100"/> */}
 				<Fields label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
-				{/* <button className="ui button"onClick={handleImageSubmit}>Add Photo</button> */}
 				<img src={photo} alt="" formAction="/create"/>				
 				</div>
 

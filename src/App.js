@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer';
 import SignIn from './components/admin/auth/SignIn';
 import Admin from './components/admin/Admin';
 import AdminList from './components/admin/AdminList'
+import ThankYou from './components/layout/ThankYou'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 // import firestoreconnect after connecting reducer
@@ -38,6 +39,7 @@ const App = (props)=> {
     <Route path="/create" component={CreateProfile} />
     {/* <Route path="/signin" component={SignIn}/> */}
     <Route path="/admin" component={Admin} />
+    <Route path="/thankyou" component={ThankYou} />
     {/* <Route path='/admin/list' component={AdminList} /> */}
     </Switch>
     </div>
