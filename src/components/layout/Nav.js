@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 const Nav = (props) => {
 		const {auth, profile} = props;
 
-		const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+		const links = auth.uid ?  <SignedInLinks /> : null;
 
 	return (
 		<Fragment>

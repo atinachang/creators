@@ -7,18 +7,19 @@ import { Redirect, useHistory } from 'react-router-dom'
 
 
 
-export  const Buttons = (state) => {
+export  const Buttons = (props) => {
 
-	// console.log(state)
-	// const {profile} = props;
+	console.log(props)
+	const {profile} = props;
 	// console.log(profilse)
 	// const {live} = props.profile;
 	// console.log(live)
 	// const {id} = props.match.params
 
 
-	const updateState = () => {
-		// updateProfile(profile)
+	const updateState = (profile) => {
+		console.log(profile)
+		// updateProfile(profile.live)
 		// console.log(profile)
 	}
 
@@ -30,8 +31,8 @@ export  const Buttons = (state) => {
 	return (
 		<Fragment>
 			{/* <button>approve</button> */}
-			<button type="button"onClick={() =>updateState()}>approve</button>
-			<button type="button"onClick={(e) =>deleteBtn(e)}>delete</button>
+			<button type="button" className="ui button" onClick={() =>updateState(profile)}>approve</button>
+			<button type="button" className="ui button" onClick={(e) =>deleteBtn(e)}>delete</button>
 			{/* <button>delete</button> */}
 		</Fragment>
 	)

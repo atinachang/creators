@@ -235,62 +235,6 @@ resetButton(){
         {this.nextButton()}
 				</form>
 			</Fragment>
-			// 	<form onSubmit={((e) => this.handleSubmit(e))}>
-			// 		<h2>Submit</h2>
-			// 		<div className="ui form">
-			// 			<div className="two fields">
-			// 			<Fields label="Your preferred name" type="text" id="name" onChange={((e) => this.handleChange(e))}/>
-			// 			<div>
-			// 				<progress value={this.state.progress} max="100"/>
-			// 				<Fields label="Upload an image" type="file" id="image" accept="image/*" onChange={(e) =>this.handleChangeImage(e)} />
-			// 				<button className="ui button"onClick={() =>this.handleImageSubmit()}>Add</button>
-			// 				<img src={this.state.url} alt="" formAction="/create"/>
-							
-			// 					{/* <span>{() =>this.handleImageErr()}</span> */}
-							
-			// 			</div>
-			// 		</div>
-
-			// 		<div className="two fields">
-			// 			<Fields label="Instagram" type="text" id="instagram" placeholder="https://www.instagram/com/*" onChange={((e) => this.handleChange(e))}/>
-						
-			// 			<Fields label="Twitter" type="text" id="twitter" placeholder="https://www.twitter/com/*" onChange={((e) => this.handleChange(e))}/>
-			// 		</div>
-
-			// 		<div className="two fields">
-			// 			<Fields label="Website" type="text" id="website" onChange={((e) => this.handleChange(e))}/>
-			// 			<Fields label="Email" type="text" id="email" onChange={((e) => this.handleChange(e))}/>
-			// 		</div>
-
-			// 	  <div className="inline fields">
-			// 			<h3>
-			// 				Please select all that apply
-			// 			</h3>
-			// 			<div className="four fields">
-			// 				<Fields type="checkbox" label="DJ" value="DJ"id="field" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="Designer" value="Designer"id="field" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="Film Production" value="Film Production"id="field" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="Consulting" value="Consulting"id="field" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="Design" value="Design"id="field" onChange={((e) => this.handleChange(e))}/>
-
-			// 			</div>
-			// 		</div>
-
-			// 		<div className="inline fields">
-			// 			<h3>
-			// 				What genres of music do you specialize in?
-			// 			</h3>
-			// 			<div className="four fields">
-			// 				<Fields type="checkbox" label="Hip-Hop" value="Hip-Hop"id="genres" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="House" value="House"id="genres" onChange={((e) => this.handleChange(e))}/>
-			// 				<Fields type="checkbox" label="R&B" value="R&B"id="genres" onChange={((e) => this.handleChange(e))}/>
-			// 			</div>
-			// 		</div>
-		
-			// </div>
-			// 		<button className="ui button" >Submit</button>
-			// 	</form>
-
 		)
 	}
 }

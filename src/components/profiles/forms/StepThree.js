@@ -16,7 +16,7 @@ function StepThree(props){
 
 	
 	field.forEach(field => {
-		if (field === "DJ") {
+		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer") {
 			page.push(<Genres handleChangeGenre={handleChangeGenre} genre={genre} field={field} key={field}/>)
 		}
 

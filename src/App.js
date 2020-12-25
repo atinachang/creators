@@ -16,14 +16,18 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 import './index.scss';
 
-const App = ()=> {
+const App = (props)=> {
   // console.log(profiles)
   // console.log(auth)
+  const {auth} = props
+  // const nav = !auth.uid ? <Nav/> : null
   return (
     <Fragment>
       <div className="ui container">
     <BrowserRouter>
+
     <Nav />
+    {/* {nav} */}
     <div className="wrapper">
     {/* <Header /> */}
     <Switch>
@@ -32,9 +36,9 @@ const App = ()=> {
     <Route path="/profile/:id" component={ProfileDetails} />
 
     <Route path="/create" component={CreateProfile} />
-    <Route path="/signin" component={SignIn}/>
+    {/* <Route path="/signin" component={SignIn}/> */}
     <Route path="/admin" component={Admin} />
-    <Route path='/admin/list' component={AdminList} />
+    {/* <Route path='/admin/list' component={AdminList} /> */}
     </Switch>
     </div>
     </BrowserRouter>
@@ -44,20 +48,19 @@ const App = ()=> {
   );
 }
 
-// const mapStateToProps = (state) => {
-//   console.log(state)
-// 	return {
-//     profiles: state.firestore.ordered.profiles,
-//     auth: state.firebase.auth,
+const mapStateToProps = (state) => {
+	return {
+    profiles: state.firestore.ordered.profiles,
+    auth: state.firebase.auth,
 
-// 	}
-// }
+	}
+}
 
-// export default compose(
-//   connect(
-//     mapStateToProps),
-//     firestoreConnect([
-// {      collection: 'profiles'} 
-//    ]))(App);
+export default compose(
+  connect(
+    mapStateToProps),
+    firestoreConnect([
+{      collection: 'profiles'} 
+   ]))(App);
 
-export default App
+// export default App

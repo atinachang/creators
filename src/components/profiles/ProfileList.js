@@ -7,23 +7,12 @@ import {connect} from 'react-redux';
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({profiles, props}) => {
-	// console.log(props.profiles)
-	// console.log(profiles)
-	// console.log(props.profiles)
-	// console.log(profiles)
-	// const profileArr = profiles
-	// console.log(profileArr)
-	// const prop = props.profiles
 
-const {auth} = props;
-// console.log(auth)
-// if (auth.uid)return <Redirect to ="/admin" />
+
 	return (
 		<Fragment>
 			{
 				profiles && profiles.map((profile) => {
-					// console.log(profile.live)
-					// const newId = profile.name.replace(/\s/g, '').toLowerCase()
 					if (profile.live === true) {
 					return (
 							<div className="column" key={profile.id}>
@@ -47,12 +36,5 @@ const mapStateToProps = (state) => {
 		auth: state.firebase.auth
 	}
 }
-
-// export default compose(
-// 	connect(mapStateToProps),
-// 	firestoreConnect([
-// 		{collection: 'profiles'}
-// 	])
-// )(ProfileList)
 
 export default connect(mapStateToProps)(ProfileList)
