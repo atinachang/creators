@@ -3,7 +3,8 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import {Buttons, ButtonContainer, Socials} from '../admin/Buttons';
+import { Socials} from '../admin/Buttons';
+import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
 	// console.log(props)
@@ -13,7 +14,7 @@ const ProfileDetails = (props) => {
 // 	// console.log(props.profile)
 // console.log(ButtonContainer)
 
-const buttons = auth.uid ? <Buttons props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name}/>;
+const buttons = auth.uid ? <Remove props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name} website={website}/>;
 
 // if (auth.uid)return <Redirect to="/admin/list"/>
 

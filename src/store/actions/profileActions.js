@@ -24,15 +24,16 @@ export const createProfile = (profile) => {
 	}
 
 
-export const deleteProfile = (id) => {
+export const deleteProfile = (profile) => {
 	return (dispatch, getState, {getFirestore}) => {
 		const firestore = getFirestore()
 
-		firestore.delete({collection: 'profiles', doc:(id)})
-		.then(() => {
+		firestore.collection('profiles').remove({
+			...profile
+		}).then(() => {
 			dispatch({
 				type: 'DELETE_PROFILE',
-				id
+				profile
 			})
 		}).catch((err) => {
 				dispatch({type: 'DELETE_PROFILE_ERROR',

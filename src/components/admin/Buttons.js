@@ -1,85 +1,9 @@
-import React, {Fragment, useEffect, useState} from 'react'
-import {updateProfile, deleteProfile} from '../../store/actions/profileActions';
-import { connect } from 'react-redux'
-import { firestoreConnect } from "react-redux-firebase";
-import { compose, bindActionCreators } from 'redux'
-import { Redirect, useHistory } from 'react-router-dom'
+import React, {Fragment} from 'react'
 
 
 
-export  const Buttons = (props) => {
-
-	console.log(props)
-	const {profile} = props;
-	// console.log(profilse)
-	// const {live} = props.profile;
-	// console.log(live)
-	// const {id} = props.match.params
-
-
-	const updateState = (profile) => {
-		console.log(profile)
-		// updateProfile(profile.live)
-		// console.log(profile)
-	}
-
-	const deleteBtn = (e) => {
-		e.preventDefault();
-		// deleteProfile(id)
-		// console.log(profile)
-	}
-	return (
-		<Fragment>
-			{/* <button>approve</button> */}
-			<button type="button" className="ui button" onClick={() =>updateState(profile)}>approve</button>
-			<button type="button" className="ui button" onClick={(e) =>deleteBtn(e)}>delete</button>
-			{/* <button>delete</button> */}
-		</Fragment>
-	)
-	}
-
-const mapStateToProps = (state, ownProps) => {
-	// console.log(ownProps)
-	// console.log(state)
-	return {
-		profiles: state.firestore.ordered.profiles,
-	}
-}
-const mapDispatchToProps = (dispatch) => {
-	// console.log(dispatch)
-	return {
-		dispatchDeleteProfile: deleteProfile,
-		dispatchUpdateProfile: updateProfile
-	}
-}
-
-// const mapStateToProps = (state, ownProps) => {
-// 	const id = ownProps.match.params.id;
-// 	const profiles = state.firestore.data.profiles;
-// 	// console.log(state)
-// // console.log(ownProps)
-// 	// only return IF we have projects in the collection
-// 	const profile = profiles ? profiles[id] : null;
-// 	return {
-// 		profile,
-// 		auth: state.firebase.auth,
-// 	}
-// }
-
-export const ButtonContainer = compose(
-	connect(
-		mapStateToProps, mapDispatchToProps),
-		firestoreConnect([
-			{collection: 'profiles'}
-		]))(Buttons)
-
-export const Socials = ({instagram, twitter, email, bio, name}) => {
-	// console.log(instagram, twitter, email)
-// const {profile, auth} = props;
-// 	const {instagram, name, photo, email, twitter} = props.profile;
-	// console.log(props.profile)
-
-	const igRender= () =>{
+export const Socials = ({instagram, twitter, email, bio, name, website}) => {
+const igRender= () =>{
 		if (!instagram) {
 		return null
 	}
@@ -123,6 +47,17 @@ const bioRender = () => {
 		</div>
 	)
 }
+
+const webRender = () => {
+if (!website) {
+	return null
+}
+return (
+ <a href={website}>
+	 <i className={`linkify icon`}></i>
+ </a>
+)
+}
 	return (
 		<Fragment>
 			{bioRender()}
@@ -132,26 +67,9 @@ const bioRender = () => {
 		{igRender()}
 		{twitRender()}
 		{emailRender()}
+		{webRender()}
 		</div>
 		</Fragment>
 	)
 }
 
-
-// const mapStateToProps = (state, ownProps) => {
-// 	const id = ownProps.match.params.id;
-// 	const profiles = state.firestore.data.profiles;
-// 	const profile = profiles ? profiles[id] : null;
-// 	return {
-// 		profile,
-// 		auth: state.firebase.auth
-
-// 	}
-// }
-
-// export default compose(
-// 	connect(mapStateToProps),
-// 	firestoreConnect([
-// 		{collection: 'profiles'}
-// 	])
-// )(ProfileDetails)

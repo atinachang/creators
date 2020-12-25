@@ -1,8 +1,10 @@
 import React, { Component, useState, useEffect, Fragment } from 'react';
 import {connect} from 'react-redux';
+import firebase from '../../config/config'
 // import Fields from './forms/Fields';
 import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/config';
+import {v4 as uuid} from 'uuid'
 // import FileBase64 from 'react-file-base64';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
@@ -18,9 +20,10 @@ class CreateProfile extends Component {
 		field: [],
 		genre: [],
 		title: [],
-		image: null,
-		progress: 0,
-		url: "",
+		bio: "",
+		// image: null,
+		// progress: 0,
+		photo: "",
 		twitter: "",
 		instagram: "",
 		website: "",
@@ -76,51 +79,65 @@ class CreateProfile extends Component {
 		console.log(this.state.title)
 	}
 
-	 handleChangeImage= (e) =>  {
-		if (e.target.files[0]) {
-				// setImage(e.target.files[0])
-				this.setState({
-					image: e.target.files[0]
-				})
-		}
-	}
+	 handleChangeImage= async (e) =>  {
+		const file = e.target.files[0];
+		const id = uuid()
+		const imagesRef = firebase.storage().ref("images").child(id);
+		await imagesRef.put(file)
+		console.log(file)
+		imagesRef.getDownloadURL().then(url => {
+			console.log(url)
+			this.setState({
+				photo: url
+			})
+		})
+		
+	
+}
 
-	handleImageSubmit = ()=> {
+		// if (e.target.files[0]) {
+		// 		this.setState({
+		// 			image: e.target.files[0]
+		// 		})
+		
 
-		const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
-		uploadImage.on(
-			"state_changed",
-			snapshot => {
-				const progress = Math.round(
-					(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-				);
-				// setProgress(progress)
-				this.setState({
-					progress,
-				})
-			},
-			err => {
-				console.log(err)
-			},
-			() => {
-				storage
-				.ref("images")
-				.child(this.state.image.name)
-				.getDownloadURL()
-				.then( (url) => {
-					// setUrl(url)
-					console.log(url)
+
+	// handleImageSubmit = ()=> {
+
+	// 	const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
+	// 	uploadImage.on(
+	// 		"state_changed",
+	// 		snapshot => {
+	// 			const progress = Math.round(
+	// 				(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+	// 			);
+	// 			// setProgress(progress)
+	// 			this.setState({
+	// 				progress,
+	// 			})
+	// 		},
+	// 		err => {
+	// 			console.log(err)
+	// 		},
+	// 		() => {
+	// 			storage
+	// 			.ref("images")
+	// 			.child(this.state.image.name)
+	// 			.getDownloadURL()
+	// 			.then( (url) => {
+	// 				// setUrl(url)
+	// 				console.log(url)
 					
-					this.setState({
-						image: url,
-					})
-				})
-				.catch((err) => {
-					console.log(err)
-				})
-			}
-			)
-		}
+	// 				this.setState({
+	// 					image: url,
+	// 				})
+	// 			})
+	// 			.catch((err) => {
+	// 				console.log(err)
+	// 			})
+	// 		}
+	// 		)
+	// 	}
 
 
 	 handleSubmit =(e)=>  {
@@ -219,7 +236,8 @@ resetButton(){
 					handleImageSubmit={this.handleImageSubmit} 
 					handleChangeImage={this.handleChangeImage}
 					progress={this.state.progress}
-					url={this.state.url} />
+					photo={this.state.photo} 
+					bio={this.state.bio}/>
 					<StepTwo 
           currentStep={this.state.currentStep} 
           handleChangeFields={this.handleChangeFields} 

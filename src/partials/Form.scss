@@ -1,39 +1,30 @@
+.ui.form {
+	width: 70%;
+	margin: 0 auto;
+}
 .ui.form .field > label,
 .ui.form .inline.fields .field > label {
 	color: $primaryfnt;
 	@include font-size(1.4);
 }
 
-// .ui.form .inline.fields {
-// 	display: flex;
-// 	flex-direction: column;
-// }
-
 .ui.form .fields > .field {
-	// width: auto;
 	display: flex;
 	margin: 5px;
-	// flex-direction: column;
-	// text-align: center;
-	// padding: 1em;
-	// align-items: center;
-	// justify-content: center;
 }
 .ui.form .fields {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	height: 250px;
-	// width: 80%;
-	// justify-content: center;
-	// align-items: center;
-	// margin: 0 auto;
-	// text-align: center;
+}
+
+.ui.form .field {
+	margin: 10px auto;
 }
 
 .ui.form .field > label {
 	margin-right: 20px;
-	// width: 60%;
 }
 .ui.button {
 	margin: 20px 10px;
@@ -42,6 +33,7 @@
 .ui.form ::placeholder {
 	color: rgba(0, 0, 0, 0.9);
 }
+
 form img {
 	width: 200px;
 }
