@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileDetails from './components/profiles/ProfileDetails';
 import CreateProfile from './components/profiles/CreateProfile';
+import CreateProfileHooks from './components/profiles/CreateProfileHooks'
 import Footer from './components/layout/Footer';
 import SignIn from './components/admin/auth/SignIn';
 import Admin from './components/admin/Admin';
@@ -18,33 +19,25 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = (props)=> {
-  // console.log(profiles)
-  // console.log(auth)
-  const {auth} = props
-  // const nav = !auth.uid ? <Nav/> : null
   return (
     <Fragment>
       <div className="ui container">
     <BrowserRouter>
 
     <Nav />
-    {/* {nav} */}
     <div className="wrapper">
-    {/* <Header /> */}
+    <Header />
     <Switch>
     <Route exact path="/" component={Dashboard} />
-    {/* <Route path="/:id" render={(props) => <ProfileDetails props={props} /> }/> */}
     <Route path="/profile/:id" component={ProfileDetails} />
 
-    <Route path="/create" component={CreateProfile} />
-    {/* <Route path="/signin" component={SignIn}/> */}
+    <Route path="/create" component={CreateProfileHooks} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />
-    {/* <Route path='/admin/list' component={AdminList} /> */}
     </Switch>
     </div>
     </BrowserRouter>
-    {/* <Footer /> */}
+    <Footer />
     </div>
     </Fragment>
   );

@@ -43,27 +43,23 @@ export const deleteProfile = (profile) => {
 
 }
 
-export const updateProfile = (profile) => {
+export const updateProfile = (id) => {
 	return (dispatch, {getFirestore}) => {
 		const firestore = getFirestore()
 
-		// const updates = {
-		// 	live: true,
-		// 	updatedAt: firestore.FieldValue.serverTimestamp()
-		// }
-
-		firestore.update({
-			collection: 'profiles',
-			doc: profile	
-		},
-		{live: true}).then(() => {
+		firestore.collection('profiles').doc(id).update({
+			"live": true
+		}).then(() => {
 			dispatch({
 				type: 'UPDATE_PROFILE',
-				profile
 			})
+			console.log('updated')
 		}).catch((err) => {
-				dispatch({type: 'UPDATE_PROFILE_ERROR',
-			err})
+				dispatch({
+					type: 'UPDATE_PROFILE_ERROR',
+			err
+		})
+			console.log('error updating')
 		})
 	}
 }

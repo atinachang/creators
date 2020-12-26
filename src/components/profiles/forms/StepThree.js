@@ -5,19 +5,17 @@ import {film, design, tech} from './arrays'
 
 function StepThree(props){
 	// console.log(props);
-	const {currentStep, handleChangeGenre, handleChangeTitle, genre, field, title} = props;
+	const {currStep, handleChangeGenre, handleChangeTitle, genre, field, title} = props;
 	const page =[]
 
 
- if (currentStep !== 3) {
+ if (currStep !== 3) {
     return null
 	} 
-
-
 	
 	field.forEach(field => {
 		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer") {
-			page.push(<Genres handleChangeGenre={handleChangeGenre} genre={genre} field={field} key={field}/>)
+			page.push(<Genres handleChangeGenre={handleChangeGenre} genre={genre} field={field} key={genre}/>)
 		}
 
 		if (field === 'Film') {

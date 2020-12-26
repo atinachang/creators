@@ -15,45 +15,29 @@ import StepThree from './forms/StepThree'
 class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
-		name: "",
-		email: "",
+		form: {
+			name: "",
+			email: "",
+			bio: "",
+			photo: "",
+			twitter: "",
+			instagram: "",
+			website: "",
+		},
 		field: [],
 		genre: [],
 		title: [],
-		bio: "",
-		// image: null,
-		// progress: 0,
-		photo: "",
-		twitter: "",
-		instagram: "",
-		website: "",
 		live: false,
 	 } 
 	
 
-// const CreateProfile = ({createProfile}) => {
-// 	const [field, setField] = useState([])
-// 	const [genre, setgenre] = useState([])
-// 	const [image, setImage] = useState(null)
-// 	const [url, setUrl] = useState(null);
-// 	const [progress, setProgress] = useState(0)
-// 	const [inputs, setInputs] = useState({
-// 		name: '',
-// 		image: url ,
-// 		field: [],
-// 		twitter: '',
-// 		instagram: '',
-// 		genre: []
-// 	})
 	
 	 handleChange =(e) => {
 		const {name, value} = e.target
 		this.setState({
-			      [name]: value,
+				[name]: value,
 		})
 	}
-
-
 
 
 	handleChangeFields= (e) => {
@@ -91,8 +75,6 @@ class CreateProfile extends Component {
 				photo: url
 			})
 		})
-		
-	
 }
 
 		// if (e.target.files[0]) {
@@ -145,9 +127,9 @@ class CreateProfile extends Component {
 		e.preventDefault();
 				console.log(this.state)
 // console.log(this.state)
-		this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
+		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
-		this.props.history.push('/thankyou')
+		// this.props.history.push('/thankyou')
 	}
 	  _next = () => {
     let currentStep = this.state.currentStep

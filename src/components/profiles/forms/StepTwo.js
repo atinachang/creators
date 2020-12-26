@@ -4,14 +4,14 @@ import {fields} from './arrays'
 
 function StepTwo(props) {
 	// console.log(props)
-	const { handleChangeFields, currentStep} = props;
-  if (currentStep !== 2) {
+	const { handleChangeFields, currStep} = props;
+  if (currStep !== 2) {
     return null
 	} 
 	
 	const mapped = fields.map(field => {
 		return (
-			<Fields key={field} type="checkbox" label={field} value={field} id={field} onChange={handleChangeFields}/>
+			<Fields key={field} type="checkbox" label={field} value={field} id={field} onChange={(e) =>handleChangeFields(e)}/>
 		)
 	})
   return(

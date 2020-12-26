@@ -2,8 +2,12 @@ import React, {Fragment} from 'react'
 import Fields from '../forms/Fields'
 
 const StepOne = (props) => {
-	const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
-	if (currentStep !== 1) {
+	// console.log(props)
+	// const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
+	const {formData, currStep, handleChange, handleChangeImage} = props;
+		const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = props.formData;
+
+	if (currStep !== 1) {
 		return null
 	}
 	return (

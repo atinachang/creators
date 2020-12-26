@@ -9,77 +9,68 @@ import {v4 as uuid} from 'uuid'
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
+import {useHistory} from 'react-router-dom';
 
-// import {useHistory} from 'react-router-dom';
-
-const CreateProfile = () => {
+const Create = () => {
 	const [currentStep, setCurrentStep] = useState(1)
-	const [name, setName] = useState("")
-	const [email, setEmail] = useState("")
-	const [field, setField] = useState([])
-	const [genre, setGenre] = useState([])
-	const [title, setTitle] = useState([])
-}
-class CreateProfile extends Component {
-	state = {
-		currentStep: 1,
+	// const [name, setName] = useState("")
+	// const [email, setEmail] = useState("")
+	// const [field, setField] = useState([])
+	// const [genre, setGenre] = useState([])
+	// const [title, setTitle] = useState([])
+	// const [bio, setBio] = useState("")
+	// const [photo, setPhoto] = useState("")
+	// const [twitter, setTwitter] = useState("")
+	// const [instagram, setInstagram] = useState("")
+	// const [website, setWebsite] = useState("")
+	// const [live, setLive] = useState("")
+	const [formData, setFormData] = useState({
+		// currentStep: 1,
 		name: "",
 		email: "",
 		field: [],
 		genre: [],
 		title: [],
 		bio: "",
-		// image: null,
-		// progress: 0,
 		photo: "",
 		twitter: "",
 		instagram: "",
 		website: "",
 		live: false,
-	 } 
-	
+	})
+	const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = formData;
 
-// const CreateProfile = ({createProfile}) => {
-// 	const [field, setField] = useState([])
-// 	const [genre, setgenre] = useState([])
-// 	const [image, setImage] = useState(null)
-// 	const [url, setUrl] = useState(null);
-// 	const [progress, setProgress] = useState(0)
-// 	const [inputs, setInputs] = useState({
-// 		name: '',
-// 		image: url ,
-// 		field: [],
-// 		twitter: '',
-// 		instagram: '',
-// 		genre: []
-// 	})
 	
-	 handleChange =(e) => {
-		const {name, value} = e.target
-		this.setState({
-			      [name]: value,
+	const handleChange = (e) => {
+		const {name, value} = e.target;
+		setFormData({
+			...formData,
+			[name]: value
 		})
-	}
+}
 
 
-
-
-	handleChangeFields= (e) => {
+	const handleChangeFields= (e) => {
 		const {value} = e.target
-		this.setState({
-			field: this.state.field.concat(value),
+		setFormData({
+			...formData,
+			field: field.concat(value)
 		})
-		console.log(this.state.field)
+		// console.log(formData)
+		// this.setState({
+		// 	field: this.state.field.concat(value),
+		// })
+		// console.log(this.state.field)
 	}
 
-	handleChangeGenre = (e) => {
+	const handleChangeGenre = (e) => {
 		const {value} = e.target
 		this.setState({
 			genre: this.state.genre.concat(value)
 		})
 	}
 
-	handleChangeTitle = (e) => {
+	const handleChangeTitle = (e) => {
 		const {value} = e.target
 		this.setState({
 			title: this.state.title.concat(value)
@@ -87,7 +78,7 @@ class CreateProfile extends Component {
 		console.log(this.state.title)
 	}
 
-	 handleChangeImage= async (e) =>  {
+	 const handleChangeImage= async (e) =>  {
 		const file = e.target.files[0];
 		const id = uuid()
 		const imagesRef = firebase.storage().ref("images").child(id);
@@ -103,104 +94,43 @@ class CreateProfile extends Component {
 	
 }
 
-		// if (e.target.files[0]) {
-		// 		this.setState({
-		// 			image: e.target.files[0]
-		// 		})
-		
-
-
-	// handleImageSubmit = ()=> {
-
-	// 	const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
-	// 	uploadImage.on(
-	// 		"state_changed",
-	// 		snapshot => {
-	// 			const progress = Math.round(
-	// 				(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-	// 			);
-	// 			// setProgress(progress)
-	// 			this.setState({
-	// 				progress,
-	// 			})
-	// 		},
-	// 		err => {
-	// 			console.log(err)
-	// 		},
-	// 		() => {
-	// 			storage
-	// 			.ref("images")
-	// 			.child(this.state.image.name)
-	// 			.getDownloadURL()
-	// 			.then( (url) => {
-	// 				// setUrl(url)
-	// 				console.log(url)
-					
-	// 				this.setState({
-	// 					image: url,
-	// 				})
-	// 			})
-	// 			.catch((err) => {
-	// 				console.log(err)
-	// 			})
-	// 		}
-	// 		)
-	// 	}
-
-
-	 handleSubmit =(e)=>  {
-			// let history = useHistory()
+let history = useHistory()
+	const handleSubmit =(e)=>  {
 		e.preventDefault();
-				console.log(this.state)
-// console.log(this.state)
-		this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
+		console.log(formData)
+		// console.log(this.state)
+		// createProfile(formData) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
-		this.props.history.push('/thankyou')
+		// history.push('/thankyou')
 	}
-	  _next = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep >= 2? 3: currentStep + 1
-    this.setState({
-      currentStep: currentStep
-    })
-	}
+	const _next = () => {
+    let currStep = currentStep
+    currStep = currentStep >= 2? 3: currentStep + 1
+		setCurrentStep(currStep)
+}
 	
-	  _prev = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1? 1: currentStep - 1
-    this.setState({
-      currentStep: currentStep
-    })
-	}
+	const  _prev = () => {
+    let currStep = currentStep
+    currStep = currentStep <= 1? 1: currentStep - 1
+    setCurrentStep(currStep)
+}
 	
-	_reset = () => {
-		this.setState({
-			currentStep: 1,
-			name: "",
-			email: "",
-			field: [],
-			genre: [],
-			title: [],
-			image: null,
-			progress: 0,
-			url: "",
-			twitter: "",
-			instagram: "",
-			website: "",
-			live: false,
+	const	_reset = () => {
+		setFormData({
+			...formData
 		})
 	}
 
 /*
 * the functions for our button
 */
-previousButton() {
-  let currentStep = this.state.currentStep;
-  if(currentStep !==1){
+const previousButton= () => {
+  let currStep = currentStep;
+  if(currStep !==1){
     return (
       <button 
         className="ui button" 
-        type="button" onClick={this._prev}>
+        type="button" onClick={() =>_prev()}>
       Previous
       </button>
     )
@@ -208,13 +138,13 @@ previousButton() {
   return null;
 }
 
-nextButton(){
-  let currentStep = this.state.currentStep;
-  if(currentStep <3){
+const nextButton= () =>{
+  let currStep = currentStep;
+  if(currStep <3){
     return (
       <button 
         className="ui button" 
-        type="button" onClick={this._next}>
+        type="button" onClick={()=>_next()}>
       Next
       </button>        
     )
@@ -222,48 +152,51 @@ nextButton(){
   return null;
 }
 
-resetButton(){
+const resetButton = ()=>{
 	return (
-		<button className="ui button" onClick={this._reset}>Reset Form</button>
+		<button className="ui button" onClick={() =>_reset()}>Reset Form</button>
 	)
 }
 
-	render() {
+	
 		return (
 			<Fragment>
-				<p>Step {this.state.currentStep}</p>
-				<form onSubmit={this.handleSubmit} className="ui form">
+				<p>Step {currentStep}</p>
+				<form onSubmit={e=>handleSubmit(e)} className="ui form">
 					<StepOne 
-					currentStep={this.state.currentStep} 
-					handleChange={this.handleChange} 
-					email={this.state.email} 
-					name={this.state.name} 
-					twitter={this.state.twitter} 
-					instagram={this.state.instagram} 
-					website={this.state.website} 
-					handleImageSubmit={this.handleImageSubmit} 
-					handleChangeImage={this.handleChangeImage}
-					progress={this.state.progress}
-					photo={this.state.photo} 
-					bio={this.state.bio}/>
+					currStep={currentStep} 
+					handleChange={e=>handleChange(e)} 
+					// email={email} 
+					// name={name} 
+					// twitter={twitter} 
+					// instagram={instagram} 
+					// website={website} 
+					formData={formData}
+					// handleImageSubmit={e=>handleImageSubmit()} 
+					handleChangeImage={e=>handleChangeImage()}
+					// photo={this.state.photo} 
+					// bio={this.state.bio}
+					/>
 					<StepTwo 
-          currentStep={this.state.currentStep} 
-          handleChangeFields={this.handleChangeFields} 
+          currStep={currentStep} 
+					handleChangeFields={e=>handleChangeFields(e)} 
+					// formData={formData}
         />
 					<StepThree 
-          currentStep={this.state.currentStep} 
-          handleChangeGenre={this.handleChangeGenre}
-          genre={this.state.genre} field={this.state.field} handleChangeTitle={this.handleChangeTitle} title={this.state.title}
+          currStep={currentStep} 
+          handleChangeGenre={e=>handleChangeGenre(e)}
+          genre={genre} field={field} handleChangeTitle={e=>handleChangeTitle(e)} title={title}
         />
 				{/* <StepFour currentStep={this.state.currentStep}/> */}
-				{this.resetButton()}
-        {this.previousButton()}
-        {this.nextButton()}
+				{resetButton()}
+        {previousButton()}
+        {nextButton()}
+					{/* <button className="ui button">Submit</button> */}
+
 				</form>
 			</Fragment>
 		)
 	}
-}
 
 	 function mapDispatchToProps(dispatch) {
 		//  console.log(dispatch)
@@ -273,4 +206,4 @@ resetButton(){
 	}
 
 
-export default connect(null, mapDispatchToProps)(CreateProfile)
+export default connect(null, mapDispatchToProps)(Create)

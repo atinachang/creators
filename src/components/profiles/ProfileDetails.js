@@ -7,10 +7,13 @@ import { Socials} from '../admin/Buttons';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
+	// console.log(props)
+	const {id} = props.match.params;
+	// console.log(id)
 	const {profile, auth, history} = props;
 	const {instagram, name, photo, email, twitter, website, bio} = props.profile;
 
-const buttons = auth.uid ? <Remove props={props}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name} website={website}/>;
+const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name} website={website}/>;
 
 
 const goBack = ()=> {
