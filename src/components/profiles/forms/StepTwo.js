@@ -11,7 +11,13 @@ function StepTwo(props) {
 	
 	const mapped = fields.map(field => {
 		return (
-			<Fields key={field} type="checkbox" label={field} value={field} id={field} onChange={(e) =>handleChangeFields(e)}/>
+			<Fields 
+			key={field} 
+			type="checkbox" 
+			label={field} 
+			value={field} 
+			id={field} 
+			onChange={(e) =>handleChangeFields(e)}/>
 		)
 	})
   return(

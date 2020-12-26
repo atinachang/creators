@@ -5,40 +5,31 @@ import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/config';
 import {v4 as uuid} from 'uuid'
-// import FileBase64 from 'react-file-base64';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
 import {useHistory} from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const Create = () => {
 	const [currentStep, setCurrentStep] = useState(1)
-	// const [name, setName] = useState("")
-	// const [email, setEmail] = useState("")
-	// const [field, setField] = useState([])
-	// const [genre, setGenre] = useState([])
-	// const [title, setTitle] = useState([])
-	// const [bio, setBio] = useState("")
-	// const [photo, setPhoto] = useState("")
-	// const [twitter, setTwitter] = useState("")
-	// const [instagram, setInstagram] = useState("")
-	// const [website, setWebsite] = useState("")
-	// const [live, setLive] = useState("")
+	const [field, setField] = useState([])
+	const [genre, setGenre] = useState([])
+	const [title, setTitle] = useState([])
+	const [photo, setPhoto] = useState("")
 	const [formData, setFormData] = useState({
-		// currentStep: 1,
 		name: "",
 		email: "",
-		field: [],
-		genre: [],
-		title: [],
 		bio: "",
-		photo: "",
 		twitter: "",
 		instagram: "",
 		website: "",
 		live: false,
 	})
-	const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = formData;
+	const {name, email, bio, twitter, instagram, website, live} = formData;
 
 	
 	const handleChange = (e) => {
@@ -52,30 +43,20 @@ const Create = () => {
 
 	const handleChangeFields= (e) => {
 		const {value} = e.target
-		setFormData({
-			...formData,
-			field: field.concat(value)
-		})
-		// console.log(formData)
-		// this.setState({
-		// 	field: this.state.field.concat(value),
-		// })
-		// console.log(this.state.field)
+		setField(field.concat(value))
+		console.log(field)
 	}
 
 	const handleChangeGenre = (e) => {
 		const {value} = e.target
-		this.setState({
-			genre: this.state.genre.concat(value)
-		})
+		setGenre(genre.concat(value))
+		console.log(genre)
 	}
 
 	const handleChangeTitle = (e) => {
 		const {value} = e.target
-		this.setState({
-			title: this.state.title.concat(value)
-		})
-		console.log(this.state.title)
+		setTitle(title.concat(value))
+		console.log(title)
 	}
 
 	 const handleChangeImage= async (e) =>  {
@@ -86,9 +67,7 @@ const Create = () => {
 		console.log(file)
 		imagesRef.getDownloadURL().then(url => {
 			console.log(url)
-			this.setState({
-				photo: url
-			})
+			setPhoto(url)
 		})
 		
 	
@@ -97,7 +76,36 @@ const Create = () => {
 let history = useHistory()
 	const handleSubmit =(e)=>  {
 		e.preventDefault();
-		console.log(formData)
+		console.log(formData, field, genre, title, photo)
+		const { name, email, bio, twitter, instagram, website } = formData
+    // alert(`Your Profile Details: \n 
+		// 		name: ${name} \n 
+		// 		email: ${email} \n
+		// 		twitter: ${twitter} \n
+		// 		instagram: ${instagram} \n
+		// 		website: ${website} \n
+		// 		bio: ${bio}`)
+
+
+
+Swal.fire({
+	icon: 'success',
+	allowOutsideClick: true,
+	allowEscapeKey: true,
+	title: name,
+	imageUrl: photo,
+  imageWidth: 200,
+	imageHeight: 200,
+	width: 700,
+	html: `
+	<p>Your Field(s) of Work: ${field}</p>
+	<p>Email: ${email}</p>
+	<p>Twitter: ${twitter}</p>
+	<p>Instagram: ${instagram} </p>
+	<p>Website: <a href=${website}/></p>
+	`
+})
+
 		// console.log(this.state)
 		// createProfile(formData) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
@@ -115,11 +123,26 @@ let history = useHistory()
     setCurrentStep(currStep)
 }
 	
-	const	_reset = () => {
-		setFormData({
-			...formData
-		})
-	}
+	// const	_reset = () => {
+	// 	setFormData({
+	// 		...formData,
+	// 		name: "",
+	// 	email: "",
+	// 	// field: [],
+	// 	// genre: [],
+	// 	// title: [],
+	// 	bio: "",
+	// 	// photo: "",
+	// 	twitter: "",
+	// 	instagram: "",
+	// 	website: "",
+	// 	live: false,
+	// 	})
+	// 	setField("")
+	// 	setTitle("")
+	// 	setPhoto("")
+	// 	setGenre("")
+	// }
 
 /*
 * the functions for our button
@@ -152,11 +175,11 @@ const nextButton= () =>{
   return null;
 }
 
-const resetButton = ()=>{
-	return (
-		<button className="ui button" onClick={() =>_reset()}>Reset Form</button>
-	)
-}
+// const resetButton = ()=>{
+// 	return (
+// 		<button className="ui button" onClick={() =>_reset()}>Reset Form</button>
+// 	)
+// }
 
 	
 		return (
@@ -166,29 +189,22 @@ const resetButton = ()=>{
 					<StepOne 
 					currStep={currentStep} 
 					handleChange={e=>handleChange(e)} 
-					// email={email} 
-					// name={name} 
-					// twitter={twitter} 
-					// instagram={instagram} 
-					// website={website} 
 					formData={formData}
-					// handleImageSubmit={e=>handleImageSubmit()} 
-					handleChangeImage={e=>handleChangeImage()}
-					// photo={this.state.photo} 
-					// bio={this.state.bio}
+					handleChangeImage={e=>handleChangeImage(e)}
 					/>
 					<StepTwo 
           currStep={currentStep} 
 					handleChangeFields={e=>handleChangeFields(e)} 
-					// formData={formData}
         />
 					<StepThree 
           currStep={currentStep} 
           handleChangeGenre={e=>handleChangeGenre(e)}
-          genre={genre} field={field} handleChangeTitle={e=>handleChangeTitle(e)} title={title}
+					genre={genre} 
+					field={field} 
+					title={title}
+					handleChangeTitle={e=>handleChangeTitle(e)} 
         />
-				{/* <StepFour currentStep={this.state.currentStep}/> */}
-				{resetButton()}
+				{/* {resetButton()} */}
         {previousButton()}
         {nextButton()}
 					{/* <button className="ui button">Submit</button> */}

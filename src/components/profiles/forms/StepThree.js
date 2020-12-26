@@ -34,22 +34,10 @@ function StepThree(props){
 		}
 	})
 
-	// }
   return(
     <Fragment>
 			{page}
-    {/* <div className="form-group">
-      <label htmlFor="password">Password</label>
-      <input
-        className="form-control"
-        id="password"
-        name="password"
-        type="password"
-        placeholder="Enter password"
-        value={props.password}
-        onChange={props.handleChange}
-        />      
-    </div> */}
+
     <button className="ui button">Submit</button>
     </Fragment>
   );

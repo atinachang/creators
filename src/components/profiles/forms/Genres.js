@@ -3,13 +3,18 @@ import React, {Fragment} from 'react'
 import {genres} from './arrays'
 
 const Genres = (props) => {
-	console.log(props)
+	// console.log(props)
 	const {handleChangeGenre} = props
 
 
 	const mapped = genres.map(genre => {
 		return (
-			<Fields type="checkbox" label={genre} value={genre} onChange={handleChangeGenre} key={genre}/>
+			<Fields type="checkbox" 
+			key={genre}
+			label={genre} 
+			value={genre} 
+			onChange={handleChangeGenre} 
+			/>
 		)
 	})
 	return (
