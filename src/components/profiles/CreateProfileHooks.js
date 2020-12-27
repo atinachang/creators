@@ -30,7 +30,7 @@ const Create = () => {
 		live: false,
 	})
 	const {name, email, bio, twitter, instagram, website, live} = formData;
-
+	const profile =[]
 	
 	const handleChange = (e) => {
 		const {name, value} = e.target;
@@ -78,16 +78,6 @@ let history = useHistory()
 		e.preventDefault();
 		console.log(formData, field, genre, title, photo)
 		const { name, email, bio, twitter, instagram, website } = formData
-    // alert(`Your Profile Details: \n 
-		// 		name: ${name} \n 
-		// 		email: ${email} \n
-		// 		twitter: ${twitter} \n
-		// 		instagram: ${instagram} \n
-		// 		website: ${website} \n
-		// 		bio: ${bio}`)
-
-
-
 Swal.fire({
 	icon: 'success',
 	allowOutsideClick: true,
@@ -105,11 +95,13 @@ Swal.fire({
 	<p>Website: <a href=${website}/></p>
 	`
 })
-
+	profile.push(formData, field, title, genre, photo)
+	createProfile(profile) //this is passed to mapDispatchToProps as the project
+	
+	
 		// console.log(this.state)
-		// createProfile(formData) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
-		// history.push('/thankyou')
+		history.push('/thankyou')
 	}
 	const _next = () => {
     let currStep = currentStep
@@ -194,7 +186,9 @@ const nextButton= () =>{
 					/>
 					<StepTwo 
           currStep={currentStep} 
-					handleChangeFields={e=>handleChangeFields(e)} 
+					handleChangeFields={e=>handleChangeFields(e)}
+					field={field}
+					 
         />
 					<StepThree 
           currStep={currentStep} 

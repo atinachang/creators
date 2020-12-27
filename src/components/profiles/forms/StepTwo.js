@@ -2,10 +2,10 @@ import React, {Fragment} from 'react'
 import Fields from './Fields'
 import {fields} from './arrays'
 
-function StepTwo(props) {
+const StepTwo= (props)=> {
 	// console.log(props)
-	const { handleChangeFields, currStep} = props;
-  if (currStep !== 2) {
+	const { handleChangeFields, currentStep, field} = props;
+  if (currentStep !== 2) {
     return null
 	} 
 	

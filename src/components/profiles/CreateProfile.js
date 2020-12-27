@@ -9,13 +9,13 @@ import {v4 as uuid} from 'uuid'
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
-// import {useHistory} from 'react-router-dom';
 
 class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
-		form: {
 			name: "",
 			email: "",
 			bio: "",
@@ -23,11 +23,11 @@ class CreateProfile extends Component {
 			twitter: "",
 			instagram: "",
 			website: "",
-		},
 		field: [],
 		genre: [],
 		title: [],
 		live: false,
+		// progress: 0,
 	 } 
 	
 
@@ -68,6 +68,7 @@ class CreateProfile extends Component {
 		const id = uuid()
 		const imagesRef = firebase.storage().ref("images").child(id);
 		await imagesRef.put(file)
+
 		console.log(file)
 		imagesRef.getDownloadURL().then(url => {
 			console.log(url)
@@ -75,57 +76,37 @@ class CreateProfile extends Component {
 				photo: url
 			})
 		})
+
 }
 
-		// if (e.target.files[0]) {
-		// 		this.setState({
-		// 			image: e.target.files[0]
-		// 		})
-		
-
-
-	// handleImageSubmit = ()=> {
-
-	// 	const uploadImage = storage.ref(`/images/${this.state.image.name}`).put(this.state.image);
-	// 	uploadImage.on(
-	// 		"state_changed",
-	// 		snapshot => {
-	// 			const progress = Math.round(
-	// 				(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-	// 			);
-	// 			// setProgress(progress)
-	// 			this.setState({
-	// 				progress,
-	// 			})
-	// 		},
-	// 		err => {
-	// 			console.log(err)
-	// 		},
-	// 		() => {
-	// 			storage
-	// 			.ref("images")
-	// 			.child(this.state.image.name)
-	// 			.getDownloadURL()
-	// 			.then( (url) => {
-	// 				// setUrl(url)
-	// 				console.log(url)
-					
-	// 				this.setState({
-	// 					image: url,
-	// 				})
-	// 			})
-	// 			.catch((err) => {
-	// 				console.log(err)
-	// 			})
-	// 		}
-	// 		)
-	// 	}
 
 
 	 handleSubmit =(e)=>  {
+const MySwal = withReactContent(Swal)
+
+	 const {name, email, twitter, instagram, website, photo, field} = this.state;
 			// let history = useHistory()
 		e.preventDefault();
-				console.log(this.state)
+		console.log(this.state)
+		
+		Swal.fire({
+			icon: 'success',
+			allowOutsideClick: true,
+			allowEscapeKey: true,
+			title: name,
+			imageUrl: photo,
+			imageWidth: 200,
+			imageHeight: 200,
+			width: 700,
+			html: `
+			<p>Your Field(s) of Work: ${field}</p>
+			<p>Email: ${email}</p>
+			<p>Twitter: ${twitter}</p>
+			<p>Instagram: ${instagram} </p>
+			<p>Website: <a href=${website}/></p>
+	`
+})
+
 // console.log(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		// history.push('/')
@@ -203,31 +184,32 @@ resetButton(){
 }
 
 	render() {
+			 const {name, email, twitter, instagram, website, photo, field, currentStep, genre, bio, title} = this.state;
+
 		return (
 			<Fragment>
-				<p>Step {this.state.currentStep}</p>
+				<p>Step {currentStep}</p>
 				<form onSubmit={this.handleSubmit} className="ui form">
 					<StepOne 
-					currentStep={this.state.currentStep} 
+					currentStep={currentStep} 
 					handleChange={this.handleChange} 
-					email={this.state.email} 
-					name={this.state.name} 
-					twitter={this.state.twitter} 
-					instagram={this.state.instagram} 
-					website={this.state.website} 
+					email={email} 
+					name={name} 
+					twitter={twitter} 
+					instagram={instagram} 
+					website={website} 
 					handleImageSubmit={this.handleImageSubmit} 
 					handleChangeImage={this.handleChangeImage}
-					progress={this.state.progress}
-					photo={this.state.photo} 
-					bio={this.state.bio}/>
+					photo={photo} 
+					bio={bio}/>
 					<StepTwo 
-          currentStep={this.state.currentStep} 
+          currentStep={currentStep} 
           handleChangeFields={this.handleChangeFields} 
         />
 					<StepThree 
-          currentStep={this.state.currentStep} 
+          currentStep={currentStep} 
           handleChangeGenre={this.handleChangeGenre}
-          genre={this.state.genre} field={this.state.field} handleChangeTitle={this.handleChangeTitle} title={this.state.title}
+          genre={genre} field={field} handleChangeTitle={this.handleChangeTitle} title={title}
         />
 				{/* <StepFour currentStep={this.state.currentStep}/> */}
 				{this.resetButton()}

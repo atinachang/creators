@@ -3,13 +3,13 @@ import Genres from './Genres'
 import Titles from './Titles'
 import {film, design, tech} from './arrays'
 
-function StepThree(props){
+const  StepThree =(props)=>{
 	// console.log(props);
-	const {currStep, handleChangeGenre, handleChangeTitle, genre, field, title} = props;
+	const {currentStep, handleChangeGenre, handleChangeTitle, genre, field, title} = props;
 	const page =[]
 
 
- if (currStep !== 3) {
+ if (currentStep !== 3) {
     return null
 	} 
 	
@@ -19,15 +19,15 @@ function StepThree(props){
 		}
 
 		if (field === 'Film') {
-			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={film}/>)
+			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={film}/>)
 		}
 
 		if (field === 'Design') {
-			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={design}/>)
+			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={design}/>)
 		}
 
 		if (field === 'Tech') {
-			page.push(<Titles key={field.id} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
+			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
 		}
 		else {
 			return null

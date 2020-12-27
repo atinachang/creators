@@ -4,10 +4,10 @@ import Fields from '../forms/Fields'
 const StepOne = (props) => {
 	// console.log(props)
 	// const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
-	const {formData, currStep, handleChange, handleChangeImage} = props;
-		const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = props.formData;
+	const {name, email, twitter, instagram, website, bio, photo, currentStep, handleChange, handleChangeImage} = props;
+		// const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = props.formData;
 
-	if (currStep !== 1) {
+	if (currentStep !== 1) {
 		return null
 	}
 	return (
@@ -25,7 +25,7 @@ const StepOne = (props) => {
 				<img src={photo} alt="" formAction="/create"/>				
 				</div>
 
-				<Fields label="Short Bio" type="text" id="bio" name="bio" onChange={handleChange} value={bio} placeholder="Keep it less than 150 words"/>
+				<Fields label="Short Bio" type="text" id="bio" name="bio" onChange={handleChange} value={bio} placeholder="Keep it less than 150 words" maxlength="200"/>
 
 					<h3>Social Media</h3>
 		<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>

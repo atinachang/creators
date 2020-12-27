@@ -8,7 +8,7 @@ const Titles = (props) => {
 
 	const mapped = array.map(title => {
 		return (
-			<Fields type="checkbox" label={title} value={title} id="title" onChange={handleChangeTitle} key={title}/>
+				<Fields type="checkbox" label={title} value={title} id="title" onChange={handleChangeTitle} key={title.id}/>
 		)
 	})
 	return (

@@ -14,6 +14,10 @@ export const tech = [
 	"Front End Developer", "Back End Developer", "Fullstack Developer", "UI/UX Design", "PHP Developer", "Wordpress/CMS Developer", "Software Developer"
 	]
 
-	export const fields = [
-		"DJ", "Film Production", "Consulting", "Design", "Tech", "Dance", "Marketing", "Vocal Artist", "Sound Engineer", "Writing", "Event Production", "Fashion", "Make Up Artist"
-	]
+export const fields = [
+	"DJ", "Film Production", "Consulting", "Design", "Tech", "Dance", "Photography", "Marketing", "Vocal Artist", "Sound Engineer", "Writing", "Event Production", "Fashion", "Make Up Artist"
+]
+
+export const photo = [
+	"Portrait", "Landscape", "Digital", "Film", "Event", "Wedding", "Product", "Sports", "Fine Art", "Architecture", "Other"
+]

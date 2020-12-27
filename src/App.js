@@ -19,6 +19,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = (props)=> {
+  const app = "wecreate.to"
   return (
     <Fragment>
       <div className="ui container">
@@ -26,18 +27,18 @@ const App = (props)=> {
 
     <Nav />
     <div className="wrapper">
-    <Header />
+    <Header app={app} />
     <Switch>
     <Route exact path="/" component={Dashboard} />
     <Route path="/profile/:id" component={ProfileDetails} />
 
-    <Route path="/create" component={CreateProfileHooks} />
+    <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />
     </Switch>
     </div>
     </BrowserRouter>
-    <Footer />
+    <Footer app={app}/>
     </div>
     </Fragment>
   );

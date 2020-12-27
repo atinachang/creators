@@ -15,13 +15,4 @@
    )
 }
 
-export const RadioInput = ({name, id, type, label, value, placeholder, onChange}) => {
-  return (
-    <div className="field">
-    <input type={type} tabIndex="0" className="hidden" id={id} value={value} name={name} placeholder={placeholder} onChange={onChange}/>
-    <label htmlFor={label}>{label}</label>
-  </div>
-    )
-}
-
 export default Fields
