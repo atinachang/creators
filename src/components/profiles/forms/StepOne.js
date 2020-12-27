@@ -15,14 +15,28 @@ const StepOne = (props) => {
 			<h2>Let's get to know you!</h2>
 			<h3>Basic Info</h3>
  			<div className="basic">
-				 <Fields label="Your preferred name" required type="text" id="name" name="name" value={name}onChange={handleChange} placeholder="Your preferred name"/>
+				 <Fields 
+				 label="Name" 
+				 required type="text" 
+				 id="name" 
+				 name="name" 
+				 value={name}
+				 onChange={handleChange} 
+				 placeholder="Your preferred name"/>
 			 
-			 <Fields label="Your preferred contact email" type="text" id="email" name="email" onChange={handleChange} value={email} placeholder="Enter email"/>
+			 <Fields 
+			 label="Your Email" 
+			 type="text" 
+			 id="email" 
+			 name="email" 
+			 onChange={handleChange} 
+			 value={email} 
+			 placeholder="Your preferred contact email"/>
 			 </div>
 
 				<div>
 				<Fields label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
-				<img src={photo} alt="" formAction="/create"/>				
+				<img src={photo} alt={name} />				
 				</div>
 
 				<Fields label="Short Bio" type="text" id="bio" name="bio" onChange={handleChange} value={bio} placeholder="Keep it less than 150 words" maxlength="200"/>

@@ -26,7 +26,7 @@ const StepTwo= (props)=> {
 			<h4>
 			Please select all that apply
 		</h4>
-		<div className="five fields">
+		<div className="three fields">
 			{mapped}
 
 

@@ -1,5 +1,5 @@
 .ui.form {
-	width: 70%;
+	// width: 70%;
 	margin: 0 auto;
 }
 .ui.form .field > label,
@@ -16,7 +16,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	height: 250px;
+	max-height: 250px;
 }
 
 .ui.form .field {

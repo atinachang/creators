@@ -4,11 +4,18 @@ import Fields from './Fields'
 
 const Titles = (props) => {
 	console.log(props)
-	const {handleChangeTitle, title, array} = props;
+	const {handleChangeTitle, array} = props;
 
 	const mapped = array.map(title => {
 		return (
-				<Fields type="checkbox" label={title} value={title} id="title" onChange={handleChangeTitle} key={title.id}/>
+				<Fields 
+				key={title}
+				type="checkbox" 
+				label={title} 
+				value={title} 
+				id={title} 
+				onChange={handleChangeTitle} 
+				/>
 		)
 	})
 	return (

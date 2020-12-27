@@ -16,21 +16,19 @@ import withReactContent from 'sweetalert2-react-content'
 class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
-			name: "",
-			email: "",
-			bio: "",
-			photo: "",
-			twitter: "",
-			instagram: "",
-			website: "",
+		name: "",
+		email: "",
+		bio: "",
+		photo: "",
+		twitter: "",
+		instagram: "",
+		website: "",
 		field: [],
 		genre: [],
 		title: [],
 		live: false,
-		// progress: 0,
 	 } 
 	
-
 	
 	 handleChange =(e) => {
 		const {name, value} = e.target
@@ -53,6 +51,7 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: this.state.genre.concat(value)
 		})
+		console.log(this.state.genre)
 	}
 
 	handleChangeTitle = (e) => {
@@ -85,10 +84,11 @@ class CreateProfile extends Component {
 const MySwal = withReactContent(Swal)
 
 	 const {name, email, twitter, instagram, website, photo, field} = this.state;
+	 const {createProfile, history} = this.props;
 			// let history = useHistory()
 		e.preventDefault();
 		console.log(this.state)
-		
+		// console.log(this.props)
 		Swal.fire({
 			icon: 'success',
 			allowOutsideClick: true,
@@ -108,8 +108,10 @@ const MySwal = withReactContent(Swal)
 })
 
 // console.log(this.state)
+createProfile(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
-		// history.push('/')
+		history.push('/thankyou')
+	
 		// this.props.history.push('/thankyou')
 	}
 	  _next = () => {
@@ -129,21 +131,7 @@ const MySwal = withReactContent(Swal)
 	}
 	
 	_reset = () => {
-		this.setState({
-			currentStep: 1,
-			name: "",
-			email: "",
-			field: [],
-			genre: [],
-			title: [],
-			image: null,
-			progress: 0,
-			url: "",
-			twitter: "",
-			instagram: "",
-			website: "",
-			live: false,
-		})
+    window.location.reload(false);
 	}
 
 /*
@@ -198,7 +186,6 @@ resetButton(){
 					twitter={twitter} 
 					instagram={instagram} 
 					website={website} 
-					handleImageSubmit={this.handleImageSubmit} 
 					handleChangeImage={this.handleChangeImage}
 					photo={photo} 
 					bio={bio}/>

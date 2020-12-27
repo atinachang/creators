@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import Genres from './Genres'
 import Titles from './Titles'
-import {film, design, tech} from './arrays'
+import {film, design, tech, genres} from './arrays'
 
 const  StepThree =(props)=>{
 	// console.log(props);
@@ -15,19 +15,28 @@ const  StepThree =(props)=>{
 	
 	field.forEach(field => {
 		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer") {
-			page.push(<Genres handleChangeGenre={handleChangeGenre} genre={genre} field={field} key={genre}/>)
+			page.push(<Genres 
+				key={genre}
+				handleChangeGenre={handleChangeGenre} 
+				genre={genre} 
+				field={field} 
+				/>)
 		}
 
 		if (field === 'Film') {
-			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={film}/>)
+			page.push(<Titles 
+				key={title} 
+				handleChangeTitle={handleChangeTitle} 
+				title={title} 
+				array={film}/>)
 		}
 
 		if (field === 'Design') {
-			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={design}/>)
+			page.push(<Titles key={design} handleChangeTitle={handleChangeTitle} title={title} array={design}/>)
 		}
 
 		if (field === 'Tech') {
-			page.push(<Titles key={title} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
+			page.push(<Titles key={tech} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
 		}
 		else {
 			return null

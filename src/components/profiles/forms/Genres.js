@@ -14,9 +14,8 @@ const Genres = (props) => {
 			type="checkbox" 
 			label={item} 
 			value={item} 
-			id={genre}
-			name={genre}
-			onChange={handleChangeGenre} 
+			id={item}
+			onChange={(e)=>handleChangeGenre(e)} 
 			/>
 		)
 	})
