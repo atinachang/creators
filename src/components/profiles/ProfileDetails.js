@@ -11,10 +11,27 @@ const ProfileDetails = (props) => {
 	const {id} = props.match.params;
 	// console.log(id)
 	const {profile, auth, history} = props;
-	const {instagram, name, photo, email, twitter, website, bio, field, genre, title} = props.profile;
-	console.log(props.profile)
 
-const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
+
+
+
+
+const goBack = ()=> {
+	history.push('/')
+}
+
+if (!props.profile) {
+	return (
+<div className="ui segment">
+<div className="ui active centered inline loader"></div>
+</div>
+
+)
+}
+
+else  {
+		const {instagram, name, photo, email, twitter, website, bio, field, genre, title} = props.profile;
+		const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
 instagram={instagram} 
 twitter={twitter} 
 email={email} 
@@ -25,13 +42,7 @@ title={title}
 field={field}
 genre={genre}
 />;
-
-
-const goBack = ()=> {
-	history.push('/')
-}
-
-if (profile) {
+	console.log(props.profile)
 		return (
 			<Fragment>
 			<h1>{name}</h1>
@@ -49,13 +60,7 @@ if (profile) {
 			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 			</Fragment>
 		)
-	} else {
-		return (
-			<div className="container center">
-				<p>Loading ...</p>
-			</div>
-			)
-		}
+	} 
 }
 
 const mapStateToProps = (state, ownProps) => {

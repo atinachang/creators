@@ -1,5 +1,7 @@
 import React, {Fragment, useState} from 'react'
+import StepThree from '../StepThree';
 import StepOne from './StepOne'
+import StepTwo from './StepTwo'
 
 const ReportBug = () => {
 	const [currentStep, setCurrentStep] = useState(1)
@@ -8,6 +10,7 @@ const ReportBug = () => {
 	// 	data: ""
 	// })
 	const [data, setData] = useState("")
+
 	const [suggest, setSuggest] = useState("")
 
 	const handleChange = (e) => {
@@ -24,6 +27,7 @@ const ReportBug = () => {
 				handleChange={handleChange}
 				data={data}
 				/>
+				
 		</Fragment>
 	)
 }

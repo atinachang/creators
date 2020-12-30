@@ -1,9 +1,23 @@
 import React, {Fragment} from 'react'
 import Fields from '../Fields'
+import StepTwo from './StepTwo'
 
 const StepOne = (props) => {
-	console.log(props)
+	// console.log(props)
 	const {currentStep, handleChange, data} = props;
+
+		if (currentStep !== 1) {
+		return null
+	}
+
+	const second = ()=> {
+			if (data === 'no-field') {
+		return (
+			<StepTwo />
+		)
+	}
+	}
+
 	return (
 		<Fragment>
 			<form>
@@ -24,6 +38,7 @@ const StepOne = (props) => {
 				id={data}
 				onChange={(e)=>handleChange(e)}
 				/>
+			{second()}
 			</form>
 		</Fragment>
 	)
