@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import { Socials} from '../admin/Buttons';
+import { Socials, Bio, Info} from '../admin/Buttons';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
@@ -42,21 +42,24 @@ title={title}
 field={field}
 genre={genre}
 />;
-	console.log(props.profile)
+	// console.log(props.profile)
 		return (
 			<Fragment>
 			<h1>{name}</h1>
 				<div className="details">
-			<div className="image">
+			<div className="details-image">
 			<img src={photo} alt={name} />
 			</div>
 
-
 			<div className="details-content">
-
+			<Info field={field} title={title} genre={genre}/>
+			</div>
+			<div className="bio">
+				<Bio name={name} bio={bio}/>
 			{buttons}
 			</div>
 			</div>
+
 			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 			</Fragment>
 		)

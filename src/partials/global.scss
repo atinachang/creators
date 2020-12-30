@@ -37,3 +37,7 @@ h3 {
 h4 {
 	@include font-size(1.6);
 }
+
+li {
+	list-style-type: none;
+}

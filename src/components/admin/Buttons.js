@@ -37,18 +37,6 @@ const twitRender = () =>{
 	)
 }
 
-const bioRender = () => {
-	if (!bio) {
-		return null
-	}
-	return (
-		<div className="bio">
-			<h3>About {name}</h3>
-			<p>{bio}</p>
-		</div>
-	)
-}
-
 const webRender = () => {
 if (!website) {
 	return null
@@ -59,36 +47,9 @@ return (
  </a>
 )
 }
-const fieldRender = () => {
-	const list=	field.map(item => {
-			<p>{item}</p>
-	})
-	return (
-		<div>
-			<li>
-				{list}
-			</li>
-		</div>
-	)
-}
-const titleRender = () => {
-	// let data =[]
-// 	data = title.split(",")
-// console.log(data)
-	return (
-		title.map(item => {
-			<p className="ui basic button">{item}</p>
-		})
-	)
-}
+
 	return (
 		<Fragment>
-			<div>
-			{bioRender()}
-
-			</div>
-
-				{fieldRender()}
 			<div className="socials">
 		<h4>Contact:</h4>
 		
@@ -101,3 +62,84 @@ const titleRender = () => {
 	)
 }
 
+export const Info = ({field, genre, title}) => {
+const fieldRender = () => {
+
+	const fieldList = field.map(field => 
+	<li className="dark" key={field}>{field}</li>
+		)
+		return (
+		<div className="segment">
+			<h4>Fields</h4> 
+			<ul >{fieldList}</ul>
+		</div>
+		)
+}
+const titleRender = () => {
+
+	if (title.length ===0) {
+		return null
+	}
+
+	const titleList = title.map(title => 
+		<li className="light" key={title}>{title}</li>
+		)
+		
+		return (
+		<div className="segment">
+			<h4>
+				Expertise
+			</h4>
+			<ul >{titleList}</ul>
+		</div>
+		)
+	}
+
+
+const genreRender = ()=> {
+	const genreList = genre.map(title => 
+		<li className="light" key={title}>{title}</li>
+		)
+		if (genre.length === 0) {
+			return null
+		}
+
+		return (
+		<div className=" segment">
+			<h4>Genres:</h4>
+		{genreList}
+		</div>
+		)
+}
+return (
+	<Fragment>
+		{fieldRender()}
+		{titleRender()}
+		{genreRender()}
+
+
+	</Fragment>
+)
+}
+
+
+export const Bio =({bio}) => {
+	const bioRender = ()=> {
+
+		if (bio.length === 0) {
+			return null
+		}
+
+		return (
+		<div className=" segment">
+			<h4>Bio:</h4>
+		{bio}
+		</div>
+		)
+}
+	return (
+		<div className="segment">
+			{bioRender()}
+		</div>
+	)
+}

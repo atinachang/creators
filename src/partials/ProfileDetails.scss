@@ -3,14 +3,48 @@
 	justify-content: space-between;
 }
 
+.details-image {
+	height: 350px;
+	width: 350px;
+	img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+	}
+}
 .bio {
 	text-align: left;
 }
 
 .details-content {
-	width: 40%;
+	// width: 40%;
 }
 
 .socials {
 	margin: 20px 0;
+}
+
+.light {
+	background-color: #353542;
+}
+
+.dark {
+	background-color: #1c1c24;
+}
+
+li {
+	// display: inline;
+	border-radius: 10px;
+	padding: 10px 15px;
+	margin: 5px;
+	margin-left: 0;
+	letter-spacing: 1px;
+}
+
+.segment {
+	margin: 10px auto;
+}
+
+.bio {
+	width: 30%;
 }
