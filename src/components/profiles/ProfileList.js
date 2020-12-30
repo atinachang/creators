@@ -7,27 +7,25 @@ import {fields} from './forms/arrays'
 
 import ProfileSummary from './ProfileSummary';
 
-const ProfileList = ({profiles, props}) => {
+const ProfileList = ({card, props}) => {
+// console.log(card)
 
-
+const cards = () => {
+		if (card.live === true) {
+	return (
+			<div className="column">
+				<div className="fluid card">
+			<Link to={`/profile/${card.id}`}>
+			<ProfileSummary profile={card} key={card.id}  />
+			</Link>
+			</div>
+			</div>
+	)
+	}
+}
 	return (
 		<Fragment>
-
-			{
-				profiles && profiles.map((profile) => {
-					if (profile.live === true) {
-					return (
-							<div className="column" key={profile.id}>
-								<div className="fluid card">
-							<Link to={`/profile/${profile.id}`}>
-							<ProfileSummary profile={profile} key={profile.id}  />
-							</Link>
-							</div>
-							</div>
-					)
-					}
-				})
-			}
+			{cards()}
 		</Fragment>
 	)
 }

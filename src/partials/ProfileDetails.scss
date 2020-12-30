@@ -1,6 +1,14 @@
 .details {
 	display: flex;
 	justify-content: space-between;
+	li {
+		// display: inline;
+		border-radius: 10px;
+		padding: 10px 15px;
+		margin: 5px;
+		margin-left: 0;
+		letter-spacing: 1px;
+	}
 }
 
 .details-image {
@@ -30,15 +38,6 @@
 
 .dark {
 	background-color: #1c1c24;
-}
-
-li {
-	// display: inline;
-	border-radius: 10px;
-	padding: 10px 15px;
-	margin: 5px;
-	margin-left: 0;
-	letter-spacing: 1px;
 }
 
 .segment {

@@ -6,29 +6,28 @@ import {connect} from 'react-redux';
 
 import ProfileSummary from '../../components/profiles/ProfileSummary';
 
-const AdmistList = ({profiles}) => {
+const AdmistList = ({card}) => {
 
+console.log(card)
 
-// const {auth} = props;
+const {live} = card
+console.log(live)
+const cards = () => {
+		if (live === true) {
+	return (
+			<div className="column">
+				<div className="fluid card">
+			<Link to={`/profile/${card.id}`}>
+			<ProfileSummary profile={card} key={card.id}  />
+			</Link>
+			</div>
+			</div>
+	)
+	}
+}
 	return (
 		<Fragment>
-			{
-				profiles && profiles.map((profile) => {
-					// console.log(profile.live)
-					// const newId = profile.name.replace(/\s/g, '').toLowerCase()
-					if (profile.live === false) {
-					return (
-							<div className="column" key={profile.id}>
-								<div className="fluid card">
-							<Link to={`/profile/${profile.id}`}>
-							<ProfileSummary profile={profile} key={profile.id}  />
-							</Link>
-							</div>
-							</div>
-					)
-					}
-				})
-			}
+			{cards()}
 		</Fragment>
 	)
 }

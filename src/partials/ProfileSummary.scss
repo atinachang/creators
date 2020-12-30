@@ -13,6 +13,10 @@
 	// width: calc(200px - 40px);
 }
 
+.filter {
+	@include flexbox();
+}
+
 .card {
 	display: flex;
 	justify-content: center;

@@ -5,43 +5,62 @@ import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 import {fields} from '../profiles/forms/arrays'
+import Filter from '../layout/Filter'
 import {firestoreConnect} from 'react-redux-firebase';
 
 const Dashboard =(props) => {
 		const {profiles, auth} = props;
-		const users = auth.uid ? <AdminList profiles={profiles} props={props} /> : <ProfileList profiles={profiles} props={props}/> 
+		// console.log(auth)
 
-			const [appFilter, setAppFilter] = useState("All")
+	const [appFilter, setAppFilter] = useState("All")
+
 		const filter =(e) => {
 	const {value} = e.target
 		setAppFilter(value)
+		// console.log(appFilter)
 	}
 
-const options = fields.map(field => {
+
+
+	if (profiles === undefined) {
 	return (
-		<option key={field} value={field}>{field}</option>
-	)
+<div className="ui segment">
+<div className="ui active centered inline loader"></div>
+</div>
+
+)
+}
+// console.log(props.profiles)
+let profToRender = [];
+profiles.forEach((profile) => {
+	// console.log(profile)
+	if (appFilter === "All") {
+		profToRender.push(profile)
+	} else {
+		if (profile.field.includes(appFilter)) {
+			profToRender.push(profile)
+			// console.log(profToRender)
+		}
+	}
 })
 
+		const mapped = profToRender.map((card) =>{
+			// console.log(card)
+			return (
+				<ProfileList key={card.id} card={card} props={props}/>
+			)
+		});
 
-// let appsToRender = [];
-// profiles.forEach((profile) => {
-// 	if (appFilter === "All") {
-// 		appsToRender.push(profile)
-// 	} else {
-// 		if (profile.field.includes(appFilter)) {
-// 			appsToRender.push(profile)
-// 		}
-// 	}
-// })
+		const adminmap = profToRender.map(card => {
+			return (
+				<AdminList key={card.id} card={card} />
+			)
+		})
+		const users = auth.uid ? adminmap : mapped;
+
 		return (
 			<Fragment>
-				{/* <div className="filter">
-				<select name="filter" id="filter" >
-					<option value="All" disabled >Filter by Category</option>
-					{options}
-				</select>
-			</div> */}
+				<Filter filter={filter} />
 				<div className="ui link cards">
 			{auth.isLoaded && users}
 			</div>

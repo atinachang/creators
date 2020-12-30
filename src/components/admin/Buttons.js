@@ -70,7 +70,7 @@ const fieldRender = () => {
 		)
 		return (
 		<div className="segment">
-			<h4>Fields</h4> 
+			<h4>Fields of Work</h4> 
 			<ul >{fieldList}</ul>
 		</div>
 		)

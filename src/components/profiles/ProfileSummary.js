@@ -5,11 +5,11 @@ import React, {Fragment} from 'react';
 // import {firestoreConnect} from 'react-redux-firebase';
 
 const ProfileSummary = ({profile, prop}) => {
-	// console.log(prop)
+	// console.log(profile)
 	// console.log(profile.name)
 	const {name, title, photo, field} = profile;
 	// console.log(profile)
-	const txt = field.join(', ')
+	// const txt = field.join(', ')
 	// console.log(txt)
 
 	return (
@@ -19,7 +19,7 @@ const ProfileSummary = ({profile, prop}) => {
 			</div>
 			<div className="content">
 				<h2>{name}</h2>
-				<h4>{txt}</h4>
+				<h4>{field}</h4>
 			</div>
 		</Fragment>
 	)
