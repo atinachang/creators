@@ -4,15 +4,17 @@ import AdminList from '../admin/AdminList'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
-import {fields} from '../profiles/forms/arrays'
-import Filter from '../layout/Filter'
+import {fields, film} from '../profiles/forms/arrays'
+import {Filter, ArrayFilter} from '../layout/filters/Filter'
 import {firestoreConnect} from 'react-redux-firebase';
+
 
 const Dashboard =(props) => {
 		const {profiles, auth} = props;
 		// console.log(auth)
 
 	const [appFilter, setAppFilter] = useState("All")
+	const [expFilter, setExpFilter] = useState("All")
 
 		const filter =(e) => {
 	const {value} = e.target
@@ -36,12 +38,12 @@ profiles.forEach((profile) => {
 	// console.log(profile)
 	if (appFilter === "All") {
 		profToRender.push(profile)
-	} else {
+	} else{
 		if (profile.field.includes(appFilter)) {
 			profToRender.push(profile)
 			// console.log(profToRender)
 		}
-	}
+	} 
 })
 
 		const mapped = profToRender.map((card) =>{
@@ -58,9 +60,19 @@ profiles.forEach((profile) => {
 		})
 		const users = auth.uid ? adminmap : mapped;
 
+		const arrayfilter = () => {
+			let expert = []
+			if (appFilter === "Film Production") {
+				expert.push(<ArrayFilter key={film} filter={filter} array={film}/>)
+			}
+			return (
+				<Fragment>{expert}</Fragment>
+			)
+		}
 		return (
 			<Fragment>
 				<Filter filter={filter} />
+				{/* {arrayfilter()} */}
 				<div className="ui link cards">
 			{auth.isLoaded && users}
 			</div>

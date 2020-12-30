@@ -8,19 +8,16 @@ import ProfileSummary from '../../components/profiles/ProfileSummary';
 
 const AdmistList = ({card}) => {
 
-console.log(card)
-
-const {live} = card
-console.log(live)
 const cards = () => {
-		if (live === true) {
+		if (card.live === false) {
+			// console.log(card)
 	return (
 			<div className="column">
 				<div className="fluid card">
-			<Link to={`/profile/${card.id}`}>
-			<ProfileSummary profile={card} key={card.id}  />
-			</Link>
-			</div>
+					<Link to={`/profile/${card.id}`}>
+					<ProfileSummary profile={card} key={card.id}  />
+					</Link>
+				</div>
 			</div>
 	)
 	}

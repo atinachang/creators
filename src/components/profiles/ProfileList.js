@@ -8,8 +8,6 @@ import {fields} from './forms/arrays'
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({card, props}) => {
-// console.log(card)
-
 const cards = () => {
 		if (card.live === true) {
 	return (
