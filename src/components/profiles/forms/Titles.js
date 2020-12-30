@@ -4,16 +4,16 @@ import Fields from './Fields'
 
 const Titles = (props) => {
 	console.log(props)
-	const {handleChangeTitle, array} = props;
+	const {handleChangeTitle, array, title} = props;
 
-	const mapped = array.map(title => {
+	const mapped = array.map(item => {
 		return (
 				<Fields 
-				key={title}
+				key={item}
 				type="checkbox" 
-				label={title} 
-				value={title} 
-				id={title} 
+				label={item} 
+				value={item} 
+				id={item} 
 				onChange={handleChangeTitle} 
 				/>
 		)
@@ -23,7 +23,7 @@ const Titles = (props) => {
 			<h3>
 			What do you specialize in?
 			</h3>
-			<div className=" fields">
+			<div className=" inputs">
 				{mapped}
 
 			</div>		

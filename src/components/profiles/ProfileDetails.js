@@ -11,9 +11,20 @@ const ProfileDetails = (props) => {
 	const {id} = props.match.params;
 	// console.log(id)
 	const {profile, auth, history} = props;
-	const {instagram, name, photo, email, twitter, website, bio} = props.profile;
+	const {instagram, name, photo, email, twitter, website, bio, field, genre, title} = props.profile;
+	console.log(props.profile)
 
-const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials instagram={instagram} twitter={twitter} email={email} bio={bio} name={name} website={website}/>;
+const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
+instagram={instagram} 
+twitter={twitter} 
+email={email} 
+bio={bio} 
+name={name} 
+website={website}
+title={title}
+field={field}
+genre={genre}
+/>;
 
 
 const goBack = ()=> {

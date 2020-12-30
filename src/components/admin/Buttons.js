@@ -2,7 +2,8 @@ import React, {Fragment} from 'react'
 
 
 
-export const Socials = ({instagram, twitter, email, bio, name, website}) => {
+export const Socials = ({instagram, twitter, email, bio, name, website, field, title, genre}) => {
+	// console.log(field)
 const igRender= () =>{
 		if (!instagram) {
 		return null
@@ -58,9 +59,36 @@ return (
  </a>
 )
 }
+const fieldRender = () => {
+	const list=	field.map(item => {
+			<p>{item}</p>
+	})
+	return (
+		<div>
+			<li>
+				{list}
+			</li>
+		</div>
+	)
+}
+const titleRender = () => {
+	// let data =[]
+// 	data = title.split(",")
+// console.log(data)
+	return (
+		title.map(item => {
+			<p className="ui basic button">{item}</p>
+		})
+	)
+}
 	return (
 		<Fragment>
+			<div>
 			{bioRender()}
+
+			</div>
+
+				{fieldRender()}
 			<div className="socials">
 		<h4>Contact:</h4>
 		

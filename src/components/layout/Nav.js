@@ -24,14 +24,10 @@ const Nav = (props) => {
 				</li>
 
 				<li className="item">
-					<NavLink to="https://forms.gle/Fxs8qfVFaaaTkSjz9"
-					target="_blank"
-					rel="noopener noreferrer">Report A Bug</NavLink>
+					<NavLink to="/report">Report A Bug</NavLink>
 				</li>
 				<li className="item">
-					<NavLink to="https://forms.gle/cxwnukT9gLJ4jmwp8"
-					target="_blank"
-					rel="noopener noreferrer">Make a Suggestion</NavLink>
+					<NavLink to="/suggestion">Make a Suggestion</NavLink>
 				</li>
 				{auth.isLoaded && links}
 

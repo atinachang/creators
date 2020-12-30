@@ -11,6 +11,7 @@
   placeholder={placeholder}
   accept={accept}
   />
+  {/* {error && touched && <span className="ui red basic label">{error}</span>} */}
   </div>
    )
 }

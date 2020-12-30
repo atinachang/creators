@@ -5,7 +5,7 @@ import {genres} from './arrays'
 const Genres = (props) => {
 	console.log(props)
 	const {handleChangeGenre, genre} = props
-
+	// console.log(handleChangeGenre)
 
 	const mapped = genres.map(item => {
 		return (
@@ -24,8 +24,24 @@ const Genres = (props) => {
 			<h3>
 			What genres of music do you specialize in?
 			</h3>
-			<div className="fields">
+			<div className="inputs">
 				{mapped}
+
+				{/* <Fields 
+			label="Hip-Hop" 
+			type="checkbox" 
+			id="Hip-Hop" 
+			value="Hip-Hop" 
+			onChange={handleChangeGenre} 
+			/>
+		<Fields 
+			type="checkbox" 
+			label="R&B" 
+			value="R&B" 
+			id="R&B" 
+			// name="R&B" 
+			onChange={handleChangeGenre} 
+			/> */}
 			</div>
 
 		</Fragment>

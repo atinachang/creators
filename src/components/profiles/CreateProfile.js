@@ -1,11 +1,9 @@
 import React, { Component, useState, useEffect, Fragment } from 'react';
 import {connect} from 'react-redux';
 import firebase from '../../config/config'
-// import Fields from './forms/Fields';
 import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/config';
 import {v4 as uuid} from 'uuid'
-// import FileBase64 from 'react-file-base64';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
@@ -27,21 +25,58 @@ class CreateProfile extends Component {
 		genre: [],
 		title: [],
 		live: false,
+		errors: {
+			name: null,
+			email: '',
+			field: [],
+		}
 	 } 
 	
 	
 	 handleChange =(e) => {
+		// const validateEmail = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
 		const {name, value} = e.target
+		// let errors = this.state.errors
+	
+		// switch (name) {
+		// 	case 'name':
+		// 		errors.name = null ? 'You must include a name' : '';
+		// 		break;
+		// 	case 'email':
+		// 		errors.email = validateEmail.test(value) ?'' : 'Email is not valid';
+		// 		break;
+			// case 'field':
+			// 	errors.field = value.length = 0 ? 'You must select a Field of Work' : '';
+			// 	break;
+			// case 'photo':
+			// 	errors.photo = '' ? 'You must upload a photo' : '';
+			// 	break;
+				// default:
+				// 	break;
+		
 		this.setState({
-				[name]: value,
-		})
+			// errors,
+			[name]: value},
+			// ()=> {
+				// console.log(errors)
+			// }
+		)
 	}
 
+	// handleChangeState = (e, push) => {
+	// 	const {value} = e.target
+	// 	const {push} = this.state
+	// 	this.setState({
+	// 		[push]: push.concat(value)
+	// 	})
+	// }
 
 	handleChangeFields= (e) => {
 		const {value} = e.target
+		const {field} = this.state
 		this.setState({
-			field: this.state.field.concat(value),
+			field: field.concat(value),
 		})
 		console.log(this.state.field)
 	}
@@ -56,8 +91,9 @@ class CreateProfile extends Component {
 
 	handleChangeTitle = (e) => {
 		const {value} = e.target
+		const {title} = this.state
 		this.setState({
-			title: this.state.title.concat(value)
+			title: title.concat(value)
 		})
 		console.log(this.state.title)
 	}
@@ -78,7 +114,13 @@ class CreateProfile extends Component {
 
 }
 
-
+//  validateForm = (errors) => {
+// 	let valid = true;
+// 	Object.values(errors).forEach(
+// 		(val) => val.length > 0 && (valid = false)
+// 	) ;
+// 	return valid;
+//  }
 
 	 handleSubmit =(e)=>  {
 const MySwal = withReactContent(Swal)
@@ -87,39 +129,58 @@ const MySwal = withReactContent(Swal)
 	 const {createProfile, history} = this.props;
 			// let history = useHistory()
 		e.preventDefault();
+
+
 		console.log(this.state)
 		// console.log(this.props)
-		Swal.fire({
-			icon: 'success',
-			allowOutsideClick: true,
-			allowEscapeKey: true,
-			title: name,
-			imageUrl: photo,
-			imageWidth: 200,
-			imageHeight: 200,
-			width: 700,
-			html: `
-			<p>Your Field(s) of Work: ${field}</p>
-			<p>Email: ${email}</p>
-			<p>Twitter: ${twitter}</p>
-			<p>Instagram: ${instagram} </p>
-			<p>Website: <a href=${website}/></p>
-	`
-})
+// 		Swal.fire({
+// 			icon: 'success',
+// 			allowOutsideClick: true,
+// 			allowEscapeKey: true,
+// 			title: name,
+// 			imageUrl: photo,
+// 			imageWidth: 200,
+// 			imageHeight: 200,
+// 			width: 700,
+// 			html: `
+// 			<p>Your Field(s) of Work: ${field}</p>
+// 			<p>Email: ${email}</p>
+// 			<p>Twitter: ${twitter}</p>
+// 			<p>Instagram: ${instagram} </p>
+// 			<p>Website: <a href=${website}/></p>
+// 	`
+// })
 
 // console.log(this.state)
-createProfile(this.state)
+// createProfile(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
-		history.push('/thankyou')
+		// history.push('/thankyou')
 	
 		// this.props.history.push('/thankyou')
 	}
 	  _next = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep >= 2? 3: currentStep + 1
-    this.setState({
-      currentStep: currentStep
-    })
+		// const {name} = this.state
+		// if (!this.state.errors) {
+			currentStep = currentStep >= 2? 3: currentStep + 1
+			this.setState({
+				currentStep: currentStep
+			})
+			
+		// } else {
+		// 				Swal.fire(
+		// 		`Oops, ${name} did you forget something?`
+		// 	)
+		// }
+		
+		// 		if (this.validateForm(this.state.errors)) {
+		// 	console.info('Valid form')
+		// } else {
+		// 	// console.error('Invalid form')
+		// 	Swal.fire(
+		// 		'Oops, you have to submit something!'
+		// 	)
+		// }
 	}
 	
 	  _prev = () => {
@@ -172,7 +233,8 @@ resetButton(){
 }
 
 	render() {
-			 const {name, email, twitter, instagram, website, photo, field, currentStep, genre, bio, title} = this.state;
+		const {name, email, twitter, instagram, website, photo, field, 
+			currentStep, genre, bio, title, errors} = this.state;
 
 		return (
 			<Fragment>
@@ -188,7 +250,9 @@ resetButton(){
 					website={website} 
 					handleChangeImage={this.handleChangeImage}
 					photo={photo} 
-					bio={bio}/>
+					bio={bio}
+					errors={errors}
+					/>
 					<StepTwo 
           currentStep={currentStep} 
           handleChangeFields={this.handleChangeFields} 
@@ -196,13 +260,17 @@ resetButton(){
 					<StepThree 
           currentStep={currentStep} 
           handleChangeGenre={this.handleChangeGenre}
-          genre={genre} field={field} handleChangeTitle={this.handleChangeTitle} title={title}
+					handleChangeTitle={this.handleChangeTitle} 
+					genre={genre} 
+					field={field} 
+					title={title}
         />
 				{/* <StepFour currentStep={this.state.currentStep}/> */}
 				{this.resetButton()}
         {this.previousButton()}
         {this.nextButton()}
 				</form>
+
 			</Fragment>
 		)
 	}

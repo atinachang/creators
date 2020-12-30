@@ -4,38 +4,67 @@ import Fields from '../forms/Fields'
 const StepOne = (props) => {
 	// console.log(props)
 	// const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
-	const {name, email, twitter, instagram, website, bio, photo, currentStep, handleChange, handleChangeImage} = props;
+	const {name, email, twitter, instagram, website, bio, photo, currentStep, handleChange, handleChangeImage, errors} = props;
+	// console.log(errors)
 		// const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = props.formData;
 
 	if (currentStep !== 1) {
 		return null
 	}
+
+	// const emailErr = ()=> {
+	// 	if (!errors.email) {return null}
+	// 	else {
+	// 		return (
+	// 			<p className="ui pointing red basic label">{errors.email}</p>
+	// 		)
+	// 	}
+	// }
+
+	const nameErr = () => {
+		if (!errors.name) {
+			return null
+		} else {
+			return (
+				<p className="ui pointing red basic label">{errors.name}</p>
+			)
+		}
+	}
 	return (
     <Fragment> 
 			<h2>Let's get to know you!</h2>
 			<h3>Basic Info</h3>
- 			<div className="basic">
+ 			<div className="field">
 				 <Fields 
 				 label="Name" 
-				 required type="text" 
+				 required 
+				 type="text" 
 				 id="name" 
 				 name="name" 
 				 value={name}
 				 onChange={handleChange} 
 				 placeholder="Your preferred name"/>
+				 {/* {nameErr()} */}
+				
 			 
 			 <Fields 
 			 label="Your Email" 
-			 type="text" 
+			 required
+			 type="email" 
 			 id="email" 
 			 name="email" 
 			 onChange={handleChange} 
 			 value={email} 
 			 placeholder="Your preferred contact email"/>
+			 {errors.email.length > 0 && 
+  <span className='ui pointing red basic label'>{errors.email}</span>}
+			 {/* {emailErr()} */}
 			 </div>
 
 				<div>
 				<Fields label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
+				{/* {errors.photo = "" && 
+				<p className='ui pointing red basic label'>{errors.photo}</p>} */}
 				<img src={photo} alt={name} />				
 				</div>
 

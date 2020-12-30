@@ -5,12 +5,14 @@ import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileDetails from './components/profiles/ProfileDetails';
 import CreateProfile from './components/profiles/CreateProfile';
-import CreateProfileHooks from './components/profiles/CreateProfileHooks'
+// import CreateProfileHooks from './components/profiles/CreateProfileHooks'
 import Footer from './components/layout/Footer';
-import SignIn from './components/admin/auth/SignIn';
+// import SignIn from './components/admin/auth/SignIn';
 import Admin from './components/admin/Admin';
-import AdminList from './components/admin/AdminList'
+// import AdminList from './components/admin/AdminList'
 import ThankYou from './components/layout/ThankYou'
+import ReportBug from './components/profiles/forms/bug/ReportBug'
+import Suggestion from './components/profiles/forms/suggest/Suggestion'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 // import firestoreconnect after connecting reducer
@@ -35,6 +37,8 @@ const App = (props)=> {
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />
+    <Route path='/report' component={ReportBug} />
+    <Route path='/suggestion' component={Suggestion} />
     </Switch>
     </div>
     </BrowserRouter>

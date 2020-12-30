@@ -1,6 +1,7 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {fields} from './forms/arrays'
 // import { compose } from 'redux';
 // import {firestoreConnect} from 'react-redux-firebase';
 
@@ -11,6 +12,7 @@ const ProfileList = ({profiles, props}) => {
 
 	return (
 		<Fragment>
+
 			{
 				profiles && profiles.map((profile) => {
 					if (profile.live === true) {

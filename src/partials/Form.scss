@@ -1,10 +1,22 @@
 .ui.form {
-	// width: 70%;
-	margin: 0 auto;
+	max-width: 60vw;
+	// max-width: 620px;
+	margin: 30px auto;
+	background: whitesmoke;
+	text-align: left;
+	padding: 40px;
+	border-radius: 10px;
+
+	h2,
+	h3,
+	h4 {
+		color: black;
+	}
 }
+
 .ui.form .field > label,
 .ui.form .inline.fields .field > label {
-	color: $primaryfnt;
+	// color: $primaryfnt;
 	@include font-size(1.4);
 }
 
@@ -14,13 +26,20 @@
 }
 .ui.form .fields {
 	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	max-height: 250px;
+	// flex-wrap: wrap;
+	// flex-direction: column;
+	// max-height: 250px;
+}
+
+.inputs > .field {
+	display: flex;
+	flex-direction: row;
 }
 
 .ui.form .field {
-	margin: 10px auto;
+	margin: 10px 5px;
+	// display: flex;
+	// flex-direction: column;
 }
 
 .ui.form .field > label {
@@ -37,3 +56,16 @@
 form img {
 	width: 200px;
 }
+
+.inputs {
+	display: flex;
+	// flex-direction: column;
+	flex-wrap: wrap;
+	// max-height: 250px;
+	// width: 100%;
+}
+
+// .visually-hidden {
+// 	position: absolute;
+// 	left: -100vw;
+// }

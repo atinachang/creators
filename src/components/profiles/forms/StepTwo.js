@@ -9,14 +9,14 @@ const StepTwo= (props)=> {
     return null
 	} 
 	
-	const mapped = fields.map(field => {
+	const mapped = fields.map(item => {
 		return (
 			<Fields 
-			key={field} 
+			key={item} 
 			type="checkbox" 
-			label={field} 
-			value={field} 
-			id={field} 
+			label={item} 
+			value={item} 
+			id={item} 
 			onChange={(e) =>handleChangeFields(e)}/>
 		)
 	})
@@ -26,7 +26,7 @@ const StepTwo= (props)=> {
 			<h4>
 			Please select all that apply
 		</h4>
-		<div className="three fields">
+		<div className="inputs">
 			{mapped}
 
 
