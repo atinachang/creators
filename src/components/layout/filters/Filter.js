@@ -5,6 +5,8 @@ import {Options} from './Options'
 export const Filter = ({filter}) => {
 	return (
 		<div className="filter">
+		<p>Start by searching below</p>
+
 			<label htmlFor="">Filter by Category</label>
 
 			<select className="ui inverted basic button"
@@ -27,16 +29,19 @@ export const ArrayFilter = ({array, filter}) => {
 
 
 	return (
-		<div className="filter">
+			<Fragment>
+			<div className="filter">
+			
 			<label>Filter by Expertise</label>
 			<select className="ui inverted basic button"
-				name="filter"
-				id="filter"
-				onChange={filter}
-			>	
+			name="filter"
+			id="filter"
+			onChange={filter}
+			>
 			<Options array={film}/>
 			</select>
 			{/* <p>film array</p> */}
-		</div>
+			</div>
+			</Fragment>
 	)
 }

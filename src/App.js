@@ -21,6 +21,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = (props)=> {
+  const {profiles} = props;
   const app = "wecreate.to"
   return (
     <Fragment>

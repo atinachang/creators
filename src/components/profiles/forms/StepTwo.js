@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react'
 import Fields from './Fields'
 import {fields} from './arrays'
+import StepThree from './StepThree'
 
 const StepTwo= (props)=> {
 	// console.log(props)
-	const { handleChangeFields, currentStep, field} = props;
+	const { handleChangeFields, currentStep, } = props;
   if (currentStep !== 2) {
     return null
 	} 
@@ -28,7 +29,6 @@ const StepTwo= (props)=> {
 		</h4>
 		<div className="inputs">
 			{mapped}
-
 
 		</div>
 

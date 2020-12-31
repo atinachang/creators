@@ -5,6 +5,7 @@ import React, {Fragment} from 'react';
 // import {firestoreConnect} from 'react-redux-firebase';
 
 const ProfileSummary = ({profile, prop}) => {
+	// console.log(profiles)
 	const {name, title, photo, field} = profile;
 	const txt = field.join(', ')
 

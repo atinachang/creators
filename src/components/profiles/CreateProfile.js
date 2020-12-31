@@ -152,9 +152,9 @@ const MySwal = withReactContent(Swal)
 // })
 
 // console.log(this.state)
-// createProfile(this.state)
+createProfile(this.state)
 		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
-		// history.push('/thankyou')
+		history.push('/thankyou')
 	
 		// this.props.history.push('/thankyou')
 	}
@@ -255,7 +255,13 @@ resetButton(){
 					/>
 					<StepTwo 
           currentStep={currentStep} 
-          handleChangeFields={this.handleChangeFields} 
+					handleChangeFields={this.handleChangeFields} 
+					handleChangeGenre={this.handleChangeGenre}
+					handleChangeTitle={this.handleChangeTitle} 
+					genre={genre} 
+					field={field} 
+					title={title}
+
         />
 					<StepThree 
           currentStep={currentStep} 

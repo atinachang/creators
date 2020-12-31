@@ -1,0 +1,16 @@
+.single-card {
+	display: flex;
+	width: 500px;
+	// flex-direction: row;
+	margin: 50px auto;
+	justify-content: space-between;
+	// border: 1px solid transparent;
+}
+
+// .single-card:hover {
+// 	border: 1px solid whitesmoke;
+// }
+
+.thank-you {
+	@include flexbox();
+}
