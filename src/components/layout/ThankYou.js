@@ -14,30 +14,17 @@ let history = useHistory()
 		history.push('/')
 	}
 
-
-	if (props ===undefined || props.profiles === undefined) {
-	return (
-<div className="ui segment">
-<div className="ui active centered inline loader"></div>
-</div>
-
-)
-} else {
-	const {profiles} = props;
+	const cards = ()=> {
+			const {profiles} = props;
 
 		const random = profiles[Math.floor(Math.random() * profiles.length)]
-		const {name, photo, field, id} = random;
+		const {name, photo, field, id, live} = random;
 		const txt = field.join(", ")
-	
 
-	return (
-		<div className="thank-you">
-			<h2>Thank you for your submission! 	</h2>
-			<br />
-			<h3>Your post will be moderated within 24-48 hours.</h3>
-			<h4>In the meantime, stay a while and check out your fellow community members! </h4>
+		if (live === true) {
+			return (
 
-		<Link to={`/profile/${id}`}>
+				<Link to={`/profile/${id}`}>
 		<div className="single-card">
 			<div className="image">
 				<img src={photo} alt={name} />
@@ -48,6 +35,29 @@ let history = useHistory()
 			</div>
 		</div>
 		</Link>
+			)
+		}
+	}
+
+	
+	if (props ===undefined || props.profiles === undefined) {
+	return (
+<div className="ui segment">
+<div className="ui active centered inline loader"></div>
+</div>
+
+)
+} else {
+	
+
+	return (
+		<div className="thank-you">
+			<h2>Thank you for your submission! 	</h2>
+			<br />
+			<h3>Your post will be moderated within 24-48 hours.</h3>
+			<h4>In the meantime, stay a while and check out your fellow community members! </h4>
+
+			{cards()}
 
 			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 		<Fragment>

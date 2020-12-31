@@ -21,3 +21,7 @@ export const fields = [
 export const photo = [
 	"Portrait", "Landscape", "Digital", "Film", "Event", "Wedding", "Product", "Sports", "Fine Art", "Architecture", "Other"
 ]
+
+export const writing = [
+	"Poetry", "Journalism"
+]

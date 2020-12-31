@@ -3,7 +3,8 @@ export const createProfile = (profile) => {
 		// make async call to db
 		const firestore = getFirestore();
 		// this will add a new document to our firestore
-		firestore.collection('profiles').add({
+		// const newId = profile.name.join("")
+		firestore.collection('profiles').doc(profile.userId).set({
 			// this whole document will be added to our collection
 			...profile,
 

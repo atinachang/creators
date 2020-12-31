@@ -4,7 +4,7 @@ import Fields from '../forms/Fields'
 const StepOne = (props) => {
 	// console.log(props)
 	// const {name, email, handleChange, currentStep, twitter, instagram, website, handleImageSubmit, progress, handleChangeImage, photo, bio} = props;
-	const {name, email, twitter, instagram, website, bio, photo, currentStep, handleChange, handleChangeImage, errors} = props;
+	const {name, email, twitter, instagram, website, bio, photo, currentStep, handleChange, handleChangeImage, errors, userId} = props;
 	// console.log(errors)
 		// const {name, email, field, genre, title, bio, photo, twitter, instagram, website, live} = props.formData;
 
@@ -44,7 +44,16 @@ const StepOne = (props) => {
 				 value={name}
 				 onChange={handleChange} 
 				 placeholder="Your preferred name"/>
-				 {/* {nameErr()} */}
+
+						<Fields 
+				 label="User ID" 
+				 required 
+				 type="text" 
+				 id="userId" 
+				 name="userId" 
+				 value={userId}
+				 onChange={handleChange} 
+				 placeholder="This will be used for your custom profile page. No spaces please!"/>
 				
 			 
 			 <Fields 

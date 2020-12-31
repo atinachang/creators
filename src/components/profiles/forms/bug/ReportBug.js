@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react'
-import StepThree from '../StepThree';
-import StepOne from './StepOne'
-import StepTwo from './StepTwo'
+// import StepThree from '../StepThree';
+// import StepOne from './StepOne'
+// import StepTwo from './StepTwo'
 
 const ReportBug = () => {
 	const [currentStep, setCurrentStep] = useState(1)
@@ -22,11 +22,7 @@ const ReportBug = () => {
 
 	return (
 		<Fragment>
-				<StepOne 
-				currentStep={currentStep}
-				handleChange={handleChange}
-				data={data}
-				/>
+				<h1>report bug</h1>
 				
 		</Fragment>
 	)

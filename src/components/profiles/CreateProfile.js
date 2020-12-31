@@ -14,6 +14,7 @@ import withReactContent from 'sweetalert2-react-content'
 class CreateProfile extends Component {
 	state = {
 		currentStep: 1,
+		userId: "",
 		name: "",
 		email: "",
 		bio: "",
@@ -78,7 +79,7 @@ class CreateProfile extends Component {
 		this.setState({
 			field: field.concat(value),
 		})
-		console.log(this.state.field)
+		// console.log(this.state.field)
 	}
 
 	handleChangeGenre = (e) => {
@@ -86,7 +87,7 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: this.state.genre.concat(value)
 		})
-		console.log(this.state.genre)
+		// console.log(this.state.genre)
 	}
 
 	handleChangeTitle = (e) => {
@@ -95,7 +96,7 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
-		console.log(this.state.title)
+		// console.log(this.state.title)
 	}
 
 	 handleChangeImage= async (e) =>  {
@@ -125,13 +126,12 @@ class CreateProfile extends Component {
 	 handleSubmit =(e)=>  {
 const MySwal = withReactContent(Swal)
 
-	 const {name, email, twitter, instagram, website, photo, field} = this.state;
+	 const {name, email, twitter, instagram, website, photo, field, userId} = this.state;
 	 const {createProfile, history} = this.props;
 			// let history = useHistory()
 		e.preventDefault();
 
 
-		console.log(this.state)
 		// console.log(this.props)
 // 		Swal.fire({
 // 			icon: 'success',
@@ -151,12 +151,10 @@ const MySwal = withReactContent(Swal)
 // 	`
 // })
 
-// console.log(this.state)
+console.log(this.state)
 createProfile(this.state)
-		// this.props.createProfile(this.state) //this is passed to mapDispatchToProps as the project
 		history.push('/thankyou')
-	
-		// this.props.history.push('/thankyou')
+
 	}
 	  _next = () => {
     let currentStep = this.state.currentStep
@@ -234,7 +232,7 @@ resetButton(){
 
 	render() {
 		const {name, email, twitter, instagram, website, photo, field, 
-			currentStep, genre, bio, title, errors} = this.state;
+			currentStep, genre, bio, title, errors, userId} = this.state;
 
 		return (
 			<Fragment>
@@ -252,6 +250,7 @@ resetButton(){
 					photo={photo} 
 					bio={bio}
 					errors={errors}
+					userId={userId}
 					/>
 					<StepTwo 
           currentStep={currentStep} 
