@@ -20,15 +20,18 @@ const  StepThree =(props)=>{
 				handleChangeGenre={handleChangeGenre} 
 				genre={genre} 
 				field={field} 
+				array={genres}
 				/>)
 		}
 
 		if (field === 'Film Production') {
 			page.push(<Titles 
-				key={title} 
+				key={film} 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
-				array={film}/>)
+				array={film}
+				field={field}
+				/>)
 		}
 
 		if (field === 'Design') {
@@ -36,15 +39,29 @@ const  StepThree =(props)=>{
 				key={design} 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
-				array={design}/>)
+				array={design}
+				field={field}
+				/>)
 		}
 
 		if (field === 'Tech') {
-			page.push(<Titles key={tech} handleChangeTitle={handleChangeTitle} title={title} array={tech}/>)
+			page.push(<Titles 
+				key={tech} 
+				handleChangeTitle={handleChangeTitle} 
+				title={title} 
+				array={tech}
+			field={field}
+			/>)
 		}
 		
 		if (field === 'Photography') {
-			page.push(<Titles key={photo} handleChangeTitle={handleChangeTitle} title={title} array={photo}/>)
+			page.push(<Titles 
+				key={photo} 
+				handleChangeTitle={handleChangeTitle} 
+				title={title} 
+				array={photo}
+			field={field}
+			/>)
 		}
 
 		if (field === 'Writing') {
@@ -53,6 +70,7 @@ const  StepThree =(props)=>{
 			handleChangeTitle={handleChangeTitle}
 			title={title}
 			array={writing}
+			field={field}
 			/>)
 		}
 		else {

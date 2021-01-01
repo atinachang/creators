@@ -66,13 +66,7 @@ class CreateProfile extends Component {
 		)
 	}
 
-	// handleChangeState = (e, push) => {
-	// 	const {value} = e.target
-	// 	const {push} = this.state
-	// 	this.setState({
-	// 		[push]: push.concat(value)
-	// 	})
-	// }
+
 
 	handleChangeFields= (e) => {
 		const {value} = e.target
@@ -85,8 +79,9 @@ class CreateProfile extends Component {
 
 	handleChangeGenre = (e) => {
 		const {value} = e.target
+		const {genre} = this.state
 		this.setState({
-			genre: this.state.genre.concat(value)
+			genre: genre.concat(value)
 		})
 		// console.log(this.state.genre)
 	}
@@ -113,16 +108,8 @@ class CreateProfile extends Component {
 				photo: url
 			})
 		})
-
 }
 
-//  validateForm = (errors) => {
-// 	let valid = true;
-// 	Object.values(errors).forEach(
-// 		(val) => val.length > 0 && (valid = false)
-// 	) ;
-// 	return valid;
-//  }
 
 	 handleSubmit =(e)=>  {
 const MySwal = withReactContent(Swal)
@@ -153,7 +140,7 @@ const MySwal = withReactContent(Swal)
 // })
 
 console.log(this.state)
-createProfile(this.state)
+// createProfile(this.state)
 		history.push('/thankyou')
 
 	}
@@ -256,11 +243,6 @@ resetButton(){
 					<StepTwo 
           currentStep={currentStep} 
 					handleChangeFields={this.handleChangeFields} 
-					handleChangeGenre={this.handleChangeGenre}
-					handleChangeTitle={this.handleChangeTitle} 
-					genre={genre} 
-					field={field} 
-					title={title}
 
         />
 					<StepThree 
@@ -271,7 +253,6 @@ resetButton(){
 					field={field} 
 					title={title}
         />
-				{/* <StepFour currentStep={this.state.currentStep}/> */}
 				{this.resetButton()}
         {this.previousButton()}
         {this.nextButton()}

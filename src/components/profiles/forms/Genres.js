@@ -1,14 +1,12 @@
 import Fields from './Fields'
 import React, {Fragment} from 'react'
-import {genres} from './arrays'
-import Input from './suggest/Input'
+// import {genres} from './arrays'
+// import Input from './suggest/Input'
 
 const Genres = (props) => {
-	console.log(props)
-	const {handleChangeGenre, genre} = props
-	// console.log(handleChangeGenre)
+	const {handleChangeGenre, genre, field, array} = props
 
-	const mapped = genres.map(item => {
+	const mapped = array.map(item => {
 		return (
 			<Fields 
 			key={item}
@@ -16,13 +14,13 @@ const Genres = (props) => {
 			label={item} 
 			value={item} 
 			id={item}
-			onChange={(e)=>handleChangeGenre(e)} 
+			onChange={handleChangeGenre} 
 			/>
 		)
 	})
 	return (
 		<Fragment>
-			<h3>
+			<h3>{field} -
 			What genres of music do you specialize in?
 			</h3>
 			<div className="inputs">

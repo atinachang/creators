@@ -4,7 +4,7 @@ import Fields from './Fields'
 
 const Titles = (props) => {
 	console.log(props)
-	const {handleChangeTitle, array, title} = props;
+	const {handleChangeTitle, array, title, field} = props;
 
 	const mapped = array.map(item => {
 		return (
@@ -14,13 +14,13 @@ const Titles = (props) => {
 				label={item} 
 				value={item} 
 				id={item} 
-				onChange={handleChangeTitle} 
+				onChange={(e)=>handleChangeTitle(e)} 
 				/>
 		)
 	})
 	return (
 		<Fragment>
-			<h3>
+			<h3>{field} - 
 			What do you specialize in?
 			</h3>
 			<div className=" inputs">
