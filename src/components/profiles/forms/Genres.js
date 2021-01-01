@@ -1,6 +1,7 @@
 import Fields from './Fields'
 import React, {Fragment} from 'react'
 import {genres} from './arrays'
+import Input from './suggest/Input'
 
 const Genres = (props) => {
 	console.log(props)
@@ -26,6 +27,11 @@ const Genres = (props) => {
 			</h3>
 			<div className="inputs">
 				{mapped}
+				{/* <Input 
+				type="text"
+				name="Other"
+				label="Other"
+				/> */}
 
 				{/* <Fields 
 			label="Hip-Hop" 

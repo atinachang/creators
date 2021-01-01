@@ -46,14 +46,16 @@ profiles.forEach((profile) => {
 	} 
 })
 
-		const mapped = profToRender.map((card) =>{
+	const sorted = profToRender.sort((a,b) => b.createdAt - a.createdAt)
+	// console.log(sorted)
+		const mapped = sorted.map((card) =>{
 			// console.log(card)
 			return (
 				<ProfileList key={card.id} card={card} props={props}/>
 			)
 		});
 
-		const adminmap = profToRender.map(card => {
+		const adminmap = sorted.map(card => {
 			return (
 				<AdminList key={card.id} card={card} />
 			)
@@ -90,6 +92,6 @@ const mapStateToProps = (state) => {
 export default compose(
 	connect(mapStateToProps),
 	firestoreConnect([
-		{ collection: 'profiles' }
+		{ collection: 'profiles'}
 	])
 )(Dashboard)

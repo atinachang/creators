@@ -13,7 +13,10 @@ export const createProfile = (profile) => {
 			dispatch({
 				type: 'CREATE_PROFILE',
 				profile,
+				// createdAt: new Date()
+
 				//when this action is called, it will add to the db
+
 			})}).catch((err) => {
 				dispatch({
 					type: 'CREATE_PROFILE_ERROR',

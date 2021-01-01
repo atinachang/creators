@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import Genres from './Genres'
 import Titles from './Titles'
-import {film, design, tech, genres, photo} from './arrays'
+import {film, design, tech, genres, photo, writing} from './arrays'
 
 const  StepThree =(props)=>{
 	// console.log(props);
@@ -14,7 +14,7 @@ const  StepThree =(props)=>{
 	} 
 	
 	field.forEach(field => {
-		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer") {
+		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer" || field === "Music Producer") {
 			page.push(<Genres 
 				key={genre}
 				handleChangeGenre={handleChangeGenre} 
@@ -45,6 +45,15 @@ const  StepThree =(props)=>{
 		
 		if (field === 'Photography') {
 			page.push(<Titles key={photo} handleChangeTitle={handleChangeTitle} title={title} array={photo}/>)
+		}
+
+		if (field === 'Writing') {
+			page.push(<Titles 
+			key={writing}
+			handleChangeTitle={handleChangeTitle}
+			title={title}
+			array={writing}
+			/>)
 		}
 		else {
 			return null

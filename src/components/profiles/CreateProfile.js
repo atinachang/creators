@@ -26,6 +26,7 @@ class CreateProfile extends Component {
 		genre: [],
 		title: [],
 		live: false,
+		createdAt: new Date(),
 		errors: {
 			name: null,
 			email: '',
