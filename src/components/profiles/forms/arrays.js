@@ -7,7 +7,7 @@ export const genres = [
 	]
 
 export const design = [
-		"Illustration", "Set Design", "Motion Design", "2D/3D Design", "Graphic Design", "Animation"
+		"Illustration", "Set Design", "Motion Design", "2D/3D Design", "Graphic Design", "Animation", "Brand Design"
 	]
 
 export const tech = [

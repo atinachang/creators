@@ -1,0 +1,24 @@
+@media (max-width: 900px) {
+	.details {
+		flex-wrap: wrap;
+	}
+
+	.bio {
+		width: 100%;
+	}
+
+	// .footer {
+	// 	padding: 20px 0;
+	// }
+}
+
+@media (max-width: 500px) {
+	// .details {
+	// 	flex-direction: column;
+	// }
+
+	.details-image {
+		width: 250px;
+		height: 250px;
+	}
+}
