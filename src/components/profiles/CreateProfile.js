@@ -4,11 +4,13 @@ import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
 import {storage} from '../../config/config';
 import {v4 as uuid} from 'uuid'
-import StepOne from './forms/StepOne';
-import StepTwo from './forms/StepTwo'
-import StepThree from './forms/StepThree'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import {DisplayingErrorMessagesSchema} from './forms/Errors'
+ import { Formik, Form, Field } from 'formik';
+ import * as Yup from 'yup';
+import StepOne from './forms/StepOne';
+
 
 
 class CreateProfile extends Component {
@@ -25,44 +27,18 @@ class CreateProfile extends Component {
 		field: [],
 		genre: [],
 		title: [],
+		// isChecked: null,
 		live: false,
 		createdAt: new Date(),
-		errors: {
-			name: null,
-			email: '',
-			field: [],
-		}
+
 	 } 
-	
+
 	
 	 handleChange =(e) => {
-		// const validateEmail = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
 		const {name, value} = e.target
-		// let errors = this.state.errors
-	
-		// switch (name) {
-		// 	case 'name':
-		// 		errors.name = null ? 'You must include a name' : '';
-		// 		break;
-		// 	case 'email':
-		// 		errors.email = validateEmail.test(value) ?'' : 'Email is not valid';
-		// 		break;
-			// case 'field':
-			// 	errors.field = value.length = 0 ? 'You must select a Field of Work' : '';
-			// 	break;
-			// case 'photo':
-			// 	errors.photo = '' ? 'You must upload a photo' : '';
-			// 	break;
-				// default:
-				// 	break;
-		
 		this.setState({
-			// errors,
 			[name]: value},
-			// ()=> {
-				// console.log(errors)
-			// }
 		)
 	}
 
@@ -70,11 +46,13 @@ class CreateProfile extends Component {
 
 	handleChangeFields= (e) => {
 		const {value} = e.target
-		const {field} = this.state
+		const {field, isChecked} = this.state
+
 		this.setState({
 			field: field.concat(value),
+			// isChecked: true
 		})
-		// console.log(this.state.field)
+		// console.log(this.state.isChecked)
 	}
 
 	handleChangeGenre = (e) => {
@@ -119,7 +97,6 @@ const MySwal = withReactContent(Swal)
 			// let history = useHistory()
 		e.preventDefault();
 
-
 		// console.log(this.props)
 // 		Swal.fire({
 // 			icon: 'success',
@@ -143,43 +120,28 @@ console.log(this.state)
 // createProfile(this.state)
 		history.push('/thankyou')
 
-	}
-	  _next = () => {
-    let currentStep = this.state.currentStep
-		// const {name} = this.state
-		// if (!this.state.errors) {
-			currentStep = currentStep >= 2? 3: currentStep + 1
-			this.setState({
-				currentStep: currentStep
-			})
-			
-		// } else {
-		// 				Swal.fire(
-		// 		`Oops, ${name} did you forget something?`
-		// 	)
-		// }
-		
-		// 		if (this.validateForm(this.state.errors)) {
-		// 	console.info('Valid form')
-		// } else {
-		// 	// console.error('Invalid form')
-		// 	Swal.fire(
-		// 		'Oops, you have to submit something!'
-		// 	)
-		// }
-	}
+}
+
+_next = (e) => {
+let currentStep = this.state.currentStep
+	currentStep = currentStep >= 2? 3: currentStep + 1
+	this.setState({
+		currentStep: currentStep
+	})	
+};
 	
-	  _prev = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1? 1: currentStep - 1
-    this.setState({
-      currentStep: currentStep
-    })
-	}
 	
-	_reset = () => {
-    window.location.reload(false);
-	}
+_prev = () => {
+let currentStep = this.state.currentStep
+currentStep = currentStep <= 1? 1: currentStep - 1
+this.setState({
+	currentStep: currentStep
+})
+}
+
+_reset = () => {
+window.location.reload(false);
+}
 
 /*
 * the functions for our button
@@ -218,14 +180,66 @@ resetButton(){
 	)
 }
 
-	render() {
-		const {name, email, twitter, instagram, website, photo, field, 
-			currentStep, genre, bio, title, errors, userId} = this.state;
 
-		return (
-			<Fragment>
-				<p>Step {currentStep}</p>
-				<form onSubmit={this.handleSubmit} className="ui form">
+	render() {
+const {name, email, twitter, instagram, website, photo, field, 
+	currentStep, genre, bio, title, errors, userId, isChecked, allFieldsValid} = this.state;
+
+	// console.log(this.DisplayingErrorMessagesSchema)
+    // const renderNameValidationError = name.valid ? (
+    //   ""
+    // ) : (
+    //   <ErrorValidationLabel txtLbl={name.requiredTxt} />
+    // );
+    // const renderUserValidationError = userId.valid ? (
+    //   ""
+    // ) : (
+    //   <ErrorValidationLabel txtLbl={userId.requiredTxt} />
+    // );
+
+
+	return (
+		<Fragment>
+			<Formik        
+				initialValues={{
+				name: '',
+				email: '',
+				userId: ''
+				}}
+				validationSchema={DisplayingErrorMessagesSchema}
+				onSubmit={values => {
+				// same shape as initial values
+				console.log(values);
+			}}>
+			{({ errors, touched }) => (
+				<Form className="ui form">
+					<div className="ui form error">
+
+						<StepOne 
+						errors={errors} 
+						touched={touched} 
+						currentStep={currentStep}
+						name={name}
+						userId={userId}
+						email={email}
+						handleChange={this.handleChange}
+						/>
+					{/* <Field name="email" type="email"/>
+					{touched.email && errors.email && <div>{errors.email}</div>} */}
+					<button type="submit" className="ui button">Submit</button>
+
+						</div>
+				</Form>
+				)}
+			</Formik>
+			{/* <DisplayingErrorMessagesExample /> */}
+				{/* <p>Step {currentStep}</p> */}
+
+				{/* <form 
+				onSubmit={this.handleSubmit} 
+				className="ui form"
+				noValidate
+				>
 					<StepOne 
 					currentStep={currentStep} 
 					handleChange={this.handleChange} 
@@ -237,12 +251,17 @@ resetButton(){
 					handleChangeImage={this.handleChangeImage}
 					photo={photo} 
 					bio={bio}
-					errors={errors}
 					userId={userId}
+					// errors={errors}
+					validateEmail={this.validateEmail}
+					// allFieldsValid={allFieldsValid}
+					// renderNameValidationError={renderNameValidationError}
+					// renderUserValidationError={renderUserValidationError}
 					/>
 					<StepTwo 
           currentStep={currentStep} 
 					handleChangeFields={this.handleChangeFields} 
+					// isChecked={isChecked}
 
         />
 					<StepThree 
@@ -257,9 +276,9 @@ resetButton(){
         {this.previousButton()}
         {this.nextButton()}
 				</form>
-
+ */}
 			</Fragment>
-		)
+					)
 	}
 }
 

@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, BrowserRouter, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
@@ -12,12 +12,13 @@ const ProfileDetails = (props) => {
 	// console.log(id)
 	const {profile, auth, history} = props;
 
-
+console.log(history)
 
 
 
 const goBack = ()=> {
-	history.push('/')
+	// history.push('/')
+	history.goBack()
 }
 
 if (!props.profile) {

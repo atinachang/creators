@@ -5,7 +5,7 @@ import StepThree from './StepThree'
 
 const StepTwo= (props)=> {
 	// console.log(props)
-	const { handleChangeFields, currentStep, } = props;
+	const { handleChangeFields, currentStep, isChecked} = props;
   if (currentStep !== 2) {
     return null
 	} 
@@ -18,6 +18,7 @@ const StepTwo= (props)=> {
 			label={item} 
 			value={item} 
 			id={item} 
+			// checked={isChecked}
 			onChange={(e) =>handleChangeFields(e)}/>
 		)
 	})
