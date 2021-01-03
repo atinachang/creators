@@ -5,8 +5,10 @@ import {film, design, tech, genres, photo, writing} from './arrays'
 
 const  StepThree =(props)=>{
 	// console.log(props);
-	const {currentStep, handleChangeGenre, handleChangeTitle, genre, field, title} = props;
+	const {currentStep, handleChangeGenre, handleChangeTitle, genre, field, title, handleChecked} = props;
 	const page =[]
+
+	// console.log(handleChangeGenre)
 
 
  if (currentStep !== 3) {
@@ -20,7 +22,8 @@ const  StepThree =(props)=>{
 				handleChangeGenre={handleChangeGenre} 
 				genre={genre} 
 				field={field} 
-				array={genres}
+				// array={genres}
+				// checked={handleChecked}
 				/>)
 		}
 
@@ -82,7 +85,7 @@ const  StepThree =(props)=>{
     <Fragment>
 			{page}
 
-    <button className="ui button">Submit</button>
+    {/* <button className="ui button">Submit</button> */}
     </Fragment>
   );
 }

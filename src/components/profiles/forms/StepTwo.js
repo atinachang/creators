@@ -1,14 +1,18 @@
 import React, {Fragment} from 'react'
-import Fields from './Fields'
+import {Fields, Checkbox} from './Fields'
 import {fields} from './arrays'
 import StepThree from './StepThree'
 
 const StepTwo= (props)=> {
 	// console.log(props)
-	const { handleChangeFields, currentStep, isChecked} = props;
+	const { handleChangeFields, currentStep, } = props;
+	// console.log(handleChecked)
   if (currentStep !== 2) {
     return null
 	} 
+
+	// const deselectAll = () => selectAllCheckboxes(false);
+
 	
 	const mapped = fields.map(item => {
 		return (
@@ -18,9 +22,8 @@ const StepTwo= (props)=> {
 			label={item} 
 			value={item} 
 			id={item} 
-			// checked={isChecked}
-			onChange={(e) =>handleChangeFields(e)}/>
-		)
+			onChange={(e) =>handleChangeFields(e)}/>	
+				)
 	})
   return(
 		<Fragment> 
@@ -30,7 +33,6 @@ const StepTwo= (props)=> {
 		</h4>
 		<div className="inputs">
 			{mapped}
-
 		</div>
 
 		</Fragment>

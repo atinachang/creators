@@ -9,7 +9,8 @@
 
 	h2,
 	h3,
-	h4 {
+	h4,
+	label {
 		color: black;
 	}
 }
@@ -17,11 +18,12 @@
 .ui.form .field > label,
 .ui.form .inline.fields .field > label {
 	// color: $primaryfnt;
-	@include font-size(1.4);
+	@include font-size(1.2);
 }
 
 .ui.form .fields > .field {
 	display: flex;
+	flex-direction: column;
 	margin: 5px;
 }
 .ui.form .fields {
@@ -63,9 +65,22 @@ form img {
 	flex-wrap: wrap;
 	// max-height: 250px;
 	// width: 100%;
+	label {
+		@include font-size(1.2);
+	}
 }
 
 // .visually-hidden {
 // 	position: absolute;
 // 	left: -100vw;
 // }
+.srv-validation-message {
+	background-color: #fff6f6;
+	color: #9f3a38;
+	box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent;
+	margin: 1em 0;
+	padding: 1em 1.5em;
+	transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease,
+		box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+	border-radius: 0.28571429rem;
+}

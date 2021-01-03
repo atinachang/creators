@@ -1,6 +1,9 @@
- const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
+import { FormikProvider } from "formik";
+import React, {Fragment} from 'react'
+
+const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
    return (
-  <div className="field">
+  <Fragment>
   <label htmlFor={label}>{label}</label>
   <input
   id={id}
@@ -13,8 +16,23 @@
   // checked={checked}
   />
   {/* {error && touched && <span className="ui red basic label">{error}</span>} */}
-  </div>
+  </Fragment>
    )
 }
 
-export default Fields
+const Checkbox = ({label, name,id, value, type, onChange, checked, isSelected, onCheckboxChange}) => {
+  return (
+    <div className="field">
+      <label>{label} 
+      <input type="checkbox"
+        type="checkbox"
+        name={label}
+        checked={isSelected}
+        onChange={onCheckboxChange} 
+        />
+      </label>
+    </div>
+  )
+}
+
+export {Fields, Checkbox}

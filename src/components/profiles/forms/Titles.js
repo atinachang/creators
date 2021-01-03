@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import Fields from './Fields'
+import {Fields} from './Fields'
 // import {film} from './arrays'
 
 const Titles = (props) => {
