@@ -10,7 +10,8 @@
 	h2,
 	h3,
 	h4,
-	label {
+	label,
+	p {
 		color: black;
 	}
 }
@@ -83,4 +84,15 @@ form img {
 	transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease,
 		box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
 	border-radius: 0.28571429rem;
+}
+
+.ui.form textarea {
+	resize: none;
+}
+
+.checkbox {
+	// @include flexbox();
+	display: flex;
+	justify-content: center;
+	margin: 5px;
 }

@@ -6,15 +6,13 @@ import {storage} from '../../config/config';
 import {v4 as uuid} from 'uuid'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import {DisplayingErrorMessagesSchema} from './forms/Errors'
-//  import { Formik, Form, Field } from 'formik';
-//  import * as Yup from 'yup';
 import StepOne from './forms/StepOne';
 import StepTwo from './forms/StepTwo'
 import StepThree from './forms/StepThree'
-// import {fields} from './forms/arrays'
+import {fields} from './forms/arrays'
 import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
+import Checkbox from './forms/Checkbox'
 
 
 
@@ -34,7 +32,13 @@ class CreateProfile extends Component {
 				field: [],
 				genre: [],
 				title: [],
-				isChecked: null,
+				checkboxes: fields.reduce(
+      (options, option) => ({
+        ...options,
+        [option]: false
+      }),
+      {}
+    ),
 				live: false,
 				createdAt: new Date(),
 		} 
@@ -46,54 +50,50 @@ class CreateProfile extends Component {
 
 		const {name, value} = e.target
 		this.setState({
-			[name]: value},
+			[name]: value,
+		}
 		)
 	}
 
-	// handleChecked = () => {
-	// 	const {isChecked, genre} = this.state
-	// 	if (genre.length > 0) {
-  //     genre.map((item) => (genre.done = !isChecked));
-	// 		this.setState({
-	// 			isChecked: !isChecked
-	// 		})
-	// 	}
-	// 	console.log(isChecked, genre)
-	// }
-	//   handleCheckboxChange = e => {
-  //   const { name } = e.target;
-
-  //   this.setState(prevState => ({
-  //     checkboxes: {
-  //       ...prevState.checkboxes,
-  //       [name]: !prevState.checkboxes[name]
-  //     }
-	// 	}));
-	// 	console.log(this.state.checkboxes)
-  // };
+	  selectAllCheckboxes = isSelected => {
+    Object.keys(this.state.checkboxes).forEach(checkbox => {
+      // BONUS: Can you explain why we pass updater function to setState instead of an object?
+      this.setState(prevState => ({
+        checkboxes: {
+          ...prevState.checkboxes,
+          [checkbox]: isSelected
+				}
+      }));
+		})
+  };
 
 
-	//   selectAllCheckboxes = isSelected => {
-  //   Object.keys(this.state.checkboxes).forEach(checkbox => {
-  //     // BONUS: Can you explain why we pass updater function to setState instead of an object?
-  //     this.setState(prevState => ({
-  //       checkboxes: {
-  //         ...prevState.checkboxes,
-  //         [checkbox]: isSelected
-  //       }
-  //     }));
-  //   });
-	// };
 
-	handleChangeFields= (e) => {
-		const {value} = e.target
+	  handleCheckboxChange = e => {
+    const { name, value } = e.target;
 		const {field} = this.state
 
-		this.setState({
-			field: field.concat(value),
-		})
+    this.setState(prevState => ({
+      checkboxes: {
+        ...prevState.checkboxes,
+        [name]: !prevState.checkboxes[name]
+			},
+				field: field.concat(value),
+
+		}));
 		console.log(field)
-	}
+		
+  };
+
+	// handleChangeFields= (e) => {
+	// 	const {value} = e.target
+	// 	const {field} = this.state
+
+	// 	this.setState({
+	// 		field: field.concat(value),
+	// 	})
+	// 	console.log(field)
+	// }
 
 	handleChangeGenre = (e) => {
 		const {value} = e.target
@@ -133,7 +133,7 @@ class CreateProfile extends Component {
 
 // const MySwal = withReactContent(Swal)
 
-	 const {name, email, twitter, instagram, website, photo, field, userId} = this.state;
+	 const {name, email, twitter, instagram, website, photo, field, userId, checkboxes} = this.state;
 	 const {createProfile, history} = this.props;
 			// let history = useHistory()
 		e.preventDefault();
@@ -168,141 +168,31 @@ class CreateProfile extends Component {
 
 console.log(this.state)
 // createProfile(this.state)
-
+Object.keys(checkboxes)
+      .filter(checkbox => checkboxes[checkbox])
+      .forEach(checkbox => {
+        console.log(checkbox, "is selected.");
+      });
 }
 
 
-// validate = values => {
-// 	const errors = {};
-// 	if (!values.name) {
-// 		errors.name = 'Required';
-// 	} 
-// //  else if (values.name.length > 15) {
-// //    errors.name = 'Must be 15 characters or less';
-// //  }
 
-// 	if (!values.userId) {
-// 		errors.userId = 'Required';
-// 	} 
-// 	// else if (values.userId.length > 20) {
-// 	// 	errors.userId = 'Must be 20 characters or less';
-// 	// }
+  createCheckbox = option => (
+    <Checkbox
+      label={option}
+      isSelected={this.state.checkboxes[option]}
+			onCheckboxChange={this.handleCheckboxChange}
+			key={option}
+			value={option}
+    />
+  );
 
-// 	if (!values.email) {
-// 		errors.email = 'Required';
-// 	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-// 		errors.email = 'Invalid email address';
-// 	}
-
-// 	return errors;
-// };
-
-_next = (e) => {
-let currentStep = this.state.currentStep
-	currentStep = currentStep >= 2? 3: currentStep + 1
-	this.setState({
-		currentStep: currentStep
-	})	
-
-
-};
-	
-	
-_prev = () => {
-let currentStep = this.state.currentStep
-currentStep = currentStep <= 1? 1: currentStep - 1
-this.setState({
-	currentStep: currentStep
-})
-}
-
-_reset = () => {
-window.location.reload(false);
-}
-
-/*
-* the functions for our button
-*/
-previousButton() {
-  let currentStep = this.state.currentStep;
-  if(currentStep !==1){
-    return (
-      <button 
-        className="ui button" 
-        type="button" onClick={this._prev}>
-      Previous
-      </button>
-    )
-  }
-  return null;
-}
-
-nextButton(){
-  let currentStep = this.state.currentStep;
-  if(currentStep <3){
-    return (
-      <button 
-        className="ui button" 
-        type="button" onClick={this._next}>
-      Next
-      </button>        
-    )
-	}
-  return null;
-}
-
-resetButton(){
-	return (
-		<button className="ui button" onClick={this._reset}>Reset Form</button>
-	)
-}
-
+  // createCheckboxes = () => fields.map(this.createCheckbox);
 
 	render() {
-const {name, email, twitter, instagram, website, photo, field, 
-	currentStep, genre, bio, title, errors, userId} = this.state;
-
-  //  const formik = useFormik({
-  //    initialValues: {
-  //      name: '',
-  //      userId: '',
-  //      email: '',
-  //    },
-  //    validate,
-  //    onSubmit: values => {
-  //      alert(JSON.stringify(values, null, 2));
-  //    },
-  //  });
 
 	return (
 		<Fragment>
-			{/* <Formik        
-				initialValues={{
-				name: '',
-				email: '',
-				userId: ''
-				}}
-				validationSchema={DisplayingErrorMessagesSchema}			
-			>
-			{({ errors, touched }) => (
-				<Form className="ui form" onSubmit={this.handleSubmit}>
-					<div className="ui form error">
-
-						<StepOne 
-						errors={errors} 
-						touched={touched} 
-						currentStep={currentStep}
-						name={name}
-						userId={userId}
-						email={email}
-						handleChange={this.handleChange}
-						validator={this.validator}
-						/>
-					<button type="submit" className="ui button">Submit</button>
-						</div>
-				</Form>
-				)}
-			</Formik> */}
 
 				<form 
 				onSubmit={this.handleSubmit} 
@@ -314,40 +204,14 @@ const {name, email, twitter, instagram, website, photo, field,
 					validator={this.validator}
 					handleChangeImage={this.handleChangeImage}
 					handleChangeFields={this.handleChangeFields}
+					createCheckbox={this.createCheckbox}
+					selectAllCheckboxes={this.selectAllCheckboxes}
+					handleChangeGenre={this.handleChangeGenre}
+					handleChangeTitle={this.handleChangeTitle}
+					handleChangeGenre={this.handleChangeGenre}
 					/>
-					{/* <StepOne 
-					currentStep={currentStep} 
-					handleChange={this.handleChange} 
-					email={email} 
-					name={name} 
-					twitter={twitter} 
-					instagram={instagram} 
-					website={website} 
-					handleChangeImage={this.handleChangeImage}
-					photo={photo} 
-					bio={bio}
-					userId={userId}
-					userId={userId}
-					handleChange={this.handleChange}
-					validator={this.validator}
-					/> */}
-					{/* <StepTwo 
-          currentStep={currentStep} 
-					handleChangeFields={this.handleChangeFields} 
-        />
-					<StepThree 
-					currentStep={currentStep} 
-					handleChecked={this.handleChecked}
-          handleChangeGenre={this.handleChangeGenre}
-					handleChangeTitle={this.handleChangeTitle} 
-					genre={genre} 
-					field={field} 
-					title={title}
-        /> */}
+
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>
-				{/* {this.resetButton()}
-        {this.previousButton()}
-        {this.nextButton()} */}
 				</form>
 
 			</Fragment>

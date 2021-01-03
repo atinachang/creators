@@ -7,9 +7,9 @@ const StepTwo= (props)=> {
 	// console.log(props)
 	const { handleChangeFields, currentStep, } = props;
 	// console.log(handleChecked)
-  if (currentStep !== 2) {
-    return null
-	} 
+  // if (currentStep !== 2) {
+  //   return null
+	// } 
 
 	// const deselectAll = () => selectAllCheckboxes(false);
 

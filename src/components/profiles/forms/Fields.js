@@ -13,9 +13,7 @@ const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, ch
   onChange={onChange}
   placeholder={placeholder}
   accept={accept}
-  // checked={checked}
   />
-  {/* {error && touched && <span className="ui red basic label">{error}</span>} */}
   </Fragment>
    )
 }

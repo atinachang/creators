@@ -1,21 +1,20 @@
 import React, {Fragment} from 'react'
+import {Fields} from './Fields'
+import {fields, film, design, tech, genres, photo, writing} from './arrays'
 import Genres from './Genres'
 import Titles from './Titles'
-import {film, design, tech, genres, photo, writing} from './arrays'
 
-const  StepThree =(props)=>{
-	const {handleChangeGenre, handleChangeTitle, genre, field, title} = props;
+const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => {
+		const { photo, field,  genre, title } = state;
+
 	const page =[]
 
-	
 	field.forEach(field => {
 		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer" || field === "Music Producer") {
 			page.push(<Genres 
 				key={genre}
-				handleChangeGenre={handleChangeGenre} 
-				genre={genre} 
-				field={field} 
-				/>)
+				handleChangeGenre={handleChangeGenre}
+				field={field} />)
 		}
 
 		if (field === 'Film Production') {
@@ -70,17 +69,15 @@ const  StepThree =(props)=>{
 		else {
 			return null
 		}
+
 	})
 
-  return(
-    <Fragment>
-			{/* {validator.message('field', field, 'required|accepted')} */}
-
+	return (
+		<Fragment>
 			{page}
-
-    {/* <button className="ui button">Submit</button> */}
-    </Fragment>
-  );
+			
+		</Fragment>
+	)
 }
 
-export default StepThree
+export default Page

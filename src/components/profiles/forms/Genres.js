@@ -1,12 +1,10 @@
 import {Fields} from './Fields'
 import React, {Fragment} from 'react'
 import {genres} from './arrays'
-// import Input from './suggest/Input'
 
 const Genres = (props) => {
-	const {handleChangeGenre, genre, field, array, handleChecked} = props
+	const {handleChangeGenre,  field } = props
 
-	// console.log(handleChangeGenre)
 	const mapped = genres.map(item => {
 		return (
 			<Fields 
@@ -15,7 +13,7 @@ const Genres = (props) => {
 			label={item} 
 			value={item} 
 			id={item} 
-			onChange={(e) =>handleChangeGenre(e)}/>
+			onChange={handleChangeGenre}/>
 					)
 	})
 	return (

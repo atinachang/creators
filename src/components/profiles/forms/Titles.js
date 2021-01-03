@@ -3,7 +3,7 @@ import {Fields} from './Fields'
 // import {film} from './arrays'
 
 const Titles = (props) => {
-	console.log(props)
+	// console.log(props)
 	const {handleChangeTitle, array, title, field} = props;
 
 	const mapped = array.map(item => {
@@ -14,7 +14,7 @@ const Titles = (props) => {
 				label={item} 
 				value={item} 
 				id={item} 
-				onChange={(e)=>handleChangeTitle(e)} 
+				onChange={handleChangeTitle} 
 				/>
 		)
 	})

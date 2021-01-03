@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	// line-height: 1.1em !important;
 }
 
 body {
@@ -24,6 +25,7 @@ a {
 h1 {
 	@include font-size(4);
 	word-wrap: break-word;
+	font-weight: 300;
 }
 
 h2 {
