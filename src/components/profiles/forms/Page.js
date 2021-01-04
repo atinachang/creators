@@ -4,7 +4,7 @@ import {fields, film, design, tech, genres, photo, writing} from './arrays'
 import Genres from './Genres'
 import Titles from './Titles'
 
-const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => {
+const Page = ({state, handleChangeGenre, handleChangeTitle}) => {
 		const { photo, field,  genre, title } = state;
 
 	const page =[]
@@ -14,16 +14,18 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => 
 			page.push(<Genres 
 				key={genre}
 				handleChangeGenre={handleChangeGenre}
-				field={field} />)
+				field={field}
+				genre={genre}
+				/>)
 		}
 
 		if (field === 'Film Production') {
 			page.push(<Titles 
 				key={film} 
 				handleChangeTitle={handleChangeTitle} 
-				title={title} 
 				array={film}
 				field={field}
+				title={title}
 				/>)
 		}
 
@@ -34,6 +36,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => 
 				title={title} 
 				array={design}
 				field={field}
+				title={title}
 				/>)
 		}
 
@@ -43,7 +46,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
 				array={tech}
-			field={field}
+				field={field}
 			/>)
 		}
 		
@@ -53,7 +56,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
 				array={photo}
-			field={field}
+				field={field}
 			/>)
 		}
 
@@ -72,10 +75,10 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, createCheckbox}) => 
 
 	})
 
+
 	return (
 		<Fragment>
 			{page}
-			
 		</Fragment>
 	)
 }

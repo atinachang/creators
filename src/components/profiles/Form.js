@@ -31,7 +31,6 @@ handleChange={handleChange}
 			Please select all that apply
 		</h4>
 		<div className="inputs">
-			{/* {createCheckboxes()} */}
 			{createFields()}
 
 		</div>

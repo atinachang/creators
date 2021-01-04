@@ -1,7 +1,5 @@
 import React, {Fragment} from 'react'
 import {Fields} from '../forms/Fields'
-import StepTwo from './StepTwo'
-import {fields} from './arrays'
 
 const StepOne = ({state, validator, handleChange, handleChangeImage}) => {
 const {name, email, twitter, instagram, website, bio, photo, userId} = state;
@@ -9,7 +7,6 @@ const {name, email, twitter, instagram, website, bio, photo, userId} = state;
 return (
 
 	<Fragment> 
-
 
 <div className="two fields">
 
@@ -22,7 +19,7 @@ return (
 			name="name"
 			onChange={handleChange}
 			placeholder="Your preferred name"/>
-			{validator.message('name', name, 'required|alpha')}
+			{validator.message('name', name, 'required|alpha_space')}
 			</div>
 
 		<div className="field">
@@ -49,14 +46,13 @@ return (
 			onChange={handleChange}
 			value={email}
 			placeholder="Your preferred contact email"/>
-			{/* {validator.message('email', email, 'required|email')} */}
+			{validator.message('email', email, 'required|email')}
 
 			<Fields label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
 			<img src={photo} alt={name} />
 			{validator.message('photo', photo, 'required')}
 				
 
-			{/* <Fields label="Short Bio" type="textarea" id="bio" name="bio" onChange={handleChange} value={bio} placeholder="Keep it less than 150 words" maxlength="200"/> */}
 				<label htmlFor="bio">Short Bio</label>
 			<textarea name="bio" id="bio" value={bio} onChange={handleChange} rows="4"></textarea>
 			</div>
@@ -66,10 +62,12 @@ return (
 				<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>
 			{validator.message('twitter', twitter, 'url:https://www.twitter.com/ ')}
 
-			
 			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="https://www.instagram/com/*"/>
-			
-			<Fields label="Website" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="https://*"/>
+			{validator.message('instagram', instagram, 'url:https://www.instagram.com/ ')}
+
+			<Fields label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="https://*"/>
+			{validator.message('website', website, 'url:https:// ')}
+
 			</div>
 
 	</Fragment>	

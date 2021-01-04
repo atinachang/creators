@@ -2,13 +2,9 @@ import React, { Component, useState, useEffect, Fragment } from 'react';
 import {connect} from 'react-redux';
 import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
-import {storage} from '../../config/config';
 import {v4 as uuid} from 'uuid'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import StepOne from './forms/StepOne';
-import StepTwo from './forms/StepTwo'
-import StepThree from './forms/StepThree'
+// import Swal from 'sweetalert2'
+// import withReactContent from 'sweetalert2-react-content'
 import {fields} from './forms/arrays'
 import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
@@ -20,7 +16,7 @@ class CreateProfile extends Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-				currentStep: 1,
+				// currentStep: 1,
 				userId: "",
 				name: "",
 				email: "",
@@ -128,51 +124,55 @@ class CreateProfile extends Component {
 		})
 }
 
+handleReset =(e) => {
+	e.preventDefault();
+	e.stopPropagation();
+	this.setState({
+		userId: "",
+		name: "",
+		email: "",
+		bio: "",
+		photo: "",
+		twitter: "",
+		instagram: "",
+		website: "",
+		field: [],
+		genre: [],
+		title: [],
+		checkboxes: fields.reduce(
+		(options, option) => ({
+		...options,
+		[option]: false
+		}),
+		{}
+		),
+		live: false,
+		createdAt: new Date(),
+	})
+}
+
 
 	 handleSubmit =(e)=>  {
 
 // const MySwal = withReactContent(Swal)
 
-	 const {name, email, twitter, instagram, website, photo, field, userId, checkboxes} = this.state;
+	 const {name, checkboxes} = this.state;
 	 const {createProfile, history} = this.props;
-			// let history = useHistory()
 		e.preventDefault();
-		// e.stopPropagation();
 
-		// console.log(this.props)
-// 		Swal.fire({
-// 			icon: 'success',
-// 			allowOutsideClick: true,
-// 			allowEscapeKey: true,
-// 			title: name,
-// 			imageUrl: photo,
-// 			imageWidth: 200,
-// 			imageHeight: 200,
-// 			width: 700,
-// 			html: `
-// 			<p>Your Field(s) of Work: ${field}</p>
-// 			<p>Email: ${email}</p>
-// 			<p>Twitter: ${twitter}</p>
-// 			<p>Instagram: ${instagram} </p>
-// 			<p>Website: <a href=${website}/></p>
-// 	`
-// })
 	  if (this.validator.allValid()) {
-    alert('You submitted the form and stuff!');
+    alert(`Thanks ${name}! You've submitted the form! \uD83D\uDE00 `);
   } else {
     this.validator.showMessages();
-    // rerender to show messages for the first time
-    // you can use the autoForceUpdate option to do this automatically`
     this.forceUpdate();
   }
 
 console.log(this.state)
-// createProfile(this.state)
+createProfile(this.state)
+history.push('/thankyou')
 Object.keys(checkboxes)
-      .filter(checkbox => checkboxes[checkbox])
-      .forEach(checkbox => {
-        console.log(checkbox, "is selected.");
-      });
+			.filter(checkbox => checkboxes[checkbox])
+		
 }
 
 
@@ -186,8 +186,6 @@ Object.keys(checkboxes)
 			value={option}
     />
   );
-
-  // createCheckboxes = () => fields.map(this.createCheckbox);
 
 	render() {
 
@@ -212,6 +210,7 @@ Object.keys(checkboxes)
 					/>
 
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>
+				<button className="ui button" onClick={this.handleReset}>Reset Form</button>
 				</form>
 
 			</Fragment>

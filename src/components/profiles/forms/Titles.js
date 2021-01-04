@@ -2,9 +2,8 @@ import React, {Fragment} from 'react'
 import {Fields} from './Fields'
 // import {film} from './arrays'
 
-const Titles = (props) => {
-	// console.log(props)
-	const {handleChangeTitle, array, title, field} = props;
+const Titles = ({handleChangeTitle, array, title, field}) => {
+
 
 	const mapped = array.map(item => {
 		return (
@@ -18,6 +17,8 @@ const Titles = (props) => {
 				/>
 		)
 	})
+
+	const split = title.join(', ')
 	return (
 		<Fragment>
 			<h3>{field} - 
@@ -25,7 +26,7 @@ const Titles = (props) => {
 			</h3>
 			<div className=" inputs">
 				{mapped}
-
+		<p>You Selected: {split}</p>
 			</div>		
 			</Fragment>
 	)

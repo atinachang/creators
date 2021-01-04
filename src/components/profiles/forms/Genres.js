@@ -2,9 +2,7 @@ import {Fields} from './Fields'
 import React, {Fragment} from 'react'
 import {genres} from './arrays'
 
-const Genres = (props) => {
-	const {handleChangeGenre,  field } = props
-
+const Genres = ({field, handleChangeGenre, genre}) => {
 	const mapped = genres.map(item => {
 		return (
 			<Fields 
@@ -13,9 +11,11 @@ const Genres = (props) => {
 			label={item} 
 			value={item} 
 			id={item} 
-			onChange={handleChangeGenre}/>
+			onChange={(e)=>handleChangeGenre(e)}/>
 					)
 	})
+
+	const split = genre.join(', ')
 	return (
 		<Fragment>
 			<h3>{field} -
@@ -23,6 +23,7 @@ const Genres = (props) => {
 			</h3>
 			<div className="inputs">
 				{mapped}
+				<p>You selected: {split}</p>
 			</div>
 
 		</Fragment>
