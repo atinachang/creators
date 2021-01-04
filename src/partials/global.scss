@@ -1,7 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	// line-height: 1.1em !important;
+	// line-height: $leading;
+	// margin-bottom: $leading;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
 }
 body,
 p {
-	@include font-size(1.5);
+	@include font-size(1.3);
 }
 .wrapper {
 	max-width: 1200px;
@@ -22,14 +23,23 @@ a {
 	color: $primaryfnt;
 }
 
+h3,
+h4,
+h5,
+p {
+	font-weight: 300;
+	line-height: 1.1em !important;
+	margin: 0 !important ;
+}
 h1 {
 	@include font-size(4);
 	word-wrap: break-word;
-	font-weight: 300;
 }
 
 h2 {
-	@include font-size(2.5);
+	@include font-size(2.2);
+	// margin-top: #{2.5 * $leading + "px"};
+	// line-height: #{1.5 * $leading + "px"};
 }
 
 h3 {
@@ -41,6 +51,15 @@ h4 {
 	margin: 0;
 }
 
+h5 {
+	@include font-size(1.4);
+	margin: 0;
+}
+
+h3,
+h5 {
+	text-transform: uppercase;
+}
 li {
 	list-style-type: none;
 }

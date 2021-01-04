@@ -11,17 +11,13 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 const Dashboard =(props) => {
 		const {profiles, auth} = props;
-		// console.log(auth)
 
 	const [appFilter, setAppFilter] = useState("All")
-	const [expFilter, setExpFilter] = useState("All")
 
 		const filter =(e) => {
 	const {value} = e.target
 		setAppFilter(value)
-		// console.log(appFilter)
 	}
-
 
 
 	if (profiles === undefined) {
@@ -32,24 +28,20 @@ const Dashboard =(props) => {
 
 )
 }
-// console.log(props.profiles)
 let profToRender = [];
 profiles.forEach((profile) => {
-	// console.log(profile)
 	if (appFilter === "All") {
 		profToRender.push(profile)
 	} else{
 		if (profile.field.includes(appFilter)) {
 			profToRender.push(profile)
-			// console.log(profToRender)
 		}
 	} 
 })
-
+		
 	const sorted = profToRender.sort((a,b) => b.createdAt - a.createdAt)
-	// console.log(sorted)
+
 		const mapped = sorted.map((card) =>{
-			// console.log(card)
 			return (
 				<ProfileList key={card.id} card={card} props={props}/>
 			)
@@ -62,19 +54,10 @@ profiles.forEach((profile) => {
 		})
 		const users = auth.uid ? adminmap : mapped;
 
-		const arrayfilter = () => {
-			let expert = []
-			if (appFilter === "Film Production") {
-				expert.push(<ArrayFilter key={film} filter={filter} array={film}/>)
-			}
-			return (
-				<Fragment>{expert}</Fragment>
-			)
-		}
+
 		return (
 			<Fragment>
 				<Filter filter={filter} />
-				{/* {arrayfilter()} */}
 				<div className="ui link cards">
 			{auth.isLoaded && users}
 			</div>

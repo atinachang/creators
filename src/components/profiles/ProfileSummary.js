@@ -15,8 +15,8 @@ const ProfileSummary = ({profile, prop}) => {
 				<img src={photo} alt={name} />
 			</div>
 			<div className="content">
-				<h2>{name}</h2>
-				<h4>{txt}</h4>
+				<h3>{name}</h3>
+				<p>{txt}</p>
 			</div>
 		</Fragment>
 	)

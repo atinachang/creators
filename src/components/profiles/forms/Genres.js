@@ -23,7 +23,7 @@ const Genres = ({field, handleChangeGenre, genre}) => {
 			</h3>
 			<div className="inputs">
 				{mapped}
-				<p>You selected: {split}</p>
+				<strong>You selected: {split}</strong>
 			</div>
 
 		</Fragment>

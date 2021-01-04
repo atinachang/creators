@@ -11,7 +11,8 @@
 	h3,
 	h4,
 	label,
-	p {
+	p,
+	strong {
 		color: black;
 	}
 }
@@ -20,6 +21,7 @@
 .ui.form .inline.fields .field > label {
 	// color: $primaryfnt;
 	@include font-size(1.2);
+	text-transform: uppercase;
 }
 
 .ui.form .fields > .field {

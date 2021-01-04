@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Fields} from './Fields'
-import {fields, film, design, tech, genres, photo, writing} from './arrays'
+import {fields, film, design, tech, genres, photog, writing} from './arrays'
 import Genres from './Genres'
 import Titles from './Titles'
 
@@ -52,10 +52,10 @@ const Page = ({state, handleChangeGenre, handleChangeTitle}) => {
 		
 		if (field === 'Photography') {
 			page.push(<Titles 
-				key={photo} 
+				key={photog} 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
-				array={photo}
+				array={photog}
 				field={field}
 			/>)
 		}

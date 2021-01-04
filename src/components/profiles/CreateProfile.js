@@ -77,19 +77,10 @@ class CreateProfile extends Component {
 				field: field.concat(value),
 
 		}));
-		console.log(field)
+		// console.log(field)
 		
   };
 
-	// handleChangeFields= (e) => {
-	// 	const {value} = e.target
-	// 	const {field} = this.state
-
-	// 	this.setState({
-	// 		field: field.concat(value),
-	// 	})
-	// 	console.log(field)
-	// }
 
 	handleChangeGenre = (e) => {
 		const {value} = e.target
@@ -106,7 +97,7 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
-		console.log(this.state.title)
+		// console.log(this.state.title)
 	}
 
 	 handleChangeImage= async (e) =>  {
@@ -115,9 +106,9 @@ class CreateProfile extends Component {
 		const imagesRef = firebase.storage().ref("images").child(id);
 		await imagesRef.put(file)
 
-		console.log(file)
+		// console.log(file)
 		imagesRef.getDownloadURL().then(url => {
-			console.log(url)
+			// console.log(url)
 			this.setState({
 				photo: url
 			})
@@ -167,7 +158,7 @@ handleReset =(e) => {
     this.forceUpdate();
   }
 
-console.log(this.state)
+// console.log(this.state)
 createProfile(this.state)
 history.push('/thankyou')
 Object.keys(checkboxes)

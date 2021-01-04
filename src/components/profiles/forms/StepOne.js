@@ -54,7 +54,9 @@ return (
 				
 
 				<label htmlFor="bio">Short Bio</label>
-			<textarea name="bio" id="bio" value={bio} onChange={handleChange} rows="4"></textarea>
+			<textarea name="bio" id="bio" value={bio} onChange={handleChange} rows="4" placeholder="Less than 100 words"></textarea>
+			{validator.message('bio', bio, 'max:200')}
+
 			</div>
 
 			<h3>Social Media</h3>
@@ -62,7 +64,7 @@ return (
 				<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>
 			{validator.message('twitter', twitter, 'url:https://www.twitter.com/ ')}
 
-			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="https://www.instagram/com/*"/>
+			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="https://www.instagram.com/*"/>
 			{validator.message('instagram', instagram, 'url:https://www.instagram.com/ ')}
 
 			<Fields label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="https://*"/>

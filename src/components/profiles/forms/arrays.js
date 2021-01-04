@@ -18,7 +18,7 @@ export const fields = [
 	"DJ", "Film Production", "Consulting", "Design", "Tech", "Dance", "Photography", "Marketing", "Vocal Artist", "Sound Engineer", "Writing", "Event Production", "Fashion", "Make Up Artist", "Music Producer"
 ]
 
-export const photo = [
+export const photog = [
 	"Portrait", "Landscape", "Digital", "Film", "Event", "Wedding", "Product", "Sports", "Fine Art", "Architecture", "Other"
 ]
 

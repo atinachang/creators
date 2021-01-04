@@ -26,7 +26,7 @@ const Titles = ({handleChangeTitle, array, title, field}) => {
 			</h3>
 			<div className=" inputs">
 				{mapped}
-		<p>You Selected: {split}</p>
+		<strong>You Selected: {split}</strong>
 			</div>		
 			</Fragment>
 	)

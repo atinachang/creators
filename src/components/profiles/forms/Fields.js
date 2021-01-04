@@ -1,4 +1,3 @@
-import { FormikProvider } from "formik";
 import React, {Fragment} from 'react'
 
 const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {

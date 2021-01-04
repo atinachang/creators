@@ -15,6 +15,8 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 
 	const createFields = () => fields.map(createCheckbox)
 
+	const split = state.field.join(', ')
+
 	return (
 		<Fragment>
 			<h2>Let's get to know you!</h2>
@@ -32,6 +34,7 @@ handleChange={handleChange}
 		</h4>
 		<div className="inputs">
 			{createFields()}
+			<strong>You Selected: {split}</strong>
 
 		</div>
 			<button className="ui button" onClick={deselectAll}>Clear Selection</button>

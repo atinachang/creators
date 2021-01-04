@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react'
 import Genres from './Genres'
 import Titles from './Titles'
-import {film, design, tech, genres, photo, writing} from './arrays'
+import {film, design, tech, genres, photog, writing} from './arrays'
 
 const  StepThree =(props)=>{
 	const {handleChangeGenre, handleChangeTitle, genre, field, title} = props;
@@ -50,10 +50,10 @@ const  StepThree =(props)=>{
 		
 		if (field === 'Photography') {
 			page.push(<Titles 
-				key={photo} 
+				key={photog} 
 				handleChangeTitle={handleChangeTitle} 
 				title={title} 
-				array={photo}
+				array={photog}
 			field={field}
 			/>)
 		}
