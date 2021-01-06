@@ -29,11 +29,12 @@ h5,
 p {
 	font-weight: 300;
 	line-height: 1.1em !important;
-	margin: 0 !important ;
+	margin: 0;
 }
 h1 {
 	@include font-size(4);
 	word-wrap: break-word;
+	text-transform: uppercase;
 }
 
 h2 {

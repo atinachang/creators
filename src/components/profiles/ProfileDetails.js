@@ -3,7 +3,7 @@ import {Redirect, BrowserRouter, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import { Socials, Bio, Info} from '../admin/Buttons';
+import { Socials, Bio, Info} from '../layout/Buttons';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {

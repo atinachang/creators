@@ -9,14 +9,16 @@ const ProfileSummary = ({profile, prop}) => {
 	const {name, title, photo, field} = profile;
 	const txt = field.join(', ')
 
+
+
 	return (
 		<Fragment>
 			<div className="image">
 				<img src={photo} alt={name} />
 			</div>
 			<div className="content">
-				<h3>{name}</h3>
-				<p>{txt}</p>
+				<p>{name}</p>
+				{/* <p>{txt}</p> */}
 			</div>
 		</Fragment>
 	)

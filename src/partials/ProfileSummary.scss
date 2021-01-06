@@ -21,11 +21,6 @@
 .card {
 	display: flex;
 	justify-content: center;
-	// align-items: center;
-	// flex-direction: column;
-	// width: 200px;
-	// margin: 20px auto;
-	// border: 1px solid orange;
 }
 
 .ui.link.cards {
@@ -39,6 +34,8 @@
 .fluid.card {
 	width: 200px;
 	margin: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
 .ui.link.cards .card {
@@ -48,7 +45,12 @@
 }
 
 .content {
-	@include flexbox();
-	padding: 10px 0;
-	text-align: center;
+	// @include flexbox();
+	// padding: 10px 0;
+	padding-top: 10px;
+	// padding-bottom: 5px;
+	text-align: left;
+	p:first-of-type {
+		text-transform: uppercase;
+	}
 }

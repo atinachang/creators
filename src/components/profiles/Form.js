@@ -34,9 +34,9 @@ handleChange={handleChange}
 		</h4>
 		<div className="inputs">
 			{createFields()}
+		</div>
 			<strong>You Selected: {split}</strong>
 
-		</div>
 			<button className="ui button" onClick={deselectAll}>Clear Selection</button>
 		<div className="page">
 			<Page 

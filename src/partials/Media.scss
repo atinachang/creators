@@ -13,8 +13,20 @@
 }
 
 @media (max-width: 500px) {
+	.wrapper {
+		width: 100%;
+	}
 	.details-image {
 		width: 250px;
 		height: 250px;
+	}
+
+	.fluid.card {
+		width: 150px;
+	}
+
+	.image {
+		width: 150px;
+		height: 150px;
 	}
 }

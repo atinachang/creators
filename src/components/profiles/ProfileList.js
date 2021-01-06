@@ -8,7 +8,16 @@ import {fields} from './forms/arrays'
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({card, props}) => {
-
+	const {field} = card
+	const fieldRender = () => {
+const mapped = field.map(item => 
+		<li className="label" key={item}>{item}</li>
+)
+			return (
+			<ul>
+				{mapped}
+			</ul> )
+	}
 const cards = () => {
 		if (card.live === true) {
 	return (
@@ -17,6 +26,7 @@ const cards = () => {
 			<Link to={`/profile/${card.id}`}>
 			<ProfileSummary profile={card} key={card.id}  />
 			</Link>
+			{fieldRender()}
 			</div>
 			</div>
 	)

@@ -8,8 +8,7 @@ import CreateProfile from './components/profiles/CreateProfile';
 import Footer from './components/layout/Footer';
 import Admin from './components/admin/Admin';
 import ThankYou from './components/layout/ThankYou'
-import ReportBug from './components/profiles/forms/bug/ReportBug'
-import Suggestion from './components/profiles/forms/suggest/Suggestion'
+import Faq from './components/layout/Faq'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
@@ -17,7 +16,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = ()=> {
-  const app = "wecreate.to"
+  const app = "Wecreate.to"
   return (
     <Fragment>
       <div className="ui container">
@@ -33,8 +32,7 @@ const App = ()=> {
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />
-    <Route path='/report' component={ReportBug} />
-    <Route path='/suggestion' component={Suggestion} />
+    <Route path="/FAQ" render={() =><Faq app={app}/>} />
     </Switch>
     </div>
     </BrowserRouter>

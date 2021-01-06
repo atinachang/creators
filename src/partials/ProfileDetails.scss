@@ -1,14 +1,16 @@
 .details {
 	display: flex;
 	justify-content: space-between;
-	li {
-		// display: inline;
-		border-radius: 10px;
-		padding: 10px 15px;
-		margin: 5px;
-		margin-left: 0;
-		letter-spacing: 1px;
-	}
+}
+
+li.dark,
+li.light {
+	// display: inline;
+	border-radius: 10px;
+	padding: 10px 15px;
+	margin: 5px;
+	margin-left: 0;
+	letter-spacing: 1px;
 }
 
 .details-image {
@@ -22,10 +24,6 @@
 }
 .bio {
 	text-align: left;
-}
-
-.details-content {
-	// width: 40%;
 }
 
 .socials {
