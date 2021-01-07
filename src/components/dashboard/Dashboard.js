@@ -59,7 +59,7 @@ const Dashboard =(props) => {
 				toRender.push(data)
 			}
 			else {
-				if(data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.genre.toString().toLowerCase().includes(search.toString().toLowerCase())) {
+				if(data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.genre.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.name.toString().toLowerCase().includes(search.toString().toLowerCase())) {
 					toRender.push(data)
 				}
 			}
