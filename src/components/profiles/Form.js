@@ -20,6 +20,7 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 	return (
 		<Fragment>
 			<h2>Let's get to know you!</h2>
+			<h5>Submit yourself or a friend here</h5>
 			<h3>Basic Info</h3>
 
 <StepOne 

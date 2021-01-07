@@ -11,14 +11,15 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 const Dashboard =(props) => {
 		const {profiles, auth} = props;
+	// console.log(profiles)
 
 	const [appFilter, setAppFilter] = useState("All")
+	const [search, setSearch] = useState(null)
 
-		const filter =(e) => {
-	const {value} = e.target
-		setAppFilter(value)
-	}
-
+	// 	const filter =(e) => {
+	// const {value} = e.target
+	// 	setAppFilter(value)
+	// }
 
 	if (profiles === undefined) {
 	return (
@@ -28,38 +29,82 @@ const Dashboard =(props) => {
 
 )
 }
-let profToRender = [];
-profiles.forEach((profile) => {
-	if (appFilter === "All") {
-		profToRender.push(profile)
-	} else{
-		if (profile.field.includes(appFilter)) {
-			profToRender.push(profile)
-		}
-	} 
-})
-		
-	const sorted = profToRender.sort((a,b) => b.createdAt - a.createdAt)
+// let profToRender = [];
+// profiles.forEach((profile) => {
+// 	if (appFilter === "All") {
+// 		profToRender.push(profile)
+// 	} else{
+// 		if (profile.field.includes(appFilter)) {
+// 			profToRender.push(profile)
+// 		}
+// 	} 
+// })
+  const searchSpace=(e)=>{
+		let keyword = e.target.value;	
 
-		const mapped = sorted.map((card) =>{
+		// this.setState({search:keyword})
+		console.log(keyword)
+		setSearch(keyword)
+  }
+
+// const tagFilter = e => {
+// 	console.log(e.target.firstChild.data)
+// }
+		
+	const sorted = profiles.sort((a,b) => b.createdAt - a.createdAt)
+
+		let toRender = []
+		profiles.filter((data)=>{
+      if(search === null) {
+				toRender.push(data)
+			}
+			else {
+				if(data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || data.genre.toString().toLowerCase().includes(search.toString().toLowerCase())) {
+					toRender.push(data)
+				}
+			}
+		})
+
+
+		const mapped = toRender.map((card) =>{
 			return (
-				<ProfileList key={card.id} card={card} props={props}/>
+				<ProfileList key={card.id} card={card} props={props} />
 			)
 		});
 
-		const adminmap = sorted.map(card => {
-			return (
-				<AdminList key={card.id} card={card} />
-			)
-		})
-		const users = auth.uid ? adminmap : mapped;
+		// const items = sorted.filter((data)=>{
+    //   if(search === null) {
+		// 		return data
+		// 	}
+    //   else if(data.field.includes(search) || data.title.includes(search) ){
+		// 		console.log(search)
+		// 		console.log(data)
+		// 			return data
+    //   }
+    // }).map(data =>{
+    //   return(
+		// 		<ProfileList key={data.id} props={props} profiles={profiles} data={data}/>
+    //   )
+    // })
+
+		// const adminmap = sorted.map(card => {
+		// 	return (
+		// 		<AdminList key={card.id} card={card} />
+		// 	)
+		// })
+		// const users = auth.uid ? adminmap : mapped;
 
 
 		return (
 			<Fragment>
-				<Filter filter={filter} />
+				<div className="ui search">
+				 <input type="text" className="prompt"  placeholder="Search by keyword" onChange={(e)=>searchSpace(e)} />
+				</div>
+				{/* <Filter filter={filter} /> */}
 				<div className="ui link cards">
-			{auth.isLoaded && users}
+			{/* {auth.isLoaded && users} */}
+			{mapped}
+			{/* {items} */}
 			</div>
 			</Fragment>
 		)

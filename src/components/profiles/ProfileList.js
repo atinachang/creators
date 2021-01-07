@@ -7,11 +7,12 @@ import {fields} from './forms/arrays'
 
 import ProfileSummary from './ProfileSummary';
 
-const ProfileList = ({card, props}) => {
+const ProfileList = ({card, props, tagFilter, profiles, data}) => {
+	// console.log(data)
 	const {field} = card
 	const fieldRender = () => {
 const mapped = field.map(item => 
-		<li className="label" key={item}>{item}</li>
+		<li className="label" key={item} onClick={tagFilter}>{item}</li>
 )
 			return (
 			<ul>
@@ -38,6 +39,7 @@ const cards = () => {
 		</Fragment>
 	)
 }
+
 
 const mapStateToProps = (state) => {
 	return {

@@ -12,7 +12,7 @@ const ProfileDetails = (props) => {
 	// console.log(id)
 	const {profile, auth, history} = props;
 
-console.log(history)
+// console.log(history)
 
 
 
