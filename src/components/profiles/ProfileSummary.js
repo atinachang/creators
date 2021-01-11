@@ -1,14 +1,9 @@
 import React, {Fragment} from 'react';
-// import {deleteProfile} from '../../store/actions/profileActions';
-// import {connect} from 'react-redux';
-// import { compose } from 'redux';
-// import {firestoreConnect} from 'react-redux-firebase';
 
 const ProfileSummary = ({profile, prop, data}) => {
 	// console.log(profiles)
 	const {name, title, photo, field} = profile;
 	const txt = field.join(', ')
-
 
 
 	return (
@@ -18,7 +13,6 @@ const ProfileSummary = ({profile, prop, data}) => {
 			</div>
 			<div className="content">
 				<p>{name}</p>
-				{/* <p>{txt}</p> */}
 			</div>
 		</Fragment>
 	)

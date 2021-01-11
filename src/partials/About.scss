@@ -3,8 +3,8 @@
 		@include font-size(1.7);
 	}
 	p {
-		// width: 70%;
 		@include font-size(1.5);
+		line-height: 2rem;
 		margin: 0 60px;
 	}
 	margin: 20px auto;

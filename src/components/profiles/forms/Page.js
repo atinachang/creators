@@ -3,32 +3,34 @@ import {Fields} from './Fields'
 import {fields, film, design, tech, genres, photog, writing} from './arrays'
 import Genres from './Genres'
 import Titles from './Titles'
+import { render } from 'react-dom';
 
-const Page = ({state, handleChangeGenre, handleChangeTitle}) => {
+const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		const { photo, field,  genre, title } = state;
-
+console.log(field)
 	const page =[]
+	let renderedDiv = false
 
 	field.forEach(field => {
 		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer" || field === "Music Producer") {
-			page.push(<Genres 
-				key={genre}
-				handleChangeGenre={handleChangeGenre}
-				field={field}
-				genre={genre}
-				/>)
+				page.push(<Genres 
+					key={genre}
+					handleChangeGenre={handleChangeGenre}
+					field={field}
+					genre={genre}
+					/>)
 		}
 
 		if (field === 'Film Production') {
-			page.push(<Titles 
-				key={film} 
-				handleChangeTitle={handleChangeTitle} 
-				array={film}
-				field={field}
-				title={title}
-				/>)
-		}
-
+				page.push(<Titles 
+					key={film} 
+					handleChangeTitle={handleChangeTitle} 
+					array={film}
+					field={field}
+					title={title}
+					/>)
+				} 
+			
 		if (field === 'Design') {
 			page.push(<Titles 
 				key={design} 
@@ -79,6 +81,8 @@ const Page = ({state, handleChangeGenre, handleChangeTitle}) => {
 	return (
 		<Fragment>
 			{page}
+
+			{/* <button className="ui button" onClick={deselectAll}>Clear Selection</button> */}
 		</Fragment>
 	)
 }

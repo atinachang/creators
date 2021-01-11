@@ -1,5 +1,21 @@
 .header {
-	@include flexbox();
-	text-align: center;
 	margin: 30px auto;
+	width: 50%;
+	@include flexbox();
+	// text-align: center;
+	// margin: 0 auto;
+	margin-left: 25%;
+	text-align: left;
+
+	p {
+		margin: 10px 0;
+	}
+
+	h1 {
+		margin-bottom: $vertical-rhythm * 2;
+	}
+
+	h3 {
+		text-transform: full-size-kana;
+	}
 }

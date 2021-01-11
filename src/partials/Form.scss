@@ -99,3 +99,7 @@ form img {
 	justify-content: center;
 	margin: 5px;
 }
+
+.ui.search > .prompt::placeholder {
+	text-align: center;
+}

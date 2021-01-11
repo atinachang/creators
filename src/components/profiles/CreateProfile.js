@@ -16,7 +16,6 @@ class CreateProfile extends Component {
 	constructor(props) {
 		super(props);
 			this.state = {
-				// currentStep: 1,
 				userId: "",
 				name: "",
 				email: "",
@@ -43,7 +42,6 @@ class CreateProfile extends Component {
 				
 
 	handleChange =(e) => {
-
 		const {name, value} = e.target
 		this.setState({
 			[name]: value,
@@ -53,7 +51,6 @@ class CreateProfile extends Component {
 
 	  selectAllCheckboxes = isSelected => {
     Object.keys(this.state.checkboxes).forEach(checkbox => {
-      // BONUS: Can you explain why we pass updater function to setState instead of an object?
       this.setState(prevState => ({
         checkboxes: {
           ...prevState.checkboxes,
@@ -75,10 +72,7 @@ class CreateProfile extends Component {
         [name]: !prevState.checkboxes[name]
 			},
 				field: field.concat(value),
-
-		}));
-		// console.log(field)
-		
+		}));		
   };
 
 
@@ -88,7 +82,7 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: genre.concat(value)
 		})
-		console.log(this.state.genre)
+		// console.log(this.state.genre)
 	}
 
 	handleChangeTitle = (e) => {
@@ -97,7 +91,7 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
-		// console.log(this.state.title)
+		// console.log(value)
 	}
 
 	 handleChangeImage= async (e) =>  {
@@ -106,9 +100,7 @@ class CreateProfile extends Component {
 		const imagesRef = firebase.storage().ref("images").child(id);
 		await imagesRef.put(file)
 
-		// console.log(file)
 		imagesRef.getDownloadURL().then(url => {
-			// console.log(url)
 			this.setState({
 				photo: url
 			})
@@ -192,12 +184,13 @@ Object.keys(checkboxes)
 					handleChange={this.handleChange}
 					validator={this.validator}
 					handleChangeImage={this.handleChangeImage}
-					handleChangeFields={this.handleChangeFields}
+					// handleChangeFields={this.handleChangeFields}
 					createCheckbox={this.createCheckbox}
 					selectAllCheckboxes={this.selectAllCheckboxes}
 					handleChangeGenre={this.handleChangeGenre}
 					handleChangeTitle={this.handleChangeTitle}
 					handleChangeGenre={this.handleChangeGenre}
+					handleCheckboxChange={this.handleCheckboxChange}
 					/>
 
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>

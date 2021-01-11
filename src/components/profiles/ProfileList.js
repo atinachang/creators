@@ -2,13 +2,10 @@ import React, {Fragment, useState} from 'react'
 import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fields} from './forms/arrays'
-// import { compose } from 'redux';
-// import {firestoreConnect} from 'react-redux-firebase';
 
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({card, props, tagFilter, profiles, data}) => {
-	// console.log(data)
 	const {field} = card
 	const fieldRender = () => {
 const mapped = field.map(item => 

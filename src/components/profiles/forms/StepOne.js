@@ -61,13 +61,13 @@ return (
 
 			<h3>Social Media</h3>
 			<div className="field">
-				<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="https://www.twitter.com/*"/>
+				<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="Twitter URL"/>
 			{validator.message('twitter', twitter, 'url:https://www.twitter.com/ ')}
 
-			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="https://www.instagram.com/*"/>
+			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="Instagram URL"/>
 			{validator.message('instagram', instagram, 'url:https://www.instagram.com/ ')}
 
-			<Fields label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="https://*"/>
+			<Fields label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="Website URL"/>
 			{validator.message('website', website, 'url:https:// ')}
 
 			</div>

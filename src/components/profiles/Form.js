@@ -5,17 +5,25 @@ import StepOne from './forms/StepOne'
 
 
 
-const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle}) => {
+const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange}) => {
+// console.log(selectAllCheckboxes())
+// console.log(state)
+const {field} = state;
+// console.log(field)
 
-
-	const deselectAll = () => {
+	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
 	state.field = []
+		e.preventDefault();
+	e.stopPropagation();
+
 	}
 
 	const createFields = () => fields.map(createCheckbox)
 
+	// console.log(fields)
 	const split = state.field.join(', ')
+	// console.log(split)
 
 	return (
 		<Fragment>
@@ -35,16 +43,25 @@ handleChange={handleChange}
 		</h4>
 		<div className="inputs">
 			{createFields()}
+			<input 
+			className="ui input"
+			type="text"
+			placeholder="Other"
+			id="field"
+			onChange={handleCheckboxChange}
+			/>
 		</div>
-			<strong>You Selected: {split}</strong>
+			{/* <strong>You Selected: {split}</strong> */}
 
-			<button className="ui button" onClick={deselectAll}>Clear Selection</button>
+			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
 		<div className="page">
 			<Page 
 			state={state}
 			handleChangeGenre={handleChangeGenre}
 			createCheckbox={createCheckbox}
 			handleChangeTitle={handleChangeTitle}
+			handleCheckboxChange={handleCheckboxChange}
+			deselectAll={deselectAll}
 			/>
 		</div>
 		</Fragment>

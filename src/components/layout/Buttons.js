@@ -133,7 +133,7 @@ export const Bio =({bio}) => {
 		return (
 		<div className=" segment">
 			<h4>Bio:</h4>
-		{bio}
+			<p>{bio}</p>
 		</div>
 		)
 }

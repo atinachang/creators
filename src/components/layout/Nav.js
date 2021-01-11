@@ -23,6 +23,10 @@ const Nav = (props) => {
 					<NavLink to="/create">Submit</NavLink>
 				</li>
 
+				<li className="item">
+					<NavLink to="/faq">About</NavLink>
+				</li>
+
 				{auth.isLoaded && links}
 
 			</ul>

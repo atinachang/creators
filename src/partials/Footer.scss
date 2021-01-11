@@ -8,4 +8,10 @@
 		@include font-size(1);
 		// text-transform: capitalize;
 	}
+
+	.ui.menu {
+		a {
+			@include font-size(1.2);
+		}
+	}
 }

@@ -7,17 +7,10 @@ import { Socials, Bio, Info} from '../layout/Buttons';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
-	// console.log(props)
 	const {id} = props.match.params;
-	// console.log(id)
 	const {profile, auth, history} = props;
 
-// console.log(history)
-
-
-
 const goBack = ()=> {
-	// history.push('/')
 	history.goBack()
 }
 
@@ -43,7 +36,6 @@ title={title}
 field={field}
 genre={genre}
 />;
-	// console.log(props.profile)
 		return (
 			<Fragment>
 			<h1>{name}</h1>
