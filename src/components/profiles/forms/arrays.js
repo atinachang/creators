@@ -11,7 +11,7 @@ export const design = [
 	]
 
 export const tech = [
-	"Front End Developer", "Back End Developer", "Fullstack Developer", "UI/UX Design", "PHP Developer", "Wordpress/CMS Developer", "Software Developer", "Product Developer"
+	"Front End Developer", "Back End Developer", "Fullstack Developer", "UI/UX Design", "PHP Developer", "Wordpress/CMS Developer", "Software Developer", "Product Developer", "Product Design", "Web Design"
 	]
 
 export const fields = [

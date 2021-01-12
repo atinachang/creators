@@ -7,11 +7,11 @@ import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
-	const {profile, auth} = props;
+	const {profile, auth, history} = props;
 
-// const goBack = ()=> {
-// 	history.goBack()
-// }
+const goBack = ()=> {
+	history.goBack()
+}
 
 if (!props.profile) {
 	return (
@@ -56,8 +56,8 @@ genre={genre}
 			</div>
 			</div>
 
+			<button className="ui button mobile" onClick={() =>goBack()}>Go Back</button>
 			</div>
-			{/* <button className="ui button" onClick={() =>goBack()}>Go Back</button> */}
 			{/* && breadcrumb? */}
 			</Fragment>
 		)

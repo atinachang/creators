@@ -15,6 +15,14 @@
 .details {
 	display: flex;
 	justify-content: space-between;
+
+	.bio {
+		width: 30%;
+		text-align: left;
+	}
+}
+.ui.button.mobile {
+	display: none;
 }
 
 li.dark,
@@ -36,9 +44,6 @@ li.light {
 		width: 100%;
 	}
 }
-.bio {
-	text-align: left;
-}
 
 .socials {
 	margin: 20px 0;
@@ -54,8 +59,4 @@ li.light {
 
 .segment {
 	margin: 10px auto;
-}
-
-.bio {
-	width: 30%;
 }
