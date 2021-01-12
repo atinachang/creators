@@ -1,9 +1,15 @@
-$primary: rgb(23, 23, 23);
-$primaryfnt: white;
+// $primary: #2e2d2d;
+$primary: rgb(53, 53, 53);
+$primaryfnt: rgb(255, 255, 255);
+$prmaccent: rgb(160, 157, 157);
 
-$scnd: rgb(43, 43, 43);
-$thrd: rgb(63, 63, 63);
+$scnd: rgb(40, 75, 99);
+$thrd: rgb(60, 110, 113);
+$accent: rgb(217, 217, 217);
+$thrdaccent: rgb(252, 163, 17);
 
 $base-line-height: 1.4;
 $base-font-size: 1.25rem;
 $vertical-rhythm: $base-line-height * $base-font-size;
+
+$border-rad: 30px;

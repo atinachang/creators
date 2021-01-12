@@ -16,7 +16,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = ()=> {
-  const app = "Wecreate.to"
+  const app = "WeCreate.to"
   return (
     <Fragment>
       <div className="ui container">
@@ -26,7 +26,7 @@ const App = ()=> {
     <div className="wrapper">
     <Header app={app} />
     <Switch>
-    <Route exact path="/" component={Dashboard} />
+    <Route exact path="/" render={() => <Dashboard app={app}/>} />
     <Route path="/profile/:id" component={ProfileDetails} />
 
     <Route path="/create" component={CreateProfile} />

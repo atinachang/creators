@@ -38,7 +38,8 @@ genre={genre}
 />;
 		return (
 			<Fragment>
-			<h1>{name}</h1>
+			<div className="details-container">
+			<h2>{name}</h2>
 				<div className="details">
 			<div className="details-image">
 			<img src={photo} alt={name} />
@@ -53,6 +54,7 @@ genre={genre}
 			</div>
 			</div>
 
+			</div>
 			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 			</Fragment>
 		)

@@ -1,18 +1,18 @@
 .header {
 	margin: 30px auto;
-	width: 50%;
 	@include flexbox();
 	// text-align: center;
 	// margin: 0 auto;
-	margin-left: 25%;
+	// margin-left: 25%;
 	text-align: left;
 
 	p {
+		width: 50%;
 		margin: 10px 0;
 	}
 
 	h1 {
-		margin-bottom: $vertical-rhythm * 2;
+		margin-bottom: $vertical-rhythm * 1.5;
 	}
 
 	h3 {

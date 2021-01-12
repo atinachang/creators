@@ -24,7 +24,7 @@ const cards = () => {
 			<Link to={`/profile/${card.id}`}>
 			<ProfileSummary profile={card} key={card.id}  />
 			</Link>
-			{fieldRender()}
+			{/* {fieldRender()} */}
 			</div>
 			</div>
 	)

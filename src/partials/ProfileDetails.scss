@@ -1,3 +1,17 @@
+.details-container {
+	// box-shadow: 0 0px 10px rgba(97, 97, 97, 0.25);
+	//  0 10px 10px rgba(0, 0, 0, 0.44);
+	border-radius: 15px;
+	padding: 20px;
+	// margin: 20px auto;
+	margin-top: 80px;
+	// border: 1px solid rgba(255, 255, 255, 0.1);
+	// background: #f5f0ed;
+	p {
+		@include font-size(1.5);
+	}
+}
+
 .details {
 	display: flex;
 	justify-content: space-between;
@@ -31,11 +45,11 @@ li.light {
 }
 
 .light {
-	background-color: #353542;
+	background-color: $thrd;
 }
 
 .dark {
-	background-color: #1c1c24;
+	background-color: $scnd;
 }
 
 .segment {
