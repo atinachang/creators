@@ -24,7 +24,6 @@ const Faq = ({app}) => {
 			</div>
 			<div className="about">
 				<div className="ui inverted segment">
-				<h4></h4>
 				</div>
 				<p>{app} would not exist without community leaders who previously created similar spaces where people can be seen and recognized for their work
 				{/* , such as this directory <a href="https://docs.google.com/spreadsheets/d/1V3-cP1aXDjyMcpnke0gB92SXcxkbBrVhKo8LxJum62c/edit?usp=sharing">here</a>  */}

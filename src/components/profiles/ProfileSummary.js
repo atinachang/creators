@@ -1,8 +1,7 @@
 import React, {Fragment} from 'react';
 
-const ProfileSummary = ({profile, prop, data}) => {
-	// console.log(profiles)
-	const {name, title, photo, field} = profile;
+const ProfileSummary = ({profile}) => {
+	const {name, photo, field} = profile;
 	const fieldRender = () => {
 		if (field.length === 1){
 			const single = field.map(item =>

@@ -6,10 +6,7 @@ import StepOne from './forms/StepOne'
 
 
 const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange}) => {
-// console.log(selectAllCheckboxes())
-// console.log(state)
-const {field} = state;
-// console.log(field)
+
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
@@ -21,9 +18,6 @@ const {field} = state;
 
 	const createFields = () => fields.map(createCheckbox)
 
-	// console.log(fields)
-	const split = state.field.join(', ')
-	// console.log(split)
 
 	return (
 		<Fragment>

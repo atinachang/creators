@@ -1,10 +1,17 @@
 .single-card {
 	display: flex;
-	width: 500px;
+	// flex-direction: column;
+	// width: 500px;
 	// flex-direction: row;
 	margin: 50px auto;
-	justify-content: space-between;
+	// justify-content: space-evenly;
+
 	// border: 1px solid transparent;
+	.image {
+		width: 300px;
+		height: 300px;
+		margin-right: 100px;
+	}
 }
 
 // .single-card:hover {

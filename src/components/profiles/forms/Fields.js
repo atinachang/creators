@@ -17,19 +17,5 @@ const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, ch
    )
 }
 
-const Checkbox = ({label, name,id, value, type, onChange, checked, isSelected, onCheckboxChange}) => {
-  return (
-    <div className="field">
-      <label>{label} 
-      <input type="checkbox"
-        type="checkbox"
-        name={label}
-        checked={isSelected}
-        onChange={onCheckboxChange} 
-        />
-      </label>
-    </div>
-  )
-}
 
-export {Fields, Checkbox}
+export {Fields}

@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-import {Redirect, BrowserRouter, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
@@ -8,11 +7,11 @@ import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
-	const {profile, auth, history} = props;
+	const {profile, auth} = props;
 
-const goBack = ()=> {
-	history.goBack()
-}
+// const goBack = ()=> {
+// 	history.goBack()
+// }
 
 if (!props.profile) {
 	return (

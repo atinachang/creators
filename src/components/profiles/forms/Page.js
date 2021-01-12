@@ -1,15 +1,11 @@
 import React, {Fragment} from 'react'
-import {Fields} from './Fields'
-import {fields, film, design, tech, genres, photog, writing} from './arrays'
+import { film, design, tech, photog, writing} from './arrays'
 import Genres from './Genres'
 import Titles from './Titles'
-import { render } from 'react-dom';
 
 const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
-		const { photo, field,  genre, title } = state;
-console.log(field)
+		const {  field,  genre, title } = state;
 	const page =[]
-	let renderedDiv = false
 
 	field.forEach(field => {
 		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer" || field === "Music Producer") {
@@ -38,7 +34,6 @@ console.log(field)
 				title={title} 
 				array={design}
 				field={field}
-				title={title}
 				/>)
 		}
 

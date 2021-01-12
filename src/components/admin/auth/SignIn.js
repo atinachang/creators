@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Fields} from '../../../components/profiles/forms/Fields';
 import {connect} from 'react-redux';
 import {signIn} from '../../../store/actions/authActions';

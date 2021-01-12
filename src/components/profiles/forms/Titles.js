@@ -18,7 +18,7 @@ const Titles = ({handleChangeTitle, array, title, field}) => {
 		)
 	})
 
-	const split = title.join(', ')
+	// const split = title.join(', ')
 	return (
 		<Fragment>
 			<h3>{field} - 

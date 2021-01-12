@@ -1,12 +1,8 @@
-import React, { Fragment, Component } from 'react'
+import React, {  Component } from 'react'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
-import {Redirect} from 'react-router-dom'
-// import firestoreconnect after connecting reducer
 import {firestoreConnect} from 'react-redux-firebase';
 import SignIn from '../admin/auth/SignIn'
-import AdminList from './AdminList'
-import ProfileList from '../../components/profiles/ProfileList'
 
 
 class Admin extends Component {

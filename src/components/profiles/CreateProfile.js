@@ -1,10 +1,8 @@
-import React, { Component, useState, useEffect, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
 import {v4 as uuid} from 'uuid'
-// import Swal from 'sweetalert2'
-// import withReactContent from 'sweetalert2-react-content'
 import {fields} from './forms/arrays'
 import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
@@ -184,12 +182,10 @@ Object.keys(checkboxes)
 					handleChange={this.handleChange}
 					validator={this.validator}
 					handleChangeImage={this.handleChangeImage}
-					// handleChangeFields={this.handleChangeFields}
 					createCheckbox={this.createCheckbox}
 					selectAllCheckboxes={this.selectAllCheckboxes}
 					handleChangeGenre={this.handleChangeGenre}
 					handleChangeTitle={this.handleChangeTitle}
-					handleChangeGenre={this.handleChangeGenre}
 					handleCheckboxChange={this.handleCheckboxChange}
 					/>
 

@@ -1,16 +1,15 @@
-import React, { Fragment, Component, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import ProfileList from '../profiles/ProfileList';
 import AdminList from '../admin/AdminList'
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
-import Oops from '../layout/Oops'
 
 
 const Dashboard =(props) => {
 		const {profiles, auth, app} = props;
 
-	const [appFilter, setAppFilter] = useState("All")
+	// const [appFilter, setAppFilter] = useState("All")
 	const [search, setSearch] = useState(null)
 
 	// 	const filter =(e) => {
@@ -45,7 +44,7 @@ const Dashboard =(props) => {
 		let toRender = []
 		profiles.filter((data)=>{
       if(search === null) {
-				toRender.push(data)
+				return toRender.push(data)
 			}
 			else {
 				if(
@@ -78,12 +77,10 @@ const Dashboard =(props) => {
 		return (
 			<Fragment>
 				<div className="copy">
+						<h4>Create. Connect. Flourish. For the community, by the community.</h4>
 					<h5>
 					{app} is a database of	Freelancers and Creatives in Toronto.
 					</h5>
-			{/* <p>{app} was created as a resource for the community to find and give opportunities to others. {app} is for the community, by the community.
-			</p> */}
-				<h4>Create. Connect. Flourish. For the community, by the community.</h4>
 				</div>
 				<div className="ui search">
 				 <input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />

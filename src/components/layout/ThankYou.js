@@ -29,8 +29,8 @@ let history = useHistory()
 			<div className="image">
 				<img src={photo} alt={name} />
 			</div>
-			<div className="content">
-				<h2>{name}</h2>
+			<div className="single-content">
+				<h3>{name}</h3>
 				<h4>{txt}</h4>
 			</div>
 		</div>
@@ -52,10 +52,10 @@ let history = useHistory()
 
 	return (
 		<div className="thank-you">
-			<h2>Thank you for your submission! 	</h2>
+			<h3>Thank you for your submission! 	</h3>
 			<br />
-			<h3>Your post will be moderated within 24-48 hours.</h3>
-			<h4>In the meantime, stay a while and check out your fellow community members! </h4>
+			<h4>Your post will be moderated within 24-48 hours.</h4>
+			<h5>In the meantime, stay a while and check out your fellow community members! </h5>
 
 			{cards()}
 

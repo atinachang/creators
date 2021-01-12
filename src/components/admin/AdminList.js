@@ -1,8 +1,6 @@
 import React, {Fragment} from 'react'
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import { compose } from 'redux';
-// import {firestoreConnect} from 'react-redux-firebase';
 
 import ProfileSummary from '../../components/profiles/ProfileSummary';
 
@@ -10,7 +8,6 @@ const AdmistList = ({card}) => {
 
 const cards = () => {
 		if (card.live === false) {
-			// console.log(card)
 	return (
 			<div className="column">
 				<div className="fluid card">
