@@ -40,21 +40,19 @@
 	margin: 30px 10px;
 	display: flex;
 	flex-direction: column;
+	// border: 1px solid transparent;
 	box-shadow: 0 14px 28px rgba(109, 109, 109, 0.25),
 		0 10px 10px rgba(0, 0, 0, 0.44);
 	// box-shadow: 0 4px 10px 10px rgba(80, 80, 80, 0.3);
 
 	&:hover {
 		box-shadow: 0 1px 3px 0 $primary, 0 0 0 1px $primary;
+		// border: 1px solid $thrdaccent;
 		border-radius: $border-rad;
 	}
 	a {
 		position: relative;
 		border-radius: $border-rad;
-
-		&:hover {
-			border: 1px solid $thrdaccent;
-		}
 	}
 
 	.image {
@@ -74,7 +72,10 @@
 .ui.link.cards .card {
 	&:hover {
 		// background: transparent;
+		// box-shadow: 0 1px 3px 0 $thrdaccent, 0 0 0 1px $thrdaccent;
+		transform: none;
 		box-shadow: 0 1px 3px 0 $thrdaccent, 0 0 0 1px $thrdaccent;
+
 		// border: 1px solid $thrdaccent;
 	}
 }
