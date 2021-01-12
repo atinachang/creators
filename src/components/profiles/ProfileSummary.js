@@ -3,9 +3,7 @@ import React, {Fragment} from 'react';
 const ProfileSummary = ({profile, prop, data}) => {
 	// console.log(profiles)
 	const {name, title, photo, field} = profile;
-	const txt = field.join(', ')
 	const fieldRender = () => {
-		console.log(field)
 		if (field.length === 1){
 			const single = field.map(item =>
 				<li className="label" key={item}>{item}</li>
@@ -16,9 +14,11 @@ const ProfileSummary = ({profile, prop, data}) => {
 					</ul>
 				)
 			}
-			else {
-				const mapped = field.map(item => 
-					<li className="label" key={item}>{item} | </li>
+			else {	
+			const slice = 	field.slice(0, -1).join(' | ') + ' | ' + field.slice(-1);
+			const newArr = slice.split()
+				const mapped = newArr.map(item => 
+					<li className="label" key={item}>{item}</li>
 					)
 					return (
 						<ul className="profile-list">

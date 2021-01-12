@@ -77,14 +77,14 @@ const Dashboard =(props) => {
 
 		return (
 			<Fragment>
-							<h4>
-			{/* Welcome to <strong>{app}</strong>. <br /> */}
-			{app} is a database of	Freelancers and Creatives in Toronto.
-			</h4>
+				<div className="copy">
+					<h5>
+					{app} is a database of	Freelancers and Creatives in Toronto.
+					</h5>
 			{/* <p>{app} was created as a resource for the community to find and give opportunities to others. {app} is for the community, by the community.
 			</p> */}
-			<h4>Create. Connect. Flourish. For the community, by the community.</h4>
-
+				<h4>Create. Connect. Flourish. For the community, by the community.</h4>
+				</div>
 				<div className="ui search">
 				 <input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
 				</div>

@@ -1,5 +1,6 @@
 .header {
-	margin: 30px auto;
+	// margin: 30px auto;
+	margin-top: 30px;
 	@include flexbox();
 	// text-align: center;
 	// margin: 0 auto;
@@ -12,10 +13,17 @@
 	}
 
 	h1 {
-		margin-bottom: $vertical-rhythm * 1.5;
+		margin-bottom: $vertical-rhythm;
 	}
 
 	h3 {
 		text-transform: full-size-kana;
 	}
+}
+
+.copy {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 30px;
 }

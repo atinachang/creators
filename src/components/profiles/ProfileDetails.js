@@ -43,19 +43,23 @@ genre={genre}
 				<div className="details">
 			<div className="details-image">
 			<img src={photo} alt={name} />
+
 			</div>
 
-			<div className="details-content">
-			<Info field={field} title={title} genre={genre}/>
-			</div>
+
 			<div className="bio">
 				<Bio name={name} bio={bio}/>
-			{buttons}
+					{buttons}
+
+			</div>
+						<div className="details-content">
+			<Info field={field} title={title} genre={genre}/>
 			</div>
 			</div>
 
 			</div>
-			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
+			{/* <button className="ui button" onClick={() =>goBack()}>Go Back</button> */}
+			{/* && breadcrumb? */}
 			</Fragment>
 		)
 	} 
