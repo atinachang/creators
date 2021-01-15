@@ -37,7 +37,7 @@ const Dashboard =(props) => {
 // })
   const searchSpace=(e)=>{
 		let keyword = e.target.value;	
-		console.log(keyword)
+		// console.log(keyword)
 		setSearch(keyword)
   }
 
@@ -95,6 +95,7 @@ const Dashboard =(props) => {
 	}
 
 const mapStateToProps = (state) => {
+
 	return {
 		profiles: state.firestore.ordered.profiles,
 		auth: state.firebase.auth

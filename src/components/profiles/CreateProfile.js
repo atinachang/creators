@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
 import {v4 as uuid} from 'uuid'
-import {fields} from './forms/arrays'
+import {fields, parent} from './forms/reusable/arrays'
 import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
-import Checkbox from './forms/Checkbox'
+import Checkbox from './forms/reusable/Checkbox'
 
 
 
@@ -24,8 +24,9 @@ class CreateProfile extends Component {
 				website: "",
 				field: [],
 				genre: [],
-				title: [],
-				checkboxes: fields.reduce(
+				title: [],	
+				industry: [],
+				checkboxes: parent.reduce(
       (options, option) => ({
         ...options,
         [option]: false
@@ -59,19 +60,19 @@ class CreateProfile extends Component {
   };
 
 
-
 	  handleCheckboxChange = e => {
     const { name, value } = e.target;
-		const {field} = this.state
+		const { industry} = this.state
 
     this.setState(prevState => ({
       checkboxes: {
         ...prevState.checkboxes,
         [name]: !prevState.checkboxes[name]
 			},
-				field: field.concat(value),
+				industry: industry.concat(value)
 		}));		
   };
+
 
 
 	handleChangeGenre = (e) => {
@@ -80,7 +81,15 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: genre.concat(value)
 		})
-		// console.log(this.state.genre)
+	}
+
+		handleChangeField = e => {
+		const {value} = e.target;
+		const {field} = this.state
+
+		this.setState({
+			field: field.concat(value)
+		})
 	}
 
 	handleChangeTitle = (e) => {
@@ -89,7 +98,6 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
-		// console.log(value)
 	}
 
 	 handleChangeImage= async (e) =>  {
@@ -99,6 +107,7 @@ class CreateProfile extends Component {
 		await imagesRef.put(file)
 
 		imagesRef.getDownloadURL().then(url => {
+			console.log(url)
 			this.setState({
 				photo: url
 			})
@@ -120,7 +129,8 @@ handleReset =(e) => {
 		field: [],
 		genre: [],
 		title: [],
-		checkboxes: fields.reduce(
+		industry: [],
+		checkboxes: parent.reduce(
 		(options, option) => ({
 		...options,
 		[option]: false
@@ -134,9 +144,6 @@ handleReset =(e) => {
 
 
 	 handleSubmit =(e)=>  {
-
-// const MySwal = withReactContent(Swal)
-
 	 const {name, checkboxes} = this.state;
 	 const {createProfile, history} = this.props;
 		e.preventDefault();
@@ -148,14 +155,12 @@ handleReset =(e) => {
     this.forceUpdate();
   }
 
-// console.log(this.state)
-createProfile(this.state)
-history.push('/thankyou')
+console.log(this.state)
+// createProfile(this.state)
+// history.push('/thankyou')
 Object.keys(checkboxes)
-			.filter(checkbox => checkboxes[checkbox])
-		
+			.filter(checkbox => checkboxes[checkbox])	
 }
-
 
 
   createCheckbox = option => (
@@ -163,6 +168,7 @@ Object.keys(checkboxes)
       label={option}
       isSelected={this.state.checkboxes[option]}
 			onCheckboxChange={this.handleCheckboxChange}
+			// onCheckboxChange={this.handleIndustryChange}
 			key={option}
 			value={option}
     />
@@ -172,7 +178,6 @@ Object.keys(checkboxes)
 
 	return (
 		<Fragment>
-
 				<form 
 				onSubmit={this.handleSubmit} 
 				className="ui form"
@@ -187,6 +192,7 @@ Object.keys(checkboxes)
 					handleChangeGenre={this.handleChangeGenre}
 					handleChangeTitle={this.handleChangeTitle}
 					handleCheckboxChange={this.handleCheckboxChange}
+					handleChangeField={this.handleChangeField}
 					/>
 
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>

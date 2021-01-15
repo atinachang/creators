@@ -1,9 +1,10 @@
 import React, {Fragment} from 'react'
 
-const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
+const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
    return (
-  <Fragment>
-  <label htmlFor={label}>{label}</label>
+  <li>
+   <label htmlFor={label}>{label}</label>
+
   <input
   id={id}
   name={name}
@@ -13,9 +14,9 @@ const Fields = ({ name, id, label, value, type,placeholder, onChange, accept, ch
   placeholder={placeholder}
   accept={accept}
   />
-  </Fragment>
+  </li>
    )
 }
 
 
-export {Fields}
+export {Inputs}

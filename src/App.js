@@ -19,10 +19,10 @@ const App = ()=> {
   const app = "WeCreate.to"
   return (
     <Fragment>
-      <div className="ui container">
     <BrowserRouter>
-
     <Nav />
+      <div className="ui container">
+
     <div className="wrapper">
     <Header app={app} />
     <Switch>
@@ -35,9 +35,9 @@ const App = ()=> {
     <Route path="/FAQ" render={() =><Faq app={app}/>} />
     </Switch>
     </div>
+    </div>
     </BrowserRouter>
     <Footer app={app}/>
-    </div>
     </Fragment>
   );
 }

@@ -1,15 +1,10 @@
 import React, {Fragment} from 'react'
 import {Fields, Checkbox} from './Fields'
-import {fields} from './arrays'
-import StepThree from './StepThree'
+import {fields, parent} from './arrays'
 
 const StepTwo= (props)=> {
 	// console.log(props)
-	const { handleChangeFields, currentStep, } = props;
-	// console.log(handleChecked)
-  // if (currentStep !== 2) {
-  //   return null
-	// } 
+	const { handleChangeFields} = props;
 
 	// const deselectAll = () => selectAllCheckboxes(false);
 
@@ -32,7 +27,7 @@ const StepTwo= (props)=> {
 			Please select all that apply
 		</h4>
 		<div className="inputs">
-			{mapped}
+				{mapped}
 		</div>
 
 		</Fragment>

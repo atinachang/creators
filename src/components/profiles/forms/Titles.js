@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react'
-import {Fields} from './Fields'
+import {Inputs} from './reusable/Inputs'
 // import {film} from './arrays'
 
-const Titles = ({handleChangeTitle, array, title, field}) => {
+const Titles = ({handleChangeTitle, array, title, field, industry}) => {
 
 
 	const mapped = array.map(item => {
 		return (
-				<Fields 
+				<Inputs 
 				key={item}
 				type="checkbox" 
 				label={item} 

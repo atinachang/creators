@@ -1,18 +1,33 @@
 import React, {Fragment} from 'react'
-import { film, design, tech, photog, writing} from './arrays'
-import Genres from './Genres'
+import { film, design, tech, photography, writing} from './reusable/arrays'
+import {GenreInputs} from './reusable/renderedInputs'
 import Titles from './Titles'
 
-const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
-		const {  field,  genre, title } = state;
+const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleChangeField}) => {
+	// console.log(state)
+		const {  field,  genre, title , industry} = state;
+		// console.log(industry)
 	const page =[]
 
-	field.forEach(field => {
-		if (field === "DJ" || field === "Vocal Artist" || field === "Sound Engineer" || field === "Music Producer") {
-				page.push(<Genres 
+	industry.forEach(select => {
+	// 	if (select === "Music") {
+	// 		page.push(
+	// 		<GenreInputs 
+	// 							key={genre}
+	// 				handleChangeGenre={handleChangeGenre}
+	// 				industry={industry}
+	// 				genre={genre}
+
+			
+	// 		/>)
+	// 	}
+
+
+		if (select === "DJ" || select === "Vocal Artist" || select === "Sound Engineer" || select === "Music Producer") {
+				page.push(<GenreInputs 
 					key={genre}
 					handleChangeGenre={handleChangeGenre}
-					field={field}
+					industry={industry}
 					genre={genre}
 					/>)
 		}
@@ -20,7 +35,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		if (field === 'Film Production') {
 				page.push(<Titles 
 					key={film} 
-					handleChangeTitle={handleChangeTitle} 
+					handleChangeField={handleChangeField} 
 					array={film}
 					field={field}
 					title={title}
@@ -30,7 +45,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		if (field === 'Design') {
 			page.push(<Titles 
 				key={design} 
-				handleChangeTitle={handleChangeTitle} 
+				handleChangeField={handleChangeField} 
 				title={title} 
 				array={design}
 				field={field}
@@ -40,7 +55,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		if (field === 'Tech') {
 			page.push(<Titles 
 				key={tech} 
-				handleChangeTitle={handleChangeTitle} 
+				handleChangeField={handleChangeField} 
 				title={title} 
 				array={tech}
 				field={field}
@@ -49,10 +64,10 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		
 		if (field === 'Photography') {
 			page.push(<Titles 
-				key={photog} 
-				handleChangeTitle={handleChangeTitle} 
+				key={photography} 
+				handleChangeField={handleChangeField} 
 				title={title} 
-				array={photog}
+				array={photography}
 				field={field}
 			/>)
 		}
@@ -60,7 +75,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 		if (field === 'Writing') {
 			page.push(<Titles 
 			key={writing}
-			handleChangeTitle={handleChangeTitle}
+			handleChangeField={handleChangeField}
 			title={title}
 			array={writing}
 			field={field}
@@ -75,7 +90,9 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll}) => {
 
 	return (
 		<Fragment>
-			{page}
+			<ul className="ks-cboxtags">
+				{page}
+			</ul>
 
 			{/* <button className="ui button" onClick={deselectAll}>Clear Selection</button> */}
 		</Fragment>

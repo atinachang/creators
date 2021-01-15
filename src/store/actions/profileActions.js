@@ -12,7 +12,7 @@ export const createProfile = (profile) => {
 			// when the document is added, dispatch this method
 			dispatch({
 				type: 'CREATE_PROFILE',
-				profile,
+				// profile,
 				// createdAt: new Date()
 
 				//when this action is called, it will add to the db

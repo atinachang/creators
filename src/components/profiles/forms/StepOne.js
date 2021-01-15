@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import {Fields} from '../forms/Fields'
+import {Inputs} from './reusable/Inputs'
 
 const StepOne = ({state, validator, handleChange, handleChangeImage}) => {
 const {name, email, twitter, instagram, website, bio, photo, userId} = state;
@@ -11,7 +11,7 @@ return (
 <div className="two fields">
 
 			<div className="field">
-				<Fields
+				<Inputs
 			label="Name"
 			required
 			type="text"
@@ -23,7 +23,7 @@ return (
 			</div>
 
 		<div className="field">
-			<Fields
+			<Inputs
 		label="User ID"
 		required
 		type="text"
@@ -38,7 +38,7 @@ return (
 </div>
 
 			<div className="field">
-				<Fields
+				<Inputs
 			label="Your Email"
 			type="email"
 			id="email"
@@ -48,7 +48,7 @@ return (
 			placeholder="Your preferred contact email"/>
 			{validator.message('email', email, 'required|email')}
 
-			<Fields label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
+			<Inputs label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
 			<img src={photo} alt={name} />
 			{validator.message('photo', photo, 'required')}
 				
@@ -61,13 +61,13 @@ return (
 
 			<h3>Social Media</h3>
 			<div className="field">
-				<Fields label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="Twitter URL"/>
+				<Inputs label="Twitter" type="text" id="twitter" name="twitter" value={twitter}onChange={handleChange} placeholder="Twitter URL"/>
 			{validator.message('twitter', twitter, 'url:https://www.twitter.com/ ')}
 
-			<Fields label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="Instagram URL"/>
+			<Inputs label="Instagram" type="text" id="instagram" name="instagram" onChange={handleChange} value={instagram} placeholder="Instagram URL"/>
 			{validator.message('instagram', instagram, 'url:https://www.instagram.com/ ')}
 
-			<Fields label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="Website URL"/>
+			<Inputs label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="Website URL"/>
 			{validator.message('website', website, 'url:https:// ')}
 
 			</div>

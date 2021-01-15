@@ -1,11 +1,14 @@
 import React, {Fragment} from 'react'
-import { fields } from './forms/arrays';
+import { fields, parent } from './forms/reusable/arrays';
 import Page from './forms/Page'
+import {Inputs} from './forms/reusable/Inputs';
+import IndustriesRender from './forms/IndustriesRender'
+import Skills from './forms/Skills';
 import StepOne from './forms/StepOne'
 
 
 
-const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange}) => {
+const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField}) => {
 
 
 	const deselectAll = (e) => {
@@ -16,7 +19,7 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 
 	}
 
-	const createFields = () => fields.map(createCheckbox)
+	const createFields = () => parent.map(createCheckbox)
 
 
 	return (
@@ -35,26 +38,36 @@ handleChange={handleChange}
 			<h4>
 			Please select all that apply
 		</h4>
-		<div className="inputs">
-			{createFields()}
-			<input 
+		{/* <div className="inputs"> */}
+			<ul className="ks-cboxtags">
+				{createFields()}
+			<input
 			className="ui input"
 			type="text"
 			placeholder="Other"
 			id="field"
 			onChange={handleCheckboxChange}
 			/>
-		</div>
+			</ul>
+		{/* </div> */}
 			{/* <strong>You Selected: {split}</strong> */}
 
 			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
 		<div className="page">
+			<IndustriesRender state={state}
+				handleChangeField={handleChangeField}
+				handleCheckboxChange={handleCheckboxChange}
+				handleChangeTitle={handleChangeTitle}
+
+		/>
+			<Skills state={state}/>
 			<Page 
 			state={state}
 			handleChangeGenre={handleChangeGenre}
 			createCheckbox={createCheckbox}
 			handleChangeTitle={handleChangeTitle}
 			handleCheckboxChange={handleCheckboxChange}
+			handleChangeField={handleChangeField}
 			deselectAll={deselectAll}
 			/>
 		</div>
