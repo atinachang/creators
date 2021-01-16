@@ -39,13 +39,12 @@ export  const GenreInputs = ({field, handleChangeGenre, genre, title}) => {
 	)
 }
 
-export  const FieldInputs = ({handleChangeField, handleChangeTitle, onChange, array, field, industry, title})=> {
-	// console.log("title", title)
-	// console.log(array)
+export  const FieldInputs = ({handleChangeField, handleChangeTitle, onChange, array, field, industry, title, className, genre})=> {
 
 	const fieldsMap = array.map(item => {
 		return (
 			<Inputs 
+			className={className}
 			key={item}
 			type="checkbox"
 			label={item}
@@ -60,16 +59,16 @@ export  const FieldInputs = ({handleChangeField, handleChangeTitle, onChange, ar
 		<Fragment>
 			<ul className="ks-cboxtags">
 		{fieldsMap}
-		<li>
-		{/* <label>other</label> */}
+		{/* <li>
 		<input
 		className="ui input"
-		type="input"
+		type="text"
 		placeholder="Other"
-		id="field"
-		onChange={onchange}
+		id={title}
+		value={title}
+		onChange={handleChangeTitle}
 		/>
-		</li>
+		</li> */}
 		</ul>
 		</Fragment>
 	)

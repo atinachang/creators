@@ -3,12 +3,15 @@ import { fields, parent } from './forms/reusable/arrays';
 // import Page from './forms/Page'
 // import {Inputs} from './forms/reusable/Inputs';
 import IndustriesRender from './forms/IndustriesRender'
-import GenreRender from './forms/GenreRender'
+import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
 
 
 
 const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField}) => {
+
+	const {industry, field, title} = state;
+	console.log("industry", industry, "field", field, "title", title )
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
@@ -59,11 +62,13 @@ handleChange={handleChange}
 				handleCheckboxChange={handleCheckboxChange}
 				handleChangeTitle={handleChangeTitle}
 		/>
-		<GenreRender state={state}
+		<Genre state={state}
 			handleChangeGenre={handleChangeGenre}
 			handleChangeTitle={handleChangeTitle}
 			/>
-
+		<Title state={state}
+		handleChangeTitle={handleChangeTitle}
+		/>
 
 			{/* <Page 
 			state={state}

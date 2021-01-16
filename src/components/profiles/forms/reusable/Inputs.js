@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
 
-export const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
+export const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked, className }) => {
    return (
-  <li  className="checkbox-light">
+  <li  className={className}>
   <input
   id={id}
   name={name}

@@ -1,18 +1,17 @@
 import React, {Fragment} from 'react'
-import {marketing, music, tech, film, photography, applied} from './reusable/arrays'
+import {marketing, music, tech, photography, applied, performer, filmarts} from './reusable/arrays'
 import {FieldInputs} from './reusable/renderedInputs'
 
 
 const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
 	const {industry, field, title, genre} = state;
-	// console.log("field", field)
 	const fields = []
 
 	industry.forEach(selected =>{
 		if (selected === "Marketing") {
 			fields.push(<FieldInputs 
 				key={marketing}
-				onChange={handleChangeField}
+				onChange={handleChangeTitle}
 				array={marketing}
 				industry={industry}
 				// field={field}
@@ -22,6 +21,7 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 
 		if (selected === "Music") {
 			fields.push(<FieldInputs 
+				className={"checkbox-dark"}
 				key={music}
 				onChange={handleChangeTitle}
 				array={music}
@@ -32,6 +32,7 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 
 		if (selected === "Tech") {
 			fields.push(<FieldInputs 
+			className={"checkbox-dark"}
 			key={tech}
 			onChange={handleChangeField}
 			array={tech}
@@ -39,32 +40,40 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 			/>)
 		}
 
-		if (selected === "Film Production") {
+		if (selected === "Film & Media Arts") {
 			fields.push(<FieldInputs 
-			key={film}
+			className={"checkbox-dark"}
+			key={filmarts}
 			onChange={handleChangeField}
-			array={film}
+			array={filmarts}
 			industry={industry}
 			/>)
 		}
 
-		if (selected === "Photography") {
-			fields.push(<FieldInputs 
-			key={photography}
-			onChange={handleChangeField}
-			array={photography}
-			industry={industry}
-			/>)
-		}
+
 
 		if (selected === "Applied Arts") {
 			fields.push(<FieldInputs 
-			key={applied}
+			className={"checkbox-dark"}
+				key={applied}
 			onChange={handleChangeField}
 			array={applied}
 			industry={industry}
 			/>)
 		}
+
+		if (selected === "Performing Arts") {
+			fields.push(
+				<FieldInputs
+			className={"checkbox-dark"}	
+				key={performer}
+					onChange={handleChangeField}
+					array={performer}
+					industry={industry}
+				/>
+			)
+		}
+
 
 		else {
 			return null
@@ -72,8 +81,10 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 
 	})
 
+	// const text = industry.join(', ')
 	return (
 		<Fragment>
+			{/* <p>You Selected: {text}</p> */}
 				{fields}
 		</Fragment>
 	)

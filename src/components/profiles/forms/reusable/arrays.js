@@ -1,21 +1,23 @@
 //&& parent array
 export const parent = [
 	"Applied Arts",
-	"Film Production", 
-"Marketing", 
-"Music", 
-"Photography", 
-"Performing Arts",
-"Tech", 
-"Writing"
+	"Film & Media Arts", 
+	"Marketing", 
+	"Music", 
+	// "Photography", 
+	"Performing Arts",
+	"Tech", 
+	// "Writing"
 ]
 
 //&& -- marketing
 export const marketing =[
 	"Director",
 	"Strategist",
+	"Consultant",
 	"Marketing Manager",
-	"Event Producer"
+	"Event Producer",
+	"Marketing Coordinator"
 ]
 
 //&& -- music
@@ -75,8 +77,15 @@ export const techcon = [
 	"Information Architect"
 ]
 
+// && film arts
+export const filmarts = [
+	"Film Production",
+	"Photography",
+	"Writing"
+]
+
 // && film
-export const film = [
+export const filmprod = [
 	'Director', 
 	'DOP/Cinematographer', 
 	"Producer", 
@@ -127,7 +136,6 @@ export const design = [
 	"Web Designer", 
 	"Art Director",
 	"Creative Director",
-	"Art Director"
 ]
 
 
@@ -136,8 +144,8 @@ export const design = [
 export const performer = [
 "Dance",
 "Theatre",
-"Vocal Artist",
-"DJ"
+// "Vocal Artist",
+// "DJ"
 ]
 
 
@@ -148,20 +156,20 @@ export const writing = [
 
 
 
-export const fields = [
-	"DJ", 
-	"Film Production", 
-	"Consulting", 
-	"Designer", 
-	"Tech", 
-	"Dance", 
-	"Photography", 
-	"Marketing", 
-	"Vocal Artist", 
-	"Sound Engineer", 
-	"Writing", 
-	"Event Production", 
-	"Fashion", 
-	"Make Up Artist", 
-	"Music Producer"
-]
+// export const fields = [
+// 	"DJ", 
+// 	"Film Production", 
+// 	"Consulting", 
+// 	"Designer", 
+// 	"Tech", 
+// 	"Dance", 
+// 	"Photography", 
+// 	"Marketing", 
+// 	"Vocal Artist", 
+// 	"Sound Engineer", 
+// 	"Writing", 
+// 	"Event Production", 
+// 	"Fashion", 
+// 	"Make Up Artist", 
+// 	"Music Producer"
+// ]

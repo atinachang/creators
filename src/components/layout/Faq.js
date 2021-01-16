@@ -28,7 +28,7 @@ const Faq = ({app}) => {
 				<p>{app} would not exist without community leaders who previously created similar spaces where people can be seen and recognized for their work
 				{/* , such as this directory <a href="https://docs.google.com/spreadsheets/d/1V3-cP1aXDjyMcpnke0gB92SXcxkbBrVhKo8LxJum62c/edit?usp=sharing">here</a>  */}
 				</p>
-				<p></p>
+				<p>It's important to note that a job cannot be guaranteed from this platform. Rather, it provides opportunities to povide work to others in areas of need.</p>
 			</div>
 
 		</Fragment>
