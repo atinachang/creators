@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import { fields, parent } from './forms/reusable/arrays';
+import { parent } from './forms/reusable/arrays';
 // import Page from './forms/Page'
 // import {Inputs} from './forms/reusable/Inputs';
 import IndustriesRender from './forms/IndustriesRender'
@@ -10,8 +10,8 @@ import StepOne from './forms/StepOne'
 
 const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField}) => {
 
-	const {industry, field, title} = state;
-	console.log("industry", industry, "field", field, "title", title )
+	// const {industry, field, title} = state;
+	// console.log("industry", industry, "field", field, "title", title )
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);

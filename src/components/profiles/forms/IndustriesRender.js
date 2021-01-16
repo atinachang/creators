@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react'
-import {marketing, music, tech, photography, applied, performer, filmarts} from './reusable/arrays'
+import {marketing, music, tech, applied, performer, filmarts} from './reusable/arrays'
 import {FieldInputs} from './reusable/renderedInputs'
 
 
 const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
-	const {industry, field, title, genre} = state;
+	const {industry, title} = state;
 	const fields = []
 
 	industry.forEach(selected =>{

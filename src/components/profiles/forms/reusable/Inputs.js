@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 
 export const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked, className }) => {
    return (
@@ -18,17 +18,3 @@ export const Inputs = ({ name, id, label, value, type,placeholder, onChange, acc
    )
 }
 
-const Checkbox = ({ label, isSelected, onCheckboxChange, value }) => (
-  <li>
-    <input
-      type="checkbox"
-      name={label}
-      value={value}
-      checked={isSelected}
-      onChange={onCheckboxChange}
-      />
-    <label>
-    {label}
-    </label>
-  </li>
-);

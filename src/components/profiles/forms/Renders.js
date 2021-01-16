@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react'
-import { genres, dev, fields, design, techdesign, techmark, techcon, filmprod, writing, photography} from './reusable/arrays'
-import {GenreInputs, FieldInputs} from './reusable/renderedInputs'
+import { genres, dev, design, techdesign, techmark, techcon, filmprod, writing, photography} from './reusable/arrays'
+import {FieldInputs} from './reusable/renderedInputs'
 
 export const Genre = ({state, handleChangeGenre, handleChangeTitle}) => {
-	const {title, field} = state;
+	const {title} = state;
 	const genre = []
 
 	

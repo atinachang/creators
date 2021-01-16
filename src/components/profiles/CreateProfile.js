@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import firebase from '../../config/config'
 import {createProfile} from '../../store/actions/profileActions';
 import {v4 as uuid} from 'uuid'
-import {fields, parent} from './forms/reusable/arrays'
+import { parent} from './forms/reusable/arrays'
 import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
 import Checkbox from './forms/reusable/Checkbox'
@@ -157,9 +157,9 @@ handleReset =(e) => {
     this.forceUpdate();
   }
 
-console.log(this.state)
-// createProfile(this.state)
-// history.push('/thankyou')
+// console.log(this.state)
+createProfile(this.state)
+history.push('/thankyou')
 Object.keys(checkboxes)
 			.filter(checkbox => checkboxes[checkbox])	
 }

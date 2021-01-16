@@ -1,8 +1,8 @@
 import {Inputs} from './Inputs'
 import React, {Fragment} from 'react'
-import {genres, marketing} from './arrays'
+import {genres} from './arrays'
 
-export  const GenreInputs = ({field, handleChangeGenre, genre, title}) => {
+export  const GenreInputs = ({handleChangeGenre, title}) => {
 	const mapped = genres.map(item => {
 		return (
 			<Inputs 
@@ -15,7 +15,7 @@ export  const GenreInputs = ({field, handleChangeGenre, genre, title}) => {
 					)
 	})
 
-	const split = genre.join(', ')
+	// const split = genre.join(', ')
 	return (
 		<Fragment>
 			<h3>{title} -
@@ -23,23 +23,23 @@ export  const GenreInputs = ({field, handleChangeGenre, genre, title}) => {
 			</h3>
 			<ul className="ks-cboxtags">
 				{mapped}
-		<li>
+		{/* <li> */}
 		{/* <label>other</label> */}
-		<input
+		{/* <input
 		className="ui input"
 		type="input"
 		placeholder="Other"
 		id="field"
 		onChange={handleChangeGenre}
 		/>
-		</li>
+		</li> */}
 			</ul>
 
 		</Fragment>
 	)
 }
 
-export  const FieldInputs = ({handleChangeField, handleChangeTitle, onChange, array, field, industry, title, className, genre})=> {
+export  const FieldInputs = ({  onChange, array, className})=> {
 
 	const fieldsMap = array.map(item => {
 		return (
