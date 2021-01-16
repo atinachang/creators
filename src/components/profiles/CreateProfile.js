@@ -48,7 +48,7 @@ class CreateProfile extends Component {
 		)
 	}
 
-	  selectAllCheckboxes = isSelected => {
+	selectAllCheckboxes = isSelected => {
     Object.keys(this.state.checkboxes).forEach(checkbox => {
       this.setState(prevState => ({
         checkboxes: {
@@ -60,7 +60,7 @@ class CreateProfile extends Component {
   };
 
 
-	  handleCheckboxChange = e => {
+	handleCheckboxChange = e => {
     const { name, value } = e.target;
 		const { industry} = this.state
 
@@ -90,17 +90,19 @@ class CreateProfile extends Component {
 		this.setState({
 			field: field.concat(value)
 		})
+		// console.log(field)
 	}
 
 	handleChangeTitle = (e) => {
 		const {value} = e.target
 		const {title} = this.state
+
 		this.setState({
 			title: title.concat(value)
 		})
 	}
 
-	 handleChangeImage= async (e) =>  {
+	handleChangeImage= async (e) =>  {
 		const file = e.target.files[0];
 		const id = uuid()
 		const imagesRef = firebase.storage().ref("images").child(id);

@@ -3,35 +3,37 @@ import {marketing, music, tech, film, photography, applied} from './reusable/arr
 import {FieldInputs} from './reusable/renderedInputs'
 
 
-const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle})=> {
-console.log(state)
-	const {industry, field, title} = state;
-// console.log(title)
+const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
+	const {industry, field, title, genre} = state;
+	// console.log("field", field)
 	const fields = []
 
 	industry.forEach(selected =>{
 		if (selected === "Marketing") {
 			fields.push(<FieldInputs 
 				key={marketing}
-				handleChangeTitle={handleChangeTitle}
+				onChange={handleChangeField}
 				array={marketing}
 				industry={industry}
+				// field={field}
+				// title={title}
 			/>)
 		}
 
 		if (selected === "Music") {
 			fields.push(<FieldInputs 
 				key={music}
-				handleChangeTitle={handleChangeTitle}
+				onChange={handleChangeTitle}
 				array={music}
 				industry={industry}
+				title={title}
 			/>)
 		}
 
 		if (selected === "Tech") {
 			fields.push(<FieldInputs 
 			key={tech}
-			handleChangeTitle={handleChangeTitle}
+			onChange={handleChangeField}
 			array={tech}
 			industry={industry}
 			/>)
@@ -40,7 +42,7 @@ console.log(state)
 		if (selected === "Film Production") {
 			fields.push(<FieldInputs 
 			key={film}
-			handleChangeTitle={handleChangeTitle}
+			onChange={handleChangeField}
 			array={film}
 			industry={industry}
 			/>)
@@ -49,7 +51,7 @@ console.log(state)
 		if (selected === "Photography") {
 			fields.push(<FieldInputs 
 			key={photography}
-			handleChangeTitle={handleChangeTitle}
+			onChange={handleChangeField}
 			array={photography}
 			industry={industry}
 			/>)
@@ -58,7 +60,7 @@ console.log(state)
 		if (selected === "Applied Arts") {
 			fields.push(<FieldInputs 
 			key={applied}
-			handleChangeTitle={handleChangeTitle}
+			onChange={handleChangeField}
 			array={applied}
 			industry={industry}
 			/>)
@@ -72,9 +74,7 @@ console.log(state)
 
 	return (
 		<Fragment>
-			<div>
 				{fields}
-			</div>
 		</Fragment>
 	)
 }

@@ -1,15 +1,14 @@
 import React, {Fragment} from 'react'
 import { fields, parent } from './forms/reusable/arrays';
-import Page from './forms/Page'
-import {Inputs} from './forms/reusable/Inputs';
+// import Page from './forms/Page'
+// import {Inputs} from './forms/reusable/Inputs';
 import IndustriesRender from './forms/IndustriesRender'
-import Skills from './forms/Skills';
+import GenreRender from './forms/GenreRender'
 import StepOne from './forms/StepOne'
 
 
 
 const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField}) => {
-
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
@@ -20,6 +19,7 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 	}
 
 	const createFields = () => parent.map(createCheckbox)
+
 
 
 	return (
@@ -58,10 +58,14 @@ handleChange={handleChange}
 				handleChangeField={handleChangeField}
 				handleCheckboxChange={handleCheckboxChange}
 				handleChangeTitle={handleChangeTitle}
-
 		/>
-			<Skills state={state}/>
-			<Page 
+		<GenreRender state={state}
+			handleChangeGenre={handleChangeGenre}
+			handleChangeTitle={handleChangeTitle}
+			/>
+
+
+			{/* <Page 
 			state={state}
 			handleChangeGenre={handleChangeGenre}
 			createCheckbox={createCheckbox}
@@ -69,7 +73,7 @@ handleChange={handleChange}
 			handleCheckboxChange={handleCheckboxChange}
 			handleChangeField={handleChangeField}
 			deselectAll={deselectAll}
-			/>
+			/> */}
 		</div>
 		</Fragment>
 	)

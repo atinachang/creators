@@ -158,7 +158,14 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 	transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+ul.ks-cboxtags li.checkbox-dark input[type="checkbox"]:checked + label {
+	border: 2px solid $scnd;
+	background-color: lighten($scnd, 20%);
+	color: #fff;
+	transition: all 0.2s;
+}
+
+ul.ks-cboxtags li.checkbox-light input[type="checkbox"]:checked + label {
 	border: 2px solid $thrd;
 	background-color: lighten($thrd, 20%);
 	color: #fff;
@@ -172,7 +179,4 @@ ul.ks-cboxtags li input[type="checkbox"] {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-	border: 2px solid #e9a1ff;
 }

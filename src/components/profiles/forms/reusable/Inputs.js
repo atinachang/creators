@@ -1,10 +1,8 @@
 import React, {Fragment} from 'react'
 
-const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
+export const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked }) => {
    return (
-  <li>
-   <label htmlFor={label}>{label}</label>
-
+  <li  className="checkbox-light">
   <input
   id={id}
   name={name}
@@ -14,9 +12,23 @@ const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, ch
   placeholder={placeholder}
   accept={accept}
   />
+     <label htmlFor={label}>{label}</label>
+
   </li>
    )
 }
 
-
-export {Inputs}
+const Checkbox = ({ label, isSelected, onCheckboxChange, value }) => (
+  <li>
+    <input
+      type="checkbox"
+      name={label}
+      value={value}
+      checked={isSelected}
+      onChange={onCheckboxChange}
+      />
+    <label>
+    {label}
+    </label>
+  </li>
+);

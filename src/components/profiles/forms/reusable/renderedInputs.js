@@ -2,7 +2,7 @@ import {Inputs} from './Inputs'
 import React, {Fragment} from 'react'
 import {genres, marketing} from './arrays'
 
- const GenreInputs = ({field, handleChangeGenre, genre, industry}) => {
+export  const GenreInputs = ({field, handleChangeGenre, genre, title}) => {
 	const mapped = genres.map(item => {
 		return (
 			<Inputs 
@@ -18,20 +18,30 @@ import {genres, marketing} from './arrays'
 	const split = genre.join(', ')
 	return (
 		<Fragment>
-			<h3>{field} -
+			<h3>{title} -
 			What genres of music do you specialize in?
 			</h3>
-			<div className="inputs">
+			<ul className="ks-cboxtags">
 				{mapped}
-				{/* <strong>You selected: {split}</strong> */}
-			</div>
+		<li>
+		{/* <label>other</label> */}
+		<input
+		className="ui input"
+		type="input"
+		placeholder="Other"
+		id="field"
+		onChange={handleChangeGenre}
+		/>
+		</li>
+			</ul>
 
 		</Fragment>
 	)
 }
 
- const FieldInputs = ({handleChangeField, handleChangeTitle, array, field, industry})=> {
-	 console.log(array, field, industry)
+export  const FieldInputs = ({handleChangeField, handleChangeTitle, onChange, array, field, industry, title})=> {
+	// console.log("title", title)
+	// console.log(array)
 
 	const fieldsMap = array.map(item => {
 		return (
@@ -39,8 +49,9 @@ import {genres, marketing} from './arrays'
 			key={item}
 			type="checkbox"
 			label={item}
+			value={item}
 			id={item}
-			onChange={handleChangeField}
+			onChange={onChange}
 			/>
 		)
 	})
@@ -56,7 +67,7 @@ import {genres, marketing} from './arrays'
 		type="input"
 		placeholder="Other"
 		id="field"
-		onChange={handleChangeField}
+		onChange={onchange}
 		/>
 		</li>
 		</ul>
@@ -66,4 +77,4 @@ import {genres, marketing} from './arrays'
 }
 
 
-export {FieldInputs, GenreInputs}
+// export {FieldInputs, GenreInputs}

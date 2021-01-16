@@ -4,26 +4,14 @@ import {GenreInputs} from './reusable/renderedInputs'
 import Titles from './Titles'
 
 const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleChangeField}) => {
-	// console.log(state)
+	console.log(state)
 		const {  field,  genre, title , industry} = state;
 		// console.log(industry)
 	const page =[]
 
 	industry.forEach(select => {
-	// 	if (select === "Music") {
-	// 		page.push(
-	// 		<GenreInputs 
-	// 							key={genre}
-	// 				handleChangeGenre={handleChangeGenre}
-	// 				industry={industry}
-	// 				genre={genre}
 
-			
-	// 		/>)
-	// 	}
-
-
-		if (select === "DJ" || select === "Vocal Artist" || select === "Sound Engineer" || select === "Music Producer") {
+		if (select === "Music") {
 				page.push(<GenreInputs 
 					key={genre}
 					handleChangeGenre={handleChangeGenre}
@@ -32,10 +20,10 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleC
 					/>)
 		}
 
-		if (field === 'Film Production') {
+		if (select === 'Film Production') {
 				page.push(<Titles 
 					key={film} 
-					handleChangeField={handleChangeField} 
+					handleChangeTitle={handleChangeTitle} 
 					array={film}
 					field={field}
 					title={title}
@@ -45,7 +33,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleC
 		if (field === 'Design') {
 			page.push(<Titles 
 				key={design} 
-				handleChangeField={handleChangeField} 
+				handleChangeTitle={handleChangeTitle} 
 				title={title} 
 				array={design}
 				field={field}
@@ -55,7 +43,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleC
 		if (field === 'Tech') {
 			page.push(<Titles 
 				key={tech} 
-				handleChangeField={handleChangeField} 
+				handleChangeTitle={handleChangeTitle} 
 				title={title} 
 				array={tech}
 				field={field}
@@ -65,7 +53,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleC
 		if (field === 'Photography') {
 			page.push(<Titles 
 				key={photography} 
-				handleChangeField={handleChangeField} 
+				handleChangeTitle={handleChangeTitle} 
 				title={title} 
 				array={photography}
 				field={field}
@@ -75,7 +63,7 @@ const Page = ({state, handleChangeGenre, handleChangeTitle, deselectAll, handleC
 		if (field === 'Writing') {
 			page.push(<Titles 
 			key={writing}
-			handleChangeField={handleChangeField}
+			handleChangeTitle={handleChangeTitle}
 			title={title}
 			array={writing}
 			field={field}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Checkbox = ({ label, isSelected, onCheckboxChange, value }) => (
-  <li>
+  <li className="checkbox-dark">
     <input
       type="checkbox"
       name={label}
