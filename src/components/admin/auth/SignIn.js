@@ -34,8 +34,8 @@ class SignIn extends Component {
 		return (
 			<div className="ui container">
 				<form onSubmit={this.handleSubmit} className="ui form" >
-					<Fields label="Email" type="email" id="email" onChange={this.handleChange}/>
-					<Fields label="Password" type="password" id="password" onChange={this.handleChange} />
+					<Inputs label="Email" type="email" id="email" onChange={this.handleChange}/>
+					<Inputs label="Password" type="password" id="password" onChange={this.handleChange} />
 					<button className="ui button">Sign In</button>
 
 				</form>
