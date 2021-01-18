@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import { genres, dev, design, techdesign, techmark, techcon, filmprod, writing, photography} from './reusable/arrays'
 import {FieldInputs} from './reusable/renderedInputs'
 
-export const Genre = ({state, handleChangeGenre, handleChangeTitle}) => {
+export const Genre = ({state, handleChangeGenre}) => {
 	const {title} = state;
 	const genre = []
 
@@ -28,7 +28,7 @@ export const Genre = ({state, handleChangeGenre, handleChangeTitle}) => {
 	})
 	return (
 		<Fragment>
-			{genres}
+			{genre}
 		</Fragment>
 	)
 }

@@ -62,21 +62,15 @@ h1 {
 
 	@include font-size(5);
 	font-family: "Source Sans Pro", sans-serif;
-	// font-family: $prmfont;
 
 	color: black;
 	letter-spacing: -5px;
-	// font-weight: ;
-	// text-transform: uppercase;
-	// font-size: 3em;
 	margin-bottom: $vertical-rhythm * 2;
 }
 
 h2 {
-	// font-size: 2em;
 	margin-bottom: $vertical-rhythm;
-	@include font-size(5);
-	// letter-spacing: -5px;
+	@include font-size(4.5);
 }
 
 h3 {
@@ -88,6 +82,7 @@ h3 {
 h4 {
 	@include font-size(2);
 	margin: $vertical-rhythm 0;
+	// text-transform: capitalize;
 	// margin-bottom: $vertical-rhythm;
 }
 
@@ -97,7 +92,7 @@ h5 {
 }
 
 h3 {
-	text-transform: uppercase;
+	font-weight: bold;
 }
 li {
 	list-style-type: none;

@@ -3,7 +3,7 @@ import React from 'react'
 export const Inputs = ({ name, id, label, value, type,placeholder, onChange, accept, checked, className }) => {
    return (
   <li  className={className}>
-  <input
+   <input
   id={id}
   name={name}
   type={type}
@@ -13,7 +13,6 @@ export const Inputs = ({ name, id, label, value, type,placeholder, onChange, acc
   accept={accept}
   />
      <label htmlFor={label}>{label}</label>
-
   </li>
    )
 }

@@ -77,9 +77,6 @@ const Dashboard =(props) => {
 		return (
 			<Fragment>
 				<div className="copy">
-					<h5>
-					{app} is a database of	Freelancers and Creatives in Toronto.
-					</h5>
 						<h4>Create. Connect. Flourish.</h4>
 						<h4>For the community, by the community.</h4>
 				</div>

@@ -62,7 +62,7 @@ let history = useHistory()
 			<button className="ui button" onClick={() =>goBack()}>Go Back</button>
 		<Fragment>
 			<strong>What does it mean to be moderated?</strong>
-			<p>We moderate submissions to make sure this database is as resourceful as possible.<br/>We don't care about clout, as long as you have something to offer.</p>
+			<p>We moderate submissions to make sure this database is as resourceful as possible.<br/>We don't care about clout, we just want to make sure you're not a robot.</p>
 		</Fragment>
 
 		</div>

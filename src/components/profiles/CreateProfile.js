@@ -26,6 +26,7 @@ class CreateProfile extends Component {
 				genre: [],
 				title: [],	
 				industry: [],
+				pronoun: [],
 				checkboxes: parent.reduce(
       (options, option) => ({
         ...options,
@@ -46,6 +47,7 @@ class CreateProfile extends Component {
 			[name]: value,
 		}
 		)
+		console.log(value)
 	}
 
 	selectAllCheckboxes = isSelected => {
@@ -100,6 +102,16 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
+	}
+
+	handleChangePronoun = (e) => {
+		const {value} = e.target;
+		const {pronoun} = this.state
+
+		this.setState({
+			pronoun: pronoun.concat(value)
+		})
+		console.log(pronoun)
 	}
 
 	handleChangeImage= async (e) =>  {
@@ -195,6 +207,7 @@ Object.keys(checkboxes)
 					handleChangeTitle={this.handleChangeTitle}
 					handleCheckboxChange={this.handleCheckboxChange}
 					handleChangeField={this.handleChangeField}
+					handleChangePronoun={this.handleChangePronoun}
 					/>
 
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>

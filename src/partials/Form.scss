@@ -46,6 +46,14 @@
 	margin: 10px 5px;
 	// display: flex;
 	// flex-direction: column;
+
+	label {
+		font-weight: bold;
+	}
+	li {
+		display: flex;
+		flex-direction: column-reverse;
+	}
 }
 
 .ui.form .field > label {

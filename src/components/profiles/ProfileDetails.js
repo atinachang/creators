@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
-import { Socials, Bio, Info} from '../layout/Buttons';
+import { Socials, Bio, Info, Pronoun} from '../layout/Details';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
@@ -23,7 +23,9 @@ if (!props.profile) {
 }
 
 else  {
-		const {instagram, name, photo, email, twitter, website, bio, field, genre, title} = props.profile;
+		const {instagram, name, photo, email, twitter, website, bio, field, genre, title, pronoun} = props.profile;
+
+		// console.log(props.profile)
 		const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
 instagram={instagram} 
 twitter={twitter} 
@@ -45,8 +47,8 @@ genre={genre}
 
 			</div>
 
-
 			<div className="bio">
+				<Pronoun pronoun={pronoun}/>
 				<Bio name={name} bio={bio}/>
 					{buttons}
 

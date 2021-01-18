@@ -8,7 +8,7 @@ import StepOne from './forms/StepOne'
 
 
 
-const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField}) => {
+const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun}) => {
 
 	// const {industry, field, title} = state;
 	// console.log("industry", industry, "field", field, "title", title )
@@ -27,17 +27,18 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 
 	return (
 		<Fragment>
-			<h2>Let's get to know you!</h2>
+			<h3>Let's get to know you!</h3>
 			<h5>Submit yourself or a friend here</h5>
-			<h3>Basic Info</h3>
+			<h4>Basic Info</h4>
 
 <StepOne 
 validator={validator}
 state={state}
 handleChangeImage={handleChangeImage}
 handleChange={handleChange}
+handleChangePronoun={handleChangePronoun}
 />
-		<h2>What do you do? </h2>
+		<h3>What do you do? </h3>
 			<h4>
 			Please select all that apply
 		</h4>
@@ -64,7 +65,6 @@ handleChange={handleChange}
 		/>
 		<Genre state={state}
 			handleChangeGenre={handleChangeGenre}
-			handleChangeTitle={handleChangeTitle}
 			/>
 		<Title state={state}
 		handleChangeTitle={handleChangeTitle}

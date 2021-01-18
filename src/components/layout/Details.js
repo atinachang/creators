@@ -143,3 +143,23 @@ export const Bio =({bio}) => {
 		</div>
 	)
 }
+
+export const Pronoun = ({pronoun}) => {
+	const render = () => {
+		if (pronoun.length === 0) {
+			return null
+		}
+
+		return (
+			<div className="segment">
+				<strong>Pronouns</strong>
+				<p>{pronoun}</p>
+			</div>
+		)
+	}
+	return (
+		<div className="segment">
+			{render()}
+		</div>
+	)
+}
