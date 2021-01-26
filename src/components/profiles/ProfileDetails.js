@@ -4,6 +4,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 import { Socials, Bio, Info, Pronoun} from '../layout/Details';
 import Remove from '../admin/auth/Remove';
+import { validate } from 'uuid';
 
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
@@ -67,9 +68,13 @@ genre={genre}
 }
 
 const mapStateToProps = (state, ownProps) => {
+	console.log(ownProps.match)
 	const id = ownProps.match.params.id;
+	// console.log(id)
 	const profiles = state.firestore.data.profiles;
+	console.log(profiles)
 	const profile = profiles ? profiles[id] : null;
+	console.log(profile)
 	return {
 		profile,
 		auth: state.firebase.auth,

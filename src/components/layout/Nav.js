@@ -2,17 +2,18 @@ import React, {Fragment} from 'react';
 import {NavLink} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import {connect} from 'react-redux';
-import Toolbar from './Toolbar/Toolbar'
+import img from '../../assets/logo_transparent.png'
 const Nav = (props) => {
 		const {auth} = props;
 
 		const links = auth.uid ?  <SignedInLinks /> : null;
 
+
 	return (
 	<Fragment>
-		{/* <Toolbar /> */}
 		<ul className="ui  menu">
 			<li className="header item">
+				{/* <img src={img} alt="" srcset=""/> */}
 				<NavLink to="/">Home</NavLink>
 			</li>
 

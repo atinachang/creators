@@ -76,10 +76,10 @@ const Dashboard =(props) => {
 
 		return (
 			<Fragment>
-				<div className="copy">
+				{/* <div className="copy">
 						<h4>Create. Connect. Flourish.</h4>
 						<h4>For the community, by the community.</h4>
-				</div>
+				</div> */}
 				<div className="ui search">
 				 <input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
 				</div>
@@ -92,7 +92,7 @@ const Dashboard =(props) => {
 	}
 
 const mapStateToProps = (state) => {
-
+console.log(state)
 	return {
 		profiles: state.firestore.ordered.profiles,
 		auth: state.firebase.auth
