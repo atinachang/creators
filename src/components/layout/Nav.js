@@ -21,9 +21,9 @@ const Nav = (props) => {
 				<NavLink to="/create">Submit</NavLink>
 			</li>
 
-			<li className="item">
+			{/* <li className="item">
 				<NavLink to="/faq">About</NavLink>
-			</li>
+			</li> */}
 
 			{auth.isLoaded && links}
 

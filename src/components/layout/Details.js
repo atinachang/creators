@@ -146,7 +146,7 @@ export const Bio =({bio}) => {
 
 export const Pronoun = ({pronoun}) => {
 	const render = () => {
-		if (pronoun === undefined) {
+		if (pronoun === undefined || pronoun.length === 0) {
 			return null
 		}
 
