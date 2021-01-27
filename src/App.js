@@ -16,11 +16,11 @@ import {firestoreConnect} from 'react-redux-firebase';
 import './index.scss';
 
 const App = ()=> {
-  const app = "WeCreate.to"
+  const app = "wecreate"
   return (
     <Fragment>
     <BrowserRouter>
-    <Nav />
+    <Nav app={app}/>
       <div className="ui container">
 
     <div className="wrapper">

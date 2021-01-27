@@ -1,32 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
-
-@font-face {
-	font-family: "Theinhardt";
-	src: url("../fonts/theinhardt.ttf");
-}
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap");
 * {
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	// font-family: $prmfont;
 	background-color: $primary;
 	color: $primaryfnt;
 	line-height: $base-line-height;
-	// font-family: "Source Sans Pro", sans-serif;
-
-	// @media (max-width: 500px) {
-	// 	font-family: "Slabo 27px", serif;
-	// }
 }
 
 body,
 p {
 	@include font-size(1.5);
-	// font-family: "Source Sans Pro", sans-serif;
 	font-size: $base-font-size;
 	margin-bottom: $vertical-rhythm;
+	font-family: $branding;
 }
 .wrapper {
 	max-width: 1200px;
@@ -42,13 +31,11 @@ a {
 	}
 }
 
-h2,
+// h2,
 h3,
 h4,
 h5,
 p {
-	// font-family: $prmfont;
-
 	font-weight: 300;
 	line-height: 1.1em;
 	margin: 0;
@@ -61,11 +48,15 @@ h1 {
 	}
 
 	@include font-size(5);
-	font-family: "Source Sans Pro", sans-serif;
-
 	color: black;
 	letter-spacing: -5px;
 	margin-bottom: $vertical-rhythm * 2;
+}
+
+.branding {
+	font-family: $branding;
+	font-weight: 700;
+	color: darken($scnd, 10%);
 }
 
 h2 {

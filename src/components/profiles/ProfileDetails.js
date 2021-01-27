@@ -68,13 +68,13 @@ genre={genre}
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(ownProps.match)
+	// console.log(ownProps.match)
 	const id = ownProps.match.params.id;
 	// console.log(id)
 	const profiles = state.firestore.data.profiles;
-	console.log(profiles)
+	// console.log(profiles)
 	const profile = profiles ? profiles[id] : null;
-	console.log(profile)
+	// console.log(profile)
 	return {
 		profile,
 		auth: state.firebase.auth,
