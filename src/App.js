@@ -18,13 +18,21 @@ import './index.scss';
 const App = (props)=> {
   const {profiles} = props;
   const app = "wecreate"
-		const [search, setSearch] = useState(null)
+  const [search, setSearch] = useState(null)
 
-    const searchSpace=(e)=>{
-		let keyword = e.target.value;	
-		// console.log(keyword)
-		setSearch(keyword)
+  const searchSpace=(e)=>{
+  let keyword = e.target.value;	
+  // console.log(keyword)
+  setSearch(keyword)
   }
+
+    if (profiles === undefined) {
+      return (
+    <div className="ui segment">
+    <div className="ui active centered inline loader"></div>
+    </div>
+      )
+    } else {
 
 		let toRender = []
 		profiles.forEach((data)=>{
@@ -40,7 +48,9 @@ const App = (props)=> {
 						toRender.push(data)
 				} 
 			} 
-		})
+    })
+    
+
   return (
     <Fragment>
     <BrowserRouter>
@@ -63,6 +73,7 @@ const App = (props)=> {
     <Footer app={app}/>
     </Fragment>
   );
+  }
 }
 
 const mapStateToProps = (state) => {

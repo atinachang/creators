@@ -15,13 +15,13 @@ const Dashboard =(props) => {
 	// 	setAppFilter(value)
 	// }
 
-		if (profiles === undefined) {
-		return (
-	<div className="ui segment">
-	<div className="ui active centered inline loader"></div>
-	</div>
-		)
-	}
+	// 	if (profiles === undefined) {
+	// 	return (
+	// <div className="ui segment">
+	// <div className="ui active centered inline loader"></div>
+	// </div>
+	// 	)
+	// }
 
   // const searchSpace=(e)=>{
 	// 	let keyword = e.target.value;	

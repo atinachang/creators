@@ -14,13 +14,10 @@ const Nav = (props) => {
 	return (
 	<Fragment>
 		<div className="nav">
-		<div className="ui search">
-		<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
-		</div>
+
 			<ul>
 				<li >
 			<NavLink to="/" className="branding">{app}</NavLink>
-			{/* <img src={img} alt="" srcset=""/> */}
 			</li>
 			
 			<li>
@@ -35,6 +32,10 @@ const Nav = (props) => {
 			</ul>
 
 		</div>
+			<div className="ui search">
+				<NavLink to="/" className="branding">connect. create. repeat</NavLink>
+				<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
+			</div>
 		</Fragment>
 	)
 }
