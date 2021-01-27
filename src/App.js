@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Nav from './components/layout/Nav';
 import Header from './components/layout/Header';
@@ -15,20 +15,43 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 import './index.scss';
 
-const App = ()=> {
+const App = (props)=> {
+  const {profiles} = props;
   const app = "wecreate"
+		const [search, setSearch] = useState(null)
+
+    const searchSpace=(e)=>{
+		let keyword = e.target.value;	
+		// console.log(keyword)
+		setSearch(keyword)
+  }
+
+		let toRender = []
+		profiles.forEach((data)=>{
+      if(search === null) {
+				 toRender.push(data)
+			}
+			else {
+				if(
+					data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+					data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+					data.genre.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+					data.name.toString().toLowerCase().includes(search.toString().toLowerCase())) {
+						toRender.push(data)
+				} 
+			} 
+		})
   return (
     <Fragment>
     <BrowserRouter>
-    <Nav app={app}/>
+    <Nav app={app} searchSpace={searchSpace}/>
       <div className="ui container">
 
     <div className="wrapper">
     <Header app={app} />
     <Switch>
-    <Route exact path="/" render={() => <Dashboard app={app}/>} />
+    <Route exact path="/" render={() => <Dashboard app={app} searchSpace={searchSpace} toRender={toRender}/>} />
     <Route path="/profile/:id" component={ProfileDetails} />
-
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />

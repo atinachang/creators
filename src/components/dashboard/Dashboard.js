@@ -7,55 +7,43 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 
 const Dashboard =(props) => {
-		const {profiles, auth, app} = props;
-
-	// const [appFilter, setAppFilter] = useState("All")
-	const [search, setSearch] = useState(null)
+		const {profiles, auth, app, searchSpace, toRender} = props;
+		// const [search, setSearch] = useState(null)
 
 	// 	const filter =(e) => {
 	// const {value} = e.target
 	// 	setAppFilter(value)
 	// }
 
-	if (profiles === undefined) {
-	return (
-<div className="ui segment">
-<div className="ui active centered inline loader"></div>
-</div>
+		if (profiles === undefined) {
+		return (
+	<div className="ui segment">
+	<div className="ui active centered inline loader"></div>
+	</div>
+		)
+	}
 
-)
-}
-// let profToRender = [];
-// profiles.forEach((profile) => {
-// 	if (appFilter === "All") {
-// 		profToRender.push(profile)
-// 	} else{
-// 		if (profile.field.includes(appFilter)) {
-// 			profToRender.push(profile)
-// 		}
-// 	} 
-// })
-  const searchSpace=(e)=>{
-		let keyword = e.target.value;	
-		// console.log(keyword)
-		setSearch(keyword)
-  }
+  // const searchSpace=(e)=>{
+	// 	let keyword = e.target.value;	
+	// 	// console.log(keyword)
+	// 	setSearch(keyword)
+  // }
 
-		let toRender = []
-		profiles.forEach((data)=>{
-      if(search === null) {
-				 toRender.push(data)
-			}
-			else {
-				if(
-					data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
-					data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
-					data.genre.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
-					data.name.toString().toLowerCase().includes(search.toString().toLowerCase())) {
-						toRender.push(data)
-				} 
-			} 
-		})
+	// 	let toRender = []
+	// 	profiles.forEach((data)=>{
+  //     if(search === null) {
+	// 			 toRender.push(data)
+	// 		}
+	// 		else {
+	// 			if(
+	// 				data.field.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+	// 				data.title.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+	// 				data.genre.toString().toLowerCase().includes(search.toString().toLowerCase()) || 
+	// 				data.name.toString().toLowerCase().includes(search.toString().toLowerCase())) {
+	// 					toRender.push(data)
+	// 			} 
+	// 		} 
+	// 	})
 	const sorted = toRender.sort((a,b) => b.createdAt - a.createdAt)
 
 
@@ -80,9 +68,9 @@ const Dashboard =(props) => {
 						<h4>Create. Connect. Flourish.</h4>
 						<h4>For the community, by the community.</h4>
 				</div> */}
-				<div className="ui search">
+				{/* <div className="ui search">
 				 <input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
-				</div>
+				</div> */}
 				{/* <Filter filter={filter} /> */}
 				<div className="ui link cards">
 			{auth.isLoaded && users}

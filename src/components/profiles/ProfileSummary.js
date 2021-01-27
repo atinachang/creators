@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 
+// add function that makes labels set filter in nav
 const ProfileSummary = ({profile}) => {
 	const {name, photo, field} = profile;
 	const fieldRender = () => {
