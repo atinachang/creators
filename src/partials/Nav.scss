@@ -1,7 +1,8 @@
-.nav {
+nav {
 	display: flex;
 	justify-content: flex-end;
 	padding: 0 20px;
+	text-transform: uppercase;
 
 	a {
 		@include font-size(1.3);
@@ -20,7 +21,8 @@
 }
 
 .ui.search {
-	margin: 20px;
+	// margin: 20px;
+	// margin: 0 100px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

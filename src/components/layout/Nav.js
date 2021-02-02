@@ -13,8 +13,8 @@ const Nav = (props) => {
 	// try to implement search bar into nav
 	return (
 	<Fragment>
-		<div className="nav">
 
+		<nav>
 			<ul>
 				<li >
 			<NavLink to="/" className="branding">{app}</NavLink>
@@ -29,10 +29,11 @@ const Nav = (props) => {
 			</li> */}
 			
 			{auth.isLoaded && links}
+
 			</ul>
 
-		</div>
-			<div className="ui search">
+		</nav>
+					<div className="ui search">
 				<NavLink to="/" className="branding">connect. create. repeat</NavLink>
 				<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
 			</div>

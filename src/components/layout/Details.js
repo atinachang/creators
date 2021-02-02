@@ -62,11 +62,11 @@ return (
 	)
 }
 
-export const Info = ({field, genre, title}) => {
+export const Info = ({field, genre, title, filter}) => {
 const fieldRender = () => {
 
 	const fieldList = field.map(field => 
-	<li className="dark" key={field}>{field}</li>
+	<li className="dark" key={field} data-value={field} onClick={filter}>{field}</li>
 		)
 		return (
 		<div className="segment">

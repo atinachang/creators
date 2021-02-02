@@ -14,6 +14,7 @@ import { compose } from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 
 import './index.scss';
+import ProfileSummary from './components/profiles/ProfileSummary';
 
 const App = (props)=> {
   const {profiles} = props;
@@ -60,7 +61,7 @@ const App = (props)=> {
     <div className="wrapper">
     <Header app={app} />
     <Switch>
-    <Route exact path="/" render={() => <Dashboard app={app} searchSpace={searchSpace} toRender={toRender}/>} />
+    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender}/>} />
     <Route path="/profile/:id" component={ProfileDetails} />
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />

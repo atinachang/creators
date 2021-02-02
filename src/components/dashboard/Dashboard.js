@@ -80,7 +80,6 @@ const Dashboard =(props) => {
 	}
 
 const mapStateToProps = (state) => {
-console.log(state)
 	return {
 		profiles: state.firestore.ordered.profiles,
 		auth: state.firebase.auth
