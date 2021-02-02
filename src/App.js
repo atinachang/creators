@@ -50,19 +50,18 @@ const App = (props)=> {
 				} 
 			} 
     })
-    
-
   return (
     <Fragment>
     <BrowserRouter>
     <Nav app={app} searchSpace={searchSpace}/>
       <div className="ui container">
 
-    <div className="wrapper">
+    <div className="wrapper fade-in">
     <Header app={app} />
     <Switch>
     <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender}/>} />
     <Route path="/profile/:id" component={ProfileDetails} />
+    {/* <Route path="/profile:/id" render={()=> <ProfileDetails filter={()=>setSearch(null)}/>}/> */}
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />

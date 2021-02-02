@@ -13,8 +13,10 @@
 	h5,
 	label,
 	p,
-	strong {
+	strong,
+	input {
 		color: black;
+		// font-family: $branding;
 	}
 }
 
@@ -92,8 +94,9 @@ form img {
 	box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent;
 	margin: 1em 0;
 	padding: 1em 1.5em;
-	transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease,
-		box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
+	transition: opacity 0.1s ease, color 0.1s ease;
+	background: 0.1s ease;
+	box-shadow: 0.1s ease, -webkit-box-shadow 0.1s ease;
 	border-radius: 0.28571429rem;
 }
 
@@ -135,12 +138,7 @@ ul.ks-cboxtags li label {
 	border-radius: 25px;
 	white-space: nowrap;
 	margin: 3px 0px;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
-	-webkit-tap-highlight-color: transparent;
 	transition: all 0.2s;
 }
 
@@ -167,15 +165,15 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 }
 
 ul.ks-cboxtags li.checkbox-dark input[type="checkbox"]:checked + label {
-	border: 2px solid $scnd;
-	background-color: lighten($scnd, 20%);
+	border: 2px solid $high1;
+	background-color: lighten($high1, 20%);
 	color: #fff;
 	transition: all 0.2s;
 }
 
 ul.ks-cboxtags li.checkbox-light input[type="checkbox"]:checked + label {
-	border: 2px solid $thrd;
-	background-color: lighten($thrd, 20%);
+	border: 2px solid $high2;
+	background-color: lighten($high2, 20%);
 	color: #fff;
 	transition: all 0.2s;
 }

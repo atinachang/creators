@@ -6,7 +6,6 @@ import { Socials, Bio, Info, Pronoun} from '../layout/Details';
 import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
-	// console.log(props)
 	const {id} = props.match.params;
 	const {profile, auth, history} = props;
 
@@ -28,6 +27,9 @@ else  {
 
 	const filter = e => {
 		console.log(e.target.dataset.value)
+		// setSearch(e.target.dataset.value)
+
+		// goBack()
 	}
 
 	const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
@@ -44,7 +46,7 @@ else  {
 
 		return (
 			<Fragment>
-			<div className="details-container">
+			<div className="details-container fade-in">
 			<h2>{name}</h2>
 				<div className="details">
 			<div className="details-image">
