@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 import { parent } from './forms/reusable/arrays';
 // import Page from './forms/Page'
 // import {Inputs} from './forms/reusable/Inputs';
@@ -8,7 +8,8 @@ import StepOne from './forms/StepOne'
 
 
 
-const Form = ({state, validator, handleChangeImage, handleChange,  selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun}) => {
+const Form = ({ state, validator, handleChangeImage, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun }) => {
+	const [fieldsState, setFieldsState] = useState(false)
 
 	// const {industry, field, title} = state;
 	// console.log("industry", industry, "field", field, "title", title )
@@ -18,12 +19,9 @@ const Form = ({state, validator, handleChangeImage, handleChange,  selectAllChec
 	state.field = []
 		e.preventDefault();
 	e.stopPropagation();
-
 	}
 
 	const createFields = () => parent.map(createCheckbox)
-
-
 
 	return (
 		<Fragment>
@@ -42,7 +40,6 @@ handleChangePronoun={handleChangePronoun}
 			<h4>
 			Please select all that apply
 		</h4>
-		{/* <div className="inputs"> */}
 			<ul className="ks-cboxtags">
 				{createFields()}
 			<input
@@ -70,15 +67,6 @@ handleChangePronoun={handleChangePronoun}
 		handleChangeTitle={handleChangeTitle}
 		/>
 
-			{/* <Page 
-			state={state}
-			handleChangeGenre={handleChangeGenre}
-			createCheckbox={createCheckbox}
-			handleChangeTitle={handleChangeTitle}
-			handleCheckboxChange={handleCheckboxChange}
-			handleChangeField={handleChangeField}
-			deselectAll={deselectAll}
-			/> */}
 		</div>
 		</Fragment>
 	)

@@ -1,41 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	background-color: $primary;
-	color: $primaryfnt;
-	line-height: $base-line-height;
-	font-size: $base-font-size;
+  background-color: $primary;
+  color: $primaryfnt;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
 }
 
 #root {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 p {
-	@include font-size(1.5);
-	margin-bottom: $vertical-rhythm;
+  @include font-size(1.5);
+  margin-bottom: $vertical-rhythm;
 }
 
 .wrapper {
-	max-width: 1200px;
-	width: 90%;
-	margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 a {
-	color: $primaryfnt;
+  color: $primaryfnt;
 
-	&:hover {
-		color: $thrdaccent;
-	}
+  &:hover {
+    color: $thrdaccent;
+  }
 }
 
 // h2,
@@ -43,76 +43,77 @@ h3,
 h4,
 h5,
 p {
-	font-weight: 300;
-	line-height: 1.1em;
-	margin: 0;
+  font-weight: 300;
+  line-height: 1.1em;
+  margin: 0;
 }
 
 h1 {
-	@media (min-width: 768px) {
-		@include font-size(9);
-		word-wrap: break-word;
-	}
+  @media (min-width: 768px) {
+    @include font-size(9);
+    word-wrap: break-word;
+  }
 
-	@include font-size(5);
-	color: black;
-	letter-spacing: -5px;
-	margin-bottom: $vertical-rhythm * 2;
+  @include font-size(5);
+  color: black;
+  letter-spacing: -5px;
+  margin-bottom: $vertical-rhythm * 2;
 }
 
 .branding {
-	font-family: $branding;
-	font-weight: 700;
-	// color: darken($scnd, 10%);
+  font-family: $branding;
+  font-weight: 700;
+  // color: darken($scnd, 10%);
 }
 
 h2 {
-	margin-bottom: $vertical-rhythm;
-	@include font-size(4.5);
+  margin-bottom: $vertical-rhythm;
+  @include font-size(4.5);
 }
 
 h3 {
-	// font-size: 1.5em;
-	margin-bottom: $vertical-rhythm;
-	@include font-size(3);
+  // font-size: 1.5em;
+  margin-bottom: $vertical-rhythm;
+  @include font-size(3);
 }
 
 h4 {
-	@include font-size(2);
-	margin: $vertical-rhythm 0;
-	// text-transform: capitalize;
-	// margin-bottom: $vertical-rhythm;
+  @include font-size(2);
+  margin: $vertical-rhythm 0;
+  // text-transform: capitalize;
+  // margin-bottom: $vertical-rhythm;
 }
 
 h5 {
-	@include font-size(1.4);
-	margin: 0;
+  @include font-size(1.4);
+  margin: 0;
 }
 
 h3 {
-	font-weight: bold;
+  font-weight: bold;
 }
 li {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 input {
-	margin: 5px 10px;
+  padding: 5px 10px;
+  text-align: center;
 }
 
 i.icon,
 i.icons {
-	@include font-size(1.8);
+  @include font-size(1.8);
 }
 
 .fade-in {
-	animation: fadeIn ease 1s;
+  animation: fadeIn ease 1s;
 }
 @keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

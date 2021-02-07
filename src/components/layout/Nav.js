@@ -3,18 +3,20 @@ import {NavLink} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import {connect} from 'react-redux';
 const Nav = (props) => {
-		const {auth, app, searchSpace} = props;
-
+		const {auth, app, searchSpace, setSearch} = props;
 		const links = auth.uid ?  <SignedInLinks /> : null;
 
 	// try to implement search bar into nav
+	const reset = () => {
+		setSearch(null)
+	}
 	return (
 	<Fragment>
 
 		<nav>
 			<ul>
 				<li >
-			<NavLink to="/" className="branding">{app}</NavLink>
+				<NavLink to="/" className="branding">{ app}</NavLink>
 			</li>
 			
 			<li>
@@ -31,8 +33,10 @@ const Nav = (props) => {
 
 		</nav>
 					<div className="ui search">
-				<NavLink to="/" className="branding">connect. create. repeat</NavLink>
-				<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
+				<NavLink to="/" className="branding" onClick={reset}>connect. create. repeat</NavLink>
+				<NavLink to="/search">
+					<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
+				</NavLink>
 			</div>
 		</Fragment>
 	)

@@ -7,15 +7,16 @@ import {firestoreConnect} from 'react-redux-firebase';
 
 
 const Dashboard =(props) => {
-	const {auth, toRender} = props;
+	const { auth, toRender} = props;
 
 	const sorted = toRender.sort((a,b) => b.createdAt - a.createdAt)
 
-		const mapped = sorted.map((card) =>{
+	const mapped = sorted.map((card) => {
 			return (
 				<ProfileList key={card.id} card={card} props={props} />
-			)
+			);
 		});
+	
 
 		const adminmap = sorted.map(card => {
 			return (

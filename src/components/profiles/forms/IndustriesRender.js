@@ -10,12 +10,11 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 	industry.forEach(selected =>{
 		if (selected === "Marketing") {
 			fields.push(<FieldInputs 
+				className={"checkbox-dark"}
 				key={marketing}
 				onChange={handleChangeTitle}
 				array={marketing}
 				industry={industry}
-				// field={field}
-				// title={title}
 			/>)
 		}
 

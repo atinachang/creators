@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import { compose } from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import Loader from './components/layout/Loader'
+import FilterView from './components/layout/views/FilterView'
 import './index.scss';
 
 export const app = "wecreate"
@@ -20,10 +21,15 @@ const App = (props)=> {
   const {profiles} = props;
   const [search, setSearch] = useState(null)
 
+  // dashboard - render if search === null
+  // search - render if search !== null; activate on click of searchbar
+
   const searchSpace=(e)=>{
   let keyword = e.target.value;	
   setSearch(keyword)
   }
+
+  // console.log(search)
 
     if (profiles === undefined) {
       return (
@@ -49,12 +55,13 @@ const App = (props)=> {
   return (
     <Fragment>
     <BrowserRouter>
-    <Nav app={app} searchSpace={searchSpace}/>
+        <Nav {...props} app={app} setSearch={setSearch} search={search} toRender={toRender} searchSpace={searchSpace} />
       <div className="ui container">
 
     <div className="wrapper fade-in">
     <Switch>
-    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} search={search} setSearch={setSearch} searchSpace={ searchSpace}/>} />
+    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} />} />
+    <Route path="/search" render={(props) => <FilterView {...props} toRender={toRender} />  }/>          
     <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={ setSearch}/> }/>          
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />

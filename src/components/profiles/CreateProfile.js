@@ -45,9 +45,8 @@ class CreateProfile extends Component {
 		const {name, value} = e.target
 		this.setState({
 			[name]: value,
-		}
+			}
 		)
-		console.log(value)
 	}
 
 	selectAllCheckboxes = isSelected => {
@@ -60,7 +59,6 @@ class CreateProfile extends Component {
       }));
 		})
   };
-
 
 	handleCheckboxChange = e => {
     const { name, value } = e.target;
@@ -75,8 +73,6 @@ class CreateProfile extends Component {
 		}));		
   };
 
-
-
 	handleChangeGenre = (e) => {
 		const {value} = e.target
 		const {genre} = this.state
@@ -85,7 +81,7 @@ class CreateProfile extends Component {
 		})
 	}
 
-		handleChangeField = e => {
+	handleChangeField = e => {
 		const {value} = e.target;
 		const {field} = this.state
 
@@ -126,35 +122,35 @@ class CreateProfile extends Component {
 				photo: url
 			})
 		})
-}
+	}
 
-handleReset =(e) => {
-	e.preventDefault();
-	e.stopPropagation();
-	this.setState({
-		userId: "",
-		name: "",
-		email: "",
-		bio: "",
-		photo: "",
-		twitter: "",
-		instagram: "",
-		website: "",
-		field: [],
-		genre: [],
-		title: [],
-		industry: [],
-		checkboxes: parent.reduce(
-		(options, option) => ({
-		...options,
-		[option]: false
-		}),
-		{}
-		),
-		live: false,
-		createdAt: new Date(),
-	})
-}
+	handleReset =(e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		this.setState({
+			userId: "",
+			name: "",
+			email: "",
+			bio: "",
+			photo: "",
+			twitter: "",
+			instagram: "",
+			website: "",
+			field: [],
+			genre: [],
+			title: [],
+			industry: [],
+			checkboxes: parent.reduce(
+			(options, option) => ({
+			...options,
+			[option]: false
+			}),
+			{}
+			),
+			live: false,
+			createdAt: new Date(),
+		})
+	}
 
 
 	 handleSubmit =(e)=>  {
@@ -170,10 +166,10 @@ handleReset =(e) => {
   }
 
 // console.log(this.state)
-createProfile(this.state)
-history.push('/thankyou')
-Object.keys(checkboxes)
-			.filter(checkbox => checkboxes[checkbox])	
+	createProfile(this.state)
+	history.push('/thankyou')
+	Object.keys(checkboxes)
+				.filter(checkbox => checkboxes[checkbox])	
 }
 
 
