@@ -1,7 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Nav from './components/layout/Nav';
-import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileDetails from './components/profiles/ProfileDetails';
 import CreateProfile from './components/profiles/CreateProfile';
@@ -14,7 +13,6 @@ import { compose } from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import Loader from './components/layout/Loader'
 import './index.scss';
-import ProfileSummary from './components/profiles/ProfileSummary';
 
 export const app = "wecreate"
 
@@ -24,18 +22,12 @@ const App = (props)=> {
 
   const searchSpace=(e)=>{
   let keyword = e.target.value;	
-  // console.log(keyword)
   setSearch(keyword)
   }
 
     if (profiles === undefined) {
       return (
-        <Fragment>
           <Loader />
-        </Fragment>
-    // <div className="ui segment">
-    // <div className="ui active centered inline loader"></div>
-    // </div>
       )
     } else {
 
@@ -56,16 +48,14 @@ const App = (props)=> {
     })
   return (
     <Fragment>
-      {/* <Loader /> */}
     <BrowserRouter>
     <Nav app={app} searchSpace={searchSpace}/>
       <div className="ui container">
 
     <div className="wrapper fade-in">
-    <Header app={app} />
     <Switch>
-    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender}/>} />
-    <Route path="/profile/:id" component={ProfileDetails} />
+    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} search={search} setSearch={setSearch} searchSpace={ searchSpace}/>} />
+    <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={ setSearch}/> }/>          
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />

@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 // add function that makes labels set filter in nav
 const ProfileSummary = ({profile}) => {
 	const {name, photo, field} = profile;
-
+	
 	// if (profile === undefined) {
 	// 	      return (
   //   <div className="ui segment">

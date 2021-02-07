@@ -7,29 +7,17 @@ import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
-	const {profile, auth, history} = props;
-
+	const { profile, auth, history, setSearch } = props;
 const goBack = ()=> {
 	history.goBack()
 }
 
-	if (!props.profile) {
-		return (
-	<div className="ui segment">
-	<div className="ui active centered inline loader"></div>
-	</div>
-
-	)
-}
-
-else  {
 	const {instagram, name, photo, email, twitter, website, bio, field, genre, title, pronoun} = props.profile;
 
 	const filter = e => {
-		console.log(e.target.dataset.value)
-		// setSearch(e.target.dataset.value)
+		goBack()
+		setSearch(e.target.dataset.value)
 
-		// goBack()
 	}
 
 	const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
@@ -60,21 +48,18 @@ else  {
 					{buttons}
 
 			</div>
-						<div className="details-content">
-			<Info field={field} title={title} genre={genre} filter={filter}/>
-			</div>
+				<div className="details-content">
+				<Info field={field} title={title} genre={genre} filter={filter}/>
+				</div>
 			</div>
 
-			{/* <button className="ui button mobile" onClick={() =>goBack()}>Go Back</button> */}
 			</div>
-			{/* && breadcrumb? */}
 			</Fragment>
 		)
 	} 
-}
+
 
 const mapStateToProps = (state, ownProps) => {
-	// console.log("ownprops:", ownProps, "state:",state)
 	const id = ownProps.match.params.id;
 	const profiles = state.firestore.data.profiles;
 	const profile = profiles ? profiles[id] : null;

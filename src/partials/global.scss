@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 * {
 	margin: 0;
@@ -10,16 +10,20 @@ body {
 	background-color: $primary;
 	color: $primaryfnt;
 	line-height: $base-line-height;
+	font-size: $base-font-size;
 }
 
-body,
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 p {
 	@include font-size(1.5);
-	font-size: $base-font-size;
 	margin-bottom: $vertical-rhythm;
-	// font-family: "Poppins", sans-serif;
-	// font-family: $branding;
 }
+
 .wrapper {
 	max-width: 1200px;
 	width: 90%;

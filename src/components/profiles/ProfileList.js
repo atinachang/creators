@@ -5,14 +5,14 @@ import {connect} from 'react-redux';
 import ProfileSummary from './ProfileSummary';
 
 const ProfileList = ({card}) => {
-
+// console.log(props)
 const cards = () => {
 		if (card.live === true) {
 	return (
 			<div className="column">
 				<div className="fluid card">
 			<Link to={`/profile/${card.id}`}>
-			<ProfileSummary profile={card} key={card.id}  />
+			<ProfileSummary profile={card} key={card.id}   />
 			</Link>
 			</div>
 			</div>

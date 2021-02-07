@@ -2,13 +2,10 @@ import React, {Fragment} from 'react';
 import {NavLink} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import {connect} from 'react-redux';
-import img from '../../assets/logo_transparent.png'
 const Nav = (props) => {
 		const {auth, app, searchSpace} = props;
 
 		const links = auth.uid ?  <SignedInLinks /> : null;
-
-		
 
 	// try to implement search bar into nav
 	return (
