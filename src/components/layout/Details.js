@@ -1,9 +1,8 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
+import {NavLink} from 'react-router-dom'
 
 
-
-export const Socials = ({instagram, twitter, email, bio, name, website, field, title, genre}) => {
-	// console.log(field)
+export const Socials = ({instagram, twitter, email, bio, name, website}) => {
 const igRender= () =>{
 		if (!instagram) {
 		return null
@@ -64,9 +63,10 @@ return (
 
 export const Info = ({field, genre, title, filter}) => {
 const fieldRender = () => {
-
 	const fieldList = field.map(field => 
-	<li className="dark" key={field} data-value={field} onClick={filter}>{field}</li>
+	<NavLink to="/search" key={field} >
+		<li className="dark"  data-value={field} onClick={filter}>{field}</li>
+	</NavLink>
 		)
 		return (
 		<div className="segment">
@@ -125,7 +125,6 @@ return (
 
 export const Bio =({bio}) => {
 	const bioRender = ()=> {
-
 		if (bio.length === 0) {
 			return null
 		}

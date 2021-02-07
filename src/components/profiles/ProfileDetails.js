@@ -7,7 +7,7 @@ import Remove from '../admin/auth/Remove';
 
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
-	const { profile, auth, history, setSearch } = props;
+	const { profile, auth, setSearch } = props;
 	// console.log(history)
 // const goBack = ()=> {
 // 	history.go('/search')
@@ -16,10 +16,8 @@ const ProfileDetails = (props) => {
 	const {instagram, name, photo, email, twitter, website, bio, field, genre, title, pronoun} = props.profile;
 
 	const filter = e => {
-		// goBack()
 		setSearch(e.target.dataset.value)
-
-	}
+}
 
 	const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
 			instagram={instagram} 

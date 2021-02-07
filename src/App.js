@@ -24,12 +24,13 @@ const App = (props)=> {
   // dashboard - render if search === null
   // search - render if search !== null; activate on click of searchbar
 
-  const searchSpace=(e)=>{
+  const searchSpace = (e) => {
   let keyword = e.target.value;	
-  setSearch(keyword)
+    setSearch(keyword)
   }
+  // pass searchSpace to FilteredView
+  // when user clicks header - reset searchSpace to null?
 
-  // console.log(search)
 
     if (profiles === undefined) {
       return (
@@ -55,14 +56,14 @@ const App = (props)=> {
   return (
     <Fragment>
     <BrowserRouter>
-        <Nav {...props} app={app} setSearch={setSearch} search={search} toRender={toRender} searchSpace={searchSpace} />
-      <div className="ui container">
+    <Nav {...props} app={app} setSearch={setSearch} search={search} toRender={toRender} searchSpace={searchSpace} />
+    <div className="ui container">
 
     <div className="wrapper fade-in">
     <Switch>
     <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} />} />
     <Route path="/search" render={(props) => <FilterView {...props} toRender={toRender} />  }/>          
-    <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={ setSearch}/> }/>          
+    <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={setSearch} />}/>          
     <Route path="/create" component={CreateProfile} />
     <Route path="/admin" component={Admin} />
     <Route path="/thankyou" component={ThankYou} />

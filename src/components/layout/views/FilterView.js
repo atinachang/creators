@@ -6,7 +6,7 @@ import ProfileList from '../../profiles/ProfileList'
 import AdminList from '../../admin/AdminList'
 
 const FilterView = (props) => {
-	const { toRender, auth, search } = props
+	const { toRender, auth } = props
 	
 	const sorted = toRender.sort((a,b) => b.createdAt - a.createdAt)
 
