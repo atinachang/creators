@@ -82,7 +82,9 @@ const titleRender = () => {
 	}
 
 	const titleList = title.map(title => 
-		<li className="light" key={title} data-value={title} onClick={ filter}>{title}</li>
+		<NavLink to="/search" key={title}>
+			<li className="light" data-value={title} onClick={ filter}>{title}</li>
+		</NavLink>
 		)
 		
 		return (
@@ -98,7 +100,9 @@ const titleRender = () => {
 
 	const genreRender = () => {
 		const genreList = genre.map(title =>
-			<li className="light" key={title} data-value={ title} onClick={filter}>{title}</li>
+			<NavLink to="/search" key={title}>
+				<li className="light" data-value={ title} onClick={filter}>{title}</li>
+			</NavLink>
 		)
 		if (genre.length === 0) {
 			return null
