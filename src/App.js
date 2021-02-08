@@ -19,15 +19,16 @@ export const app = "wecreate"
 
 const App = (props)=> {
   const {profiles} = props;
-  const [search, setSearch] = useState(null)
+  const [search, setSearch] = useState("")
 
   // dashboard - render if search === null
   // search - render if search !== null; activate on click of searchbar
 
-  const searchSpace = (e) => {
-  let keyword = e.target.value;	
-    setSearch(keyword)
-  }
+  // const searchSpace = (e) => {
+  //   let keyword = e.target.value;	
+  //   console.log(e.target)
+  //   setSearch(keyword)
+  // }
   // pass searchSpace to FilteredView
   // when user clicks header - reset searchSpace to null?
 
@@ -56,7 +57,7 @@ const App = (props)=> {
   return (
     <Fragment>
     <BrowserRouter>
-    <Nav {...props} app={app} setSearch={setSearch} search={search} toRender={toRender} searchSpace={searchSpace} />
+    <Nav {...props} app={app} setSearch={setSearch} toRender={toRender}  />
     <div className="ui container">
 
     <div className="wrapper fade-in">

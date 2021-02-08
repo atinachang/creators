@@ -5,18 +5,21 @@ import {connect} from 'react-redux';
 const Nav = (props) => {
 
 	const [searchVal, setSearchVal] = useState('')
-	const {auth, app, searchSpace, setSearch} = props;
+	const {auth, app, setSearch} = props;
 	const links = auth.uid ? <SignedInLinks /> : null;
-	// const input = useRef()
-	// console.log(input.current)
 
 	// try to implement search bar into nav
 
-	const clearState = (e) => {
-		console.log(searchVal)
-	}
+	  const searchSpace = (e) => {
+    let keyword = e.target.value;	
+    // console.log(e.target)
+			setSearch(keyword)
+			setSearchVal(keyword)
+		}
+		
+
 	const reset = (e) => {
-		clearState()
+		setSearchVal('')
 	}
 	return (
 	<Fragment>
@@ -41,9 +44,9 @@ const Nav = (props) => {
 
 		</nav>
 					<div className="ui search">
-				<NavLink to="/" className="branding" onClick={(e)=>reset(e)}>connect. create. repeat</NavLink>
+				<NavLink to="/" className="branding" onClick={(e)=> reset(e) } >connect. create. repeat</NavLink>
 				<NavLink to="/search">
-					<input type="text" className="prompt"  placeholder="Search by Keyword" onChange={(e)=>searchSpace(e)} />
+					<input type="text" className="prompt" placeholder="Search by Keyword" value={ searchVal}onChange={(e)=>searchSpace(e)} />
 				</NavLink>
 			</div>
 		</Fragment>
