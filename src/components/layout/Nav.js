@@ -12,7 +12,6 @@ const Nav = (props) => {
 
 	  const searchSpace = (e) => {
     let keyword = e.target.value;	
-    // console.log(e.target)
 			setSearch(keyword)
 			setSearchVal(keyword)
 		}
@@ -20,6 +19,7 @@ const Nav = (props) => {
 
 	const reset = (e) => {
 		setSearchVal('')
+		setSearch(null)
 	}
 	return (
 	<Fragment>

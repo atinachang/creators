@@ -8,10 +8,7 @@ import Remove from '../admin/auth/Remove';
 const ProfileDetails = (props) => {
 	const {id} = props.match.params;
 	const { profile, auth, setSearch } = props;
-	// console.log(history)
-// const goBack = ()=> {
-// 	history.go('/search')
-// }
+
 
 	const {instagram, name, photo, email, twitter, website, bio, field, genre, title, pronoun} = props.profile;
 
