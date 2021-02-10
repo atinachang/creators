@@ -60,7 +60,7 @@ const App = (props)=> {
     <Nav {...props} app={app} setSearch={setSearch} toRender={toRender}  />
     <div className="ui container">
 
-    <div className="wrapper fade-in">
+    <div className="fade-in">
     <Switch>
     <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} />} />
     <Route path="/search" render={(props) => <FilterView {...props} toRender={toRender} />  }/>          

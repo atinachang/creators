@@ -37,6 +37,7 @@ class CreateProfile extends Component {
 				createdAt: new Date(),
 		} 
 		this.validator = new SimpleReactValidator();
+		this.handleChangeImage = this.handleChangeImage.bind(this)
 	}
 				
 
@@ -57,7 +58,8 @@ class CreateProfile extends Component {
 				}
       }));
 		})
-  };
+	};
+	
 
 	handleCheckboxChange = e => {
     const { name, value } = e.target;
@@ -79,7 +81,7 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: genre.concat(value)
 		})
-		console.log(genre)
+		// console.log(genre)
 	}
 
 	handleChangeField = e => {
@@ -89,7 +91,7 @@ class CreateProfile extends Component {
 		this.setState({
 			field: field.concat(value)
 		})
-		console.log(field)
+		// console.log(field)
 	}
 
 	handleChangeTitle = (e) => {
@@ -99,7 +101,7 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
-		console.log(title)
+		// console.log(title)
 	}
 
 	handleChangePronoun = (e) => {
@@ -112,16 +114,15 @@ class CreateProfile extends Component {
 		console.log(pronoun)
 	}
 
-	handleChangeImage= async (e) =>  {
+	handleChangeImage= async (e,  name) =>  {
 		const file = e.target.files[0];
 		const id = uuid()
 		const imagesRef = firebase.storage().ref("images").child(id);
 		await imagesRef.put(file)
 
 		imagesRef.getDownloadURL().then(url => {
-			console.log(url)
 			this.setState({
-				photo: url
+				[name]: url
 			})
 		})
 	}

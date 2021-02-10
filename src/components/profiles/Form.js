@@ -8,6 +8,7 @@ import StepOne from './forms/StepOne'
 
 const Form = ({ state, validator, handleChangeImage, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun }) => {
 
+
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
 		state.field = []

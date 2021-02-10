@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react'
+import { validate } from 'uuid';
 import {Inputs} from './reusable/Inputs'
 
 const StepOne = ({state, validator, handleChange, handleChangeImage, handleChangePronoun}) => {
-const {name, email, twitter, instagram, website, bio, photo, userId, pronoun} = state;
+	const { name, email, twitter, instagram, website, bio, photo, userId, pronoun } = state;
+	// console.log("photo state",photo)
 
 return (
 
@@ -61,7 +63,7 @@ return (
 			{validator.message('email', email, 'required|email')}
 
 			<div className="field">
-				<Inputs label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={handleChangeImage} />
+				<Inputs label="Please upload an image of yourself" type="file" id="image" accept="image/*" onChange={e=>handleChangeImage(e,'photo')} />
 			<img src={photo} alt={name} />
 			{validator.message('photo', photo, 'required')}
 			</div>
