@@ -1,22 +1,18 @@
-import React, {Fragment, useState} from 'react'
-import { parent } from './forms/reusable/arrays';
+import React, {Fragment} from 'react'
+import {parent} from './forms/reusable/arrays'
 // import Page from './forms/Page'
 // import {Inputs} from './forms/reusable/Inputs';
-import IndustriesRender from './forms/IndustriesRender'
+import {IndustriesRender} from './forms/IndustriesRender'
 import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
 
-
-
 const Form = ({ state, validator, handleChangeImage, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun }) => {
-	const [fieldsState, setFieldsState] = useState(false)
-
-	// const {industry, field, title} = state;
-	// console.log("industry", industry, "field", field, "title", title )
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
-	state.field = []
+		state.field = []
+		state.industry = []
+		state.title = []
 		e.preventDefault();
 	e.stopPropagation();
 	}
@@ -54,11 +50,11 @@ handleChangePronoun={handleChangePronoun}
 			{/* <strong>You Selected: {split}</strong> */}
 
 			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
-		<div className="page">
+			<div className="page">
 			<IndustriesRender state={state}
 				handleChangeField={handleChangeField}
 				handleCheckboxChange={handleCheckboxChange}
-				handleChangeTitle={handleChangeTitle}
+					handleChangeTitle={handleChangeTitle}
 		/>
 		<Genre state={state}
 			handleChangeGenre={handleChangeGenre}

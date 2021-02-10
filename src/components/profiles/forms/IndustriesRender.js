@@ -1,84 +1,91 @@
 import React, {Fragment} from 'react'
 import {marketing, music, tech, applied, performer, filmarts} from './reusable/arrays'
-import {FieldInputs} from './reusable/renderedInputs'
+import {add} from './reusable/helpers'
 
 
-const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
-	const {industry, title} = state;
-	const fields = []
+export const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
+	const {industry} = state;
+	let fields = []
 
-	industry.forEach(selected =>{
-		if (selected === "Marketing") {
-			fields.push(<FieldInputs 
-				className={"checkbox-dark"}
-				key={marketing}
-				onChange={handleChangeTitle}
-				array={marketing}
-				industry={industry}
-			/>)
+	industry.forEach(selected => {
+		
+		if (selected === 'Marketing') {
+			add(fields, selected, marketing, handleChangeTitle)
+			// if (fields.includes('Marketing')) {
+			// 	fields.push(<FieldInputs 
+			// 		className={"checkbox-dark"}
+			// 		key={marketing}
+			// 		onChange={handleChangeTitle}
+			// 		array={marketing}
+			// 		industry={industry}
+			// 	/>)
+			// };
 		}
 
 		if (selected === "Music") {
-			fields.push(<FieldInputs 
-				className={"checkbox-dark"}
-				key={music}
-				onChange={handleChangeTitle}
-				array={music}
-				industry={industry}
-				title={title}
-			/>)
+			add(fields, selected, music, handleChangeTitle)
+			// fields.push(<FieldInputs 
+			// 	className={"checkbox-dark"}
+			// 	key={music}
+			// 	onChange={handleChangeTitle}
+			// 	array={music}
+			// 	industry={industry}
+			// 	title={title}
+			// />)
 		}
 
 		if (selected === "Tech") {
-			fields.push(<FieldInputs 
-			className={"checkbox-dark"}
-			key={tech}
-			onChange={handleChangeField}
-			array={tech}
-			industry={industry}
-			/>)
+			add(fields, selected, tech, handleChangeTitle)
+			// fields.push(<FieldInputs 
+			// className={"checkbox-dark"}
+			// key={tech}
+			// onChange={handleChangeField}
+			// array={tech}
+			// industry={industry}
+			// />)
 		}
 
 		if (selected === "Film & Media Arts") {
-			fields.push(<FieldInputs 
-			className={"checkbox-dark"}
-			key={filmarts}
-			onChange={handleChangeField}
-			array={filmarts}
-			industry={industry}
-			/>)
+			add(fields, selected, filmarts, handleChangeTitle)
+			// fields.push(<FieldInputs 
+			// className={"checkbox-dark"}
+			// key={filmarts}
+			// onChange={handleChangeField}
+			// array={filmarts}
+			// industry={industry}
+			// />)
 		}
 
-
-
 		if (selected === "Applied Arts") {
-			fields.push(<FieldInputs 
-			className={"checkbox-dark"}
-				key={applied}
-			onChange={handleChangeField}
-			array={applied}
-			industry={industry}
-			/>)
+			add(fields, selected, applied, handleChangeTitle)
+			// fields.push(<FieldInputs 
+			// className={"checkbox-dark"}
+			// 	key={applied}
+			// onChange={handleChangeField}
+			// array={applied}
+			// industry={industry}
+			// />)
 		}
 
 		if (selected === "Performing Arts") {
-			fields.push(
-				<FieldInputs
-			className={"checkbox-dark"}	
-				key={performer}
-					onChange={handleChangeField}
-					array={performer}
-					industry={industry}
-				/>
-			)
+			add(fields, selected, performer, handleChangeTitle)
+			// fields.push(
+			// 	<FieldInputs
+			// className={"checkbox-dark"}	
+			// 	key={performer}
+			// 		onChange={handleChangeField}
+			// 		array={performer}
+			// 		industry={industry}
+			// 	/>
+			// )
 		}
-
-
 		else {
 			return null
 		}
 
 	})
+	// console.log(fields)
+	// console.log(industry)
 
 	// const text = industry.join(', ')
 	return (
@@ -88,5 +95,3 @@ const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, hand
 		</Fragment>
 	)
 }
-
-export default IndustriesRender

@@ -1,41 +1,41 @@
 nav {
-	display: flex;
-	justify-content: flex-end;
-	padding: 0 20px;
-	text-transform: uppercase;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  text-transform: uppercase;
 
-	a {
-		@include font-size(1.3);
-		color: $primaryfnt;
-	}
+  a {
+    @include font-size(1.3);
+    color: $primaryfnt;
+  }
 
-	li {
-		margin: 10px;
-	}
+  li {
+    margin: 10px;
+  }
 
-	ul {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-	}
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .ui.search {
-	// margin: 20px;
-	// margin: 0 100px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	input {
-		width: 30vw;
-		text-transform: uppercase;
-		font-family: $branding;
-	}
+  input {
+    width: 30vw;
+    text-transform: uppercase;
+    font-family: $branding;
+    padding: 5px 10px;
+    text-align: center;
+  }
 
-	a {
-		margin: 10px auto;
-		color: $primaryfnt;
-	}
+  a {
+    margin: 10px auto;
+    color: $primaryfnt;
+  }
 }

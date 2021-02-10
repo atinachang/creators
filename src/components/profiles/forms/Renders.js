@@ -1,30 +1,27 @@
 import React, {Fragment} from 'react'
 import { genres, dev, design, techdesign, techmark, techcon, filmprod, writing, photography} from './reusable/arrays'
-import {FieldInputs} from './reusable/renderedInputs'
+import {add} from './reusable/helpers'
 
 export const Genre = ({state, handleChangeGenre}) => {
-	const {title} = state;
+	const { title } = state;
 	const genre = []
 
-	
 	title.forEach(selected => {
-		if (title.includes("DJ")) {
-			genre.push(
-			<FieldInputs 
-				className={"checkbox-light"}
-				key={genres}
-				onChange={handleChangeGenre}
-				genre={genre}
-				title={title}
-				array={genres}
-			/>)
+		if (selected.includes("DJ") || selected.includes("Vocal Artist") || selected.includes("Producer")) {
+			add(genre, selected, genres, handleChangeGenre)
+			// genre.push(
+			// <FieldInputs 
+			// 	className={"checkbox-light"}
+			// 	key={genres}
+			// 	onChange={handleChangeGenre}
+			// 	genre={genre}
+			// 	title={title}
+			// 	array={genres}
+			// />)
 		} 
-				
 		else {
 			return null
 		}
-
-
 	})
 	return (
 		<Fragment>
@@ -34,103 +31,110 @@ export const Genre = ({state, handleChangeGenre}) => {
 }
 
 export const Title = ({state, handleChangeTitle, handleChangeField}) => {
-	const {title, field} = state;
+	const { title} = state;
 	const expertise =[]
 
-		field.forEach(selected => {
-
+		title.forEach(selected => {
 			if (selected === "Web Development") {
-				expertise.push(
-					<FieldInputs 
-					className={"checkbox-light"}
-					key={dev}
-					onChange={handleChangeTitle}
-					title={title}
-					array={dev}
-					/>
-					)
+				add(expertise, selected, dev, handleChangeTitle)
+				// expertise.push(
+				// 	<FieldInputs 
+				// 	className={"checkbox-light"}
+				// 	key={dev}
+				// 	onChange={handleChangeTitle}
+				// 	title={title}
+				// 	array={dev}
+				// 	/>
+				// 	)
 				}
 
-		if (selected === "Graphic Designer") {
-			expertise.push(
-				<FieldInputs
-					className={"checkbox-light"}
-					key={design}
-					onChange={handleChangeTitle}
-					title={title}
-					array={design}
-				/>
-			)
+			if (selected === "Graphic Designer") {
+			add(expertise, selected, design, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs
+			// 		className={"checkbox-light"}
+			// 		key={design}
+			// 		onChange={handleChangeTitle}
+			// 		title={title}
+			// 		array={design}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Design") {
-			expertise.push(
-				<FieldInputs
-					className={"checkbox-light"}
-				key={techdesign}
-				onChange={handleChangeTitle}
-				title={title}
-				array={techdesign}
-				/>
-			)
+			if (selected === "Design") {
+			add(expertise, selected, techdesign, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs
+			// 		className={"checkbox-light"}
+			// 	key={techdesign}
+			// 	onChange={handleChangeTitle}
+			// 	title={title}
+			// 	array={techdesign}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Marketing") {
-			expertise.push(
-				<FieldInputs
-					className={"checkbox-light"}
-					key={techmark}
-					onChange={handleChangeTitle}
-					title={title}
-					array={techmark}
-				/>
-			)
+			if (selected === "Marketing") {
+			add(expertise, selected, techmark, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs
+			// 		className={"checkbox-light"}
+			// 		key={techmark}
+			// 		onChange={handleChangeTitle}
+			// 		title={title}
+			// 		array={techmark}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Content") {
-			expertise.push(
-				<FieldInputs
-					className={"checkbox-light"}
-					key={techcon}
-					onChange={handleChangeTitle}
-					title={title}
-					array={techcon}
-				/>
-			)
+			if (selected === "Content") {
+			add(expertise, selected, techcon, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs
+			// 		className={"checkbox-light"}
+			// 		key={techcon}
+			// 		onChange={handleChangeTitle}
+			// 		title={title}
+			// 		array={techcon}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Film Production") {
-			expertise.push(
-				<FieldInputs
-					className={"checkbox-light"}
-				key={filmprod}
-				onChange={handleChangeTitle}
-				title={title}
-				array={filmprod}
-				/>
-			)
+			if (selected === "Film Production") {
+			add(expertise, selected, filmprod, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs
+			// 		className={"checkbox-light"}
+			// 	key={filmprod}
+			// 	onChange={handleChangeTitle}
+			// 	title={title}
+			// 	array={filmprod}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Writing") {
-			expertise.push(
-				<FieldInputs 
-					className={"checkbox-light"}
-					key={writing}
-					onChange={handleChangeTitle}
-					array={writing}
-					title={title}
-				/>
-			)
+			if (selected === "Writing") {
+			add(expertise, selected, writing, handleChangeTitle)
+			// expertise.push(
+			// 	<FieldInputs 
+			// 		className={"checkbox-light"}
+			// 		key={writing}
+			// 		onChange={handleChangeTitle}
+			// 		array={writing}
+			// 		title={title}
+			// 	/>
+			// )
 		}
 
-		if (selected === "Photography") {
-			expertise.push(<FieldInputs 			
-				className={"checkbox-light"}
-			key={photography}
-			onChange={handleChangeTitle}
-			array={photography}
-			field={field}
-			/>)
+			if (selected === "Photography") {
+			add(expertise, selected, photography, handleChangeTitle)
+			// expertise.push(<FieldInputs 			
+			// 	className={"checkbox-light"}
+			// key={photography}
+			// onChange={handleChangeTitle}
+			// array={photography}
+			// field={field}
+			// />)
 		}
 
 		else {

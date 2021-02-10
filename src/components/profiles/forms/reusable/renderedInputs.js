@@ -1,6 +1,7 @@
 import {Inputs} from './Inputs'
 import React, {Fragment} from 'react'
-import {genres} from './arrays'
+import { genres } from './arrays'
+
 
 export  const GenreInputs = ({handleChangeGenre, title}) => {
 	const mapped = genres.map(item => {
@@ -76,4 +77,3 @@ export  const FieldInputs = ({  onChange, array, className})=> {
 }
 
 
-// export {FieldInputs, GenreInputs}

@@ -8,8 +8,6 @@ import SimpleReactValidator from 'simple-react-validator';
 import Form from './Form'
 import Checkbox from './forms/reusable/Checkbox'
 
-
-
 class CreateProfile extends Component {
 	constructor(props) {
 		super(props);
@@ -27,6 +25,7 @@ class CreateProfile extends Component {
 				title: [],	
 				industry: [],
 				pronoun: [],
+				// industryState: false,
 				checkboxes: parent.reduce(
       (options, option) => ({
         ...options,
@@ -69,7 +68,8 @@ class CreateProfile extends Component {
         ...prevState.checkboxes,
         [name]: !prevState.checkboxes[name]
 			},
-				industry: industry.concat(value)
+			industry: industry.concat(value),
+			industryState: true,
 		}));		
   };
 
@@ -79,6 +79,7 @@ class CreateProfile extends Component {
 		this.setState({
 			genre: genre.concat(value)
 		})
+		console.log(genre)
 	}
 
 	handleChangeField = e => {
@@ -88,7 +89,7 @@ class CreateProfile extends Component {
 		this.setState({
 			field: field.concat(value)
 		})
-		// console.log(field)
+		console.log(field)
 	}
 
 	handleChangeTitle = (e) => {
@@ -98,6 +99,7 @@ class CreateProfile extends Component {
 		this.setState({
 			title: title.concat(value)
 		})
+		console.log(title)
 	}
 
 	handleChangePronoun = (e) => {

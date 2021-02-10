@@ -1,34 +1,29 @@
-.header {
-	// margin: 30px auto;
-	margin-top: 30px;
-	@include flexbox();
-	// display: flex;
-	// flex-direction: row;
-	// justify-content: center;
-	// align-items: center;
+// .header {
+//   margin-top: 30px;
+//   @include flexbox();
 
-	img {
-		width: 200px;
-	}
+//   img {
+//     width: 200px;
+//   }
 
-	p {
-		width: 50%;
-		margin: 10px 0;
-	}
+//   p {
+//     width: 50%;
+//     margin: 10px 0;
+//   }
 
-	h1 {
-		margin-bottom: $vertical-rhythm;
-	}
+//   h1 {
+//     margin-bottom: $vertical-rhythm;
+//   }
 
-	h3 {
-		text-transform: full-size-kana;
-	}
-}
+//   h3 {
+//     text-transform: full-size-kana;
+//   }
+// }
 
-.copy {
-	display: none;
-	width: 60%;
-	margin: 0 auto;
-	text-align: center;
-	margin-bottom: 30px;
-}
+// .copy {
+//   display: none;
+//   width: 60%;
+//   margin: 0 auto;
+//   text-align: center;
+//   margin-bottom: 30px;
+// }
