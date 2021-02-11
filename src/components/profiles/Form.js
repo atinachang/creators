@@ -5,8 +5,9 @@ import {parent} from './forms/reusable/arrays'
 import {IndustriesRender} from './forms/IndustriesRender'
 import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
+// import PhotoUpload from './forms/PhotoUpload'
 
-const Form = ({ state, validator, handleChangeImage, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun }) => {
+const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun, handleChangeImage, handleStatesChange }) => {
 
 
 	const deselectAll = (e) => {
@@ -26,13 +27,13 @@ const Form = ({ state, validator, handleChangeImage, handleChange, selectAllChec
 			<h5>Submit yourself or a friend here</h5>
 			<h4>Basic Info</h4>
 
-<StepOne 
-validator={validator}
-state={state}
-handleChangeImage={handleChangeImage}
-handleChange={handleChange}
-handleChangePronoun={handleChangePronoun}
-/>
+		<StepOne 
+		validator={validator}
+		state={state}
+		handleChangeImage={handleChangeImage}
+		handleChange={handleChange}
+		handleChangePronoun={handleChangePronoun}
+		/>
 		<h3>What do you do? </h3>
 			<h4>
 			Please select all that apply
@@ -55,14 +56,20 @@ handleChangePronoun={handleChangePronoun}
 			<IndustriesRender state={state}
 				handleChangeField={handleChangeField}
 				handleCheckboxChange={handleCheckboxChange}
-					handleChangeTitle={handleChangeTitle}
+				handleChangeTitle={handleChangeTitle}
+				handleStatesChange={handleStatesChange}
 		/>
 		<Genre state={state}
 			handleChangeGenre={handleChangeGenre}
 			/>
 		<Title state={state}
 		handleChangeTitle={handleChangeTitle}
-		/>
+				/>
+				
+				{/* <PhotoUpload
+					state={state}
+				handleChangeImage={handleChangeImage}
+				/> */}
 
 		</div>
 		</Fragment>

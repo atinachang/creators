@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react'
 import { genres, dev, design, techdesign, techmark, techcon, filmprod, writing, photography} from './reusable/arrays'
-import {add} from './reusable/helpers'
+import {add} from '../../helpers/helpers'
 
 export const Genre = ({state, handleChangeGenre}) => {
 	const { title } = state;
 	const genre = []
 
 	title.forEach(selected => {
-		if (selected.includes("DJ") || selected.includes("Vocal Artist") || selected.includes("Producer")) {
+		if (selected.includes("DJ") || selected.includes("Vocal Artist") || selected === "Producer") {
 			add(genre, selected, genres, handleChangeGenre)
 			// genre.push(
 			// <FieldInputs 

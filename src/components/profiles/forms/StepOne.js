@@ -1,11 +1,9 @@
 import React, {Fragment} from 'react'
-import { validate } from 'uuid';
-import {Inputs} from './reusable/Inputs'
+import { Inputs } from '../../helpers/Inputs'
 
-const StepOne = ({state, validator, handleChange, handleChangeImage, handleChangePronoun}) => {
+const StepOne = ({state, validator, handleChange,  handleChangePronoun, handleChangeImage}) => {
 	const { name, email, twitter, instagram, website, bio, photo, userId, pronoun } = state;
 	// console.log("photo state",photo)
-
 return (
 
 	<Fragment> 

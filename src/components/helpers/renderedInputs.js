@@ -1,6 +1,6 @@
 import {Inputs} from './Inputs'
 import React, {Fragment} from 'react'
-import { genres } from './arrays'
+import { genres } from '../profiles/forms/reusable/arrays'
 
 
 export  const GenreInputs = ({handleChangeGenre, title}) => {
@@ -41,7 +41,7 @@ export  const GenreInputs = ({handleChangeGenre, title}) => {
 }
 
 export  const FieldInputs = ({  onChange, array, className})=> {
-
+// console.log(array)
 	const fieldsMap = array.map(item => {
 		return (
 			<Inputs 

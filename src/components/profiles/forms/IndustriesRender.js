@@ -1,24 +1,24 @@
 import React, {Fragment} from 'react'
 import {marketing, music, tech, applied, performer, filmarts} from './reusable/arrays'
-import {add} from './reusable/helpers'
+import { add } from '../../helpers/helpers'
 
 
-export const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre})=> {
-	const {industry} = state;
+export const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChange, handleChangeTitle, handleChangeGenre, handleStatesChange})=> {
+	const { industry } = state;
+	// console.log(industry)
+	// const handleChange = e => {
+	// 	e=>handleStatesChange('title')
+	// }
 	let fields = []
 
-	industry.forEach(selected => {
+ industry.forEach(selected => {
 		
-		if (selected === 'Marketing') {
+	 if (selected === 'Marketing') {
+			// show(marketing, handleChangeTitle)
 			add(fields, selected, marketing, handleChangeTitle)
+			
 			// if (fields.includes('Marketing')) {
-			// 	fields.push(<FieldInputs 
-			// 		className={"checkbox-dark"}
-			// 		key={marketing}
-			// 		onChange={handleChangeTitle}
-			// 		array={marketing}
-			// 		industry={industry}
-			// 	/>)
+
 			// };
 		}
 
@@ -84,14 +84,11 @@ export const IndustriesRender = ({state, handleChangeField, 	handleCheckboxChang
 		}
 
 	})
-	// console.log(fields)
-	// console.log(industry)
 
-	// const text = industry.join(', ')
 	return (
 		<Fragment>
-			{/* <p>You Selected: {text}</p> */}
-				{fields}
+			{fields}
+
 		</Fragment>
 	)
 }
