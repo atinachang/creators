@@ -170,9 +170,9 @@ export const Pronoun = ({pronoun}) => {
 export const Portfolio = ({workPhoto1, workPhoto2, workPhoto3, name}) => {
 	return (
 		<div className={workPhoto1 || workPhoto2 || workPhoto3 ? "work": null}>
-			<img src={workPhoto1} alt={`${name}'s Portfolio`} />
-			<img src={workPhoto2} alt={`${name}'s Portfolio`} />
-			<img src={workPhoto3 } alt={`${name}'s Portfolio`}/>
+			<img src={workPhoto1} alt={workPhoto1 ? `${name}'s Portfolio` : null} />
+			<img src={workPhoto2} alt={workPhoto2 ? `${name}'s Portfolio` : null} />
+			<img src={workPhoto3 } alt={workPhoto3 ? `${name}'s Portfolio` : null}/>
 		</div>
 	)
 }

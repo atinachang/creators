@@ -188,9 +188,16 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 
 .photos {
-  input[type="file"] {
-    width: 50% !important;
+  li {
+    padding: ($base-font-size * 0.5);
+    width: 50%;
   }
+  // .ui.form input[type="file"] {
+  // }
+  // display: flex;
+  // input[type="file"] {
+  //   width: 50% !important;
+  // }
   // @media (min-width: 900px) {
   //   display: flex;
   // }
