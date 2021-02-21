@@ -154,16 +154,16 @@ export const Pronoun = ({pronoun}) => {
 		}
 
 		return (
-			<div className="">
+			<Fragment>
 				<h4>Pronouns</h4>
 				<p>{pronoun}</p>
-			</div>
+			</Fragment>
 		)
 	}
 	return (
-		<div className="segment">
+		<Fragment>
 			{render()}
-		</div>
+		</Fragment>
 	)
 }
 

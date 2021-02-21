@@ -27,7 +27,7 @@
 }
 
 .ui.link.cards {
-  padding-top: 40px;
+  // padding-top: 40px;
   margin: 0 auto;
   display: flex;
   // flex-direction: column;
@@ -37,7 +37,8 @@
 .fluid.card {
   border-radius: $border-rad;
   width: 200px;
-  margin: 30px 10px;
+  // margin: 30px 10px;
+  margin: $base-font-size;
   display: flex;
   flex-direction: column;
   // border: 1px solid transparent;
