@@ -81,7 +81,9 @@ export const techcon = [
 export const filmarts = [
 	"Film Production",
 	"Photography",
-	"Writing"
+	"Writing",
+	"Model",
+	// "Syndicated Audio"
 ]
 
 // && film
@@ -99,7 +101,12 @@ export const filmprod = [
 	"Creative Director",
 	"Art Director",
 	"Production Assistant",
+]
 
+// && Syndicated Audio
+export const audio = [
+	"Podcast Host",
+	"Podcast Engineer"
 ]
 
 // && photography

@@ -78,15 +78,15 @@ class CreateProfile extends Component {
 				[name]: !prevState.checkboxes[name]
 			},
 			industry: industry.concat(value),
-			// console.log(industry)
 		}));
+		// console.log("industry",industry)
 	}
 	
 	
 handleStatesChange = async (e, update) => {
 	const { value } = e.target;
 	// const { update } = this.state.[update];
-	console.log(value)
+	// console.log(value)
 
 	this.setState({
 		[update]: update.concat(value)
@@ -110,7 +110,7 @@ handleStatesChange = async (e, update) => {
 		this.setState({
 			field: field.concat(value)
 		})
-		// console.log(field)
+		// console.log("field",field)
 	}
 
 	handleChangeTitle = (e) => {
@@ -120,7 +120,7 @@ handleStatesChange = async (e, update) => {
 		this.setState({
 			title:  title.concat(value)
 		})
-		// console.log(title)
+		// console.log("title",title)
 	}
 
 	handleChangePronoun = (e) => {
@@ -140,7 +140,7 @@ handleStatesChange = async (e, update) => {
 		await imagesRef.put(file)
 
 			imagesRef.getDownloadURL().then(url => {
-			console.log(url)
+			// console.log(url)
 			this.setState({
 				[name]: url
 			})
@@ -188,7 +188,7 @@ handleStatesChange = async (e, update) => {
     this.forceUpdate();
   }
 
-console.log(this.state)
+// console.log(this.state)
 	createProfile(this.state)
 	history.push('/thankyou')
 	Object.keys(checkboxes)

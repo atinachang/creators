@@ -50,7 +50,7 @@ return (
 	return (
 		<Fragment>
 			<div className="socials">
-		<h4>Contact:</h4>
+		{/* <h4>Contact:</h4> */}
 		
 		{igRender()}
 		{twitRender()}
@@ -61,7 +61,9 @@ return (
 	)
 }
 
-export const Info = ({field, genre, title, filter}) => {
+export const Info = ({ field, genre, title, filter, industry }) => {
+	console.log(field)
+	console.log(industry)
 const fieldRender = () => {
 	const fieldList = field.map(field => 
 	<NavLink to="/search" key={field} >
@@ -155,7 +157,7 @@ export const Pronoun = ({pronoun}) => {
 
 		return (
 			<Fragment>
-				<h4>Pronouns</h4>
+				{/* <h4>Pronouns</h4> */}
 				<p>{pronoun}</p>
 			</Fragment>
 		)
