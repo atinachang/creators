@@ -134,14 +134,14 @@ export const Bio =({bio}) => {
 		}
 
 		return (
-		<div className=" segment">
+		<div className={bio ? "bio" :null}>
 			<h4>Bio:</h4>
 			<p>{bio}</p>
 		</div>
 		)
 }
 	return (
-		<div className="segment">
+		<div className={bio ? "segment" : null }>
 			{bioRender()}
 		</div>
 	)
@@ -154,8 +154,8 @@ export const Pronoun = ({pronoun}) => {
 		}
 
 		return (
-			<div className="segment">
-				<strong>Pronouns</strong>
+			<div className="">
+				<h4>Pronouns</h4>
 				<p>{pronoun}</p>
 			</div>
 		)
@@ -163,6 +163,16 @@ export const Pronoun = ({pronoun}) => {
 	return (
 		<div className="segment">
 			{render()}
+		</div>
+	)
+}
+
+export const Portfolio = ({workPhoto1, workPhoto2, workPhoto3, name}) => {
+	return (
+		<div className={workPhoto1 || workPhoto2 || workPhoto3 ? "work": null}>
+			<img src={workPhoto1} alt={`${name}'s Portfolio`} />
+			<img src={workPhoto2} alt={`${name}'s Portfolio`} />
+			<img src={workPhoto3 } alt={`${name}'s Portfolio`}/>
 		</div>
 	)
 }

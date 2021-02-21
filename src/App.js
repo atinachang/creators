@@ -56,9 +56,10 @@ const App = (props)=> {
     })
   return (
     <Fragment>
-    <BrowserRouter>
+      <BrowserRouter>
+      <div className="container">
     <Nav {...props} app={app} setSearch={setSearch} toRender={toRender}  />
-    <div className="ui container">
+    {/* <div className="ui container"> */}
 
     <div className="fade-in">
     <Switch>
@@ -72,6 +73,7 @@ const App = (props)=> {
     </Switch>
     </div>
     </div>
+    {/* </div> */}
     </BrowserRouter>
     <Footer app={app}/>
     </Fragment>

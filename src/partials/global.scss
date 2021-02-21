@@ -24,11 +24,17 @@ p {
   margin-bottom: $vertical-rhythm;
 }
 
-// .wrapper {
-//   max-width: 1600px;
-//   width: 100%;
-//   margin: 0 auto;
-// }
+.container {
+  display: flex;
+  // @media only screen and (max-width: 480px) {
+  flex-direction: column;
+  // }
+}
+.wrapper {
+  max-width: 1600px;
+  width: 90%;
+  margin: 0 auto;
+}
 
 a {
   color: $primaryfnt;
@@ -79,14 +85,14 @@ h3 {
 
 h4 {
   @include font-size(2);
-  margin: $vertical-rhythm 0;
+  margin: ($vertical-rhythm * 0.6) 0;
   // text-transform: capitalize;
   // margin-bottom: $vertical-rhythm;
 }
 
 h5 {
   @include font-size(1.4);
-  margin: 0;
+  margin: ($base-font-size * 0.5) 0;
 }
 
 h3 {

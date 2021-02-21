@@ -4,7 +4,6 @@ import { Inputs } from '../../helpers/Inputs'
 
 const PhotoUpload = ({ state, handleChangeImage }) => {
 	const {workPhoto1, workPhoto2, workPhoto3 } = state;
-	// console.log("photo1",workPhoto1, "photo2:",workPhoto2, "photo3:",workPhoto3)
 	return (
 		<Fragment>
 		<p>OPTIONAL: Upload up to three photos of your work!</p>

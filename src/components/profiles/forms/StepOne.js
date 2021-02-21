@@ -40,7 +40,7 @@ return (
 
 		<div className="field">
 			<Inputs
-			label="Your Preferred Pronoun (OPTIONAL)"
+			label="Your Pronouns (OPTIONAL)"
 			type="text"
 			id="pronoun"
 			name="pronoun"

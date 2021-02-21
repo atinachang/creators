@@ -1,8 +1,10 @@
 nav {
   display: flex;
-  justify-content: flex-end;
-  padding: 0 20px;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // padding: 1.5rem;
   text-transform: uppercase;
+  text-align: center;
 
   a {
     @include font-size(1.3);

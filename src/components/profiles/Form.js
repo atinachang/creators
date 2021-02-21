@@ -5,7 +5,7 @@ import {parent} from './forms/reusable/arrays'
 import {IndustriesRender} from './forms/IndustriesRender'
 import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
-// import PhotoUpload from './forms/PhotoUpload'
+import PhotoUpload from './forms/PhotoUpload'
 
 const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun, handleChangeImage, handleStatesChange }) => {
 
@@ -66,10 +66,10 @@ const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChang
 		handleChangeTitle={handleChangeTitle}
 				/>
 				
-				{/* <PhotoUpload
-					state={state}
-				handleChangeImage={handleChangeImage}
-				/> */}
+		<PhotoUpload
+			state={state}
+		handleChangeImage={handleChangeImage}
+		/>
 
 		</div>
 		</Fragment>

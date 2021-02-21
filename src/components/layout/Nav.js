@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, { useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import {connect} from 'react-redux';
@@ -22,7 +22,6 @@ const Nav = (props) => {
 		setSearch(null)
 	}
 	return (
-	<Fragment>
 
 		<nav>
 			<ul>
@@ -42,14 +41,13 @@ const Nav = (props) => {
 
 			</ul>
 
-		</nav>
 					<div className="ui search">
 				<NavLink to="/" className="branding" onClick={(e)=> reset(e) } >connect. create. repeat</NavLink>
 				<NavLink to="/search">
 					<input type="text" className="prompt" placeholder="Search by Keyword" value={ searchVal}onChange={(e)=>searchSpace(e)} />
 				</NavLink>
 			</div>
-		</Fragment>
+		</nav>
 	)
 }
 

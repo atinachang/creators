@@ -69,19 +69,19 @@ class CreateProfile extends Component {
 	
 
 	handleCheckboxChange = e => {
-    const { name, value } = e.target;
-		const { industry} = this.state
+		const { name, value } = e.target;
+		const { industry } = this.state;
 
-    this.setState(prevState => ({
-      checkboxes: {
-        ...prevState.checkboxes,
-        [name]: !prevState.checkboxes[name]
+		this.setState(prevState => ({
+			checkboxes: {
+				...prevState.checkboxes,
+				[name]: !prevState.checkboxes[name]
 			},
 			industry: industry.concat(value),
-			// industryState: true,
-		}));		
-		// console.log(industry)
-	};
+			// console.log(industry)
+		}));
+	}
+	
 	
 handleStatesChange = async (e, update) => {
 	const { value } = e.target;
@@ -133,139 +133,14 @@ handleStatesChange = async (e, update) => {
 		// console.log(pronoun)
 	}
 
-	handleFiles =async  (e) => {
-		const id = uuid();
-		const files = Array.from(e.target.files);
-		// console.log(files)
-		// const images = [];
-		let imagesRef;
-
-		const loopImages = files.map(async (file) => {
-			imagesRef = firebase.storage().ref("images").child(id);
-			await imagesRef.put(file);
-			console.log(file)
-		})
-
-		const results = await Promise.all(loopImages)
-		console.log(results)
-			// 	imagesRef.getDownloadURL(file).then(url => {
-			// 	console.log(file)
-			// 	console.log(url)
-			// })
-
-		
-		// const imagesRef = firebase.storage().ref("images").child(id);
-
-		// const loopImages = files.forEach(async(file) => {
-		// 	const imagesRef = firebase.storage().ref("images").child(id);
-		// 		await imagesRef.put(file)
-
-		// })
-		// console.log(loopImages)
-		// imagesRef.getDownloadURL().then(url => {
-		// 	console.log(url)
-		// })
-
-	}
-
-	handleFilesUpload = async() => {
-		// const {file} = this.state
-		// const id = uuid()
-		// const imagesRef = firebase.storage().ref("images").child(id);
-		// await imagesRef.put(file)
-
-		// imagesRef.getDownloadURL().then(url => {
-		// 	console.log(url)
-		// 	// this.setState({
-		// 	// 	file: file.push(url)
-		// 	// })
-		// })
-		// storageRef.child(`images/${file}`)
-	}
-
-	handleImage = async (e, data) => {
-		// const { workPhotos } = this.state;
-		// let picName;
-		// let id;
-		// let file;
-		// let refURL;
-		// let updatedURL = [];
-
-
-		// const loop = Object.keys(workPhotos).map((key) => {
-			// const id = uuid()
-		// 	file = workPhotos[key]
-
-		// 	let newRef = storageRef.child(id).put(file).then(snapshot => {
-		// 		let progress = snapshot.bytesTransferred / snapshot.totalBytes * 100;
-		// 		console.log(`Upload is: ${progress}% done`);
-		// 		snapshot.ref.getDownloadURL().then(url =>{
-			
-		// 			let newURL = {
-		// 				[key]: url
-		// 			}
-
-		// 			refURL = {
-		// 				...refURL,
-		// 				[key]: newURL,
-		// 				key,
-		// 			}
-
-		// 			updatedURL.push(newURL);
-
-		// 			let picId;
-		// 			mainRef.child('images').on('value', (snap) => (picId = snap.val()));
-		// 			console.log(mainRef.bytesTransferred)
-
-		// 			const newUserId = Object.keys(picId).filter((key) => key === userId);
-		// 			let newObj;
-				
-
-		// 			Object.keys(workPhotos).map(key => {
-		// 				const refKey = Object.keys(updatedURL[key] || {}).map(key => {
-		// 					return key;
-		// 				});
-
-		// 				let date = refKey[0];
-		// 				if (refKey.length !== 0) {
-		// 					newObj = {
-		// 						...newObj,
-		// 						[refKey]: {
-		// 							date,
-		// 							url: updatedURL[key][refKey]
-		// 						}
-		// 					};
-		// 				} else {
-		// 					return
-		// 					}
-		// 					return newObj
-						
-						
-		// 			});
-		// 			})
-		// 		})
-		// 	})
-		// }
-
-		// const file = e.target.files[0];
-		// const imagesRef = firebase.storage().ref("images").child(id);
-		// await imagesRef.put(file)
-
-		
-		
-
-		// imagesRef.getDownloadURL().then(url => {
-		// 	this.setState({
-		// 		[data]: url
-		// })
-	}
 		handleChangeImage= async (e,  name) =>  {
 		const file = e.target.files[0];
 		const id = uuid()
 		const imagesRef = firebase.storage().ref("images").child(id);
 		await imagesRef.put(file)
 
-		imagesRef.getDownloadURL().then(url => {
+			imagesRef.getDownloadURL().then(url => {
+			console.log(url)
 			this.setState({
 				[name]: url
 			})
@@ -313,7 +188,7 @@ handleStatesChange = async (e, update) => {
     this.forceUpdate();
   }
 
-// console.log(this.state)
+console.log(this.state)
 	createProfile(this.state)
 	history.push('/thankyou')
 	Object.keys(checkboxes)
