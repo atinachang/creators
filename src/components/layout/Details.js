@@ -62,20 +62,36 @@ return (
 }
 
 export const Info = ({ field, genre, title, filter, industry }) => {
-	console.log(field)
-	console.log(industry)
-const fieldRender = () => {
-	const fieldList = field.map(field => 
-	<NavLink to="/search" key={field} >
+	console.log(field.length)
+	// console.log(industry.length)
+	const fieldRender = () => {
+		if (field !== 0) {	
+			const fieldList = field.map(field => 
+				<NavLink to="/search" key={field} >
 		<li className="dark"  data-value={field} onClick={filter}>{field}</li>
 	</NavLink>
 		)
 		return (
-		<div className="segment">
-			<h4>Fields of Work</h4> 
-			<ul >{fieldList}</ul>
-		</div>
+			<div className="segment">
+		<h4>Fields of Work</h4> 
+		<ul >{fieldList}</ul>
+	</div>
+	)
+		}
+		else {
+			console.log(industry)
+			const fieldList = industry.map(field => 
+				<NavLink to="/search" key={field} >
+		<li className="dark"  data-value={field} onClick={filter}>{field}</li>
+	</NavLink>
 		)
+				return (
+			<div className="segment">
+		<h4>Fields of Work</h4> 
+		<ul >{fieldList}</ul>
+	</div>
+	)	
+	}
 }
 const titleRender = () => {
 

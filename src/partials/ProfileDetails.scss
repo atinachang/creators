@@ -8,16 +8,19 @@
   // margin-top: 50px;
   p {
     @include font-size(1.5);
+    // color: black;
   }
 
   h2 {
     text-align: center;
   }
+  // h0
 }
 
 .details {
   display: flex;
   justify-content: center;
+  margin: ($base-font-size) 0;
   // align-items: flex-start;
   // justify-content: space-between;
 
@@ -55,7 +58,9 @@
 .details-image,
 .details-content {
   // width: calc(100% / 3);
-  background-color: lighten($primary, 3);
+  background-color: rgba($darkaccent, 0.4);
+  // background-color: lighten($color: #eceadc, $amount: 1);
+  // background-color: rgba(236, 234, 220, 0.3);
   padding: $base-font-size;
   // width: calc(100% / 3);
   // margin: 0 auto;
@@ -112,16 +117,16 @@ li.light {
   }
 }
 
-// .socials {
-//   margin: 20px 0;
-// }
+.socials {
+  margin-top: 20px;
+}
 
 .light {
-  background-color: $thrd;
+  background-color: $lightaccent;
 }
 
 .dark {
-  background-color: $scnd;
+  background-color: $darkaccent;
 }
 
 .segment {

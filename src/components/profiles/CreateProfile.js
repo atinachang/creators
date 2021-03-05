@@ -24,6 +24,7 @@ class CreateProfile extends Component {
 				genre: [],
 				title: [],
 				industry: [],
+				industryState: false,
 				pronoun: [],
 				// workPhotos: [],
 				// file: [],
@@ -43,6 +44,17 @@ class CreateProfile extends Component {
 		} 
 		this.validator = new SimpleReactValidator();
 	}
+
+	newIndustryArr= [
+		{
+			industry: "Applied Arts",
+			checked: false,
+		},
+		{
+			industry: "Film & Media Arts",
+			checked: false,
+			}
+	]
 				
 // ! TO DO
 	// move handleChangeImage to helpers folder - cant be done?
@@ -70,7 +82,7 @@ class CreateProfile extends Component {
 
 	handleCheckboxChange = e => {
 		const { name, value } = e.target;
-		const { industry } = this.state;
+		const { industry, industryState } = this.state;
 
 		this.setState(prevState => ({
 			checkboxes: {
@@ -78,8 +90,10 @@ class CreateProfile extends Component {
 				[name]: !prevState.checkboxes[name]
 			},
 			industry: industry.concat(value),
+			industryState: true
 		}));
-		// console.log("industry",industry)
+		// console.log("industry", industry)
+		// console.log(industryState)
 	}
 	
 	
@@ -208,6 +222,7 @@ handleStatesChange = async (e, update) => {
   );
 
 	render() {
+		// console.log("industry state",this.state.industryState)
 
 	return (
 		<Fragment>

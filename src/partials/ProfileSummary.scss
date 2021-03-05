@@ -76,7 +76,7 @@
     // background: transparent;
     // box-shadow: 0 1px 3px 0 $thrdaccent, 0 0 0 1px $thrdaccent;
     transform: none;
-    box-shadow: 0 1px 3px 0 $thrdaccent, 0 0 0 1px $thrdaccent;
+    box-shadow: 0 1px 3px 0 $darkaccent, 0 0 0 1px $darkaccent;
 
     // border: 1px solid $thrdaccent;
   }
@@ -88,7 +88,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: $prmaccent;
+  background-color: $lightaccent;
   // opacity: 0.5;
   // @include flexbox();
   padding: 10px;
