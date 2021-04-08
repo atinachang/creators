@@ -24,14 +24,10 @@ class CreateProfile extends Component {
 				genre: [],
 				title: [],
 				industry: [],
-				industryState: false,
 				pronoun: [],
-				// workPhotos: [],
-				// file: [],
 				workPhoto1: '',
 				workPhoto2: '',
 				workPhoto3: '',
-				// industryState: false,
 				checkboxes: parent.reduce(
       (options, option) => ({
         ...options,
@@ -81,18 +77,19 @@ class CreateProfile extends Component {
 	
 
 	handleCheckboxChange = e => {
-		const { name, value } = e.target;
-		const { industry, industryState } = this.state;
+		const { name, value, checked } = e.target;
+		const { industry } = this.state;
 
 		this.setState(prevState => ({
 			checkboxes: {
 				...prevState.checkboxes,
 				[name]: !prevState.checkboxes[name]
 			},
-			industry: industry.concat(value),
-			industryState: true
+      industry: checked
+        ? [...industry, value]
+        : industry.filter((el) => el !== value)
 		}));
-		// console.log("industry", industry)
+		console.log("industry", industry)
 		// console.log(industryState)
 	}
 	
@@ -109,31 +106,36 @@ handleStatesChange = async (e, update) => {
 	}
 
 	handleChangeGenre = (e) => {
-		const {value} = e.target
+		const {value, checked} = e.target
 		const {genre} = this.state
 		this.setState({
-			genre: genre.concat(value)
+      genre: checked
+        ? [...genre, value]
+				: genre.filter((el) => el !== value)
 		})
 		// console.log(genre)
 	}
 
 	handleChangeField = e => {
-		const {value} = e.target;
+		const {value, checked} = e.target;
 		const {field} = this.state
 
 		this.setState({
-			field: field.concat(value)
+      field: checked
+        ? [...field, value]
+				: field.filter((el) => el !== value)
 		})
 		// console.log("field",field)
 	}
 
 	handleChangeTitle = (e) => {
-		const {value} = e.target
+		const {value, checked} = e.target
 		const {title} = this.state
 
 		this.setState({
-			title:  title.concat(value)
-		})
+      title: checked
+        ? [...title, value]
+        : title.filter((el) => el !== value)		})
 		// console.log("title",title)
 	}
 
@@ -222,7 +224,6 @@ handleStatesChange = async (e, update) => {
   );
 
 	render() {
-		// console.log("industry state",this.state.industryState)
 
 	return (
 		<Fragment>
@@ -233,7 +234,6 @@ handleStatesChange = async (e, update) => {
 			>
 					<Form state={this.state}
 					handleChange={this.handleChange}
-					handleStatesChange={this.handleStatesChange}
 					validator={this.validator}
 					handleChangeImage={this.handleChangeImage}
 					createCheckbox={this.createCheckbox}
@@ -241,7 +241,6 @@ handleStatesChange = async (e, update) => {
 					handleChangeGenre={this.handleChangeGenre}
 					handleChangeTitle={this.handleChangeTitle}
 					handleCheckboxChange={this.handleCheckboxChange}
-					handleChangeField={this.handleChangeField}
 					handleChangePronoun={this.handleChangePronoun}
 					/>
 

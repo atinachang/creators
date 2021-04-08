@@ -16,7 +16,6 @@ export  const GenreInputs = ({handleChangeGenre, title}) => {
 					)
 	})
 
-	// const split = genre.join(', ')
 	return (
 		<Fragment>
 			<h3>{title} -
@@ -24,16 +23,6 @@ export  const GenreInputs = ({handleChangeGenre, title}) => {
 			</h3>
 			<ul className="ks-cboxtags">
 				{mapped}
-		{/* <li> */}
-		{/* <label>other</label> */}
-		{/* <input
-		className="ui input"
-		type="input"
-		placeholder="Other"
-		id="field"
-		onChange={handleChangeGenre}
-		/>
-		</li> */}
 			</ul>
 
 		</Fragment>
@@ -41,7 +30,6 @@ export  const GenreInputs = ({handleChangeGenre, title}) => {
 }
 
 export  const FieldInputs = ({  onChange, array, className})=> {
-// console.log(array)
 	const fieldsMap = array.map(item => {
 		return (
 			<Inputs 
@@ -59,18 +47,8 @@ export  const FieldInputs = ({  onChange, array, className})=> {
 	return (
 		<Fragment>
 			<ul className="ks-cboxtags">
-		{fieldsMap}
-		{/* <li>
-		<input
-		className="ui input"
-		type="text"
-		placeholder="Other"
-		id={title}
-		value={title}
-		onChange={handleChangeTitle}
-		/>
-		</li> */}
-		</ul>
+				{fieldsMap}
+			</ul>
 		</Fragment>
 	)
 

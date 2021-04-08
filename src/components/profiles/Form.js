@@ -1,14 +1,11 @@
 import React, {Fragment} from 'react'
 import {parent} from './forms/reusable/arrays'
-// import Page from './forms/Page'
-// import {Inputs} from './forms/reusable/Inputs';
 import {IndustriesRender} from './forms/IndustriesRender'
 import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
 import PhotoUpload from './forms/PhotoUpload'
 
-const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangeField, handleChangePronoun, handleChangeImage, handleStatesChange }) => {
-
+const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangePronoun, handleChangeImage,  }) => {
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
@@ -48,16 +45,13 @@ const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChang
 			onChange={handleCheckboxChange}
 			/>
 			</ul>
-		{/* </div> */}
-			{/* <strong>You Selected: {split}</strong> */}
+
 
 			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
 			<div className="page">
 			<IndustriesRender state={state}
-				handleChangeField={handleChangeField}
-				handleCheckboxChange={handleCheckboxChange}
 				handleChangeTitle={handleChangeTitle}
-				handleStatesChange={handleStatesChange}
+
 		/>
 		<Genre state={state}
 			handleChangeGenre={handleChangeGenre}

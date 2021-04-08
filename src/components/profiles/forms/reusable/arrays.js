@@ -41,7 +41,9 @@ export const tech = [
 "Design",
 "Web Development",
 "Marketing",
-"Content"
+"Content",
+"Product Manager",
+"Project Manager"
 ]
 
 // && tech -- design
@@ -137,7 +139,6 @@ export const design = [
 	"Illustrator", 
 	"Motion Designer", 
 	"2D/3D Designer", 
-	"Graphic Designer", 
 	"Animator", 
 	"Brand Designer", 
 	"Web Designer", 
