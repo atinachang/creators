@@ -5,7 +5,7 @@ import {Genre, Title} from './forms/Renders'
 import StepOne from './forms/StepOne'
 import PhotoUpload from './forms/PhotoUpload'
 
-const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangePronoun, handleChangeImage,  }) => {
+const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangePronoun, handleChangeImage, handleChangeField  }) => {
 
 	const deselectAll = (e) => {
 	selectAllCheckboxes(false);
@@ -49,8 +49,9 @@ const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChang
 
 			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
 			<div className="page">
-			<IndustriesRender state={state}
-				handleChangeTitle={handleChangeTitle}
+				<IndustriesRender state={state}
+					handleChangeTitle={handleChangeTitle}
+					handleChangeField={handleChangeField }
 
 		/>
 		<Genre state={state}

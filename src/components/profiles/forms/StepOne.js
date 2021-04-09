@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react'
 import { Inputs } from '../../helpers/Inputs'
 
-const StepOne = ({state, validator, handleChange,  handleChangePronoun, handleChangeImage}) => {
+const StepOne = ({state, validator, handleChange,  soundcloud, handleChangePronoun, handleChangeImage}) => {
 	const { name, email, twitter, instagram, website, bio, photo, userId, pronoun } = state;
-	// console.log("photo state",photo)
+	
 return (
 
 	<Fragment> 
@@ -85,11 +85,14 @@ return (
 			</div>
 
 			<div className="field">
-			<Inputs label="Website/Other" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="Website URL"/>
+			<Inputs label="Website" type="text" id="website" name="website" onChange={handleChange} value={website} placeholder="Website URL"/>
 			{validator.message('website', website, 'url:https:// ')}
-
 			</div>
 
+			<div className="field">
+			<Inputs label="SoundCloud" type="text" id="soundcloud" name="soundcloud" onChange={handleChange} value={soundcloud} placeholder="Soundcloud URL"/>
+			{validator.message('soundcloud', soundcloud, 'url:https:// ')}
+			</div>
 	</Fragment>	
 	)
 }

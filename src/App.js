@@ -58,24 +58,22 @@ const App = (props)=> {
     <Fragment>
       <BrowserRouter>
       <div className="container">
-    <Nav {...props} app={app} setSearch={setSearch} toRender={toRender}  />
-    {/* <div className="ui container"> */}
+        <Nav {...props} app={app} setSearch={setSearch} toRender={toRender}  />
 
-    <div className="fade-in wrapper">
-    <Switch>
-    <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} />} />
-    <Route path="/search" render={(props) => <FilterView {...props} toRender={toRender} />  }/>          
-    <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={setSearch}  />}/>          
-    <Route path="/create" component={CreateProfile} />
-    <Route path="/admin" component={Admin} />
-    <Route path="/thankyou" component={ThankYou} />
-    <Route path="/FAQ" render={() =><Faq app={app}/>} />
-    </Switch>
-    </div>
-    </div>
-    {/* </div> */}
-    </BrowserRouter>
-    <Footer app={app}/>
+        <div className="fade-in wrapper">
+          <Switch>
+          <Route exact path="/" render={() => <Dashboard app={app} toRender={toRender} />} />
+          <Route path="/search" render={(props) => <FilterView {...props} toRender={toRender} />  }/>          
+          <Route path="/profile/:id" render={(props) => <ProfileDetails {...props} setSearch={setSearch}  />}/>          
+          <Route path="/create" component={CreateProfile} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/thankyou" component={ThankYou} />
+          <Route path="/FAQ" render={() =><Faq app={app}/>} />
+          </Switch>
+        </div>
+      </div>
+      </BrowserRouter>
+      <Footer app={app}/>
     </Fragment>
   );
   }

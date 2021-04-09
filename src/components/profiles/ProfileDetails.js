@@ -11,22 +11,14 @@ const ProfileDetails = (props) => {
 	const { profile, auth, setSearch } = props;
 
 
-	const {instagram, name, photo, email, twitter, website, bio, field, genre, title, pronoun, workPhoto1, workPhoto2, workPhoto3, industry} = props.profile;
+	const {name, photo,bio,  pronoun, workPhoto1, workPhoto2, workPhoto3} = props.profile;
 
 	const filter = e => {
 		setSearch(e.target.dataset.value)
 }
 
 	const buttons = auth.uid ? <Remove id={id} profile={profile}/> : <Socials 
-			instagram={instagram} 
-			twitter={twitter} 
-			email={email} 
-			bio={bio} 
-			name={name} 
-			website={website}
-			title={title}
-			field={field}
-			genre={genre}
+		{...props}
 			/>;
 
 	return (
@@ -43,10 +35,10 @@ const ProfileDetails = (props) => {
 				<div className="details">
 					<div className={bio || workPhoto1 || workPhoto2 || workPhoto3 ? "details-content": null}>
 						<Bio name={name} bio={bio}/>
-						<Portfolio workPhoto1={workPhoto1} workPhoto2={workPhoto2} workPhoto3={workPhoto3} name={ name}/>
+						<Portfolio  {...props}/>
 					</div>
 					<div className="details-titles">
-						<Info field={field} title={title} genre={genre} filter={filter} industry={industry}/>
+						<Info {...props} filter={ filter}/>
 					</div>
 				</div>
 				</div>

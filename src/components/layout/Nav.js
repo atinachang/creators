@@ -8,15 +8,12 @@ const Nav = (props) => {
 	const {auth, app, setSearch} = props;
 	const links = auth.uid ? <SignedInLinks /> : null;
 
-	// try to implement search bar into nav
-
 	  const searchSpace = (e) => {
     let keyword = e.target.value;	
 			setSearch(keyword)
 			setSearchVal(keyword)
 		}
 		
-
 	const reset = (e) => {
 		setSearchVal('')
 		setSearch(null)
@@ -26,7 +23,7 @@ const Nav = (props) => {
 		<nav>
 			<ul>
 				<li >
-				<NavLink to="/" className="branding">{ app}</NavLink>
+				<NavLink to="/" className="branding">{ app}  <sup>beta</sup></NavLink>
 			</li>
 			
 			<li>
@@ -42,7 +39,8 @@ const Nav = (props) => {
 			</ul>
 
 					<div className="ui search">
-				<NavLink to="/" className="branding" onClick={(e)=> reset(e) } >connect. create. repeat</NavLink>
+				<NavLink to="/" className="branding" onClick={(e) => reset(e)} >connect. create. repeat</NavLink>
+				
 				<NavLink to="/search">
 					<input type="text" className="prompt" placeholder="Search by Keyword" value={ searchVal}onChange={(e)=>searchSpace(e)} />
 				</NavLink>

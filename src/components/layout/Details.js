@@ -2,7 +2,10 @@ import React, { Fragment } from 'react'
 import {NavLink} from 'react-router-dom'
 
 
-export const Socials = ({instagram, twitter, email, bio, name, website}) => {
+export const Socials = ({ ...props }) => {
+	
+const { instagram, twitter, email, website, soundcloud } = props.profile
+
 const igRender= () =>{
 		if (!instagram) {
 		return null
@@ -46,54 +49,64 @@ return (
  </a>
 )
 }
+	
+	const scRender = () => {
+		if (!soundcloud) {
+			return null
+		}
+		return (
+			<a href={soundcloud}>
+				<i className={`music icon`}></i>
+			</a>
+		)
+	}
 
 	return (
 		<Fragment>
 			<div className="socials">
-		{/* <h4>Contact:</h4> */}
 		
 		{igRender()}
 		{twitRender()}
 		{emailRender()}
 		{webRender()}
+		{scRender()}
 		</div>
 		</Fragment>
 	)
 }
 
-export const Info = ({ field, genre, title, filter, industry }) => {
-	console.log(field.length)
-	// console.log(industry.length)
+export const Info = ({ filter , ...props }) => {
+const {field, genre, title, industry} = props.profile
 	const fieldRender = () => {
 		if (field !== 0) {	
 			const fieldList = field.map(field => 
 				<NavLink to="/search" key={field} >
-		<li className="dark"  data-value={field} onClick={filter}>{field}</li>
-	</NavLink>
+					<li className="dark"  data-value={field} onClick={filter}>{field}</li>
+				</NavLink>
 		)
 		return (
 			<div className="segment">
-		<h4>Fields of Work</h4> 
-		<ul >{fieldList}</ul>
-	</div>
+				<h4>Fields of Work</h4> 
+				<ul >{fieldList}</ul>
+			</div>
 	)
 		}
 		else {
-			console.log(industry)
 			const fieldList = industry.map(field => 
 				<NavLink to="/search" key={field} >
-		<li className="dark"  data-value={field} onClick={filter}>{field}</li>
-	</NavLink>
-		)
-				return (
-			<div className="segment">
-		<h4>Fields of Work</h4> 
-		<ul >{fieldList}</ul>
-	</div>
+					<li className="dark"  data-value={field} onClick={filter}>{field}</li>
+			</NavLink>
+			)
+			
+			return (
+		<div className="segment">
+			<h4>Fields of Work</h4> 
+			<ul >{fieldList}</ul>
+		</div>
 	)	
 	}
 }
-const titleRender = () => {
+	const titleRender = () => {
 
 	if (title.length ===0) {
 		return null
@@ -173,7 +186,6 @@ export const Pronoun = ({pronoun}) => {
 
 		return (
 			<Fragment>
-				{/* <h4>Pronouns</h4> */}
 				<p>{pronoun}</p>
 			</Fragment>
 		)
@@ -185,7 +197,8 @@ export const Pronoun = ({pronoun}) => {
 	)
 }
 
-export const Portfolio = ({workPhoto1, workPhoto2, workPhoto3, name}) => {
+export const Portfolio = ({ ...props }) => {
+	const {workPhoto1, workPhoto2, workPhoto3, name} = props.profile
 	return (
 		<div className={workPhoto1 || workPhoto2 || workPhoto3 ? "work": null}>
 			<img src={workPhoto1} alt={workPhoto1 ? `${name}'s Portfolio` : null} />

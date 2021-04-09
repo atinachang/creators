@@ -3,7 +3,7 @@ import {marketing, music, tech, applied, performer, filmarts} from './reusable/a
 import { add } from '../../helpers/helpers'
 
 
-export const IndustriesRender = ({state, handleChangeTitle})=> {
+export const IndustriesRender = ({state, handleChangeTitle, handleChangeField})=> {
 	const { industry } = state;
 
 	let fields = []
@@ -16,20 +16,20 @@ export const IndustriesRender = ({state, handleChangeTitle})=> {
 		}
 
 		if (selected === "Music") {
-			add(fields, selected, music, handleChangeTitle)
+			add(fields, selected, music, handleChangeField)
 
 		}
 
 		if (selected === "Tech") {
-			add(fields, selected, tech, handleChangeTitle)
+			add(fields, selected, tech, handleChangeField)
 		}
 
 		if (selected === "Film & Media Arts") {
-			add(fields, selected, filmarts, handleChangeTitle)
+			add(fields, selected, filmarts, handleChangeField)
 		}
 
 		if (selected === "Applied Arts") {
-			add(fields, selected, applied, handleChangeTitle)
+			add(fields, selected, applied, handleChangeField)
 		}
 
 		if (selected === "Performing Arts") {

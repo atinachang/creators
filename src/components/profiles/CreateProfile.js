@@ -20,6 +20,7 @@ class CreateProfile extends Component {
 				twitter: "",
 				instagram: "",
 				website: "",
+				soundcloud: "",
 				field: [],
 				genre: [],
 				title: [],
@@ -41,16 +42,6 @@ class CreateProfile extends Component {
 		this.validator = new SimpleReactValidator();
 	}
 
-	newIndustryArr= [
-		{
-			industry: "Applied Arts",
-			checked: false,
-		},
-		{
-			industry: "Film & Media Arts",
-			checked: false,
-			}
-	]
 				
 // ! TO DO
 	// move handleChangeImage to helpers folder - cant be done?
@@ -90,7 +81,6 @@ class CreateProfile extends Component {
         : industry.filter((el) => el !== value)
 		}));
 		console.log("industry", industry)
-		// console.log(industryState)
 	}
 	
 	
@@ -175,6 +165,7 @@ handleStatesChange = async (e, update) => {
 			twitter: "",
 			instagram: "",
 			website: "",
+			soundcloud: "",
 			field: [],
 			genre: [],
 			title: [],
@@ -205,6 +196,10 @@ handleStatesChange = async (e, update) => {
   }
 
 // console.log(this.state)
+		//  console.log(["industry", this.state.industry],
+		// 	 ["field", this.state.field],
+		// 	 ["title", this.state.title],
+		// 	 [ "genre", this.state.genre])
 	createProfile(this.state)
 	history.push('/thankyou')
 	Object.keys(checkboxes)
@@ -242,6 +237,7 @@ handleStatesChange = async (e, update) => {
 					handleChangeTitle={this.handleChangeTitle}
 					handleCheckboxChange={this.handleCheckboxChange}
 					handleChangePronoun={this.handleChangePronoun}
+					handleChangeField={this.handleChangeField}
 					/>
 
 				<button className="ui button" onClick={this.handleSubmit}>Submit</button>

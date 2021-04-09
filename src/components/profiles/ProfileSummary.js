@@ -2,15 +2,9 @@ import React, {Fragment} from 'react';
 
 // add function that makes labels set filter in nav
 const ProfileSummary = ({profile}) => {
-	const {name, photo, field} = profile;
+	const { name, photo, field } = profile;
+	// console.log(field)
 	
-	// if (profile === undefined) {
-	// 	      return (
-  //   <div className="ui segment">
-  //   <div className="ui active centered inline loader"></div>
-  //   </div>
-  //     )
-	// } else {
 	const fieldRender = () => {
 		if (field.length === 1){
 			const single = field.map(item =>

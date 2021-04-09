@@ -4,10 +4,8 @@ export const parent = [
 	"Film & Media Arts", 
 	"Marketing", 
 	"Music", 
-	// "Photography", 
 	"Performing Arts",
 	"Tech", 
-	// "Writing"
 ]
 
 //&& -- marketing
@@ -24,7 +22,7 @@ export const marketing =[
 export const music =[
 "DJ",
 "Vocal Artist",
-"Producer",
+"Music Producer",
 "Sound Engineer",
 "Talent Manager",
 "Music Marketing",
@@ -33,7 +31,7 @@ export const music =[
 
 // && DJ / vocal artist / producer / engineer
 export const genres = [
-	'Hip-Hop', "House", "Electronic", "Experimental", "UK Garage/Bass", "R&B", "Club", "Soulection", "Pop", "Reggae/Dancehall","Motown", "Other"
+	'Hip-Hop', "House", "Electronic", "Experimental", "UK Garage/Bass", "Latin", "Reggaeton","Global","R&B", "Club", "Soulection", "Pop", "Reggae/Dancehall","Motown", "Other"
 ]
 
 // && -- tech
@@ -48,9 +46,9 @@ export const tech = [
 
 // && tech -- design
 export const techdesign = [
-	"UX/UI Designer",
-	"Web Designer",
-	"Product Designer", 
+	"UX/UI Design",
+	"Web Design",
+	"Product Design", 
 ]
 
 // && tech -- web development
@@ -92,14 +90,14 @@ export const filmarts = [
 export const filmprod = [
 	'Director', 
 	'DOP/Cinematographer', 
-	"Producer", 
+	"Film Producer", 
 	"Editor", 
 	"Camera Operator", 
 	"Drone Operator", 
 	"AC", 
 	"Grip", 
 	"Gaffer",
-	"Set Designer",
+	"Set Design",
 	"Creative Director",
 	"Art Director",
 	"Production Assistant",
@@ -129,21 +127,21 @@ export const photography = [
 
 //&&  -- applied arts
 export const applied = [
-"Fashion Designer",
-"Interior Designer",
-"Graphic Designer"
+"Fashion Design",
+"Interior Design",
+"Graphic Design"
 ]
 
 // && -- applied arts -- design
 export const design = [
-	"Illustrator", 
-	"Motion Designer", 
-	"2D/3D Designer", 
-	"Animator", 
-	"Brand Designer", 
-	"Web Designer", 
-	"Art Director",
-	"Creative Director",
+	"Illustration", 
+	"Motion Design", 
+	"2D/3D Design", 
+	"Animation", 
+	"Brand Design", 
+	"Web Design", 
+	"Art Direction",
+	"Creative Direction",
 ]
 
 
@@ -152,8 +150,6 @@ export const design = [
 export const performer = [
 "Dance",
 "Theatre",
-// "Vocal Artist",
-// "DJ"
 ]
 
 
@@ -161,23 +157,3 @@ export const performer = [
 export const writing = [
 "Creative Writing", "Journalism", "Media", "Copywriting", "Technical Writing", "Editorial", "News", "Public Relations" 
 ]
-
-
-
-// export const fields = [
-// 	"DJ", 
-// 	"Film Production", 
-// 	"Consulting", 
-// 	"Designer", 
-// 	"Tech", 
-// 	"Dance", 
-// 	"Photography", 
-// 	"Marketing", 
-// 	"Vocal Artist", 
-// 	"Sound Engineer", 
-// 	"Writing", 
-// 	"Event Production", 
-// 	"Fashion", 
-// 	"Make Up Artist", 
-// 	"Music Producer"
-// ]
