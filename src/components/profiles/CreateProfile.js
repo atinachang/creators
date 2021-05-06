@@ -180,8 +180,7 @@ class CreateProfile extends Component {
 
     if (this.validator.allValid()) {
       alert(`Thanks ${name}! You've submitted the form! \uD83D\uDE00 `);
-      // history.push('/thankyou');
-      // createProfile(this.state);
+      history.push('/thankyou');
     } else {
       this.validator.showMessages();
       this.forceUpdate();
