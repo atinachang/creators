@@ -72,35 +72,38 @@ const Nav = (props) => {
   };
   return (
     <nav>
-      <div className='ui search'>
-        <NavLink
-          to='/'
-          className='branding'
-          onClick={(e) => reset(e)}
-          tabIndex='0'>
-          connect. create. repeat
-        </NavLink>
-        <div className='mobile_nav'>
-          <div className='menu_open'>
-            <button
-              className='no_appearance'
-              onClick={handleOpenMenu}
-              tabIndex='0'
-              aria-label='hamburger mobile menu'>
-              <GiHamburgerMenu title='hamburger icon' />
-            </button>
-          </div>
-          <div
-            className={`popout_menu ${isMenuPopoutOpen ? 'open' : 'closed'}`}>
-            <div className='menu_close'>
+      <div className='ui search wrapper'>
+        <div className='mobile_home'>
+          <NavLink
+            to='/'
+            className='branding'
+            onClick={(e) => reset(e)}
+            tabIndex='0'>
+            connect. create. repeat
+          </NavLink>
+
+          <div className='mobile_nav'>
+            <div className='menu_open'>
               <button
-                onClick={handleCloseMenu}
                 className='no_appearance'
-                tabIndex='0'>
-                <ImCross />
+                onClick={handleOpenMenu}
+                tabIndex='0'
+                aria-label='hamburger mobile menu'>
+                <GiHamburgerMenu title='hamburger icon' />
               </button>
             </div>
-            <NavList />
+            <div
+              className={`popout_menu ${isMenuPopoutOpen ? 'open' : 'closed'}`}>
+              <div className='menu_close'>
+                <button
+                  onClick={handleCloseMenu}
+                  className='no_appearance'
+                  tabIndex='0'>
+                  <ImCross />
+                </button>
+              </div>
+              <NavList />
+            </div>
           </div>
         </div>
 
