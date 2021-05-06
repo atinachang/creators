@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@300;400;700&family=Source+Code+Pro:wght@300;700;900&display=swap');
 
 * {
   margin: 0;
@@ -11,6 +10,16 @@ body {
   color: $primaryfnt;
   line-height: $base-line-height;
   font-size: $base-font-size;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: lightgray;
+  border-radius: 10px;
 }
 
 #root {
@@ -19,92 +28,20 @@ body {
   min-height: 100vh;
 }
 
-p {
-  @include font-size(1.5);
-  margin-bottom: $vertical-rhythm;
-}
-
 .container {
   display: flex;
-  // @media only screen and (max-width: 480px) {
   flex-direction: column;
-  // }
+  min-height: 90vh;
 }
 .wrapper {
   max-width: 1200px;
-  width: 75%;
+  width: 80%;
   margin: 0 auto;
-}
-
-a {
-  color: $primaryfnt;
-
-  &:hover {
-    color: $thrdaccent;
-  }
-}
-
-// h2,
-h3,
-h4,
-h5,
-p {
-  font-weight: 300;
-  line-height: 1.1em;
-  margin: 0;
-}
-
-h1 {
-  @media (min-width: 768px) {
-    @include font-size(9);
-    word-wrap: break-word;
-  }
-
-  @include font-size(5);
-  color: black;
-  letter-spacing: -5px;
-  margin-bottom: $vertical-rhythm * 2;
 }
 
 .branding {
   font-family: $branding;
   font-weight: 700;
-  // color: darken($scnd, 10%);
-}
-
-h2 {
-  margin-bottom: $vertical-rhythm;
-  @include font-size(4.5);
-}
-
-h3 {
-  // font-size: 1.5em;
-  margin-bottom: $vertical-rhythm;
-  @include font-size(3);
-}
-
-h4 {
-  @include font-size(2);
-  margin: ($vertical-rhythm * 0.6) 0;
-  // text-transform: capitalize;
-  // margin-bottom: $vertical-rhythm;
-}
-
-h5 {
-  @include font-size(1.4);
-  margin: ($base-font-size * 0.5) 0;
-}
-
-h3 {
-  font-weight: bold;
-}
-li {
-  list-style-type: none;
-}
-
-i.icon,
-i.icons {
-  @include font-size(1.8);
 }
 
 .fade-in {
@@ -116,5 +53,17 @@ i.icons {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    width: 65%;
   }
 }

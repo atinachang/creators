@@ -1,28 +1,18 @@
 $primary: #201f1f;
 $primaryfnt: #ede9ea;
-// $prmaccent: rgb(160, 157, 157);
-// $prmaccent: #848c97;
 $lightaccent: #7f7b78;
-$darkaccent: #6b6b6d;
+$darkaccent: #545454;
 $darkshade: #151114;
 // #ece6dc
 
-$branding: "Source Code Pro", monospace;
+$branding: 'Source Code Pro', monospace;
 
-// $rosybrown: rgb(188, 143, 143);
-
-// // $scnd: #393e46;
-// $scnd: #738291;
-// // $thrd: #878788;
-// $thrd: #63677f;
 $high1: rgb(40, 75, 99);
 $high2: rgb(60, 110, 113);
-// // $high1:
-// $accent: rgb(217, 217, 217);
 $thrdaccent: rgb(252, 163, 17);
 
 $base-line-height: 1.4;
-$base-font-size: 1.25rem;
+$base-font-size: 1rem;
 $vertical-rhythm: $base-line-height * $base-font-size;
 
 $border-rad: 30px;

@@ -1,56 +1,24 @@
-.image {
-  // position: relative;
-  // height: 200px;
-  // width: 200px;
-
-  img {
-    border-radius: $border-rad;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.column {
-  // margin: 0 auto;
-  // margin: 20px auto;
-  // width: calc(200px - 40px);
-}
-
-.filter {
-  @include flexbox();
-}
-
-.card {
-  display: flex;
-  justify-content: center;
-}
-
 .ui.link.cards {
-  // padding-top: 40px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  // flex-direction: column;
   flex-wrap: wrap;
 }
 
 .fluid.card {
   border-radius: $border-rad;
-  width: 200px;
-  // margin: 30px 10px;
+  width: 250px;
   margin: $base-font-size;
   display: flex;
   flex-direction: column;
-  // border: 1px solid transparent;
-  box-shadow: 0 14px 28px rgba(109, 109, 109, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.44);
-  // box-shadow: 0 4px 10px 10px rgba(80, 80, 80, 0.3);
+  // box-shadow: 0 14px 28px rgba(109, 109, 109, 0.25),
+  //   0 10px 10px rgba(0, 0, 0, 0.44);
 
   &:hover {
-    box-shadow: 0 1px 3px 0 $primary, 0 0 0 1px $primary;
-    // border: 1px solid $thrdaccent;
+    // box-shadow: 0 1px 3px 0 $primary, 0 0 0 1px $primary;
     border-radius: $border-rad;
+    transform: none;
+    // box-shadow: 0 1px 3px 0 $darkaccent, 0 0 0 1px $darkaccent;
   }
   a {
     position: relative;
@@ -58,9 +26,8 @@
   }
 
   .image {
-    // position: relative;
     height: 250px;
-    width: 200px;
+    width: 250px;
 
     img {
       border-radius: $border-rad;
@@ -71,26 +38,13 @@
   }
 }
 
-.ui.link.cards .card {
-  &:hover {
-    // background: transparent;
-    // box-shadow: 0 1px 3px 0 $thrdaccent, 0 0 0 1px $thrdaccent;
-    transform: none;
-    box-shadow: 0 1px 3px 0 $darkaccent, 0 0 0 1px $darkaccent;
-
-    // border: 1px solid $thrdaccent;
-  }
-}
-
 .content {
   border-radius: 0 0 $border-rad $border-rad;
   min-height: 50px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: $lightaccent;
-  // opacity: 0.5;
-  // @include flexbox();
+  background-color: $darkaccent;
   padding: 10px;
   text-align: center;
   width: 100%;
@@ -101,5 +55,16 @@
   }
   p:first-of-type {
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: 468px) {
+  .fluid.card {
+    width: 200px;
+
+    .image {
+      height: 250px;
+      width: 200px;
+    }
   }
 }

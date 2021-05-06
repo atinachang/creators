@@ -1,38 +1,24 @@
 .details-container {
-  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // padding: 20px;
-  // margin-top: 50px;
-  p {
-    @include font-size(1.5);
-    // color: black;
-  }
-
-  h2 {
-    text-align: center;
-  }
-  // h0
+  margin-top: 1rem;
 }
 
 .details {
   display: flex;
   justify-content: center;
   margin: ($base-font-size) 0;
-  // align-items: flex-start;
-  // justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 
   .bio {
-    // width: 40%;
-    // height: auto;
     text-align: left;
   }
 
   .work {
-    // padding: $base-font-size 0;
-    // margin: 0 auto;
     display: flex;
     img {
       width: calc((100% / 3) - 20px);
@@ -44,50 +30,26 @@
 }
 
 .details-content {
-  @media only screen and (min-width: 768px) {
-    width: 60%;
-  }
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
+}
+
+.details-titles {
+  width: 100%;
 }
 
 .details-titles,
 .details-image,
 .details-content {
-  // width: calc(100% / 3);
   background-color: rgba($darkaccent, 0.4);
-  // background-color: lighten($color: #eceadc, $amount: 1);
-  // background-color: rgba(236, 234, 220, 0.3);
   padding: $base-font-size;
-  // width: calc(100% / 3);
-  // margin: 0 auto;
   border-radius: 20px;
   height: auto;
-  @media only screen and (min-width: 768px) {
-    margin: $base-font-size;
-  }
-  margin: ($base-font-size) auto;
-  // width: 100%;
+
+  margin: ($base-font-size) 0;
 }
 
-.details-titles {
-  @media only screen and (max-width: 480px) {
-    width: 100%;
-  }
-}
-// .ui.button.mobile {
-//   display: none;
-// }
-
-// .details-titles {
-// width: 25%;
-// }
 li.dark,
 li.light {
-  // display: inline;
   border-radius: 20px;
   padding: 5px 15px;
   margin: 5px;
@@ -95,21 +57,15 @@ li.light {
   letter-spacing: 1px;
 }
 
-// ? remove pronoun and keep square
-// ? move pronoun to ???
 // ? new layout? - see draw.io
 .details-image {
-  height: 300px;
+  height: calc(300px);
   width: 300px;
   border-radius: 50%;
-  // height: auto;
   display: flex;
   flex-direction: column;
-  // width: 30%;
-  // height: auto;
+
   img {
-    // height: 350px;
-    // width: 20%;
     border-radius: 50%;
     object-fit: cover;
     height: 100%;
@@ -119,6 +75,14 @@ li.light {
 
 .socials {
   margin-top: 20px;
+
+  a {
+    margin: 0 0.5rem;
+  }
+
+  svg {
+    font-size: $base-font-size * 1.25;
+  }
 }
 
 .light {
@@ -131,4 +95,37 @@ li.light {
 
 .segment {
   margin: 10px auto;
+}
+
+@media (max-width: 480px) {
+  .details-titles {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .details-titles,
+  .details-image,
+  .details-content {
+    margin: $base-font-size;
+  }
+}
+
+@media (min-width: 1024px) {
+  .details {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: initial;
+
+    .bio {
+      width: 100%;
+    }
+  }
+  .details-content {
+    width: 60%;
+  }
+
+  .details-titles.third {
+    width: 40%;
+  }
 }

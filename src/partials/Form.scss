@@ -1,87 +1,68 @@
 .ui.form {
-  max-width: 60vw;
-  // max-width: 620px;
-  margin: 30px auto;
   background: whitesmoke;
   text-align: left;
-  padding: 40px;
   border-radius: 10px;
+  padding: 1.5rem;
 
   h2,
-  h3,
+  h6,
   h4,
-  h5,
   label,
   p,
   strong,
-  input {
-    color: black;
-    // font-family: $branding;
+  input,
+  textarea {
+    color: $primary;
+
+    &:focus-visible,
+    &:focus-within {
+      border: 1px solid gray;
+    }
+
+    h3 {
+      font-family: inherit;
+    }
+  }
+
+  button {
+    padding: 0.5rem;
+    background: lightgray;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    margin: 0.75rem;
   }
 }
 
-.ui.form .field > label,
-.ui.form .inline.fields .field > label {
-  // color: $primaryfnt;
-  @include font-size(1.2);
-  text-transform: uppercase;
-}
-
-.ui.form .fields > .field {
+.field {
   display: flex;
   flex-direction: column;
-  margin: 5px;
-}
-.ui.form .fields {
-  display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  // max-height: 250px;
-}
+  margin: 0.75rem;
+  width: 100%;
 
-.inputs > .field {
-  display: flex;
-  flex-direction: row;
-}
-
-.ui.form .field {
-  margin: 10px 5px;
-  // display: flex;
-  // flex-direction: column;
-
-  label {
-    font-weight: bold;
-  }
   li {
     display: flex;
     flex-direction: column-reverse;
   }
+  label {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }
 
-.ui.form .field > label {
-  margin-right: 20px;
-}
-.ui.button {
-  margin: 20px 10px;
-}
+input,
+textarea {
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  margin: 0.25rem;
 
-.ui.form ::placeholder {
-  color: rgba(0, 0, 0, 0.9);
+  &:focus {
+    border: gray;
+  }
 }
 
 form img {
   width: 200px;
-}
-
-.inputs {
-  display: flex;
-  // flex-direction: column;
-  flex-wrap: wrap;
-  // max-height: 250px;
-  // width: 100%;
-  label {
-    @include font-size(1.2);
-  }
 }
 
 // .visually-hidden {
@@ -105,7 +86,6 @@ form img {
 }
 
 .checkbox {
-  // @include flexbox();
   display: flex;
   justify-content: center;
   margin: 5px;
@@ -117,7 +97,6 @@ form img {
 
 ul.ks-cboxtags {
   list-style: none;
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -154,31 +133,31 @@ ul.ks-cboxtags li label::before {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   padding: 2px 6px 2px 2px;
-  content: "\002B";
+  content: '\002B';
   transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-  content: "\2713";
+ul.ks-cboxtags li input[type='checkbox']:checked + label::before {
+  content: '\2713';
   transform: rotate(-360deg);
   transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li.checkbox-dark input[type="checkbox"]:checked + label {
+ul.ks-cboxtags li.checkbox-dark input[type='checkbox']:checked + label {
   border: 2px solid $high1;
   background-color: lighten($high1, 20%);
   color: #fff;
   transition: all 0.2s;
 }
 
-ul.ks-cboxtags li.checkbox-light input[type="checkbox"]:checked + label {
+ul.ks-cboxtags li.checkbox-light input[type='checkbox']:checked + label {
   border: 2px solid $high2;
   background-color: lighten($high2, 20%);
   color: #fff;
   transition: all 0.2s;
 }
 
-ul.ks-cboxtags li input[type="checkbox"] {
+ul.ks-cboxtags li input[type='checkbox'] {
   position: absolute;
   opacity: 0;
   top: 0;
@@ -190,15 +169,22 @@ ul.ks-cboxtags li input[type="checkbox"] {
 .photos {
   li {
     padding: ($base-font-size * 0.5);
-    width: 50%;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
   }
-  // .ui.form input[type="file"] {
-  // }
-  // display: flex;
-  // input[type="file"] {
-  //   width: 50% !important;
-  // }
-  // @media (min-width: 900px) {
-  //   display: flex;
-  // }
+}
+
+@media (min-width: 768px) {
+  .ui.form {
+    max-width: 60vw;
+    margin: 2rem auto;
+    padding: 40px;
+  }
+
+  .ui.form .fields {
+    flex-wrap: nowrap;
+  }
 }

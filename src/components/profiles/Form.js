@@ -1,74 +1,75 @@
-import React, {Fragment} from 'react'
-import {parent} from './forms/reusable/arrays'
-import {IndustriesRender} from './forms/IndustriesRender'
-import {Genre, Title} from './forms/Renders'
-import StepOne from './forms/StepOne'
-import PhotoUpload from './forms/PhotoUpload'
+import React, { Fragment } from 'react';
+import { parent } from './forms/reusable/arrays';
+import { IndustriesRender } from './forms/IndustriesRender';
+import { Genre, Title } from './forms/Renders';
+import StepOne from './forms/StepOne';
+import PhotoUpload from './forms/PhotoUpload';
 
-const Form = ({ state, validator, handleChange, selectAllCheckboxes, handleChangeGenre, createCheckbox, handleChangeTitle, handleCheckboxChange, handleChangePronoun, handleChangeImage, handleChangeField  }) => {
+const Form = ({
+  state,
+  validator,
+  handleChange,
+  selectAllCheckboxes,
+  handleChangeGenre,
+  createCheckbox,
+  handleChangeTitle,
+  handleCheckboxChange,
+  handleChangePronoun,
+  handleChangeImage,
+  handleChangeField,
+}) => {
+  const deselectAll = (e) => {
+    selectAllCheckboxes(false);
+    state.field = [];
+    state.industry = [];
+    state.title = [];
+    e.preventDefault();
+    e.stopPropagation();
+  };
+  const createFields = () => parent.map(createCheckbox);
 
-	const deselectAll = (e) => {
-	selectAllCheckboxes(false);
-		state.field = []
-		state.industry = []
-		state.title = []
-		e.preventDefault();
-	e.stopPropagation();
-	}
+  return (
+    <Fragment>
+      <h2>Let's get to know you!</h2>
+      <h6>Submit yourself or a friend here</h6>
+      <h4>Basic Info</h4>
 
-	const createFields = () => parent.map(createCheckbox)
+      <StepOne
+        validator={validator}
+        state={state}
+        handleChangeImage={handleChangeImage}
+        handleChange={handleChange}
+        handleChangePronoun={handleChangePronoun}
+      />
+      <h4>What do you do? </h4>
+      <h6>Please select all that apply</h6>
+      <ul className='ks-cboxtags'>
+        {createFields()}
+        <input
+          className='ui input'
+          type='text'
+          placeholder='Other'
+          id='field'
+          onChange={handleCheckboxChange}
+        />
+      </ul>
 
-	return (
-		<Fragment>
-			<h3>Let's get to know you!</h3>
-			<h5>Submit yourself or a friend here</h5>
-			<h4>Basic Info</h4>
+      <button className='ui button' onClick={(e) => deselectAll(e)}>
+        Clear Selection
+      </button>
+      <div className='page'>
+        <IndustriesRender
+          state={state}
+          handleChangeTitle={handleChangeTitle}
+          handleChangeField={handleChangeField}
+        />
+        <Genre state={state} handleChangeGenre={handleChangeGenre} />
+        <Title state={state} handleChangeTitle={handleChangeTitle} />
 
-		<StepOne 
-		validator={validator}
-		state={state}
-		handleChangeImage={handleChangeImage}
-		handleChange={handleChange}
-		handleChangePronoun={handleChangePronoun}
-		/>
-		<h3>What do you do? </h3>
-			<h4>
-			Please select all that apply
-		</h4>
-			<ul className="ks-cboxtags">
-				{createFields()}
-			<input
-			className="ui input"
-			type="text"
-			placeholder="Other"
-			id="field"
-			onChange={handleCheckboxChange}
-			/>
-			</ul>
+        <PhotoUpload state={state} handleChangeImage={handleChangeImage} />
+      </div>
+    </Fragment>
+  );
+};
 
-
-			<button className="ui button" onClick={(e)=>deselectAll(e)}>Clear Selection</button>
-			<div className="page">
-				<IndustriesRender state={state}
-					handleChangeTitle={handleChangeTitle}
-					handleChangeField={handleChangeField }
-
-		/>
-		<Genre state={state}
-			handleChangeGenre={handleChangeGenre}
-			/>
-		<Title state={state}
-		handleChangeTitle={handleChangeTitle}
-				/>
-				
-		<PhotoUpload
-			state={state}
-		handleChangeImage={handleChangeImage}
-		/>
-
-		</div>
-		</Fragment>
-	)
-}
-
-export default Form
+export default Form;

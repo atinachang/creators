@@ -1,23 +1,33 @@
 .single-card {
-	display: flex;
-	// flex-direction: column;
-	// width: 500px;
-	// flex-direction: row;
-	margin: 50px auto;
-	// justify-content: space-evenly;
+  display: flex;
+  margin: 50px auto;
 
-	// border: 1px solid transparent;
-	.image {
-		width: 300px;
-		height: 300px;
-		margin-right: 100px;
-	}
+  & > * {
+    margin: 0 3rem;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+
+    img {
+      border-radius: $border-rad;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
-// .single-card:hover {
-// 	border: 1px solid whitesmoke;
-// }
+.single-content {
+  @include flexbox();
+}
 
 .thank-you {
-	@include flexbox();
+  margin-top: 4rem;
+  @include flexbox();
+  text-align: center;
+
+  & > * {
+    margin: 0.5rem 0;
+  }
 }
