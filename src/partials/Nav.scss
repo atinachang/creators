@@ -29,6 +29,7 @@ nav {
 
 .ui.search {
   align-items: left;
+  padding-top: 1rem;
 
   input {
     text-transform: uppercase;
@@ -38,9 +39,18 @@ nav {
     border-radius: 20px;
   }
 
+  a:nth-of-type(1) {
+    margin: 10px;
+    margin-left: 65px;
+  }
+
+  a:nth-of-type(2) {
+    margin: 10px auto;
+  }
+
   a {
-    margin: 10px 0;
     color: $primaryfnt;
+    // margin: 10px auto;
   }
 }
 
@@ -125,13 +135,13 @@ nav {
 
 .menu_open {
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 10px;
   margin: 0.5rem;
 
   svg {
     color: white;
-    font-size: $base-font-size * 1.5;
+    font-size: $base-font-size * 1.75;
   }
 }
 
@@ -146,6 +156,12 @@ nav {
 
   .ui.search {
     align-items: center;
+    padding-top: 0;
+
+    a:nth-of-type(1),
+    a:nth-of-type(2) {
+      margin: 10px auto;
+    }
   }
 }
 

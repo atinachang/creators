@@ -80,6 +80,30 @@ const Nav = (props) => {
           tabIndex='0'>
           connect. create. repeat
         </NavLink>
+        <div className='mobile_nav'>
+          <div className='menu_open'>
+            <button
+              className='no_appearance'
+              onClick={handleOpenMenu}
+              tabIndex='0'
+              aria-label='hamburger mobile menu'>
+              <GiHamburgerMenu title='hamburger icon' />
+            </button>
+          </div>
+          <div
+            className={`popout_menu ${isMenuPopoutOpen ? 'open' : 'closed'}`}>
+            <div className='menu_close'>
+              <button
+                onClick={handleCloseMenu}
+                className='no_appearance'
+                tabIndex='0'>
+                <ImCross />
+              </button>
+            </div>
+            <NavList />
+          </div>
+        </div>
+
         <NavLink to='/search'>
           <label className='sr-only'>Search by Keyword</label>
           <input
@@ -96,28 +120,6 @@ const Nav = (props) => {
         <NavList />
       </div>
 
-      <div className='mobile_nav'>
-        <div className='menu_open'>
-          <button
-            className='no_appearance'
-            onClick={handleOpenMenu}
-            tabIndex='0'
-            aria-label='hamburger mobile menu'>
-            <GiHamburgerMenu title='hamburger icon' />
-          </button>
-        </div>
-        <div className={`popout_menu ${isMenuPopoutOpen ? 'open' : 'closed'}`}>
-          <div className='menu_close'>
-            <button
-              onClick={handleCloseMenu}
-              className='no_appearance'
-              tabIndex='0'>
-              <ImCross />
-            </button>
-          </div>
-          <NavList />
-        </div>
-      </div>
       {auth.isLoaded && links}
     </nav>
   );
