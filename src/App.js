@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import ScrollToTop from './ScrollToTop';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from './components/layout/Nav';
 import Dashboard from './components/dashboard/Dashboard';
@@ -54,6 +55,7 @@ const App = (props) => {
     return (
       <Fragment>
         <BrowserRouter>
+          <ScrollToTop />
           <div className='container'>
             <Nav
               {...props}

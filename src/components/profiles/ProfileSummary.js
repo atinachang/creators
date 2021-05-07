@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import LazyLoad from 'react-lazy-load';
 
 const ProfileSummary = ({ profile }) => {
