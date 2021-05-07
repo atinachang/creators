@@ -96,7 +96,7 @@ export const Info = ({ filter, ...props }) => {
         </NavLink>
       ));
       return (
-        <div className='segment'>
+        <div className='fields segment'>
           <h5>Fields of Work</h5>
           <ul>{fieldList}</ul>
         </div>
@@ -132,7 +132,7 @@ export const Info = ({ filter, ...props }) => {
     ));
 
     return (
-      <div className='segment'>
+      <div className='titles segment'>
         <h5>Expertise</h5>
         <ul>{titleList}</ul>
       </div>
@@ -152,9 +152,9 @@ export const Info = ({ filter, ...props }) => {
     }
 
     return (
-      <div className=' segment'>
+      <div className='genres segment'>
         <h5>Genres:</h5>
-        {genreList}
+        <ul>{genreList}</ul>
       </div>
     );
   };

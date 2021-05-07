@@ -48,7 +48,9 @@ const ProfileDetails = (props) => {
                 : null
             }>
             <Bio name={name} bio={bio} />
-            <Portfolio {...props} />
+            {workPhoto1 || workPhoto2 || workPhoto3 ? (
+              <Portfolio {...props} />
+            ) : null}
           </div>
           {/* if no details-content div, width 100%, otherwise, 33% */}
           <div

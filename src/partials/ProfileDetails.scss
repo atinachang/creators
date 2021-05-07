@@ -73,6 +73,15 @@ li.light {
   }
 }
 
+.genres,
+.titles,
+.fields {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
 .socials {
   margin-top: 20px;
 
@@ -121,11 +130,8 @@ li.light {
       width: 100%;
     }
   }
-  .details-content {
-    width: 60%;
-  }
-
+  .details-content,
   .details-titles.third {
-    width: 40%;
+    width: calc(50% - 2rem);
   }
 }
