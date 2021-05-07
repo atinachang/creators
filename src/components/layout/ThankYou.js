@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
+import LazyLoad from 'react-lazy-load';
 
 const ThankYou = (props) => {
   let history = useHistory();
@@ -23,9 +24,11 @@ const ThankYou = (props) => {
       return (
         <Link to={`/profile/${id}`}>
           <div className='single-card'>
-            <div className='image'>
-              <img src={photo} alt={name} />
-            </div>
+            <LazyLoad>
+              <div className='image'>
+                <img src={photo} alt={name} />
+              </div>
+            </LazyLoad>
             <div className='single-content'>
               <h5>{name}</h5>
               <h6>{txt}</h6>

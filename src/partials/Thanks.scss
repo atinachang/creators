@@ -1,5 +1,6 @@
 .single-card {
   display: flex;
+  flex-direction: column;
   margin: 50px auto;
 
   & > * {
@@ -20,6 +21,10 @@
 
 .single-content {
   @include flexbox();
+
+  h5 {
+    text-transform: capitalize;
+  }
 }
 
 .thank-you {
@@ -29,5 +34,12 @@
 
   & > * {
     margin: 0.5rem 0;
+  }
+}
+
+@media (min-width: 480px) {
+  .single-card {
+    display: flex;
+    flex-direction: row;
   }
 }

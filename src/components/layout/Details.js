@@ -7,6 +7,7 @@ import {
   RiLinksLine,
 } from 'react-icons/ri';
 import { BsMusicPlayer } from 'react-icons/bs';
+import LazyLoad from 'react-lazy-load';
 
 export const Socials = ({ ...props }) => {
   const { instagram, twitter, email, website, soundcloud } = props.profile;
@@ -200,10 +201,12 @@ export const Pronoun = ({ pronoun }) => {
 export const Portfolio = ({ ...props }) => {
   const { workPhoto1, workPhoto2, workPhoto3, name } = props.profile;
   return (
-    <div className={workPhoto1 || workPhoto2 || workPhoto3 ? 'work' : null}>
-      <img src={workPhoto1} alt={workPhoto1 ? `${name}'s Portfolio` : null} />
-      <img src={workPhoto2} alt={workPhoto2 ? `${name}'s Portfolio` : null} />
-      <img src={workPhoto3} alt={workPhoto3 ? `${name}'s Portfolio` : null} />
-    </div>
+    <LazyLoad>
+      <div className={workPhoto1 || workPhoto2 || workPhoto3 ? 'work' : null}>
+        <img src={workPhoto1} alt={workPhoto1 ? `${name}'s Portfolio` : null} />
+        <img src={workPhoto2} alt={workPhoto2 ? `${name}'s Portfolio` : null} />
+        <img src={workPhoto3} alt={workPhoto3 ? `${name}'s Portfolio` : null} />
+      </div>
+    </LazyLoad>
   );
 };

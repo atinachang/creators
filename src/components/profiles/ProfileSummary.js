@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazy-load';
 
 const ProfileSummary = ({ profile }) => {
   const { name, photo, field } = profile;
@@ -25,9 +27,12 @@ const ProfileSummary = ({ profile }) => {
 
   return (
     <Fragment>
-      <div className='image'>
-        <img src={photo} alt={name} />
-      </div>
+      <LazyLoad>
+        <div className='image'>
+          <img src={photo} alt={name} />
+        </div>
+      </LazyLoad>
+
       <div className='content'>
         <h3 className='p'>{name}</h3>
         {fieldRender()}

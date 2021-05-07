@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Socials, Bio, Info, Pronoun, Portfolio } from '../layout/Details';
 import Remove from '../admin/auth/Remove';
+import LazyLoad from 'react-lazy-load';
 
 const ProfileDetails = (props) => {
   const { id } = props.match.params;
@@ -33,9 +34,11 @@ const ProfileDetails = (props) => {
     <Fragment>
       <div className=' details-container fade-in'>
         <h1>{name}</h1>
-        <div className='details-image'>
-          <img src={photo} alt={name} />
-        </div>
+        <LazyLoad>
+          <div className='details-image'>
+            <img src={photo} alt={name} />
+          </div>
+        </LazyLoad>
         <Pronoun pronoun={pronoun} />
 
         {buttons}
