@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import ProfileSummary from './ProfileSummary';
+import ProfileSummary from "./ProfileSummary";
 
 const ProfileList = ({ card }) => {
   const cards = () => {
     if (card.live === true) {
       return (
-        <div className='column'>
-          <div className='fluid card'>
+        <div className="column">
+          <div className="fluid card">
             <Link to={`/profile/${card.id}`}>
               <ProfileSummary profile={card} key={card.id} />
             </Link>

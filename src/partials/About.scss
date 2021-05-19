@@ -1,15 +1,8 @@
 .about {
-	h4 {
-		@include font-size(1.7);
-	}
-	p {
-		@include font-size(1.5);
-		line-height: 2rem;
-		margin: 0 60px;
-	}
-	margin: 20px auto;
-
-	a {
-		text-decoration: underline;
-	}
+  // margin-top: 4rem;
+  a {
+    text-decoration: underline;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }

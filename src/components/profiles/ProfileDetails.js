@@ -1,24 +1,17 @@
-import React, { Fragment } from 'react';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
-import { Socials, Bio, Info, Pronoun, Portfolio } from '../layout/Details';
-import Remove from '../admin/auth/Remove';
-import LazyLoad from 'react-lazy-load';
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
+import { Socials, Bio, Info, Pronoun, Portfolio } from "../layout/Details";
+import Remove from "../admin/auth/Remove";
+import LazyLoad from "react-lazy-load";
 
 const ProfileDetails = (props) => {
   const { id } = props.match.params;
   const { profile, auth, setSearch } = props;
 
-  const {
-    name,
-    photo,
-    bio,
-    pronoun,
-    workPhoto1,
-    workPhoto2,
-    workPhoto3,
-  } = props.profile;
+  const { name, photo, bio, pronoun, workPhoto1, workPhoto2, workPhoto3 } =
+    props.profile;
 
   const filter = (e) => {
     setSearch(e.target.dataset.value);
@@ -32,10 +25,10 @@ const ProfileDetails = (props) => {
 
   return (
     <Fragment>
-      <div className=' details-container fade-in'>
+      <div className=" details-container fade-in">
         <h1>{name}</h1>
         <LazyLoad>
-          <div className='details-image'>
+          <div className="details-image">
             <img src={photo} alt={name} />
           </div>
         </LazyLoad>
@@ -43,11 +36,11 @@ const ProfileDetails = (props) => {
 
         {buttons}
 
-        <div className='details'>
+        <div className="details">
           <div
             className={
               bio || workPhoto1 || workPhoto2 || workPhoto3
-                ? 'details-content'
+                ? "details-content"
                 : null
             }>
             <Bio name={name} bio={bio} />
@@ -59,8 +52,8 @@ const ProfileDetails = (props) => {
           <div
             className={
               bio || workPhoto1 || workPhoto2 || workPhoto3
-                ? 'details-titles third'
-                : 'details-titles full-width'
+                ? "details-titles third"
+                : "details-titles full-width"
             }>
             <Info {...props} filter={filter} />
           </div>
@@ -81,5 +74,5 @@ const mapStateToProps = (state, ownProps) => {
 };
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'profiles' }])
+  firestoreConnect([{ collection: "profiles" }])
 )(ProfileDetails);
