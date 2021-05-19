@@ -1,26 +1,26 @@
-import React, { Fragment, useState } from 'react';
-import ScrollToTop from './ScrollToTop';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Nav from './components/layout/Nav';
-import Dashboard from './components/dashboard/Dashboard';
-import ProfileDetails from './components/profiles/ProfileDetails';
-import CreateProfile from './components/profiles/CreateProfile';
-import Footer from './components/layout/Footer';
-import Admin from './components/admin/Admin';
-import ThankYou from './components/layout/ThankYou';
-import Faq from './components/layout/Faq';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import Loader from './components/layout/Loader';
-import FilterView from './components/layout/views/FilterView';
-import './index.scss';
+import React, { Fragment, useState } from "react";
+import ScrollToTop from "./ScrollToTop";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Nav from "./components/layout/Nav";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProfileDetails from "./components/profiles/ProfileDetails";
+import CreateProfile from "./components/profiles/CreateProfile";
+import Footer from "./components/layout/Footer";
+import Admin from "./components/admin/Admin";
+import ThankYou from "./components/layout/ThankYou";
+import Faq from "./components/layout/Faq";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
+import Loader from "./components/layout/Loader";
+import FilterView from "./components/layout/views/FilterView";
+import "./index.scss";
 
-export const app = 'wecreate';
+export const app = "wecreate";
 
 const App = (props) => {
   const { profiles } = props;
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   if (profiles === undefined) {
     return <Loader />;
@@ -56,7 +56,7 @@ const App = (props) => {
       <Fragment>
         <BrowserRouter>
           <ScrollToTop />
-          <div className='container'>
+          <div className="container">
             <Nav
               {...props}
               app={app}
@@ -64,29 +64,29 @@ const App = (props) => {
               toRender={toRender}
             />
 
-            <div className='fade-in wrapper'>
+            <div className="fade-in wrapper">
               <Switch>
                 <Route
                   exact
-                  path='/'
+                  path="/"
                   render={() => <Dashboard app={app} toRender={toRender} />}
                 />
                 <Route
-                  path='/search'
+                  path="/search"
                   render={(props) => (
                     <FilterView {...props} toRender={toRender} />
                   )}
                 />
                 <Route
-                  path='/profile/:id'
+                  path="/profile/:id"
                   render={(props) => (
                     <ProfileDetails {...props} setSearch={setSearch} />
                   )}
                 />
-                <Route path='/create' component={CreateProfile} />
-                <Route path='/admin' component={Admin} />
-                <Route path='/thankyou' component={ThankYou} />
-                <Route path='/FAQ' render={() => <Faq app={app} />} />
+                <Route path="/create" component={CreateProfile} />
+                <Route path="/admin" component={Admin} />
+                <Route path="/thankyou" component={ThankYou} />
+                <Route path="/FAQ" render={() => <Faq app={app} />} />
               </Switch>
             </div>
           </div>
@@ -106,5 +106,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'profiles' }])
+  firestoreConnect([{ collection: "profiles" }])
 )(App);

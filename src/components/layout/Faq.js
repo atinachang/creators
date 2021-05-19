@@ -1,8 +1,60 @@
-import React, { Fragment } from 'react';
+import { Link } from "react-router-dom";
 
 const Faq = ({ app }) => {
   return (
-    // <Fragment>
+    <div className="wrapper about">
+      <h2>FAQ</h2>
+      <div className="segment">
+        <h5>
+          What is <em>{app}?</em>
+        </h5>
+        <p>
+          {app} is by the community, for the community. {app} is a low-barrier a
+          resource to find creatives in Toronto to connect with, create
+          opportunities with, and repeat.
+        </p>
+        <h5>
+          Who is <em>{app}</em> for?
+        </h5>
+        <p>If you're a creative in any field, {app} is for you!</p>
+        <h5>How do I join?</h5>
+        <p>
+          Any user can submit a profile (either yourself or someone else) by
+          clicking <Link to="/create">contribute</Link> in tne menu!
+        </p>
+        <h5>Do I need to create an account?</h5>
+        <p>
+          Absolutely not! {app} was created so you don't have to deal with{" "}
+          <em>another</em> website log in, and can be accessed as easily as a
+          Google Spreadsheet.
+        </p>
+        <h5>What if my job isn't listed?</h5>
+        <p>
+          We're always looking to improve! If you don't see an option for what
+          you do, fill out our{" "}
+          <a
+            href="https://airtable.com/shrctqxUiGalpF6aj"
+            target="_blank"
+            rel="noopener noreferrer">
+            Make a Suggestion
+          </a>{" "}
+          form!
+        </p>
+        <h5>What if I need to change/remove my profile?</h5>
+        <p>
+          Currently, since users don't create an account to add their profile,
+          our team has to change this manually. If you need to change details on
+          your profile or would like it removed, please click{" "}
+          <a
+            href="https://airtable.com/shrMBiEcoxxYz4RBJ"
+            target="_blank"
+            rel="noopener noreferrer">
+            here
+          </a>
+        </p>
+      </div>
+    </div>
+    // <>
     // 	{/* <h4>{app} is for the community, by the community. </h4> */}
     // 	<div className="ui inverted segment">
     // 		<h4>Wecreate.to is a community-driven directory made with love. It is solely run by the developer, AC. This directory is not made possible without the countless efforts of the pioneers before who wanted a place to share talent and resources.</h4>
@@ -38,10 +90,10 @@ const Faq = ({ app }) => {
     // 		<p>It's important to note that a job cannot be guaranteed from this platform. Rather, it provides opportunities to povide work to others in areas of need.</p>
     // 	</div>
 
+    // </>
+    // <Fragment>
+    //   <h3>Coming Soon ☺️</h3>
     // </Fragment>
-    <Fragment>
-      <h3>Coming Soon ☺️</h3>
-    </Fragment>
   );
 };
 
