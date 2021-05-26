@@ -43,6 +43,18 @@ const Form = ({
       />
       <h4>What do you do? </h4>
       <h6>Please select all that apply</h6>
+      <p>
+        See category breakdowns{" "}
+        <strong>
+          <a
+            href="/wecreate.pdf"
+            style={{ color: "black" }}
+            target="_blank"
+            rel="noopener noreferrer">
+            here
+          </a>
+        </strong>
+      </p>
       <ul className="ks-cboxtags">
         {createFields()}
         <input

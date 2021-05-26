@@ -92,10 +92,7 @@ const Faq = ({ app }) => {
           <a href="https://airtable.com/shrctqxUiGalpF6aj">here</a> on how to
           make this flow better for users! . You can also find a breakdown of
           the information (as it currently stands){" "}
-          <a
-            href="../assets/wecreate.pdf"
-            target="_blank"
-            rel="noopener noreferrer">
+          <a href="/wecreate.pdf" target="_blank" rel="noopener noreferrer">
             here
           </a>
         </p>
