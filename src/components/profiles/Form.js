@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import { parent } from './forms/reusable/arrays';
-import { IndustriesRender } from './forms/IndustriesRender';
-import { Genre, Title } from './forms/Renders';
-import StepOne from './forms/StepOne';
-import PhotoUpload from './forms/PhotoUpload';
+import React, { Fragment } from "react";
+import { parent } from "../helpers/arrays";
+import { IndustriesRender } from "./forms/IndustriesRender";
+import { Genre, Title } from "./forms/Renders";
+import StepOne from "./forms/StepOne";
+import PhotoUpload from "./forms/PhotoUpload";
 
 const Form = ({
   state,
@@ -43,21 +43,21 @@ const Form = ({
       />
       <h4>What do you do? </h4>
       <h6>Please select all that apply</h6>
-      <ul className='ks-cboxtags'>
+      <ul className="ks-cboxtags">
         {createFields()}
         <input
-          className='ui input'
-          type='text'
-          placeholder='Other'
-          id='field'
+          className="ui input"
+          type="text"
+          placeholder="Other"
+          id="field"
           onChange={handleCheckboxChange}
         />
       </ul>
 
-      <button className='ui button' onClick={(e) => deselectAll(e)}>
+      <button className="ui button" onClick={(e) => deselectAll(e)}>
         Clear Selection
       </button>
-      <div className='page'>
+      <div className="page">
         <IndustriesRender
           state={state}
           handleChangeTitle={handleChangeTitle}

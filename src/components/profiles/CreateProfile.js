@@ -1,34 +1,34 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { createProfile } from '../../store/actions/profileActions';
-import { parent } from './forms/reusable/arrays';
-import firebase from '../../config/config';
-import { v4 as uuid } from 'uuid';
-import SimpleReactValidator from 'simple-react-validator';
-import Form from './Form';
-import Checkbox from '../helpers/Checkbox';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { createProfile } from "../../store/actions/profileActions";
+import { parent } from "../helpers/arrays";
+import firebase from "../../config/config";
+import { v4 as uuid } from "uuid";
+import SimpleReactValidator from "simple-react-validator";
+import Form from "./Form";
+import Checkbox from "../helpers/Checkbox";
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: '',
-      name: '',
-      email: '',
-      bio: '',
-      photo: '',
-      twitter: '',
-      instagram: '',
-      website: '',
-      soundcloud: '',
+      userId: "",
+      name: "",
+      email: "",
+      bio: "",
+      photo: "",
+      twitter: "",
+      instagram: "",
+      website: "",
+      soundcloud: "",
       field: [],
       genre: [],
       title: [],
       industry: [],
       pronoun: [],
-      workPhoto1: '',
-      workPhoto2: '',
-      workPhoto3: '',
+      workPhoto1: "",
+      workPhoto2: "",
+      workPhoto3: "",
       checkboxes: parent.reduce(
         (options, option) => ({
           ...options,
@@ -77,18 +77,14 @@ class CreateProfile extends Component {
         ? [...industry, value]
         : industry.filter((el) => el !== value),
     }));
-    // console.log("industry", industry)
   };
 
   handleStatesChange = async (e, update) => {
     const { value } = e.target;
-    // const { update } = this.state.[update];
-    // console.log(value)
 
     this.setState({
       [update]: update.concat(value),
     });
-    // console.log(update)
   };
 
   handleChangeGenre = (e) => {
@@ -97,7 +93,6 @@ class CreateProfile extends Component {
     this.setState({
       genre: checked ? [...genre, value] : genre.filter((el) => el !== value),
     });
-    // console.log(genre)
   };
 
   handleChangeField = (e) => {
@@ -107,7 +102,6 @@ class CreateProfile extends Component {
     this.setState({
       field: checked ? [...field, value] : field.filter((el) => el !== value),
     });
-    // console.log("field",field)
   };
 
   handleChangeTitle = (e) => {
@@ -117,23 +111,23 @@ class CreateProfile extends Component {
     this.setState({
       title: checked ? [...title, value] : title.filter((el) => el !== value),
     });
-    // console.log("title",title)
   };
 
   handleChangePronoun = (e) => {
-    const { value } = e.target;
+    const { value, checked } = e.target;
     const { pronoun } = this.state;
 
     this.setState({
-      pronoun: pronoun.concat(value),
+      pronoun: checked
+        ? [...pronoun, value]
+        : pronoun.filter((el) => el !== value),
     });
-    // console.log(pronoun)
   };
 
   handleChangeImage = async (e, name) => {
     const file = e.target.files[0];
     const id = uuid();
-    const imagesRef = firebase.storage().ref('images').child(id);
+    const imagesRef = firebase.storage().ref("images").child(id);
     await imagesRef.put(file);
 
     imagesRef.getDownloadURL().then((url) => {
@@ -148,15 +142,15 @@ class CreateProfile extends Component {
     e.preventDefault();
     e.stopPropagation();
     this.setState({
-      userId: '',
-      name: '',
-      email: '',
-      bio: '',
-      photo: '',
-      twitter: '',
-      instagram: '',
-      website: '',
-      soundcloud: '',
+      userId: "",
+      name: "",
+      email: "",
+      bio: "",
+      photo: "",
+      twitter: "",
+      instagram: "",
+      website: "",
+      soundcloud: "",
       field: [],
       genre: [],
       title: [],
@@ -181,17 +175,12 @@ class CreateProfile extends Component {
     if (this.validator.allValid()) {
       alert(`Thanks ${name}! You've submitted the form! \uD83D\uDE00 `);
       createProfile(this.state);
-      history.push('/thankyou');
+      history.push("/thankyou");
     } else {
       this.validator.showMessages();
       this.forceUpdate();
     }
 
-    // console.log(this.state)
-    //  console.log(["industry", this.state.industry],
-    // 	 ["field", this.state.field],
-    // 	 ["title", this.state.title],
-    // 	 [ "genre", this.state.genre])
     Object.keys(checkboxes).filter((checkbox) => checkboxes[checkbox]);
   };
 
@@ -200,7 +189,6 @@ class CreateProfile extends Component {
       label={option}
       isSelected={this.state.checkboxes[option]}
       onCheckboxChange={this.handleCheckboxChange}
-      // onCheckboxChange={this.handleIndustryChange}
       key={option}
       value={option}
     />
@@ -209,7 +197,7 @@ class CreateProfile extends Component {
   render() {
     return (
       <Fragment>
-        <form onSubmit={this.handleSubmit} className='ui form' noValidate>
+        <form onSubmit={this.handleSubmit} className="ui form" noValidate>
           <Form
             state={this.state}
             handleChange={this.handleChange}
@@ -224,10 +212,10 @@ class CreateProfile extends Component {
             handleChangeField={this.handleChangeField}
           />
 
-          <button className='ui button' onClick={this.handleSubmit}>
+          <button className="ui button" onClick={this.handleSubmit}>
             Submit
           </button>
-          <button className='ui button' onClick={this.handleReset}>
+          <button className="ui button" onClick={this.handleReset}>
             Reset Form
           </button>
         </form>

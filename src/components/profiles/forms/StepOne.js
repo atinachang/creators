@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
-import { Inputs } from '../../helpers/Inputs';
+import React, { Fragment } from "react";
+import { pronouns } from "../../helpers/arrays";
+import { Inputs } from "../../helpers/Inputs";
+import { FieldInputs } from "../../helpers/renderedInputs";
 
 const StepOne = ({
   state,
@@ -23,137 +25,139 @@ const StepOne = ({
 
   return (
     <Fragment>
-      <div className='two fields'>
-        <div className='field'>
+      <div className="two fields">
+        <div className="field">
           <Inputs
-            label='Name'
+            label="Name"
             required
-            type='text'
-            id='name'
-            name='name'
+            type="text"
+            id="name"
+            name="name"
             onChange={handleChange}
-            placeholder='Your preferred name'
+            placeholder="Your preferred name"
           />
-          {validator.message('name', name, 'required|alpha_space')}
+          {validator.message("name", name, "required|alpha_space")}
         </div>
 
-        <div className='field'>
+        <div className="field">
           <Inputs
-            label='User ID'
+            label="User ID"
             required
-            type='text'
-            id='userId'
-            name='userId'
+            type="text"
+            id="userId"
+            name="userId"
             value={userId}
             onChange={handleChange}
-            placeholder='/profile/(youruserIDhere)'
+            placeholder="/profile/(youruserIDhere)"
           />
-          {validator.message('userId', userId, 'required|alpha_num_dash')}
+          {validator.message("userId", userId, "required|alpha_num_dash")}
         </div>
       </div>
 
-      <div className='field'>
-        <Inputs
-          label='Your Pronouns (OPTIONAL)'
-          type='text'
-          id='pronoun'
-          name='pronoun'
-          onChange={handleChange}
+      <div className="field">
+        <p>What are your pronouns?</p>
+        <FieldInputs
+          array={pronouns}
+          className={"checkbox-dark"}
+          key={pronouns}
+          type="checkbox"
+          label={pronoun}
           value={pronoun}
-          placeholder='He/Him, She/Her, They/Them'
+          id={pronoun}
+          onChange={handleChangePronoun}
         />
       </div>
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='Your Email'
-          type='email'
-          id='email'
-          name='email'
+          label="Your Email"
+          type="email"
+          id="email"
+          name="email"
           onChange={handleChange}
           value={email}
-          placeholder='Your preferred contact email'
+          placeholder="Your preferred contact email"
         />
-        {validator.message('email', email, 'required|email')}
+        {validator.message("email", email, "required|email")}
       </div>
 
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='Please upload an image of yourself'
-          type='file'
-          id='image'
-          accept='image/*'
-          onChange={(e) => handleChangeImage(e, 'photo')}
+          label="Please upload an image of yourself"
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={(e) => handleChangeImage(e, "photo")}
         />
         <img src={photo} alt={name} />
-        {validator.message('photo', photo, 'required')}
+        {validator.message("photo", photo, "required")}
       </div>
 
-      <div className='field'>
-        <label htmlFor='bio'>Short Bio</label>
+      <div className="field">
+        <label htmlFor="bio">Short Bio</label>
         <textarea
-          name='bio'
-          id='bio'
+          name="bio"
+          id="bio"
           value={bio}
           onChange={handleChange}
-          rows='4'
-          placeholder='Less than 100 words'></textarea>
-        {validator.message('bio', bio, 'max:200')}
+          rows="4"
+          placeholder="Less than 100 words"></textarea>
+        {validator.message("bio", bio, "max:200")}
       </div>
 
       <h4>Social Media</h4>
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='Twitter'
-          type='text'
-          id='twitter'
-          name='twitter'
+          label="Twitter"
+          type="text"
+          id="twitter"
+          name="twitter"
           value={twitter}
           onChange={handleChange}
-          placeholder='Twitter URL'
+          placeholder="Twitter URL"
         />
-        {validator.message('twitter', twitter, 'url:https://www.twitter.com/ ')}
+        {validator.message("twitter", twitter, "url:https://www.twitter.com/ ")}
       </div>
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='Instagram'
-          type='text'
-          id='instagram'
-          name='instagram'
+          label="Instagram"
+          type="text"
+          id="instagram"
+          name="instagram"
           onChange={handleChange}
           value={instagram}
-          placeholder='Instagram URL'
+          placeholder="Instagram URL"
         />
         {validator.message(
-          'instagram',
+          "instagram",
           instagram,
-          'url:https://www.instagram.com/ '
+          "url:https://www.instagram.com/ "
         )}
       </div>
 
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='Website'
-          type='text'
-          id='website'
-          name='website'
+          label="Website"
+          type="text"
+          id="website"
+          name="website"
           onChange={handleChange}
           value={website}
-          placeholder='Website URL'
+          placeholder="Website URL"
         />
-        {validator.message('website', website, 'url:https:// ')}
+        {validator.message("website", website, "url:https:// ")}
       </div>
 
-      <div className='field'>
+      <div className="field">
         <Inputs
-          label='SoundCloud'
-          type='text'
-          id='soundcloud'
-          name='soundcloud'
+          label="SoundCloud"
+          type="text"
+          id="soundcloud"
+          name="soundcloud"
           onChange={handleChange}
           value={soundcloud}
-          placeholder='Soundcloud URL'
+          placeholder="Soundcloud URL"
         />
-        {validator.message('soundcloud', soundcloud, 'url:https:// ')}
+        {validator.message("soundcloud", soundcloud, "url:https:// ")}
       </div>
     </Fragment>
   );

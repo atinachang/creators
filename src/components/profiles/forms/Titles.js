@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Inputs } from './reusable/Inputs';
+import React, { Fragment } from "react";
+import { Inputs } from "./reusable/Inputs";
 // import {film} from './arrays'
 
 const Titles = ({ handleChangeTitle, array, title, field, industry }) => {
@@ -7,7 +7,7 @@ const Titles = ({ handleChangeTitle, array, title, field, industry }) => {
     return (
       <Inputs
         key={item}
-        type='checkbox'
+        type="checkbox"
         label={item}
         value={item}
         id={item}
@@ -20,13 +20,13 @@ const Titles = ({ handleChangeTitle, array, title, field, industry }) => {
   return (
     <Fragment>
       <h3>{field} - What do you specialize in?</h3>
-      <div className=' inputs'>
+      <div className=" inputs">
         {mapped}
         <input
-          className='ui input'
-          type='text'
-          placeholder='Other'
-          id='field'
+          className="ui input"
+          type="text"
+          placeholder="Other"
+          id="field"
           onChange={handleChangeTitle}
         />
         {/* <strong>You Selected: {split}</strong> */}

@@ -133,31 +133,31 @@ ul.ks-cboxtags li label::before {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   padding: 2px 6px 2px 2px;
-  content: '\002B';
+  content: "\002B";
   transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:checked + label::before {
-  content: '\2713';
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\2713";
   transform: rotate(-360deg);
   transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li.checkbox-dark input[type='checkbox']:checked + label {
+ul.ks-cboxtags li.checkbox-dark input[type="checkbox"]:checked + label {
   border: 2px solid $high1;
   background-color: lighten($high1, 20%);
   color: #fff;
   transition: all 0.2s;
 }
 
-ul.ks-cboxtags li.checkbox-light input[type='checkbox']:checked + label {
+ul.ks-cboxtags li.checkbox-light input[type="checkbox"]:checked + label {
   border: 2px solid $high2;
   background-color: lighten($high2, 20%);
   color: #fff;
   transition: all 0.2s;
 }
 
-ul.ks-cboxtags li input[type='checkbox'] {
+ul.ks-cboxtags li input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   top: 0;

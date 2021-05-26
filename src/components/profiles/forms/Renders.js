@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import {
   genres,
   dev,
@@ -9,8 +9,8 @@ import {
   filmprod,
   writing,
   photography,
-} from './reusable/arrays';
-import { add } from '../../helpers/helpers';
+} from "../../helpers/arrays";
+import { add } from "../../helpers/helpers";
 
 export const Genre = ({ state, handleChangeGenre }) => {
   const { field } = state;
@@ -20,10 +20,10 @@ export const Genre = ({ state, handleChangeGenre }) => {
 
   field.forEach((selected) => {
     if (
-      selected === 'DJ' ||
-      selected === 'Vocal Artist' ||
-      selected === 'Music Producer' ||
-      selected === 'Sound Engineer'
+      selected === "DJ" ||
+      selected === "Vocal Artist" ||
+      selected === "Music Producer" ||
+      selected === "Sound Engineer"
     ) {
       add(genre, selected, genreSort, handleChangeGenre);
     } else {
@@ -39,35 +39,35 @@ export const Title = ({ state, handleChangeTitle }) => {
   const titles = [];
 
   field.forEach((selected) => {
-    if (selected === 'Web Development') {
+    if (selected === "Web Development") {
       add(expertise, selected, dev, handleChangeTitle);
     }
 
-    if (selected === 'Graphic Design') {
+    if (selected === "Graphic Design") {
       add(expertise, selected, design, handleChangeTitle);
     }
 
-    if (selected === 'Design') {
+    if (selected === "Design") {
       add(expertise, selected, techdesign, handleChangeTitle);
     }
 
-    if (selected === 'Marketing') {
+    if (selected === "Marketing") {
       add(expertise, selected, techmark, handleChangeTitle);
     }
 
-    if (selected === 'Content') {
+    if (selected === "Content") {
       add(expertise, selected, techcon, handleChangeTitle);
     }
 
-    if (selected === 'Film Production') {
+    if (selected === "Film Production") {
       add(expertise, selected, filmprod, handleChangeTitle);
     }
 
-    if (selected === 'Writing') {
+    if (selected === "Writing") {
       add(expertise, selected, writing, handleChangeTitle);
     }
 
-    if (selected === 'Photography') {
+    if (selected === "Photography") {
       add(expertise, selected, photography, handleChangeTitle);
     } else {
       return null;

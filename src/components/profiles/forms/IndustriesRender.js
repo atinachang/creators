@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 import {
   marketing,
   music,
@@ -6,8 +6,8 @@ import {
   applied,
   performer,
   filmarts,
-} from './reusable/arrays';
-import { add } from '../../helpers/helpers';
+} from "../../helpers/arrays";
+import { add } from "../../helpers/helpers";
 
 export const IndustriesRender = ({
   state,
@@ -19,27 +19,27 @@ export const IndustriesRender = ({
   let fields = [];
 
   industry.forEach((selected) => {
-    if (selected === 'Marketing') {
+    if (selected === "Marketing") {
       add(fields, selected, marketing, handleChangeTitle);
     }
 
-    if (selected === 'Music') {
+    if (selected === "Music") {
       add(fields, selected, music, handleChangeField);
     }
 
-    if (selected === 'Tech') {
+    if (selected === "Tech") {
       add(fields, selected, tech, handleChangeField);
     }
 
-    if (selected === 'Film & Media Arts') {
+    if (selected === "Film & Media Arts") {
       add(fields, selected, filmarts, handleChangeField);
     }
 
-    if (selected === 'Applied Arts') {
+    if (selected === "Applied Arts") {
       add(fields, selected, applied, handleChangeField);
     }
 
-    if (selected === 'Performing Arts') {
+    if (selected === "Performing Arts") {
       add(fields, selected, performer, handleChangeTitle);
     } else {
       return null;
