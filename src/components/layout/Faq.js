@@ -1,16 +1,13 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Faq = ({ app }) => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const showParagraph = () => {
-    setShow(!show);
-  };
+  // const showParagraph = () => {
+  //   setShow(!show);
+  // };
 
-  console.log(show);
-  // console.log("show", show);
-  // console.log("hide", hide);
   return (
     <div className="wrapper about">
       <h2>FAQ</h2>
@@ -128,6 +125,8 @@ const Faq = ({ app }) => {
           </a>{" "}
           form
         </p>
+        <h5>Other questions? Contact us </h5>
+        <a href="mailto:to.wecreate@gmail.com">to.wecreate@gmail.com</a>
       </div>
     </div>
   );

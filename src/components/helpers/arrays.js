@@ -48,6 +48,7 @@ export const genres = [
   "Jazz",
   "Soul",
   "Other",
+  "Afro",
 ];
 
 // && -- tech
