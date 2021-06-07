@@ -125,6 +125,7 @@ export const photography = [
   "Landscape",
   "Digital",
   "Film",
+  "Editorial",
   "Event",
   "Wedding",
   "Product",

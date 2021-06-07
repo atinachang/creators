@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
-import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { Link } from 'react-router-dom';
-import Loader from './Loader';
-import LazyLoad from 'react-lazy-load';
+import React, { Fragment } from "react";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { Link } from "react-router-dom";
+import Loader from "./Loader";
+import LazyLoad from "react-lazy-load";
 
 const ThankYou = (props) => {
   let history = useHistory();
   const goBack = () => {
-    history.push('/');
+    history.push("/");
   };
 
   const cards = () => {
@@ -18,18 +18,18 @@ const ThankYou = (props) => {
 
     const random = profiles[Math.floor(Math.random() * profiles.length)];
     const { name, photo, field, id, live } = random;
-    const txt = field.join(', ');
+    const txt = field.join(", ");
 
     if (live === true) {
       return (
         <Link to={`/profile/${id}`}>
-          <div className='single-card'>
+          <div className="single-card">
             <LazyLoad>
-              <div className='image'>
+              <div className="image">
                 <img src={photo} alt={name} />
               </div>
             </LazyLoad>
-            <div className='single-content'>
+            <div className="single-content">
               <h5>{name}</h5>
               <h6>{txt}</h6>
             </div>
@@ -43,13 +43,13 @@ const ThankYou = (props) => {
     return <Loader />;
   } else {
     return (
-      <div className='thank-you'>
+      <div className="thank-you">
         <h2>Thank you for your submission! </h2>
         <br />
         <h5>Your post will be moderated within 24-48 hours.</h5>
         <h6>
           In the meantime, stay a while and check out your fellow community
-          members!{' '}
+          members!{" "}
         </h6>
         <Fragment>
           <strong>What does it mean to be moderated?</strong>
@@ -78,5 +78,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: 'profiles' }])
+  firestoreConnect([{ collection: "profiles" }])
 )(ThankYou);
