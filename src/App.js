@@ -57,12 +57,7 @@ const App = (props) => {
         <BrowserRouter>
           <ScrollToTop />
           <div className="container">
-            <Nav
-              {...props}
-              app={app}
-              setSearch={setSearch}
-              toRender={toRender}
-            />
+            <Nav {...props} setSearch={setSearch} toRender={toRender} />
 
             <div className="fade-in wrapper">
               <Switch>

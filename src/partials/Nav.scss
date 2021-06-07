@@ -126,6 +126,8 @@ nav {
 
 .mobile_home {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .menu_open {
@@ -139,6 +141,10 @@ nav {
 
 .closed {
   display: none;
+}
+
+.nav_logo {
+  width: 75px;
 }
 
 @media (min-width: 480px) {

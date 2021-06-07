@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import { connect } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
-// import Loader from "./Loader";
+import logo from "../../assets/logo.png";
 
 const Nav = (props) => {
   const [searchVal, setSearchVal] = useState("");
-  const { auth, app, setSearch } = props;
+  const { auth, setSearch } = props;
   const links = auth.uid ? <SignedInLinks /> : null;
   const [isMenuPopoutOpen, setIsMenuPopoutOpen] = useState(false);
 
@@ -22,37 +22,31 @@ const Nav = (props) => {
 
   const NavList = () => {
     return (
-      <ul>
-        <li>
-          {/* <Loader /> */}
-          <NavLink
-            to="/"
-            className="branding"
-            style={{ color: "rgb(252, 163, 17)" }}
-            tabIndex="0"
-            onClick={handleCloseMenu}>
-            <h1 className="h6">{app}</h1>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/create" tabIndex="0" onClick={handleCloseMenu}>
-            Contribute
-          </NavLink>
-        </li>
-        <li className="item">
-          <NavLink to="/faq" tabIndex="0" onClick={handleCloseMenu}>
-            About
-          </NavLink>
-        </li>
-        <li className="item">
-          <a
-            href="mailto:to.wecreate@gmail.com"
-            tabIndex="0"
-            onClick={handleCloseMenu}>
-            Contact
-          </a>
-        </li>
-      </ul>
+      <Fragment>
+        <ul>
+          <li className="nav_logo">
+            <img src={logo} alt="wecreate logo" />
+          </li>
+          <li>
+            <NavLink to="/create" tabIndex="0" onClick={handleCloseMenu}>
+              Contribute
+            </NavLink>
+          </li>
+          <li className="item">
+            <NavLink to="/faq" tabIndex="0" onClick={handleCloseMenu}>
+              About
+            </NavLink>
+          </li>
+          <li className="item">
+            <a
+              href="mailto:to.wecreate@gmail.com"
+              tabIndex="0"
+              onClick={handleCloseMenu}>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </Fragment>
     );
   };
 

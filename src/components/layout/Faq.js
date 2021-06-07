@@ -44,15 +44,11 @@ const Faq = ({ app }) => {
         </p>
         <h5>
           Who is <em>{app}</em> for?{" "}
-          {/* <button onClick={() => showParagraph()}>+</button>{" "} */}
         </h5>
 
         <p>If you're a creative in any field in Toronto, {app} is for you!</p>
 
-        <h5>
-          How do I join?
-          {/* <button onClick={() => showParagraph()}>+</button>{" "} */}
-        </h5>
+        <h5>How do I join?</h5>
 
         <p>
           Any user can submit a profile (either yourself or someone else) by
@@ -70,6 +66,12 @@ const Faq = ({ app }) => {
           <em>another</em> website log in, and can be accessed as easily as a
           Google Spreadsheet.
         </p>
+        <h5>Am I guaranteed to get a job?</h5>
+        <p>
+          No. {app} is not a job board, but simply a resource for other people
+          looking to hire people just like you for projects. Decision-making,
+          budgets and communication all take place outside this app.
+        </p>
         <h5>What if my job isn't listed?</h5>
         <p>
           We're always looking to improve! If you don't see an option for what
@@ -81,6 +83,12 @@ const Faq = ({ app }) => {
             Suggestion
           </a>{" "}
           form!
+        </p>
+        <h5>Why should I put a label on what I do?</h5>
+        <p>
+          We want this app to be as resourceful as possible to make it easier
+          for others to find people to hire. Searching by specialty roles makes
+          it easy for everyone!
         </p>
         <h5>Your form options are confusing!</h5>
         <p>
