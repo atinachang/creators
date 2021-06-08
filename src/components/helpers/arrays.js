@@ -168,7 +168,7 @@ export const writing = [
 // && pronouns
 export const pronouns = [
   "She/Her",
-  "He, Him",
+  "He/ Him",
   "They/Them",
   "Prefer not to say",
 ];

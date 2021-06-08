@@ -99,9 +99,8 @@ const StepOne = ({
           id="bio"
           value={bio}
           onChange={handleChange}
-          rows="4"
-          placeholder="Less than 100 words"></textarea>
-        {validator.message("bio", bio, "max:200")}
+          rows="4"></textarea>
+        {validator.message("bio", bio, "max:400")}
       </div>
 
       <h4>Social Media</h4>
