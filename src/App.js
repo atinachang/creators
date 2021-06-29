@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import MetaTags from "react-meta-tags";
 import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Nav from "./components/layout/Nav";
@@ -12,6 +13,7 @@ import Faq from "./components/layout/Faq";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
+import Logo from "./assets/logo.png";
 import Loader from "./components/layout/Loader";
 import FilterView from "./components/layout/views/FilterView";
 import "./index.scss";
@@ -54,6 +56,18 @@ const App = (props) => {
     });
     return (
       <Fragment>
+        <MetaTags>
+          <meta
+            name="description"
+            content="wecreate is for the community, by the community."
+          />
+          <meta property="og:title" content="wecreate.to" />
+          <meta property="og:image" content="./assets/logo.png" />
+          <meta
+            name="twitter:card"
+            content="wecreate is for the community, by the community. wecreate is a low-barrier resource to find creatives in Toronto to connect with, create opportunities with, and repeat. "
+          />
+        </MetaTags>
         <BrowserRouter>
           <ScrollToTop />
           <div className="container">
