@@ -28,16 +28,6 @@
       object-fit: cover;
     }
   }
-
-  @media not all and (min-resolution: 0.001dpcm) {
-    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
-      .work {
-        img {
-          max-height: 130px;
-        }
-      }
-    }
-  }
 }
 
 .details-content {
@@ -131,6 +121,15 @@ li.light {
   }
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .work {
+      img {
+        max-height: 130px;
+      }
+    }
+  }
+}
 @media (min-width: 1024px) {
   .details {
     flex-direction: row;
