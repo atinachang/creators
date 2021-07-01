@@ -4,6 +4,24 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+
+  .genres,
+  .titles,
+  .fields {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0 0.5rem;
+      }
+    }
+  }
 }
 
 .details {
@@ -71,24 +89,6 @@ li.light {
     object-fit: cover;
     height: 100%;
     width: 100%;
-  }
-}
-
-.genres,
-.titles,
-.fields {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  > div {
-    display: flex;
-    align-items: center;
-
-    p {
-      margin: 0 0.5rem;
-    }
   }
 }
 
