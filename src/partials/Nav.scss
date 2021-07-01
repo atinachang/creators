@@ -44,6 +44,12 @@ nav {
     color: $primaryfnt;
     margin: 10px auto;
   }
+
+  .search_tooltip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .popout_menu {

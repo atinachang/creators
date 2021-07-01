@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import ReactTooltip from "react-tooltip";
 import { NavLink } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import { connect } from "react-redux";
@@ -97,17 +98,28 @@ const Nav = (props) => {
           </div>
         </div>
 
-        <NavLink to="/search">
-          <label className="sr-only">Search by Keyword</label>
-          <input
-            type="text"
-            className="prompt"
-            placeholder="Search by Keyword"
-            value={searchVal}
-            onChange={(e) => searchSpace(e)}
-            tabIndex="0"
+        <div className="search_tooltip">
+          <NavLink to="/search">
+            <label className="sr-only">Search by Keyword</label>
+            <input
+              type="text"
+              className="prompt"
+              placeholder="Search by Keyword"
+              value={searchVal}
+              onChange={(e) => searchSpace(e)}
+              tabIndex="0"
+            />
+          </NavLink>
+          <p data-tip="Search By Name, <br /> Industry, Specialty <br /> or Music Genre">
+            &#8505;
+          </p>
+          <ReactTooltip
+            place="top"
+            type="dark"
+            effect="float"
+            multiline="true"
           />
-        </NavLink>
+        </div>
       </div>
       <div className="desktop_nav">
         <NavList />

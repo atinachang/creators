@@ -81,6 +81,15 @@ li.light {
     display: flex;
     flex-wrap: wrap;
   }
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0 0.5rem;
+    }
+  }
 }
 
 .socials {
